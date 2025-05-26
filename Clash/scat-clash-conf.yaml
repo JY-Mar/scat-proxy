@@ -57,10 +57,10 @@ all-nodes: &all-nodes
 
 # url 里填写自己的订阅,名称不能重复
 # 建议将此代码块作为扩展脚本配置
-# proxy-providers:
-#   all-providers:
-#     <<: *providers-config
-#     url: ''
+proxy-providers:
+  all-providers:
+    <<: *providers-config
+    url: ''
 
 port: 7890
 socks-port: 7891
