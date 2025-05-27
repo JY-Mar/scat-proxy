@@ -45,6 +45,7 @@ providers-config: &providers-config
   health-check:
     enable: true
     url: https://www.gstatic.com/generate_204
+    # 秒
     interval: 600
 
 # 定义全局变量
