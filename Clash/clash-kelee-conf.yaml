@@ -1,0 +1,363 @@
+port: 7890
+socks-port: 7891
+allow-lan: false
+bind-address: '*'
+ipv6: false
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+tcp-concurrent: true
+experimental:
+  ignore-resolve-fail: true
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  use-system-hosts: true
+  fake-ip-filter:
+    - '*.lan'
+    - '*.local'
+    - '*.arpa'
+    - time.*.com
+    - ntp.*.com
+    - time.*.com
+    - +.market.xiaomi.com
+    - localhost.ptlogin2.qq.com
+    - www.msftncsi.com
+    - www.msftconnecttest.com
+  default-nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+    - 223.6.6.6
+    - tcp://119.29.29.29
+    - tcp://223.5.5.5
+    - tcp://223.6.6.6
+    - 8.8.8.8
+    - system
+  nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+    - 223.6.6.6
+    - tcp://223.5.5.5
+    - tcp://223.6.6.6
+    - tls://dns.google:853
+    - tls://8.8.8.8:853
+    - tls://8.8.4.4:853
+    - tls://dns.alidns.com
+    - tls://223.5.5.5
+    - tls://223.6.6.6
+    - tls://dot.pub
+    - tls://1.12.12.12
+    - tls://120.53.53.53
+    - https://dns.google/dns-query
+    - https://8.8.8.8/dns-query
+    - https://8.8.4.4/dns-query
+    - https://dns.alidns.com/dns-query
+    - https://223.5.5.5/dns-query
+    - https://223.6.6.6/dns-query
+    - https://doh.pub/dns-query
+    - https://1.12.12.12/dns-query
+    - https://120.53.53.53/dns-query
+  proxy-server-nameserver:
+    - tls://223.5.5.5
+    - tls://1.12.12.12
+    - https://doh.pub/dns-query
+    - https://223.5.5.5/dns-query
+  fallback:
+    - tls://unfiltered.adguard-dns.com
+    - tls://1.1.1.1
+    - tls://8.8.8.8
+    - https://1.1.1.1/dns-query
+    - https://public.dns.iij.jp/dns-query
+    - https://dns.google/dns-query
+    - https://dns.quad9.net/dns-query
+  fallback-filter:
+    domain:
+      - +.google.com
+      - +.facebook.com
+      - +.youtube.com
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+      - 0.0.0.0/32
+# region 节点/订阅链接
+proxy-providers:
+  # [订阅名称]:
+  #   type: http
+  #   url: [你的订阅链接]
+  #   interval: 86400
+  #   health-check:
+  #     enable: true
+  #     url: https://www.gstatic.com/generate_204
+  #     # 秒
+  #     interval: 600
+# endregion
+# region 规则 通用代码块
+rule-providers-codeblock: &rule-providers-codeblock
+  enabled: true
+  # 以远程下载的方式获取代理
+  type: http
+  behavior: domain
+  # 填写你的订阅链接
+  url:
+  # 从订阅链接下载存到本地的文件
+  path:
+  # 更新间隔(s)
+  interval: 1200
+  # 节点健康检查
+  health-check:
+    enable: true
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+# endregion
+# region 规则
+rule-providers:
+  Apple:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/Apple.yaml
+    path: ./ruleset/Apple.yaml
+  AppleID:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/AppleID.yaml
+    path: ./ruleset/AppleID.yaml
+  AppleMusic:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/AppleMusic.yaml
+    path: ./ruleset/AppleMusic.yaml
+  AppleProxy:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/AppleProxy.yaml
+    path: ./ruleset/AppleProxy.yaml
+  Bing:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/Bing.yaml
+    path: ./ruleset/Bing.yaml
+  China:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/China.yaml
+    path: ./ruleset/China.yaml
+  ChinaDNS:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/ChinaDNS.yaml
+    path: ./ruleset/ChinaDNS.yaml
+  Copilot:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/Copilot.yaml
+    path: ./ruleset/Copilot.yaml
+  Disney:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/Disney.yaml
+    path: ./ruleset/Disney.yaml
+  Facebook:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/Facebook.yaml
+    path: ./ruleset/Facebook.yaml
+  GitHub:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/GitHub.yaml
+    path: ./ruleset/GitHub.yaml
+  Google:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/Google.yaml
+    path: ./ruleset/Google.yaml
+  GoogleFCM:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/GoogleFCM.yaml
+    path: ./ruleset/GoogleFCM.yaml
+  Instagram:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/Instagram.yaml
+    path: ./ruleset/Instagram.yaml
+  Lan:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/Lan.yaml
+    path: ./ruleset/Lan.yaml
+  Microsoft:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/Microsoft.yaml
+    path: ./ruleset/Microsoft.yaml
+  Microsoft OneDrive:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/OneDrive.yaml
+    path: ./ruleset/OneDrive.yaml
+  Netflix:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/Netflix.yaml
+    path: ./ruleset/Netflix.yaml
+  OpenAI:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/OpenAI.yaml
+    path: ./ruleset/OpenAI.yaml
+  Pixiv:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/Pixiv.yaml
+    path: ./ruleset/Pixiv.yaml
+  Spotify:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/Spotify.yaml
+    path: ./ruleset/Spotify.yaml
+  Telegram:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/Telegram.yaml
+    path: ./ruleset/Telegram.yaml
+  TikTok:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/TikTok.yaml
+    path: ./ruleset/TikTok.yaml
+  Twitter:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/Twitter.yaml
+    path: ./ruleset/Twitter.yaml
+  YouTube:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/YouTube.yaml
+    path: ./ruleset/YouTube.yaml
+  YouTubeMusic:
+    <<: *rule-providers-codeblock
+    url: https://rule.kelee.one/Clash/YouTubeMusic.yaml
+    path: ./ruleset/YouTubeMusic.yaml
+# endregion
+# region 策略 通用代码块
+rule-groups-codeblock: &rule-groups-codeblock # 名称
+  name:
+  # 如 url-test、fallback、select 等
+  type: url-test
+  # 测速的域名
+  url: http://www.gstatic.com/generate_204
+  # 测速间隔时间（s）
+  interval: 1200
+  # 是否包含所有节点（可与 filter 联用）
+  include-all: true
+  # 使用正则表达式筛选节点名称，支持大小写不敏感匹配
+  filter:
+  # 字符串数组，指定使用哪些 proxy-providers 中的节点
+  use:
+# endregion
+# region 策略
+proxy-groups:
+  - name: 🚀节点选择
+    type: select
+    include-all: false
+    proxies:
+      - ♻️自动选择
+      - 🚀手动切换
+      - DIRECT
+      - 🇭🇰香港节点
+      - 🇨🇳台湾节点
+      - 🇯🇵日本节点
+      - 🇰🇷韩国节点
+      - 🇸🇬狮城节点
+      - 🇺🇸美国节点
+      - 🇬🇧英国节点
+      - 🇫🇷法国节点
+      - 🇩🇪德国节点
+      - 🇮🇹意大利节点
+      - 🇳🇱荷兰节点
+      - 🇱🇺卢森堡节点
+  - name: ⚠流量用量
+    type: select
+    include-all: true
+    filter: ^(?=.*(?i)(订阅|流量|到期|已用|使用|用量)).*$
+  - name: 🚀手动切换
+    type: select
+    include-all: false
+    proxies:
+      - 🇭🇰香港节点
+      - 🇨🇳台湾节点
+      - 🇯🇵日本节点
+      - 🇰🇷韩国节点
+      - 🇸🇬狮城节点
+      - 🇺🇸美国节点
+      - 🇬🇧英国节点
+      - 🇫🇷法国节点
+      - 🇩🇪德国节点
+      - 🇮🇹意大利节点
+      - 🇳🇱荷兰节点
+      - 🇱🇺卢森堡节点
+      - DIRECT
+  - <<: *rule-groups-codeblock
+    name: ♻️自动选择
+    filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+  - <<: *rule-groups-codeblock
+    name: 🎯全球直连
+    type: select
+    include-all: false
+    proxies:
+      - DIRECT
+      - 🚀节点选择
+      - 🚀手动切换
+  - <<: *rule-groups-codeblock
+    name: 🇭🇰香港节点
+    filter: ^(?=.*(?i)(🇭🇰|HK|香港)).*$
+  - <<: *rule-groups-codeblock
+    name: 🇨🇳台湾节点
+    filter: ^(?=.*(?i)(TW|台湾)).*$
+  - <<: *rule-groups-codeblock
+    name: 🇯🇵日本节点
+    filter: ^(?=.*(?i)(🇯🇵|JP|日本)).*$
+  - <<: *rule-groups-codeblock
+    name: 🇰🇷韩国节点
+    filter: ^(?=.*(?i)(🇰🇷|KR|韩国|南朝鲜)).*$
+  - <<: *rule-groups-codeblock
+    name: 🇸🇬狮城节点
+    filter: ^(?=.*(?i)(🇸🇬|SG|狮城)).*$
+  - <<: *rule-groups-codeblock
+    name: 🇺🇸美国节点
+    filter: ^(?=.*(?i)(🇺🇸|USA|US|美国)).*$
+  - <<: *rule-groups-codeblock
+    name: 🇬🇧英国节点
+    filter: ^(?=.*(?i)(🇬🇧|UK|英国)).*$
+  - <<: *rule-groups-codeblock
+    name: 🇫🇷法国节点
+    filter: ^(?=.*(?i)(🇫🇷|FR|法国|法兰西)).*$
+  - <<: *rule-groups-codeblock
+    name: 🇩🇪德国节点
+    filter: ^(?=.*(?i)(🇩🇪|DE|德国|德意志)).*$
+  - <<: *rule-groups-codeblock
+    name: 🇮🇹意大利节点
+    filter: ^(?=.*(?i)(🇮🇹|IT|意大利)).*$
+  - <<: *rule-groups-codeblock
+    name: 🇳🇱荷兰节点
+    filter: ^(?=.*(?i)(🇳🇱|NL|荷兰)).*$
+  - <<: *rule-groups-codeblock
+    name: 🇱🇺卢森堡节点
+    filter: ^(?=.*(?i)(🇱🇺|LU|卢森堡)).*$
+  - <<: *rule-groups-codeblock
+    name: 🌍全球节点
+    filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+# endregion
+# region 规则匹配
+rules:
+  - RULE-SET,Apple,DIRECT
+  - RULE-SET,AppleID,DIRECT
+  - RULE-SET,AppleMusic,DIRECT
+  - RULE-SET,AppleProxy,DIRECT
+  - RULE-SET,Bing,DIRECT
+  - RULE-SET,China,DIRECT
+  - RULE-SET,ChinaDNS,DIRECT
+  - RULE-SET,Copilot,🚀节点选择
+  - RULE-SET,Disney,🚀节点选择
+  - RULE-SET,Facebook,🚀节点选择
+  - RULE-SET,GitHub,🚀节点选择
+  - RULE-SET,Google,🚀节点选择
+  - RULE-SET,GoogleFCM,🚀节点选择
+  - RULE-SET,Instagram,🚀节点选择
+  - RULE-SET,Lan,DIRECT
+  - RULE-SET,Microsoft,DIRECT
+  - RULE-SET,Microsoft OneDrive,🚀节点选择
+  - RULE-SET,Netflix,🚀节点选择
+  - RULE-SET,OpenAI,🚀节点选择
+  - RULE-SET,Pixiv,🚀节点选择
+  - RULE-SET,Spotify,🚀节点选择
+  - RULE-SET,Telegram,🚀节点选择
+  - RULE-SET,TikTok,🚀节点选择
+  - RULE-SET,Twitter,🚀节点选择
+  - RULE-SET,YouTube,🚀节点选择
+  - RULE-SET,YouTubeMusic,🚀节点选择
+  - GEOIP,CN,🎯全球直连
+  - MATCH,🚀节点选择
+# endregion
