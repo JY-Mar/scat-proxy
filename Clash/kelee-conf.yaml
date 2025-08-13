@@ -228,7 +228,6 @@ proxy-groups:
   - <<: *proxy_cb
     name: ✨所有节点
     type: select
-    include-all: true
 # endregion
 # region 分流规则 
 # 通用代码块
