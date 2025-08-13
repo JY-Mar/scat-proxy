@@ -223,6 +223,7 @@ proxy-groups:
     filter: ^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *proxy_cb
     name: 🎮游戏节点
+    type: select
     include-all: true
     filter: ^(?=.*((?i)游戏|🎮|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$
 # endregion
