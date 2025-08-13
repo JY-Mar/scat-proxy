@@ -130,7 +130,7 @@ proxy-groups:
       - 🇨🇳台湾节点
       - 🇯🇵日本节点
       - 🇰🇷韩国节点
-      - 🇸🇬狮城节点
+      - 🇸🇬星洲节点
       - 🇺🇸美国节点
       - 🇬🇧英国节点
       - 🇫🇷法国节点
@@ -149,7 +149,7 @@ proxy-groups:
       - 🇨🇳台湾节点
       - 🇯🇵日本节点
       - 🇰🇷韩国节点
-      - 🇸🇬狮城节点
+      - 🇸🇬星洲节点
       - 🇺🇸美国节点
       - 🇬🇧英国节点
       - 🇫🇷法国节点
@@ -186,9 +186,9 @@ proxy-groups:
     include-all: true
     filter: ^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *proxy_cb
-    name: 🇸🇬狮城节点
+    name: 🇸🇬星洲节点
     include-all: true
-    filter: ^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    filter: ^(?=.*((?i)🇸🇬|新加坡|星洲|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *proxy_cb
     name: 🇺🇸美国节点
     include-all: true
@@ -196,23 +196,23 @@ proxy-groups:
   - <<: *proxy_cb
     name: 🇬🇧英国节点
     include-all: true
-    filter: ^(?=.*((?i)🇬🇧|英国|英|(\b(GB|UK|England|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    filter: ^(?=.*((?i)🇬🇧|英国|伦敦|英|(\b(GB|UK|England|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *proxy_cb
     name: 🇫🇷法国节点
     include-all: true
-    filter: ^(?=.*((?i)🇫🇷|法国|法兰西|法|(\b(FR|France)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    filter: ^(?=.*((?i)🇫🇷|法国|法兰西|巴黎|法|(\b(FR|France)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *proxy_cb
     name: 🇩🇪德国节点
     include-all: true
-    filter: ^(?=.*((?i)🇩🇪|德国|德意志|德|(\b(DE|GER|Germany)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    filter: ^(?=.*((?i)🇩🇪|德国|德意志|柏林|德|(\b(DE|GER|Germany)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *proxy_cb
     name: 🇮🇹意大利节点
     include-all: true
-    filter: ^(?=.*((?i)🇮🇹|意大利|意|(\b(IT|Italy)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    filter: ^(?=.*((?i)🇮🇹|意大利|罗马|意|(\b(IT|Italy)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *proxy_cb
     name: 🇳🇱荷兰节点
     include-all: true
-    filter: ^(?=.*((?i)🇳🇱|荷兰|荷|(\b(NL|Holland)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
+    filter: ^(?=.*((?i)🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|(\b(NL|Holland)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *proxy_cb
     name: 🇱🇺卢森堡节点
     include-all: true
@@ -230,18 +230,32 @@ proxy-groups:
 # 通用代码块
 rule_cb: &rule_cb
   enabled: true
-  
-  type: http # 以远程下载的方式获取代理
-  behavior: domain # 规则行为（domain-匹配域名规则,ipcidr-匹配IP段规则,classical-传统规则格式,http-用于HTTP请求规则）
-  url: # 填写你的订阅链接
-  path: # 从订阅链接下载存到本地的文件
-  interval: 3600 # 更新间隔(s)
-  health-check: # 节点健康检查（每小时更新一次订阅节点，每 6 秒一次健康检查）
+  # 以远程下载的方式获取代理
+  type: http
+  # 规则行为（domain-匹配域名规则,ipcidr-匹配IP段规则,classical-传统规则格式,http-用于HTTP请求规则）
+  behavior: domain
+  # 填写你的订阅链接
+  url:
+  # 从订阅链接下载存到本地的文件
+  path:
+  # 更新间隔(s)
+  interval: 3600
+  # 节点健康检查（每小时更新一次订阅节点，每 6 秒一次健康检查）
+  health-check:
     enable: true
     url: http://www.gstatic.com/generate_204
     interval: 6 # 节点健康检查间隔(s) 
 # 分流规则
+# 规则可查询：https://github.com/luestr/ShuntRules/blob/main/README.md，或 https://github.com/blackmatrix7/ios_rule_script
 rule-providers:
+  360:
+    <<: *rule_cb
+    url: https://rule.kelee.one/Clash/360.yaml
+    path: ./ruleset/360.yaml
+  Alibaba:
+    <<: *rule_cb
+    url: https://rule.kelee.one/Clash/Alibaba.yaml
+    path: ./ruleset/Alibaba.yaml
   Apple:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/Apple.yaml
@@ -262,6 +276,10 @@ rule-providers:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/Bing.yaml
     path: ./ruleset/Bing.yaml
+  Camera360:
+    <<: *rule_cb
+    url: https://rule.kelee.one/Clash/Camera360.yaml
+    path: ./ruleset/Camera360.yaml
   China:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/China.yaml
@@ -282,6 +300,10 @@ rule-providers:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/Facebook.yaml
     path: ./ruleset/Facebook.yaml
+  Gemini:
+    <<: *rule_cb
+    url: https://rule.kelee.one/Clash/Gemini.yaml
+    path: ./ruleset/Gemini.yaml
   GitHub:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/GitHub.yaml
@@ -330,6 +352,14 @@ rule-providers:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/Telegram.yaml
     path: ./ruleset/Telegram.yaml
+  Tencent:
+    <<: *rule_cb
+    url: https://rule.kelee.one/Clash/Tencent.yaml
+    path: ./ruleset/Tencent.yaml
+  TencentVideo:
+    <<: *rule_cb
+    url: https://rule.kelee.one/Clash/TencentVideo.yaml
+    path: ./ruleset/TencentVideo.yaml
   TikTok:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/TikTok.yaml
@@ -348,16 +378,20 @@ rule-providers:
     path: ./ruleset/YouTubeMusic.yaml
 # 规则匹配
 rules:
+  - RULE-SET,360,DIRECT
+  - RULE-SET,Alibaba,DIRECT
   - RULE-SET,Apple,DIRECT
   - RULE-SET,AppleID,DIRECT
   - RULE-SET,AppleMusic,DIRECT
   - RULE-SET,AppleProxy,DIRECT
   - RULE-SET,Bing,DIRECT
+  - RULE-SET,Camera360,DIRECT
   - RULE-SET,China,DIRECT
   - RULE-SET,ChinaDNS,DIRECT
   - RULE-SET,Copilot,🚀节点选择
   - RULE-SET,Disney,🚀节点选择
   - RULE-SET,Facebook,🚀节点选择
+  - RULE-SET,Gemini,🚀节点选择
   - RULE-SET,GitHub,🚀节点选择
   - RULE-SET,Google,🚀节点选择
   - RULE-SET,GoogleFCM,🚀节点选择
@@ -370,6 +404,8 @@ rules:
   - RULE-SET,Pixiv,🚀节点选择
   - RULE-SET,Spotify,🚀节点选择
   - RULE-SET,Telegram,🚀节点选择
+  - RULE-SET,Tencent,DIRECT
+  - RULE-SET,TencentVideo,DIRECT
   - RULE-SET,TikTok,🚀节点选择
   - RULE-SET,Twitter,🚀节点选择
   - RULE-SET,YouTube,🚀节点选择
