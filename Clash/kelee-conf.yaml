@@ -171,7 +171,8 @@ proxy-groups:
       - 🚀手动切换
   - <<: *proxy_cb
     name: 🇭🇰香港节点
-    include-all: true
+    proxies:
+      - 🌍全球节点
     filter: ^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *proxy_cb
     name: 🇨🇳台湾节点
