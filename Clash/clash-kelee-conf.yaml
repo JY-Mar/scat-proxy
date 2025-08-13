@@ -84,6 +84,11 @@ dns:
     ipcidr:
       - 240.0.0.0/4
       - 0.0.0.0/32
+geox-url:
+  # geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
+  # geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
+  mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
+  asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
 # region 节点/订阅链接
 proxy-providers:
   # [订阅名称]:
@@ -107,12 +112,13 @@ rule-providers-codeblock: &rule-providers-codeblock
   # 从订阅链接下载存到本地的文件
   path:
   # 更新间隔(s)
-  interval: 1200
-  # 节点健康检查
+  interval: 3600
+  # 节点健康检查（每小时更新一次订阅节点，每 6 秒一次健康检查）
   health-check:
     enable: true
     url: http://www.gstatic.com/generate_204
-    interval: 300
+    # 节点健康检查间隔(s) 
+    interval: 6
 # endregion
 # region 规则
 rule-providers:
@@ -222,7 +228,8 @@ rule-providers:
     path: ./ruleset/YouTubeMusic.yaml
 # endregion
 # region 策略 通用代码块
-rule-groups-codeblock: &rule-groups-codeblock # 名称
+rule-groups-codeblock: &rule-groups-codeblock
+  # 名称
   name:
   # 如 url-test、fallback、select 等
   type: url-test
@@ -231,17 +238,16 @@ rule-groups-codeblock: &rule-groups-codeblock # 名称
   # 测速间隔时间（s）
   interval: 1200
   # 是否包含所有节点（可与 filter 联用）
-  include-all: true
+  include-all: false
   # 使用正则表达式筛选节点名称，支持大小写不敏感匹配
   filter:
   # 字符串数组，指定使用哪些 proxy-providers 中的节点
   use:
 # endregion
-# region 策略
+# region 策略组
 proxy-groups:
   - name: 🚀节点选择
     type: select
-    include-all: false
     proxies:
       - ♻️自动选择
       - 🚀手动切换
@@ -264,7 +270,6 @@ proxy-groups:
     filter: ^(?=.*(?i)(订阅|流量|到期|已用|使用|用量)).*$
   - name: 🚀手动切换
     type: select
-    include-all: false
     proxies:
       - 🇭🇰香港节点
       - 🇨🇳台湾节点
@@ -281,54 +286,71 @@ proxy-groups:
       - DIRECT
   - <<: *rule-groups-codeblock
     name: ♻️自动选择
+    include-all: true
     filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
   - <<: *rule-groups-codeblock
     name: 🎯全球直连
     type: select
-    include-all: false
     proxies:
       - DIRECT
       - 🚀节点选择
       - 🚀手动切换
   - <<: *rule-groups-codeblock
     name: 🇭🇰香港节点
-    filter: ^(?=.*(?i)(🇭🇰|HK|香港)).*$
+    include-all: true
+    filter: ^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *rule-groups-codeblock
     name: 🇨🇳台湾节点
-    filter: ^(?=.*(?i)(TW|台湾)).*$
+    include-all: true
+    filter: ^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *rule-groups-codeblock
     name: 🇯🇵日本节点
-    filter: ^(?=.*(?i)(🇯🇵|JP|日本)).*$
+    include-all: true
+    filter: ^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *rule-groups-codeblock
     name: 🇰🇷韩国节点
-    filter: ^(?=.*(?i)(🇰🇷|KR|韩国|南朝鲜)).*$
+    include-all: true
+    filter: ^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *rule-groups-codeblock
     name: 🇸🇬狮城节点
-    filter: ^(?=.*(?i)(🇸🇬|SG|狮城)).*$
+    include-all: true
+    filter: ^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *rule-groups-codeblock
     name: 🇺🇸美国节点
-    filter: ^(?=.*(?i)(🇺🇸|USA|US|美国)).*$
+    include-all: true
+    filter: ^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *rule-groups-codeblock
     name: 🇬🇧英国节点
-    filter: ^(?=.*(?i)(🇬🇧|UK|英国)).*$
+    include-all: true
+    filter: ^(?=.*((?i)🇬🇧|英国|英|(\b(GB|UK|England|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *rule-groups-codeblock
     name: 🇫🇷法国节点
-    filter: ^(?=.*(?i)(🇫🇷|FR|法国|法兰西)).*$
+    include-all: true
+    filter: ^(?=.*((?i)🇫🇷|法国|法兰西|法|(\b(FR|France)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *rule-groups-codeblock
     name: 🇩🇪德国节点
-    filter: ^(?=.*(?i)(🇩🇪|DE|德国|德意志)).*$
+    include-all: true
+    filter: ^(?=.*((?i)🇩🇪|德国|德意志|德|(\b(DE|GER|Germany)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *rule-groups-codeblock
     name: 🇮🇹意大利节点
-    filter: ^(?=.*(?i)(🇮🇹|IT|意大利)).*$
+    include-all: true
+    filter: ^(?=.*((?i)🇮🇹|意大利|意|(\b(IT|Italy)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *rule-groups-codeblock
     name: 🇳🇱荷兰节点
-    filter: ^(?=.*(?i)(🇳🇱|NL|荷兰)).*$
+    include-all: true
+    filter: ^(?=.*((?i)🇳🇱|荷兰|荷|(\b(NL|Holland)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *rule-groups-codeblock
     name: 🇱🇺卢森堡节点
-    filter: ^(?=.*(?i)(🇱🇺|LU|卢森堡)).*$
+    include-all: true
+    filter: ^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
   - <<: *rule-groups-codeblock
     name: 🌍全球节点
-    filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    include-all: true
+    filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+  - <<: *rule-groups-codeblock
+    name: 🎮游戏节点
+    include-all: true
+    filter: ^(?=.*((?i)游戏|🎮|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$
 # endregion
 # region 规则匹配
 rules:
