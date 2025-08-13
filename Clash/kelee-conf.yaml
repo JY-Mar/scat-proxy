@@ -120,6 +120,7 @@ proxy_cb: &proxy_cb
   use:
 # 策略组
 proxy-groups:
+  # 远程图标配置参考 https://github.com/luestr/ProxyResource/blob/main/Tool/Loon/Lcf/zh-CN/Loon_Sample_Configuration_By_iKeLee.lcf
   - name: 🚀节点选择
     type: select
     proxies:
