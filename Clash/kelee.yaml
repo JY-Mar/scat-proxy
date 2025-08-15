@@ -254,6 +254,10 @@ rule-providers:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/360.yaml
     path: ./ruleset/360.yaml
+  AI:
+    <<: *rule_cb
+    url: https://kelee.one/Tool/Clash/Rule/AI.yaml
+    path: ./ruleset/AI.yaml
   Alibaba:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/Alibaba.yaml
@@ -330,14 +334,14 @@ rule-providers:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/Microsoft.yaml
     path: ./ruleset/Microsoft.yaml
-  Microsoft OneDrive:
-    <<: *rule_cb
-    url: https://rule.kelee.one/Clash/OneDrive.yaml
-    path: ./ruleset/OneDrive.yaml
   Netflix:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/Netflix.yaml
     path: ./ruleset/Netflix.yaml
+  OneDrive:
+    <<: *rule_cb
+    url: https://rule.kelee.one/Clash/OneDrive.yaml
+    path: ./ruleset/OneDrive.yaml
   OpenAI:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/OpenAI.yaml
