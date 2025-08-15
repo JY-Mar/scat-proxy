@@ -330,10 +330,10 @@ rule-providers:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/Lan.yaml
     path: ./ruleset/Lan.yaml
-  LAN_SPLITTER:
-    <<: *rule_cb
-    url: https://kelee.one/Tool/Clash/Rule/LAN_SPLITTER.yaml
-    path: ./ruleset/LAN_SPLITTER.yaml
+  # LAN_SPLITTER:
+  #   <<: *rule_cb
+  #   url: https://kelee.one/Tool/Clash/Rule/LAN_SPLITTER.yaml
+  #   path: ./ruleset/LAN_SPLITTER.yaml
   Microsoft:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/Microsoft.yaml
@@ -354,10 +354,10 @@ rule-providers:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/Pixiv.yaml
     path: ./ruleset/Pixiv.yaml
-  REGION_SPLITTER:
-    <<: *rule_cb
-    url: https://kelee.one/Tool/Clash/Rule/REGION_SPLITTER.yaml
-    path: ./ruleset/REGION_SPLITTER.yaml
+  # REGION_SPLITTER:
+  #   <<: *rule_cb
+  #   url: https://kelee.one/Tool/Clash/Rule/REGION_SPLITTER.yaml
+  #   path: ./ruleset/REGION_SPLITTER.yaml
   Spotify:
     <<: *rule_cb
     url: https://rule.kelee.one/Clash/Spotify.yaml
@@ -412,13 +412,13 @@ rules:
   - RULE-SET,GoogleFCM,🚀节点选择
   - RULE-SET,Instagram,🚀节点选择
   - RULE-SET,Lan,DIRECT
-  - RULE-SET,LAN_SPLITTER,DIRECT
+  # - RULE-SET,LAN_SPLITTER,DIRECT
   - RULE-SET,Microsoft,DIRECT
   - RULE-SET,OneDrive,🚀节点选择
   - RULE-SET,Netflix,🚀节点选择
   - RULE-SET,OpenAI,🚀节点选择
   - RULE-SET,Pixiv,🚀节点选择
-  - RULE-SET,REGION_SPLITTER,DIRECT
+  # - RULE-SET,REGION_SPLITTER,DIRECT
   - RULE-SET,Spotify,🚀节点选择
   - RULE-SET,Telegram,🚀节点选择
   - RULE-SET,Tencent,DIRECT
