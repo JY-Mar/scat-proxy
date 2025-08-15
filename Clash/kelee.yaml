@@ -90,11 +90,11 @@ geox-url:
   mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
   asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
 # 锚点 - 策略组
-proxy_cb: &proxy_cb { name: '', type: 'url-test', url: 'http://www.gstatic.com/generate_204', interval: 1200, include-all: false, filter: '', use: [] }
+proxy_cb: &proxy_cb { type: 'url-test', url: 'http://www.gstatic.com/generate_204', interval: 1200, include-all: false, use: [] }
 # 锚点 - 分流规则
-rule_cb: &rule_cb { enabled: true, type: http, behavior: domain, url: '', path: '', interval: 3600, health-check: { enable: true, url: 'http://www.gstatic.com/generate_204', interval: 6 } }
+rule_cb: &rule_cb { enabled: true, type: http, behavior: domain, interval: 3600, health-check: { enable: true, url: 'http://www.gstatic.com/generate_204', interval: 6 }}
 # 锚点 - 节点筛选组
-FilterUsed: &FilterUsed '^(?=.*((?i)获取|订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$'
+⚠️用量: &⚠️用量 '^(?=.*((?i)获取|订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$'
 🌍全球: &🌍全球 '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$'
 🇭🇰香港: &🇭🇰香港 '^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$'
 🇨🇳台湾: &🇨🇳台湾 '^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$'
@@ -135,7 +135,7 @@ proxy-groups:
   - name: ⚠️流量用量
     type: select
     include-all: true
-    filter: *FilterUsed
+    filter: *⚠️用量
   - name: 🚀手动切换
     type: select
     proxies:
