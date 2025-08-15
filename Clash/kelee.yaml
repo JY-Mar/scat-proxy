@@ -414,7 +414,7 @@ rules:
   - RULE-SET,Lan,DIRECT
   - RULE-SET,LAN_SPLITTER,DIRECT
   - RULE-SET,Microsoft,DIRECT
-  - RULE-SET,Microsoft OneDrive,🚀节点选择
+  - RULE-SET,OneDrive,🚀节点选择
   - RULE-SET,Netflix,🚀节点选择
   - RULE-SET,OpenAI,🚀节点选择
   - RULE-SET,Pixiv,🚀节点选择
