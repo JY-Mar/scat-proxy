@@ -89,6 +89,10 @@ geox-url:
   # geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
   mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
   asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
+# 锚点 - 策略组
+proxy_cb: &proxy_cb { name: '', type: 'url-test', url: 'http://www.gstatic.com/generate_204', interval: 1200, include-all: false, filter: '', use: [] }
+# 锚点 - 分流规则
+rule_cb: &rule_cb { enabled: true, type: http, behavior: domain, url: '', path: '', interval: 3600, health-check: { enable: true, url: 'http://www.gstatic.com/generate_204', interval: 6 } }
 # region 节点/订阅链接
 proxy-providers:
   # [订阅名称]:
@@ -102,22 +106,6 @@ proxy-providers:
   #     interval: 600
 # endregion
 # region 策略组
-# 通用代码块
-proxy_cb: &proxy_cb
-  # 名称
-  name:
-  # 如 url-test、fallback、select 等
-  type: url-test
-  # 测速的域名
-  url: http://www.gstatic.com/generate_204
-  # 测速间隔时间（s）
-  interval: 1200
-  # 是否包含所有节点（可与 filter 联用）
-  include-all: false
-  # 使用正则表达式筛选节点名称，支持大小写不敏感匹配
-  filter:
-  # 字符串数组，指定使用哪些 proxy-providers 中的节点
-  use:
 # 策略组
 proxy-groups:
   # 远程图标配置参考 https://github.com/luestr/ProxyResource/blob/main/Tool/Loon/Lcf/zh-CN/Loon_Sample_Configuration_By_iKeLee.lcf
@@ -139,7 +127,7 @@ proxy-groups:
       - 🇮🇹意大利节点
       - 🇳🇱荷兰节点
       - 🇱🇺卢森堡节点
-  - name: ⚠流量用量
+  - name: ⚠️流量用量
     type: select
     include-all: true
     filter: ^(?=.*((?i)获取|订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
@@ -229,26 +217,7 @@ proxy-groups:
     filter: ^(?=.*((?i)游戏|🎮|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$
 # endregion
 # region 分流规则 
-# 通用代码块
-rule_cb: &rule_cb
-  enabled: true
-  # 以远程下载的方式获取代理
-  type: http
-  # 规则行为（domain-匹配域名规则,ipcidr-匹配IP段规则,classical-传统规则格式,http-用于HTTP请求规则）
-  behavior: domain
-  # 填写你的订阅链接
-  url:
-  # 从订阅链接下载存到本地的文件
-  path:
-  # 更新间隔(s)
-  interval: 3600
-  # 节点健康检查（每小时更新一次订阅节点，每 6 秒一次健康检查）
-  health-check:
-    enable: true
-    url: http://www.gstatic.com/generate_204
-    interval: 6 # 节点健康检查间隔(s) 
 # 分流规则
-# 规则可查询：https://github.com/luestr/ShuntRules/blob/main/README.md，或 https://github.com/blackmatrix7/ios_rule_script
 rule-providers:
   360:
     <<: *rule_cb
