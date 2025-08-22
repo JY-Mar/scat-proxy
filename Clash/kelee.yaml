@@ -238,7 +238,7 @@ tun:
 # 锚点 - 策略组
 proxy_cb: &proxy_cb {type: url-test, url: 'http://www.gstatic.com/generate_204', interval: 1200, include-all: false, use: []}
 # 锚点 - 分流规则
-rule_cb: &rule_cb {enabled: true, type: http, behavior: domain, interval: 3600, health-check: {enable: true, url: 'http://www.gstatic.com/generate_204', interval: 6}}
+rule_cb: &rule_cb {type: http, behavior: domain, interval: 3600, health-check: {enable: true, url: 'http://www.gstatic.com/generate_204', interval: 6}}
 # region 节点/订阅链接
 proxy-providers:
   # [订阅名称]:
