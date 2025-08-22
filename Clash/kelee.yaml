@@ -267,18 +267,18 @@ proxy-groups:
       - ♻️自动选择
       - 🚀手动切换
       - 🎯全球直连
-      - 🇭🇰香港节点
-      - 🇨🇳台湾节点
-      - 🇯🇵日本节点
-      - 🇰🇷韩国节点
-      - 🇸🇬星洲节点
-      - 🇺🇸美国节点
-      - 🇬🇧英国节点
-      - 🇫🇷法国节点
-      - 🇩🇪德国节点
-      - 🇮🇹意大利节点
-      - 🇳🇱荷兰节点
-      - 🇱🇺卢森堡节点
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
   - name: ⚠️流量用量
     type: select
     include-all: true
@@ -286,18 +286,18 @@ proxy-groups:
   - name: 🚀手动切换
     type: select
     proxies:
-      - 🇭🇰香港节点
-      - 🇨🇳台湾节点
-      - 🇯🇵日本节点
-      - 🇰🇷韩国节点
-      - 🇸🇬星洲节点
-      - 🇺🇸美国节点
-      - 🇬🇧英国节点
-      - 🇫🇷法国节点
-      - 🇩🇪德国节点
-      - 🇮🇹意大利节点
-      - 🇳🇱荷兰节点
-      - 🇱🇺卢森堡节点
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
       - 🎯全球直连
   - <<: *ProxyGroups
     name: ♻️自动选择
@@ -312,52 +312,53 @@ proxy-groups:
   #   name: 🌍全球节点
   #   include-all: true
   #   filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+  # 延迟优先策略组 Low Latency Preference
   - <<: *ProxyGroups
-    name: 🇭🇰香港节点
+    name: 🇭🇰香港LLP
     include-all: true
     filter: ^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
   - <<: *ProxyGroups
-    name: 🇨🇳台湾节点
+    name: 🇨🇳台湾LLP
     include-all: true
     filter: ^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
   - <<: *ProxyGroups
-    name: 🇯🇵日本节点
+    name: 🇯🇵日本LLP
     include-all: true
     filter: ^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
   - <<: *ProxyGroups
-    name: 🇰🇷韩国节点
+    name: 🇰🇷韩国LLP
     include-all: true
     filter: ^(?=.*((?i)🇰🇷|韩国|韓|南朝鲜|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
   - <<: *ProxyGroups
-    name: 🇸🇬星洲节点
+    name: 🇸🇬星洲LLP
     include-all: true
     filter: ^(?=.*((?i)🇸🇬|新加坡|星洲|狮城|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
   - <<: *ProxyGroups
-    name: 🇺🇸美国节点
+    name: 🇺🇸美国LLP
     include-all: true
     filter: ^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
   - <<: *ProxyGroups
-    name: 🇬🇧英国节点
+    name: 🇬🇧英国LLP
     include-all: true
     filter: ^(?=.*((?i)🇬🇧|英国|伦敦|英|(\b(GB|UK|England|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
   - <<: *ProxyGroups
-    name: 🇫🇷法国节点
+    name: 🇫🇷法国LLP
     include-all: true
     filter: ^(?=.*((?i)🇫🇷|法国|法兰西|巴黎|法|(\b(FR|France)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
   - <<: *ProxyGroups
-    name: 🇩🇪德国节点
+    name: 🇩🇪德国LLP
     include-all: true
     filter: ^(?=.*((?i)🇩🇪|德国|德意志|柏林|德|(\b(DE|GER|Germany)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
   - <<: *ProxyGroups
-    name: 🇮🇹意大利节点
+    name: 🇮🇹意大利LLP
     include-all: true
     filter: ^(?=.*((?i)🇮🇹|意大利|罗马|意|(\b(IT|Italy)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
   - <<: *ProxyGroups
-    name: 🇳🇱荷兰节点
+    name: 🇳🇱荷兰LLP
     include-all: true
     filter: ^(?=.*((?i)🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|(\b(NL|Holland)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
   - <<: *ProxyGroups
-    name: 🇱🇺卢森堡节点
+    name: 🇱🇺卢森堡LLP
     include-all: true
     filter: ^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
   - <<: *ProxyGroups
@@ -365,6 +366,22 @@ proxy-groups:
     type: select
     include-all: true
     filter: ^(?=.*((?i)游戏|🎮|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$
+  - <<: *ProxyGroups
+    name: 🛠️故障转移
+    type: fallback
+    proxies:
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
 # endregion
 # region 规则集 
 rule-providers:
@@ -546,5 +563,5 @@ rules:
   - RULE-SET,YouTube,🚀节点选择
   - RULE-SET,YouTubeMusic,🚀节点选择
   - GEOIP,CN,🎯全球直连
-  - MATCH,🚀节点选择
+  - MATCH,🛠️故障转移
 # endregion
