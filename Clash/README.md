@@ -14,10 +14,10 @@
 
 ### proxy-providers
 
-> 订阅提供者，对象
+> 代理集，对象
 
 ```yaml
-[订阅名称]:
+[代理集名称]:
   type: http
   url: [你的订阅链接]
   interval: 86400
@@ -53,11 +53,10 @@ proxies:
 
 ### rule-providers
 
-> 分流规则
+> 规则集
 
 ```yaml
-[分流规则名称]:
-  enabled: true
+[规则集名称]:
   # 以远程下载的方式获取代理
   type: http
   # 规则行为（domain-匹配域名规则,ipcidr-匹配IP段规则,classical-传统规则格式,http-用于HTTP请求规则）
