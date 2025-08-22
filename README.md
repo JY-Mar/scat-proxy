@@ -5,18 +5,12 @@ configuration of proxy tools
 
 ## rule.kelee.one整理
 
-```
-https://github.com/luestr/ShuntRules/blob/main/README.md
-```
+[https://github.com/luestr/ShuntRules/blob/main/README.md](https://github.com/luestr/ShuntRules/blob/main/README.md)
 
 ## blackmatrix7规则
 
-```
-https://github.com/blackmatrix7/ios_rule_script
-```
+[https://github.com/blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)
 
 # 远程图标配置参考
 
-```
-https://github.com/luestr/ProxyResource/blob/main/Tool/Loon/Lcf/zh-CN/Loon_Sample_Configuration_By_iKeLee.lcf
-```
+[https://github.com/luestr/ProxyResource/blob/main/Tool/Loon/Lcf/zh-CN/Loon_Sample_Configuration_By_iKeLee.lcf](https://github.com/luestr/ProxyResource/blob/main/Tool/Loon/Lcf/zh-CN/Loon_Sample_Configuration_By_iKeLee.lcf)
