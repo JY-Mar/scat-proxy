@@ -2,9 +2,7 @@
 
 ## 推荐配置
 
-```
 [https://github.com/luestr/ProxyResource/tree/main/Tool/Clash/Config](https://github.com/luestr/ProxyResource/tree/main/Tool/Clash/Config)
-```
 
 # Clash 配置项解释
 
