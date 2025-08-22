@@ -1,12 +1,14 @@
-# 分流规则
+# Clash
 
-## 推荐配置
+## 分流规则
+
+### 推荐配置
 
 [https://github.com/luestr/ProxyResource/tree/main/Tool/Clash/Config](https://github.com/luestr/ProxyResource/tree/main/Tool/Clash/Config)
 
-# Clash 配置项解释
+## 配置项解释
 
-## proxy-providers配置项:
+### proxy-providers
 
 > 订阅提供者，对象
 
@@ -22,7 +24,7 @@
     interval: 600
 ```
 
-## proxy-groups配置项
+### proxy-groups
 
 > 策略组，数组
 
@@ -45,7 +47,7 @@ use:
 proxies:
 ```
 
-## rule-providers配置项
+### rule-providers
 
 > 分流规则
 
@@ -67,4 +69,22 @@ proxies:
     enable: true
     url: http://www.gstatic.com/generate_204
     interval: 6 # 节点健康检查间隔(s) 
+```
+
+## 自定义远程规则文件
+
+基本格式：
+
+```yaml
+# UpdateTime：[时间]
+# RuleCount：[规则数量]
+payload:
+  - DOMAIN,www.googleapis.com
+  - DOMAIN-SUFFIX,docs.google.com
+  - DOMAIN-SUFFIX,drive.google.com
+  - DOMAIN-SUFFIX,googledrive.com
+  - DOMAIN-SUFFIX,googleusercontent.com
+  - USER-AGENT,Google.Drive*
+  - USER-AGENT,*com.google.Drive*
+  - USER-AGENT,%E4%BA%91%E7%AB%AF%E7%A1%AC%E7%9B%98*
 ```
