@@ -237,9 +237,9 @@ tun:
 
 # region 锚点
 # 锚点 - [url-test | fallback | load-balance]策略组测速间隔（秒）
-UrlTestInterval: &UrlTestInterval 60
+UrlTestInterval: &UrlTestInterval 600
 # 锚点 - [url-test | fallback | load-balance]略组测速容差（毫秒）
-UrlTestTolerance: &UrlTestTolerance 50
+UrlTestTolerance: &UrlTestTolerance 70
 # 锚点 - [url-test | fallback | load-balance]策略组测速超时（毫秒）（超出则判定为失败）
 UrlTestTimeout: &UrlTestTimeout 2000
 # 锚点 - [url-test | fallback | load-balance]策略组测速失败次数（超出则自动触发健康检查）
