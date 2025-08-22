@@ -242,7 +242,7 @@ tun:
 # 锚点 - [url-test | fallback | load-balance]策略组测速间隔（秒）
 UrlTestInterval: &UrlTestInterval 600
 # 锚点 - [url-test | fallback | load-balance]略组测速容差（毫秒）
-UrlTestTolerance: &UrlTestTolerance 150
+UrlTestTolerance: &UrlTestTolerance 200
 # 锚点 - [url-test | fallback | load-balance]策略组测速超时（毫秒）（超出则判定为失败）
 UrlTestTimeout: &UrlTestTimeout 5000
 # 锚点 - [url-test | fallback | load-balance]策略组测速失败次数（超出则自动触发健康检查）
