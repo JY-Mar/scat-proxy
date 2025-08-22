@@ -291,7 +291,7 @@ proxy-groups:
     type: fallback
     proxies: [🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
   - <<: *ProxyGroups
-    name: 🎥NETFLIX
+    name: 🎥Netflix
     type: select
     proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
   - <<: *ProxyGroups
@@ -544,7 +544,7 @@ rules:
   - RULE-SET,LAN_SPLITTER,🎯全球直连
   - RULE-SET,Microsoft,Ⓜ️Microsoft
   - RULE-SET,OneDrive,Ⓜ️OneDrive
-  - RULE-SET,Netflix,🎥NETFLIX
+  - RULE-SET,Netflix,🎥Netflix
   - RULE-SET,OpenAI,💬AI
   - RULE-SET,Pixiv,🚀节点选择
   - RULE-SET,REGION_SPLITTER,🎯全球直连
