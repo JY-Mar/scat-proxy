@@ -19,23 +19,11 @@ experimental:
   ignore-resolve-fail: true
 dns:
   enable: true
-  ipv6: false
   listen: 0.0.0.0:53
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  use-hosts: true
-  use-system-hosts: true
-  fake-ip-filter:
-    - '*.lan'
-    - '*.local'
-    - '*.arpa'
-    - time.*.com
-    - ntp.*.com
-    - time.*.com
-    - +.market.xiaomi.com
-    - localhost.ptlogin2.qq.com
-    - www.msftncsi.com
-    - www.msftconnecttest.com
+  ipv6: false
+  
+  # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
+  # 仅填写 DNS 服务器的 IP 地址
   default-nameserver:
     - 119.29.29.29
     - 223.5.5.5
@@ -44,7 +32,113 @@ dns:
     - tcp://223.5.5.5
     - tcp://223.6.6.6
     - 8.8.8.8
+    - 114.114.114.114
     - system
+  # fake-ip 或 redir-host
+  enhanced-mode: fake-ip
+  # Fake IP 地址池 (CIDR 形式)
+  fake-ip-range: 198.18.0.1/16
+  # 查询 hosts 并返回 IP 记录
+  use-hosts: true
+  use-system-hosts: true
+  # 在以下列表的域名将不会被解析为 fake ip，这些域名相关的解析请求将会返回它们真实的 IP 地址
+  fake-ip-filter:
+    - '*.lan'
+    - '*.localdomain'
+    - '*.example'
+    - '*.invalid'
+    - '*.localhost'
+    - '*.test'
+    - '*.local'
+    - '*.home.arpa'
+    - '*.arpa'
+    - 'time.*.com'
+    - 'time.*.gov'
+    - 'time.*.edu.cn'
+    - 'time.*.apple.com'
+    - 'time1.*.com'
+    - 'time2.*.com'
+    - 'time3.*.com'
+    - 'time4.*.com'
+    - 'time5.*.com'
+    - 'time6.*.com'
+    - 'time7.*.com'
+    - 'ntp.*.com'
+    - 'ntp1.*.com'
+    - 'ntp2.*.com'
+    - 'ntp3.*.com'
+    - 'ntp4.*.com'
+    - 'ntp5.*.com'
+    - 'ntp6.*.com'
+    - 'ntp7.*.com'
+    - '*.time.edu.cn'
+    - '*.ntp.org.cn'
+    - '+.pool.ntp.org'
+    - 'time1.cloud.tencent.com'
+    - 'music.163.com'
+    - '*.music.163.com'
+    - '*.126.net'
+    - 'musicapi.taihe.com'
+    - 'music.taihe.com'
+    - 'songsearch.kugou.com'
+    - 'trackercdn.kugou.com'
+    - '*.kuwo.cn'
+    - 'api-jooxtt.sanook.com'
+    - 'api.joox.com'
+    - 'joox.com'
+    - 'y.qq.com'
+    - '*.y.qq.com'
+    - 'streamoc.music.tc.qq.com'
+    - 'mobileoc.music.tc.qq.com'
+    - 'isure.stream.qqmusic.qq.com'
+    - 'dl.stream.qqmusic.qq.com'
+    - 'aqqmusic.tc.qq.com'
+    - 'amobile.music.tc.qq.com'
+    - '*.xiami.com'
+    - '*.music.migu.cn'
+    - 'music.migu.cn'
+    - '*.msftconnecttest.com'
+    - '*.msftncsi.com'
+    - 'msftconnecttest.com'
+    - 'msftncsi.com'
+    - 'localhost.ptlogin2.qq.com'
+    - 'localhost.sec.qq.com'
+    - '+.srv.nintendo.net'
+    - '+.stun.playstation.net'
+    - 'xbox.*.microsoft.com'
+    - 'xnotify.xboxlive.com'
+    - '+.battlenet.com.cn'
+    - '+.wotgame.cn'
+    - '+.wggames.cn'
+    - '+.wowsgame.cn'
+    - '+.wargaming.net'
+    - 'proxy.golang.org'
+    - 'stun.*.*'
+    - 'stun.*.*.*'
+    - '+.stun.*.*'
+    - '+.stun.*.*.*'
+    - '+.stun.*.*.*.*'
+    - 'heartbeat.belkin.com'
+    - '*.linksys.com'
+    - '*.linksyssmartwifi.com'
+    - '*.router.asus.com'
+    - 'mesu.apple.com'
+    - 'swscan.apple.com'
+    - 'swquery.apple.com'
+    - 'swdownload.apple.com'
+    - 'swcdn.apple.com'
+    - 'swdist.apple.com'
+    - 'lens.l.google.com'
+    - 'stun.l.google.com'
+    - '+.nflxvideo.net'
+    - '*.square-enix.com'
+    - '*.finalfantasyxiv.com'
+    - '*.ffxiv.com'
+    - '*.mcdn.bilivideo.cn'
+    - '+.market.xiaomi.com'
+  # 支持 UDP / TCP / DoT / DoH 协议的 DNS 服务，可以指明具体的连接端口号。
+  # 所有 DNS 请求将会直接发送到服务器，不经过任何代理。
+  # Clash 会使用最先获得的解析记录回复 DNS 请求
   nameserver:
     - 119.29.29.29
     - 223.5.5.5
@@ -82,21 +176,65 @@ dns:
     - https://public.dns.iij.jp/dns-query
     - https://dns.google/dns-query
     - https://dns.quad9.net/dns-query
+  # 当 fallback 参数被配置时, DNS 请求将同时发送至上方 nameserver 列表和下方 fallback 列表中配置的所有 DNS 服务器.
+  # 当解析得到的 IP 地址的地理位置不是 CN 时，clash 将会选用 fallback 中 DNS 服务器的解析结果。
+  # fallback:
+  #   - https://dns.google/dns-query
+
+  # 如果使用 nameserver 列表中的服务器解析的 IP 地址在下方列表中的子网中，则它们被认为是无效的，
+  # Clash 会选用 fallback 列表中配置 DNS 服务器解析得到的结果。
+  #
+  # 当 fallback-filter.geoip 为 true 且 IP 地址的地理位置为 CN 时，
+  # Clash 会选用 nameserver 列表中配置 DNS 服务器解析得到的结果。
+  #
+  # 当 fallback-filter.geoip 为 false, 如果解析结果不在 fallback-filter.ipcidr 范围内，
+  # Clash 总会选用 nameserver 列表中配置 DNS 服务器解析得到的结果。
+  #
+  # 采取以上逻辑进行域名解析是为了对抗 DNS 投毒攻击。
   fallback-filter:
-    domain:
-      - +.google.com
-      - +.facebook.com
-      - +.youtube.com
     geoip: true
     geoip-code: CN
     ipcidr:
-      - 240.0.0.0/4
       - 0.0.0.0/32
+      - 0.0.0.0/8
+      - 10.0.0.0/8
+      - 100.64.0.0/10
+      - 127.0.0.0/8
+      - 169.254.0.0/16
+      - 172.16.0.0/12
+      - 192.0.0.0/24
+      - 192.0.2.0/24
+      - 192.88.99.0/24
+      - 192.168.0.0/16
+      - 198.18.0.0/15
+      - 198.51.100.0/24
+      - 203.0.113.0/24
+      - 224.0.0.0/4
+      - 240.0.0.0/4
+      - 255.255.255.255/32
+    domain:
+      - '+.google.com'
+      - '+.facebook.com'
+      - '+.youtube.com'
+      - '+.githubusercontent.com'
+      - '+.googlevideo.com'
 geox-url:
   # geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
   # geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
   mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
   asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
+
+tun:
+  # 如果需要启用 TUN 模式，请设置为 true
+  enable: false
+  # system 或 gvisor
+  stack: system
+  macOS-auto-route: true
+  macOS-auto-detect-interface: true
+  dns-hijack:
+    - tcp://8.8.8.8:53
+    - tcp://8.8.4.4:53
+
 # 锚点 - 策略组
 proxy_cb: &proxy_cb {type: url-test, url: 'http://www.gstatic.com/generate_204', interval: 1200, include-all: false, use: []}
 # 锚点 - 分流规则
@@ -122,7 +260,7 @@ proxy-groups:
     proxies:
       - ♻️自动选择
       - 🚀手动切换
-      - DIRECT
+      - 🎯全球直连
       - 🇭🇰香港节点
       - 🇨🇳台湾节点
       - 🇯🇵日本节点
@@ -154,7 +292,7 @@ proxy-groups:
       - 🇮🇹意大利节点
       - 🇳🇱荷兰节点
       - 🇱🇺卢森堡节点
-      - DIRECT
+      - 🎯全球直连
   - <<: *proxy_cb
     name: ♻️自动选择
     include-all: true
@@ -164,8 +302,6 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - 🚀节点选择
-      - 🚀手动切换
   # - <<: *proxy_cb
   #   name: 🌍全球节点
   #   include-all: true
@@ -369,17 +505,17 @@ rule-providers:
     path: ./ruleset/YouTubeMusic.yaml
 # 规则匹配
 rules:
-  - RULE-SET,360,DIRECT
+  - RULE-SET,360,🎯全球直连
   - RULE-SET,AI,🚀节点选择
-  - RULE-SET,Alibaba,DIRECT
-  - RULE-SET,Apple,DIRECT
-  - RULE-SET,AppleID,DIRECT
-  - RULE-SET,AppleMusic,DIRECT
-  - RULE-SET,AppleProxy,DIRECT
-  - RULE-SET,Bing,DIRECT
-  - RULE-SET,Camera360,DIRECT
-  - RULE-SET,China,DIRECT
-  - RULE-SET,ChinaDNS,DIRECT
+  - RULE-SET,Alibaba,🎯全球直连
+  - RULE-SET,Apple,🎯全球直连
+  - RULE-SET,AppleID,🎯全球直连
+  - RULE-SET,AppleMusic,🎯全球直连
+  - RULE-SET,AppleProxy,🎯全球直连
+  - RULE-SET,Bing,🎯全球直连
+  - RULE-SET,Camera360,🎯全球直连
+  - RULE-SET,China,🎯全球直连
+  - RULE-SET,ChinaDNS,🎯全球直连
   - RULE-SET,Copilot,🚀节点选择
   - RULE-SET,Disney,🚀节点选择
   - RULE-SET,Facebook,🚀节点选择
@@ -388,18 +524,18 @@ rules:
   - RULE-SET,Google,🚀节点选择
   - RULE-SET,GoogleFCM,🚀节点选择
   - RULE-SET,Instagram,🚀节点选择
-  - RULE-SET,Lan,DIRECT
-  - RULE-SET,LAN_SPLITTER,DIRECT
-  - RULE-SET,Microsoft,DIRECT
+  - RULE-SET,Lan,🎯全球直连
+  - RULE-SET,LAN_SPLITTER,🎯全球直连
+  - RULE-SET,Microsoft,🎯全球直连
   - RULE-SET,OneDrive,🚀节点选择
   - RULE-SET,Netflix,🚀节点选择
   - RULE-SET,OpenAI,🚀节点选择
   - RULE-SET,Pixiv,🚀节点选择
-  - RULE-SET,REGION_SPLITTER,DIRECT
+  - RULE-SET,REGION_SPLITTER,🎯全球直连
   - RULE-SET,Spotify,🚀节点选择
   - RULE-SET,Telegram,🚀节点选择
-  - RULE-SET,Tencent,DIRECT
-  - RULE-SET,TencentVideo,DIRECT
+  - RULE-SET,Tencent,🎯全球直连
+  - RULE-SET,TencentVideo,🎯全球直连
   - RULE-SET,TikTok,🚀节点选择
   - RULE-SET,Twitter,🚀节点选择
   - RULE-SET,YouTube,🚀节点选择
