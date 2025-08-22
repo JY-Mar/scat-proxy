@@ -248,7 +248,7 @@ UrlTestTimeout: &UrlTestTimeout 5000
 # 锚点 - [url-test | fallback | load-balance]策略组测速失败次数（超出则自动触发健康检查）
 UrlTestMaxFailedTimem: &UrlTestMaxFailedTimem 3
 # 锚点 - 测速、健康检查 url
-CheckUrl: &CheckUrl 'http://connectivitycheck.platform.hicloud.com/generate_204'
+CheckUrl: &CheckUrl 'http://cp.cloudflare.com/generate_204'
 # 锚点 - 更新间隔（秒）
 UpdateInterval: &UpdateInterval 86400
 # 锚点 - 健康检查间隔（秒）
