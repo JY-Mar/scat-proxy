@@ -266,42 +266,14 @@ proxy-providers:
 proxy-groups:
   - name: 🚀节点选择
     type: select
-    proxies:
-      - ♻️自动选择
-      - 🚀手动切换
-      - 🎯全球直连
-      - 🇭🇰香港LLP
-      - 🇨🇳台湾LLP
-      - 🇯🇵日本LLP
-      - 🇰🇷韩国LLP
-      - 🇸🇬星洲LLP
-      - 🇺🇸美国LLP
-      - 🇬🇧英国LLP
-      - 🇫🇷法国LLP
-      - 🇩🇪德国LLP
-      - 🇮🇹意大利LLP
-      - 🇳🇱荷兰LLP
-      - 🇱🇺卢森堡LLP
+    proxies: [♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
   - name: ⚠️流量用量
     type: select
     include-all: true
     filter: ^(?=.*((?i)获取|订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
   - name: 🚀手动切换
     type: select
-    proxies:
-      - 🇭🇰香港LLP
-      - 🇨🇳台湾LLP
-      - 🇯🇵日本LLP
-      - 🇰🇷韩国LLP
-      - 🇸🇬星洲LLP
-      - 🇺🇸美国LLP
-      - 🇬🇧英国LLP
-      - 🇫🇷法国LLP
-      - 🇩🇪德国LLP
-      - 🇮🇹意大利LLP
-      - 🇳🇱荷兰LLP
-      - 🇱🇺卢森堡LLP
-      - 🎯全球直连
+    proxies: [🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP,🎯全球直连]
   - <<: *ProxyGroups
     name: ♻️自动选择
     include-all: true
@@ -309,12 +281,52 @@ proxy-groups:
   - <<: *ProxyGroups
     name: 🎯全球直连
     type: select
-    proxies:
-      - DIRECT
-  # - <<: *ProxyGroups
-  #   name: 🌍全球节点
-  #   include-all: true
-  #   filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    proxies: [DIRECT]
+  - <<: *ProxyGroups
+    name: 🛑全球拦截
+    type: select
+    proxies: [REJECT,DIRECT]
+  - <<: *ProxyGroups
+    name: 🛠️故障转移
+    type: fallback
+    proxies: [🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+  - <<: *ProxyGroups
+    name: 🎥NETFLIX
+    type: select
+    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+  - <<: *ProxyGroups
+    name: 📲Telegram
+    type: select
+    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+  - <<: *ProxyGroups
+    name: 📢GoogleFCM
+    type: select
+    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+  - <<: *ProxyGroups
+    name: Ⓜ️Bing
+    type: select
+    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+  - <<: *ProxyGroups
+    name: Ⓜ️OneDrive
+    type: select
+    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+  - <<: *ProxyGroups
+    name: Ⓜ️Microsoft
+    type: select
+    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+  - <<: *ProxyGroups
+    name: 🍎Apple
+    type: select
+    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+  - <<: *ProxyGroups
+    name: 💬AI
+    type: select
+    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+  - <<: *ProxyGroups
+    name: 🎮游戏节点
+    type: select
+    include-all: true
+    filter: ^(?=.*((?i)游戏|🎮|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$
   # 延迟优先策略组 Low Latency Preference
   - <<: *ProxyGroups
     name: 🇭🇰香港LLP
@@ -364,27 +376,6 @@ proxy-groups:
     name: 🇱🇺卢森堡LLP
     include-all: true
     filter: ^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-  - <<: *ProxyGroups
-    name: 🎮游戏节点
-    type: select
-    include-all: true
-    filter: ^(?=.*((?i)游戏|🎮|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$
-  - <<: *ProxyGroups
-    name: 🛠️故障转移
-    type: fallback
-    proxies:
-      - 🇭🇰香港LLP
-      - 🇨🇳台湾LLP
-      - 🇯🇵日本LLP
-      - 🇰🇷韩国LLP
-      - 🇸🇬星洲LLP
-      - 🇺🇸美国LLP
-      - 🇬🇧英国LLP
-      - 🇫🇷法国LLP
-      - 🇩🇪德国LLP
-      - 🇮🇹意大利LLP
-      - 🇳🇱荷兰LLP
-      - 🇱🇺卢森堡LLP
 # endregion
 # region 规则集 
 rule-providers:
@@ -531,34 +522,34 @@ rule-providers:
 # 规则匹配
 rules:
   - RULE-SET,360,🎯全球直连
-  - RULE-SET,AI,🚀节点选择
+  - RULE-SET,AI,💬AI
   - RULE-SET,Alibaba,🎯全球直连
-  - RULE-SET,Apple,🎯全球直连
-  - RULE-SET,AppleID,🎯全球直连
-  - RULE-SET,AppleMusic,🎯全球直连
-  - RULE-SET,AppleProxy,🎯全球直连
-  - RULE-SET,Bing,🎯全球直连
+  - RULE-SET,Apple,🍎Apple
+  - RULE-SET,AppleID,🍎Apple
+  - RULE-SET,AppleMusic,🍎Apple
+  - RULE-SET,AppleProxy,🍎Apple
+  - RULE-SET,Bing,Ⓜ️Bing
   - RULE-SET,Camera360,🎯全球直连
   - RULE-SET,China,🎯全球直连
   - RULE-SET,ChinaDNS,🎯全球直连
-  - RULE-SET,Copilot,🚀节点选择
+  - RULE-SET,Copilot,💬AI
   - RULE-SET,Disney,🚀节点选择
   - RULE-SET,Facebook,🚀节点选择
-  - RULE-SET,Gemini,🚀节点选择
+  - RULE-SET,Gemini,💬AI
   - RULE-SET,GitHub,🚀节点选择
   - RULE-SET,Google,🚀节点选择
-  - RULE-SET,GoogleFCM,🚀节点选择
+  - RULE-SET,GoogleFCM,📢GoogleFCM
   - RULE-SET,Instagram,🚀节点选择
   - RULE-SET,Lan,🎯全球直连
   - RULE-SET,LAN_SPLITTER,🎯全球直连
-  - RULE-SET,Microsoft,🎯全球直连
-  - RULE-SET,OneDrive,🚀节点选择
-  - RULE-SET,Netflix,🚀节点选择
-  - RULE-SET,OpenAI,🚀节点选择
+  - RULE-SET,Microsoft,Ⓜ️Microsoft
+  - RULE-SET,OneDrive,Ⓜ️OneDrive
+  - RULE-SET,Netflix,🎥NETFLIX
+  - RULE-SET,OpenAI,💬AI
   - RULE-SET,Pixiv,🚀节点选择
   - RULE-SET,REGION_SPLITTER,🎯全球直连
   - RULE-SET,Spotify,🚀节点选择
-  - RULE-SET,Telegram,🚀节点选择
+  - RULE-SET,Telegram,📲Telegram
   - RULE-SET,Tencent,🎯全球直连
   - RULE-SET,TencentVideo,🎯全球直连
   - RULE-SET,TikTok,🚀节点选择
