@@ -290,12 +290,21 @@ proxy-groups:
     name: 🛠️故障转移
     type: fallback
     proxies: [🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+  # 专属策略组
   - <<: *ProxyGroups
-    name: 🎥Netflix
+    name: 💬AI
     type: select
     proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
   - <<: *ProxyGroups
-    name: 📲Telegram
+    name: 🍎Apple
+    type: select
+    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+  - <<: *ProxyGroups
+    name: Ⓜ️Bing
+    type: select
+    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+  - <<: *ProxyGroups
+    name: 🐭Disney
     type: select
     proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
   - <<: *ProxyGroups
@@ -303,23 +312,23 @@ proxy-groups:
     type: select
     proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
   - <<: *ProxyGroups
-    name: Ⓜ️Bing
+    name: Ⓜ️Microsoft
     type: select
     proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+  - <<: *ProxyGroups
+    name: 🎥Netflix
+    type: select
+    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
   - <<: *ProxyGroups
     name: Ⓜ️OneDrive
     type: select
     proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
   - <<: *ProxyGroups
-    name: Ⓜ️Microsoft
+    name: 📲Telegram
     type: select
-    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
   - <<: *ProxyGroups
-    name: 🍎Apple
-    type: select
-    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
-  - <<: *ProxyGroups
-    name: 💬AI
+    name: 🎬Youtube
     type: select
     proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
   - <<: *ProxyGroups
@@ -533,7 +542,7 @@ rules:
   - RULE-SET,China,🎯全球直连
   - RULE-SET,ChinaDNS,🎯全球直连
   - RULE-SET,Copilot,💬AI
-  - RULE-SET,Disney,🚀节点选择
+  - RULE-SET,Disney,🐭Disney
   - RULE-SET,Facebook,🚀节点选择
   - RULE-SET,Gemini,💬AI
   - RULE-SET,GitHub,🚀节点选择
@@ -554,7 +563,7 @@ rules:
   - RULE-SET,TencentVideo,🎯全球直连
   - RULE-SET,TikTok,🚀节点选择
   - RULE-SET,Twitter,🚀节点选择
-  - RULE-SET,YouTube,🚀节点选择
+  - RULE-SET,YouTube,🎬Youtube
   - RULE-SET,YouTubeMusic,🚀节点选择
   - GEOIP,CN,🎯全球直连
   - MATCH,🛠️故障转移
