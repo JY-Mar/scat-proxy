@@ -235,26 +235,32 @@ tun:
     - tcp://8.8.8.8:53
     - tcp://8.8.4.4:53
 
-# 锚点 - 策略组
-proxy_cb: &proxy_cb {type: url-test, url: 'http://www.gstatic.com/generate_204', interval: 1200, include-all: false, use: []}
-# 锚点 - 分流规则
-rule_cb: &rule_cb {type: http, behavior: domain, interval: 3600, health-check: {enable: true, url: 'http://www.gstatic.com/generate_204', interval: 6}}
-# region 节点/订阅链接
+# region 锚点
+# 锚点 - [url-test | fallback | load-balance]策略组测速间隔（秒）
+UrlTestInterval: &UrlTestInterval 60
+# 锚点 - [url-test | fallback | load-balance]略组测速容差（毫秒）
+UrlTestTolerance: &UrlTestTolerance 50
+# 锚点 - [url-test | fallback | load-balance]策略组测速超时（毫秒）（超出则判定为失败）
+UrlTestTimeout: &UrlTestTimeout 2000
+# 锚点 - [url-test | fallback | load-balance]策略组测速失败次数（超出则自动触发健康检查）
+UrlTestMaxFailedTimem: &UrlTestMaxFailedTimem 3
+# 锚点 - 更新间隔（秒）
+UpdateInterval: &UpdateInterval 86400
+# 锚点 - 健康检查间隔（秒）
+HealthCheckInterval: &HealthCheckInterval 6
+# 锚点 - 策略组 [url-test每 UrlTestInterval 秒一次惰性健康检查，容差 UrlTestTolerance 毫秒，时延超过 UrlTestTimeout 毫秒判定为失败，失败 UrlTestMaxFailedTimem 次则自动触发健康检查]
+ProxyGroups: &ProxyGroups {type: url-test, url: 'http://www.gstatic.com/generate_204', interval: *UrlTestInterval, tolerance: *UrlTestTolerance, lazy: true, timeout: *UrlTestTimeout, max-failed-times: *UrlTestMaxFailedTimem, include-all: false, use: []}
+# 锚点 - 规则集 [每 UpdateInterval 秒更新一次订阅规则]
+RuleProviders: &RuleProviders {type: http, behavior: domain, interval: *UpdateInterval}
+# 锚点 - 代理集 [每 UpdateInterval 秒更新一次订阅节点，每 HealthCheckInterval 秒一次健康检查]
+ProxyProviders: &ProxyProviders {type: http, interval: *UpdateInterval, health-check: {enable: true, url: 'https://www.gstatic.com/generate_204', interval: *HealthCheckInterval}}
+# endregion
+
+# region 代理集
 proxy-providers:
-  # [订阅名称]:
-  #   type: http
-  #   url: [你的订阅链接]
-  #   interval: 86400
-  #   health-check:
-  #     enable: true
-  #     url: https://www.gstatic.com/generate_204
-  #     # 秒
-  #     interval: 600
 # endregion
 # region 策略组
-# 策略组
 proxy-groups:
-  # 远程图标配置参考 https://github.com/luestr/ProxyResource/blob/main/Tool/Loon/Lcf/zh-CN/Loon_Sample_Configuration_By_iKeLee.lcf
   - name: 🚀节点选择
     type: select
     proxies:
@@ -293,214 +299,213 @@ proxy-groups:
       - 🇳🇱荷兰节点
       - 🇱🇺卢森堡节点
       - 🎯全球直连
-  - <<: *proxy_cb
+  - <<: *ProxyGroups
     name: ♻️自动选择
     include-all: true
     filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-  - <<: *proxy_cb
+  - <<: *ProxyGroups
     name: 🎯全球直连
     type: select
     proxies:
       - DIRECT
-  # - <<: *proxy_cb
+  # - <<: *ProxyGroups
   #   name: 🌍全球节点
   #   include-all: true
   #   filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-  - <<: *proxy_cb
+  - <<: *ProxyGroups
     name: 🇭🇰香港节点
     include-all: true
     filter: ^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-  - <<: *proxy_cb
+  - <<: *ProxyGroups
     name: 🇨🇳台湾节点
     include-all: true
     filter: ^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-  - <<: *proxy_cb
+  - <<: *ProxyGroups
     name: 🇯🇵日本节点
     include-all: true
     filter: ^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-  - <<: *proxy_cb
+  - <<: *ProxyGroups
     name: 🇰🇷韩国节点
     include-all: true
     filter: ^(?=.*((?i)🇰🇷|韩国|韓|南朝鲜|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-  - <<: *proxy_cb
+  - <<: *ProxyGroups
     name: 🇸🇬星洲节点
     include-all: true
     filter: ^(?=.*((?i)🇸🇬|新加坡|星洲|狮城|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-  - <<: *proxy_cb
+  - <<: *ProxyGroups
     name: 🇺🇸美国节点
     include-all: true
     filter: ^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-  - <<: *proxy_cb
+  - <<: *ProxyGroups
     name: 🇬🇧英国节点
     include-all: true
     filter: ^(?=.*((?i)🇬🇧|英国|伦敦|英|(\b(GB|UK|England|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-  - <<: *proxy_cb
+  - <<: *ProxyGroups
     name: 🇫🇷法国节点
     include-all: true
     filter: ^(?=.*((?i)🇫🇷|法国|法兰西|巴黎|法|(\b(FR|France)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-  - <<: *proxy_cb
+  - <<: *ProxyGroups
     name: 🇩🇪德国节点
     include-all: true
     filter: ^(?=.*((?i)🇩🇪|德国|德意志|柏林|德|(\b(DE|GER|Germany)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-  - <<: *proxy_cb
+  - <<: *ProxyGroups
     name: 🇮🇹意大利节点
     include-all: true
     filter: ^(?=.*((?i)🇮🇹|意大利|罗马|意|(\b(IT|Italy)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-  - <<: *proxy_cb
+  - <<: *ProxyGroups
     name: 🇳🇱荷兰节点
     include-all: true
     filter: ^(?=.*((?i)🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|(\b(NL|Holland)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-  - <<: *proxy_cb
+  - <<: *ProxyGroups
     name: 🇱🇺卢森堡节点
     include-all: true
     filter: ^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-  - <<: *proxy_cb
+  - <<: *ProxyGroups
     name: 🎮游戏节点
     type: select
     include-all: true
     filter: ^(?=.*((?i)游戏|🎮|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$
 # endregion
-# region 分流规则 
-# 分流规则
+# region 规则集 
 rule-providers:
   360:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/360.yaml
     path: ./ruleset/360.yaml
   AI:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://kelee.one/Tool/Clash/Rule/AI.yaml
     path: ./ruleset/AI.yaml
   Alibaba:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Alibaba.yaml
     path: ./ruleset/Alibaba.yaml
   Apple:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Apple.yaml
     path: ./ruleset/Apple.yaml
   AppleID:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/AppleID.yaml
     path: ./ruleset/AppleID.yaml
   AppleMusic:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/AppleMusic.yaml
     path: ./ruleset/AppleMusic.yaml
   AppleProxy:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/AppleProxy.yaml
     path: ./ruleset/AppleProxy.yaml
   Bing:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Bing.yaml
     path: ./ruleset/Bing.yaml
   Camera360:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Camera360.yaml
     path: ./ruleset/Camera360.yaml
   China:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/China.yaml
     path: ./ruleset/China.yaml
   ChinaDNS:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/ChinaDNS.yaml
     path: ./ruleset/ChinaDNS.yaml
   Copilot:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Copilot.yaml
     path: ./ruleset/Copilot.yaml
   Disney:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Disney.yaml
     path: ./ruleset/Disney.yaml
   Facebook:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Facebook.yaml
     path: ./ruleset/Facebook.yaml
   Gemini:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Gemini.yaml
     path: ./ruleset/Gemini.yaml
   GitHub:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/GitHub.yaml
     path: ./ruleset/GitHub.yaml
   Google:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Google.yaml
     path: ./ruleset/Google.yaml
   GoogleFCM:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/GoogleFCM.yaml
     path: ./ruleset/GoogleFCM.yaml
   Instagram:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Instagram.yaml
     path: ./ruleset/Instagram.yaml
   Lan:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Lan.yaml
     path: ./ruleset/Lan.yaml
   LAN_SPLITTER:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://kelee.one/Tool/Clash/Rule/LAN_SPLITTER.yaml
     path: ./ruleset/LAN_SPLITTER.yaml
   Microsoft:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Microsoft.yaml
     path: ./ruleset/Microsoft.yaml
   Netflix:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Netflix.yaml
     path: ./ruleset/Netflix.yaml
   OneDrive:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/OneDrive.yaml
     path: ./ruleset/OneDrive.yaml
   OpenAI:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/OpenAI.yaml
     path: ./ruleset/OpenAI.yaml
   Pixiv:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Pixiv.yaml
     path: ./ruleset/Pixiv.yaml
   REGION_SPLITTER:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://kelee.one/Tool/Clash/Rule/REGION_SPLITTER.yaml
     path: ./ruleset/REGION_SPLITTER.yaml
   Spotify:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Spotify.yaml
     path: ./ruleset/Spotify.yaml
   Telegram:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Telegram.yaml
     path: ./ruleset/Telegram.yaml
   Tencent:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Tencent.yaml
     path: ./ruleset/Tencent.yaml
   TencentVideo:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/TencentVideo.yaml
     path: ./ruleset/TencentVideo.yaml
   TikTok:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/TikTok.yaml
     path: ./ruleset/TikTok.yaml
   Twitter:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Twitter.yaml
     path: ./ruleset/Twitter.yaml
   YouTube:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/YouTube.yaml
     path: ./ruleset/YouTube.yaml
   YouTubeMusic:
-    <<: *rule_cb
+    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/YouTubeMusic.yaml
     path: ./ruleset/YouTubeMusic.yaml
 # 规则匹配
