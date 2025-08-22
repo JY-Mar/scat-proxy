@@ -1,4 +1,14 @@
-# proxy-providers配置项:
+# 分流规则
+
+## 推荐配置
+
+```
+https://github.com/luestr/ProxyResource/tree/main/Tool/Clash/Config
+```
+
+# Clash 配置项解释
+
+## proxy-providers配置项:
 
 > 订阅提供者，对象
 
@@ -14,7 +24,7 @@
     interval: 600
 ```
 
-# proxy-groups配置项
+## proxy-groups配置项
 
 > 策略组，数组
 
@@ -37,7 +47,7 @@ use:
 proxies:
 ```
 
-# rule-providers配置项
+## rule-providers配置项
 
 > 分流规则
 
@@ -59,24 +69,4 @@ proxies:
     enable: true
     url: http://www.gstatic.com/generate_204
     interval: 6 # 节点健康检查间隔(s) 
-```
-  
-# 分流规则
-
-## 推荐配置
-
-```
-https://github.com/luestr/ProxyResource/tree/main/Tool/Clash/Config
-```
-
-## blackmatrix7规则
-
-```
-https://github.com/blackmatrix7/ios_rule_script
-```
-
-# 远程图标配置参考
-
-```
-https://github.com/luestr/ProxyResource/blob/main/Tool/Loon/Lcf/zh-CN/Loon_Sample_Configuration_By_iKeLee.lcf
 ```
