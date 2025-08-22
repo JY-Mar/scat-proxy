@@ -268,14 +268,42 @@ proxy-providers:
 proxy-groups:
   - name: 🚀节点选择
     type: select
-    proxies: [♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+    proxies:
+      - ♻️自动选择
+      - 🚀手动切换
+      - 🎯全球直连
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
   - name: ⚠️流量用量
     type: select
     include-all: true
     filter: ^(?=.*((?i)获取|订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
   - name: 🚀手动切换
     type: select
-    proxies: [🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP,🎯全球直连]
+    proxies:
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
+      - 🎯全球直连
   - <<: *ProxyGroups
     name: ♻️自动选择
     include-all: true
@@ -283,52 +311,215 @@ proxy-groups:
   - <<: *ProxyGroups
     name: 🎯全球直连
     type: select
-    proxies: [DIRECT]
+    proxies:
+      - DIRECT
   - <<: *ProxyGroups
     name: 🛑全球拦截
     type: select
-    proxies: [REJECT,DIRECT]
+    proxies:
+      - REJECT
+      - DIRECT
   # 专属策略组
   - <<: *ProxyGroups
     name: 💬AI
     type: select
-    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+    proxies:
+      - 🚀节点选择
+      - ♻️自动选择
+      - 🚀手动切换
+      - 🎯全球直连
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
   - <<: *ProxyGroups
     name: 🍎Apple
     type: select
-    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+    proxies:
+      - 🎯全球直连
+      - 🚀节点选择
+      - ♻️自动选择
+      - 🚀手动切换
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
   - <<: *ProxyGroups
     name: Ⓜ️Bing
     type: select
-    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+    proxies:
+      - 🎯全球直连
+      - 🚀节点选择
+      - ♻️自动选择
+      - 🚀手动切换
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
   - <<: *ProxyGroups
     name: 🐭Disney
     type: select
-    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+    proxies:
+      - 🚀节点选择
+      - ♻️自动选择
+      - 🚀手动切换
+      - 🎯全球直连
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
   - <<: *ProxyGroups
     name: 📢GoogleFCM
     type: select
-    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+    proxies:
+      - 🚀节点选择
+      - ♻️自动选择
+      - 🚀手动切换
+      - 🎯全球直连
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
   - <<: *ProxyGroups
     name: Ⓜ️Microsoft
     type: select
-    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+    proxies:
+      - 🎯全球直连
+      - 🚀节点选择
+      - ♻️自动选择
+      - 🚀手动切换
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
   - <<: *ProxyGroups
     name: 🎥Netflix
     type: select
-    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+    proxies:
+      - 🚀节点选择
+      - ♻️自动选择
+      - 🚀手动切换
+      - 🎯全球直连
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
   - <<: *ProxyGroups
     name: Ⓜ️OneDrive
     type: select
-    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+    proxies:
+      - 🎯全球直连
+      - 🚀节点选择
+      - ♻️自动选择
+      - 🚀手动切换
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
   - <<: *ProxyGroups
     name: 📲Telegram
     type: select
-    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+    proxies:
+      - 🚀节点选择
+      - ♻️自动选择
+      - 🚀手动切换
+      - 🎯全球直连
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
   - <<: *ProxyGroups
     name: 🎬YouTube
     type: select
-    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+    proxies:
+      - 🚀节点选择
+      - ♻️自动选择
+      - 🚀手动切换
+      - 🎯全球直连
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
   - <<: *ProxyGroups
     name: 🎮游戏节点
     type: select
@@ -338,7 +529,19 @@ proxy-groups:
   - <<: *ProxyGroups
     name: 🛠️故障转移
     type: fallback
-    proxies: [🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+    proxies:
+      - 🇭🇰香港LLP
+      - 🇨🇳台湾LLP
+      - 🇯🇵日本LLP
+      - 🇰🇷韩国LLP
+      - 🇸🇬星洲LLP
+      - 🇺🇸美国LLP
+      - 🇬🇧英国LLP
+      - 🇫🇷法国LLP
+      - 🇩🇪德国LLP
+      - 🇮🇹意大利LLP
+      - 🇳🇱荷兰LLP
+      - 🇱🇺卢森堡LLP
   # 延迟优先策略组 Low Latency Preference
   - <<: *ProxyGroups
     name: 🇭🇰香港LLP
