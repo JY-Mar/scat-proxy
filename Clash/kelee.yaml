@@ -246,17 +246,17 @@ UrlTestTolerance: &UrlTestTolerance 70
 # 锚点 - [url-test | fallback | load-balance]策略组测速超时（毫秒）（超出则判定为失败）
 UrlTestTimeout: &UrlTestTimeout 2000
 # 锚点 - [url-test | fallback | load-balance]策略组测速失败次数（超出则自动触发健康检查）
-UrlTestMaxFailedTimem: &UrlTestMaxFailedTimem 3
+UrlTestMaxFailedTimes: &UrlTestMaxFailedTimes 3
 # 锚点 - 测速、健康检查 url
 CheckUrl: &CheckUrl 'http://connectivitycheck.platform.hicloud.com/generate_204'
 # 锚点 - 更新间隔（秒）
 UpdateInterval: &UpdateInterval 86400
 # 锚点 - 健康检查间隔（秒）
 HealthCheckInterval: &HealthCheckInterval 6
-# 锚点 - 策略组 [url-test每 UrlTestInterval 秒一次惰性健康检查，容差 UrlTestTolerance 毫秒，时延超过 UrlTestTimeout 毫秒判定为失败，失败 UrlTestMaxFailedTimem 次则自动触发健康检查]
-UrlTest: &UrlTest {type: url-test, url: *CheckUrl, interval: *UrlTestInterval, tolerance: *UrlTestTolerance, lazy: true, timeout: *UrlTestTimeout, max-failed-times: *UrlTestMaxFailedTimem, include-all: false, use: []}
-# 锚点 - 策略组 [fallback每 UrlTestInterval 秒一次惰性健康检查，容差 UrlTestTolerance 毫秒，时延超过 UrlTestTimeout 毫秒判定为失败，失败 UrlTestMaxFailedTimem 次则自动触发健康检查]
-FallBack: &FallBack {type: fallback, url: *CheckUrl, interval: *UrlTestInterval, tolerance: *UrlTestTolerance, lazy: true, timeout: *UrlTestTimeout, max-failed-times: *UrlTestMaxFailedTimem, include-all: false, use: []}
+# 锚点 - 策略组 [url-test每 UrlTestInterval 秒一次惰性健康检查，容差 UrlTestTolerance 毫秒，时延超过 UrlTestTimeout 毫秒判定为失败，失败 UrlTestMaxFailedTimes 次则自动触发健康检查]
+UrlTest: &UrlTest {type: url-test, url: *CheckUrl, interval: *UrlTestInterval, tolerance: *UrlTestTolerance, lazy: true, timeout: *UrlTestTimeout, max-failed-times: *UrlTestMaxFailedTimes, include-all: false, use: []}
+# 锚点 - 策略组 [fallback每 UrlTestInterval 秒一次惰性健康检查，容差 UrlTestTolerance 毫秒，时延超过 UrlTestTimeout 毫秒判定为失败，失败 UrlTestMaxFailedTimes 次则自动触发健康检查]
+FallBack: &FallBack {type: fallback, url: *CheckUrl, interval: *UrlTestInterval, tolerance: *UrlTestTolerance, lazy: true, timeout: *UrlTestTimeout, max-failed-times: *UrlTestMaxFailedTimes, include-all: false, use: []}
 # 锚点 - 规则集 [每 UpdateInterval 秒更新一次订阅规则]
 RuleProviders: &RuleProviders {type: http, behavior: domain, interval: *UpdateInterval}
 # 锚点 - 代理集 [每 UpdateInterval 秒更新一次订阅节点，每 HealthCheckInterval 秒一次健康检查]
