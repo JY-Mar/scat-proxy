@@ -384,7 +384,7 @@ Anchors:
   ProxyProviders: &ProxyProviders {type: http, interval: *UpdateInterval, health-check: {enable: true, url: *InternetTestUrl, interval: *HealthCheckInterval}}
   # 正则筛选
   Filters:
-    '🇭🇰香港': &'🇭🇰香港' '^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$'
+    Filter香港: &Filter香港 '^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$'
     Used: &Used '^(?=.*((?i)获取|订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$'
 # ========================
 # 代理集
@@ -468,7 +468,7 @@ proxy-groups:
   - <<: *UrlTest
     name: 🇭🇰香港LLP
     include-all: true
-    filter: *'🇭🇰香港'
+    filter: *Filter香港
   - <<: *UrlTest
     name: 🇨🇳台湾LLP
     include-all: true
