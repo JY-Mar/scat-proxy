@@ -15,9 +15,9 @@ redir-port: 7893
 # Linux 的透明代理端口（适用于 TProxy TCP 和 TProxy UDP 流量)
 tproxy-port: 7894
 
-# unified-delay: true
-# tcp-concurrent: true
-# find-process-mode: strict
+unified-delay: true
+tcp-concurrent: true
+find-process-mode: strict
 
 # 允许局域网的连接（可用来共享代理）
 allow-lan: true
@@ -31,21 +31,19 @@ log-level: info
 ipv6: true
 udp: true
 
-# bind-address: '*'
+bind-address: '*'
 # clash 的 RESTful API 监听地址
 external-controller: 0.0.0.0:9090
-# external-controller-tls: 0.0.0.0:9443
-# external-controller-unix: mihomo.sock
-# external-controller-pipe: \\.\pipe\mihomo
+external-controller-tls: 0.0.0.0:9443
+external-controller-unix: mihomo.sock
+external-controller-pipe: \\.\pipe\mihomo
+# 存放配置文件的相对路径，或存放网页静态资源的绝对路径
+# Clash core 将会将其部署在 http://{{external-controller}}/ui
 external-ui: ui
 external-ui-name: zashboard
 external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
-# external-doh-server: /dns-query
-# global-client-fingerprint: chrome
-
-# 存放配置文件的相对路径，或存放网页静态资源的绝对路径
-# Clash core 将会将其部署在 http://{{external-controller}}/ui
-# external-ui: folder
+external-doh-server: /dns-query
+global-client-fingerprint: chrome
 
 # RESTful API 的口令 (可选)
 # 通过 HTTP 头中 Authorization: Bearer ${secret} 参数来验证口令
@@ -207,13 +205,13 @@ dns:
   
   # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
   # 仅填写 DNS 服务器的 IP 地址
-  # default-nameserver:
-  #   - system
-  #   - 119.29.29.29
-  #   - 223.5.5.5
-  #   - 223.6.6.6
-  #   - 8.8.8.8
-  #   - 114.114.114.114
+  default-nameserver:
+    - system
+    - 119.29.29.29
+    - 223.5.5.5
+    - 223.6.6.6
+    - 8.8.8.8
+    - 114.114.114.114
  
   # 支持 UDP / TCP / DoT / DoH 协议的 DNS 服务，可以指明具体的连接端口号。
   # 所有 DNS 请求将会直接发送到服务器，不经过任何代理。
@@ -222,43 +220,43 @@ dns:
     - 119.29.29.29
     - 223.5.5.5
     - 223.6.6.6
-    # - tcp://223.5.5.5
-    # - tcp://223.6.6.6
-    # - tls://dns.google:853
-    # - tls://8.8.8.8:853
-    # - tls://8.8.4.4:853
-    # - tls://dns.alidns.com
-    # - tls://223.5.5.5
-    # - tls://223.6.6.6
-    # - tls://dot.pub
-    # - tls://1.12.12.12
-    # - tls://120.53.53.53
-    # - https://dns.google/dns-query
-    # - https://8.8.8.8/dns-query
-    # - https://8.8.4.4/dns-query
-    # - https://dns.alidns.com/dns-query
-    # - https://223.5.5.5/dns-query
-    # - https://223.6.6.6/dns-query
-    # - https://doh.pub/dns-query
-    # - https://1.12.12.12/dns-query
-    # - https://120.53.53.53/dns-query
-  # proxy-server-nameserver:
-  #   - tls://223.5.5.5
-  #   - tls://1.12.12.12
-  #   - https://doh.pub/dns-query
-  #   - https://223.5.5.5/dns-query
-  #   - https://223.6.6.6/dns-query
+    - tcp://223.5.5.5
+    - tcp://223.6.6.6
+    - tls://dns.google:853
+    - tls://8.8.8.8:853
+    - tls://8.8.4.4:853
+    - tls://dns.alidns.com
+    - tls://223.5.5.5
+    - tls://223.6.6.6
+    - tls://dot.pub
+    - tls://1.12.12.12
+    - tls://120.53.53.53
+    - https://dns.google/dns-query
+    - https://8.8.8.8/dns-query
+    - https://8.8.4.4/dns-query
+    - https://dns.alidns.com/dns-query
+    - https://223.5.5.5/dns-query
+    - https://223.6.6.6/dns-query
+    - https://doh.pub/dns-query
+    - https://1.12.12.12/dns-query
+    - https://120.53.53.53/dns-query
+  proxy-server-nameserver:
+    - tls://223.5.5.5
+    - tls://1.12.12.12
+    - https://doh.pub/dns-query
+    - https://223.5.5.5/dns-query
+    - https://223.6.6.6/dns-query
 
   # 当 fallback 参数被配置时, DNS 请求将同时发送至上方 nameserver 列表和下方 fallback 列表中配置的所有 DNS 服务器.
   # 当解析得到的 IP 地址的地理位置不是 CN 时，clash 将会选用 fallback 中 DNS 服务器的解析结果。
-  # fallback:
-  #   - tls://unfiltered.adguard-dns.com
-  #   - tls://1.1.1.1
-  #   - tls://8.8.8.8
-  #   - https://1.1.1.1/dns-query
-  #   - https://public.dns.iij.jp/dns-query
-  #   - https://dns.google/dns-query
-  #   - https://dns.quad9.net/dns-query
+  fallback:
+    - tls://unfiltered.adguard-dns.com
+    - tls://1.1.1.1
+    - tls://8.8.8.8
+    - https://1.1.1.1/dns-query
+    - https://public.dns.iij.jp/dns-query
+    - https://dns.google/dns-query
+    - https://dns.quad9.net/dns-query
 
   # 如果使用 nameserver 列表中的服务器解析的 IP 地址在下方列表中的子网中，则它们被认为是无效的，
   # Clash 会选用 fallback 列表中配置 DNS 服务器解析得到的结果。
@@ -270,39 +268,39 @@ dns:
   # Clash 总会选用 nameserver 列表中配置 DNS 服务器解析得到的结果。
   #
   # 采取以上逻辑进行域名解析是为了对抗 DNS 投毒攻击。
-  # fallback-filter:
-  #   geoip: true
-  #   geoip-code: CN
-  #   ipcidr:
-  #     - 0.0.0.0/32
-  #     - 0.0.0.0/8
-  #     - 10.0.0.0/8
-  #     - 100.64.0.0/10
-  #     - 127.0.0.0/8
-  #     - 169.254.0.0/16
-  #     - 172.16.0.0/12
-  #     - 192.0.0.0/24
-  #     - 192.0.2.0/24
-  #     - 192.88.99.0/24
-  #     - 192.168.0.0/16
-  #     - 198.18.0.0/15
-  #     - 198.51.100.0/24
-  #     - 203.0.113.0/24
-  #     - 224.0.0.0/4
-  #     - 240.0.0.0/4
-  #     - 255.255.255.255/32
-  #   domain:
-  #     - '+.google.com'
-  #     - '+.facebook.com'
-  #     - '+.youtube.com'
-  #     - '+.githubusercontent.com'
-  #     - '+.googlevideo.com'
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 0.0.0.0/32
+      - 0.0.0.0/8
+      - 10.0.0.0/8
+      - 100.64.0.0/10
+      - 127.0.0.0/8
+      - 169.254.0.0/16
+      - 172.16.0.0/12
+      - 192.0.0.0/24
+      - 192.0.2.0/24
+      - 192.88.99.0/24
+      - 192.168.0.0/16
+      - 198.18.0.0/15
+      - 198.51.100.0/24
+      - 203.0.113.0/24
+      - 224.0.0.0/4
+      - 240.0.0.0/4
+      - 255.255.255.255/32
+    domain:
+      - '+.google.com'
+      - '+.facebook.com'
+      - '+.youtube.com'
+      - '+.githubusercontent.com'
+      - '+.googlevideo.com'
 
 geox-url:
-  geoip: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.dat"
-  geosite: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.dat"
-  # geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
-  # geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
+  # geoip: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.dat"
+  # geosite: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.dat"
+  geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
+  geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
   mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
   asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
 
@@ -384,7 +382,9 @@ Anchors:
   RuleProviders: &RuleProviders {type: http, behavior: domain, interval: *UpdateInterval}
   # 代理集 [每 UpdateInterval 秒更新一次订阅节点，每 HealthCheckInterval 秒一次健康检查]
   ProxyProviders: &ProxyProviders {type: http, interval: *UpdateInterval, health-check: {enable: true, url: *InternetTestUrl, interval: *HealthCheckInterval}}
-
+  # 正则筛选
+  Filters:
+    Used: &Used '^(?=.*((?i)获取|订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$'
 # ========================
 # 代理集
 # ========================
@@ -409,7 +409,7 @@ proxy-groups:
   - name: ⚠️流量用量
     type: select
     include-all: true
-    filter: ^(?=.*((?i)获取|订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    filter: *Used
   - name: 🚀手动切换
     type: select
     proxies: [🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP,🎯全球直连]
