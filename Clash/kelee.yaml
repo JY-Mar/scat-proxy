@@ -60,23 +60,21 @@ experimental:
 # 不使用通配符的域名优先级高于使用通配符的域名 (例如: foo.example.com > *.example.com > .example.com )
 # 注意: +.foo.com 的效果等同于 .foo.com 和 foo.com
 hosts:
-# '*.clash.dev': 127.0.0.1
-# '.dev': 127.0.0.1
-# 'alpha.clash.dev': '::1'
-  time.facebook.com: 17.253.84.125
-  time.android.com: 17.253.84.125
+  # '*.clash.dev': 127.0.0.1
+  # '.dev': 127.0.0.1
+  # 'alpha.clash.dev': '::1'
 
 # DNS 服务器配置(可选；若不配置，程序内置的 DNS 服务会被关闭)
 dns:
   enable: true
-  prefer-h3: true
+  prefer-h3: false
   listen: 0.0.0.0:53
   # 当此选项为 false 时, AAAA 请求将返回空
-  ipv6: false
+  ipv6: true
   # 查询 hosts 并返回 IP 记录
   use-hosts: true
   # 使用系统 hosts 文件
-  use-system-hosts: true
+  use-system-hosts: false
   # fake-ip 或 redir-host
   enhanced-mode: fake-ip
   # Fake IP 地址池 (CIDR 形式)
@@ -294,6 +292,8 @@ dns:
       - '+.googlevideo.com'
 
 geox-url:
+  geoip: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.dat"
+  geosite: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.dat"
   # geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
   # geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
   mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
