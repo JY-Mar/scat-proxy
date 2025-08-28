@@ -1,51 +1,89 @@
 # Clash 配置
 # Date: 2025-08-22 14:40:51
 
+# HTTP 代理端口
 port: 7890
+# SOCKS5 代理端口
 socks-port: 7891
+# HTTP(S) and SOCKS5 共用端口
 mixed-port: 7892
+# Linux 和 macOS 的 redir 透明代理端口 (重定向 TCP 和 TProxy UDP 流量)
 redir-port: 7893
+# Linux 的透明代理端口（适用于 TProxy TCP 和 TProxy UDP 流量)
 tproxy-port: 7894
 
+unified-delay: true
 tcp-concurrent: true
+find-process-mode: strict
 
+# 允许局域网的连接（可用来共享代理）
 allow-lan: false
+# Clash 路由工作模式
+# 规则模式：rule（规则） / global（全局代理）/ direct（全局直连）
 mode: rule
+# Clash 默认将日志输出至 STDOUT
+# 设置日志输出级别 (默认级别：silent，即不输出任何内容，以避免因日志内容过大而导致程序内存溢出）。
+# 5 个级别：silent / info / warning / error / debug。级别越高日志输出量越大，越倾向于调试，若需要请自行开启。
 log-level: info
-ipv6: false
+ipv6: true
 udp: true
 
 bind-address: '*'
-external-controller: 127.0.0.1:9090
+# clash 的 RESTful API 监听地址
+external-controller: 0.0.0.0:9090
+external-controller-tls: 0.0.0.0:9443
+external-controller-unix: mihomo.sock
+external-controller-pipe: \\.\pipe\mihomo
+external-ui: ui
+external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
+external-doh-server: /dns-query
+global-client-fingerprint: chrome
 
+# 存放配置文件的相对路径，或存放网页静态资源的绝对路径
+# Clash core 将会将其部署在 http://{{external-controller}}/ui
+# external-ui: folder
+
+# RESTful API 的口令 (可选)
+# 通过 HTTP 头中 Authorization: Bearer ${secret} 参数来验证口令
+# 当 RESTful API 的监听地址为 0.0.0.0 时，请务必设定口令以保证安全
+# secret: ""
+
+# 出站网卡接口
+# interface-name: en0
+
+# 实验性配置
 experimental:
   ignore-resolve-fail: true
+
+# DNS 服务器和建立连接时的 静态 Hosts, 仅在 dns.enhanced-mode 模式为 redir-host 生效
+# 支持通配符域名 (例如: *.clash.dev, *.foo.*.example.com )
+# 不使用通配符的域名优先级高于使用通配符的域名 (例如: foo.example.com > *.example.com > .example.com )
+# 注意: +.foo.com 的效果等同于 .foo.com 和 foo.com
+hosts:
+# '*.clash.dev': 127.0.0.1
+# '.dev': 127.0.0.1
+# 'alpha.clash.dev': '::1'
+  time.facebook.com: 17.253.84.125
+  time.android.com: 17.253.84.125
+
+# DNS 服务器配置(可选；若不配置，程序内置的 DNS 服务会被关闭)
 dns:
   enable: true
+  prefer-h3: true
   listen: 0.0.0.0:53
+  # 当此选项为 false 时, AAAA 请求将返回空
   ipv6: false
-  
-  # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
-  # 仅填写 DNS 服务器的 IP 地址
-  default-nameserver:
-    - 119.29.29.29
-    - 223.5.5.5
-    - 223.6.6.6
-    - tcp://119.29.29.29
-    - tcp://223.5.5.5
-    - tcp://223.6.6.6
-    - 8.8.8.8
-    - 114.114.114.114
-    - system
+  # 查询 hosts 并返回 IP 记录
+  use-hosts: true
+  # 使用系统 hosts 文件
+  use-system-hosts: true
   # fake-ip 或 redir-host
   enhanced-mode: fake-ip
   # Fake IP 地址池 (CIDR 形式)
   fake-ip-range: 198.18.0.1/16
-  # 查询 hosts 并返回 IP 记录
-  use-hosts: true
-  use-system-hosts: true
   # 在以下列表的域名将不会被解析为 fake ip，这些域名相关的解析请求将会返回它们真实的 IP 地址
   fake-ip-filter:
+    # === LAN ===
     - '*.lan'
     - '*.localdomain'
     - '*.example'
@@ -55,10 +93,15 @@ dns:
     - '*.local'
     - '*.home.arpa'
     - '*.arpa'
+    # === Linksys Wireless Router ===
+    - '*.linksys.com'
+    - '*.linksyssmartwifi.com'
+    # === NTP Service ===
     - 'time.*.com'
     - 'time.*.gov'
     - 'time.*.edu.cn'
     - 'time.*.apple.com'
+    
     - 'time1.*.com'
     - 'time2.*.com'
     - 'time3.*.com'
@@ -66,6 +109,7 @@ dns:
     - 'time5.*.com'
     - 'time6.*.com'
     - 'time7.*.com'
+    
     - 'ntp.*.com'
     - 'ntp1.*.com'
     - 'ntp2.*.com'
@@ -74,57 +118,59 @@ dns:
     - 'ntp5.*.com'
     - 'ntp6.*.com'
     - 'ntp7.*.com'
+    
     - '*.time.edu.cn'
     - '*.ntp.org.cn'
     - '+.pool.ntp.org'
+    
     - 'time1.cloud.tencent.com'
+    # === Music Service ===
+    ## NetEase
     - 'music.163.com'
     - '*.music.163.com'
     - '*.126.net'
+    ## Baidu
     - 'musicapi.taihe.com'
     - 'music.taihe.com'
+    ## Kugou
     - 'songsearch.kugou.com'
     - 'trackercdn.kugou.com'
+    ## Kuwo
     - '*.kuwo.cn'
+    ## JOOX
     - 'api-jooxtt.sanook.com'
     - 'api.joox.com'
     - 'joox.com'
+    ## QQ
     - 'y.qq.com'
     - '*.y.qq.com'
-    - 'streamoc.music.tc.qq.com'
-    - 'mobileoc.music.tc.qq.com'
-    - 'isure.stream.qqmusic.qq.com'
-    - 'dl.stream.qqmusic.qq.com'
+    - '+.music.tc.qq.com'
     - 'aqqmusic.tc.qq.com'
-    - 'amobile.music.tc.qq.com'
+    - '+.stream.qqmusic.qq.com'
+    ## Xiami
     - '*.xiami.com'
+    ## Migu
     - '*.music.migu.cn'
     - 'music.migu.cn'
+    # === Windows Connnect Detection ===
     - '*.msftconnecttest.com'
     - '*.msftncsi.com'
     - 'msftconnecttest.com'
     - 'msftncsi.com'
+    ## QQ Quick Login
     - 'localhost.ptlogin2.qq.com'
     - 'localhost.sec.qq.com'
-    - '+.srv.nintendo.net'
-    - '+.stun.playstation.net'
-    - 'xbox.*.microsoft.com'
-    - 'xnotify.xboxlive.com'
-    - '+.battlenet.com.cn'
-    - '+.wotgame.cn'
-    - '+.wggames.cn'
-    - '+.wowsgame.cn'
-    - '+.wargaming.net'
+    ## Golang
     - 'proxy.golang.org'
+    ## STUN Server
     - 'stun.*.*'
     - 'stun.*.*.*'
     - '+.stun.*.*'
     - '+.stun.*.*.*'
     - '+.stun.*.*.*.*'
     - 'heartbeat.belkin.com'
-    - '*.linksys.com'
-    - '*.linksyssmartwifi.com'
     - '*.router.asus.com'
+    # === Apple Software Service ===
     - 'mesu.apple.com'
     - 'swscan.apple.com'
     - 'swquery.apple.com'
@@ -135,10 +181,36 @@ dns:
     - 'stun.l.google.com'
     - '+.nflxvideo.net'
     - '*.square-enix.com'
+    ## Bilibili CDN
+    - '*.mcdn.bilivideo.cn'
+    ## Xiaomi Market
+    - '+.market.xiaomi.com'
+    ## === Game Service ===
+    ## Nintendo Switch
+    - '+.srv.nintendo.net'
+    ## Sony PlayStation
+    - '+.stun.playstation.net'
+    ## Microsoft Xbox
+    - 'xbox.*.microsoft.com'
+    - 'xnotify.xboxlive.com'
+    - '+.battlenet.com.cn'
+    - '+.wotgame.cn'
+    - '+.wggames.cn'
+    - '+.wowsgame.cn'
+    - '+.wargaming.net'
     - '*.finalfantasyxiv.com'
     - '*.ffxiv.com'
-    - '*.mcdn.bilivideo.cn'
-    - '+.market.xiaomi.com'
+  
+  # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
+  # 仅填写 DNS 服务器的 IP 地址
+  default-nameserver:
+    - system
+    - 119.29.29.29
+    - 223.5.5.5
+    - 223.6.6.6
+    - 8.8.8.8
+    - 114.114.114.114
+ 
   # 支持 UDP / TCP / DoT / DoH 协议的 DNS 服务，可以指明具体的连接端口号。
   # 所有 DNS 请求将会直接发送到服务器，不经过任何代理。
   # Clash 会使用最先获得的解析记录回复 DNS 请求
@@ -171,6 +243,9 @@ dns:
     - tls://1.12.12.12
     - https://doh.pub/dns-query
     - https://223.5.5.5/dns-query
+
+  # 当 fallback 参数被配置时, DNS 请求将同时发送至上方 nameserver 列表和下方 fallback 列表中配置的所有 DNS 服务器.
+  # 当解析得到的 IP 地址的地理位置不是 CN 时，clash 将会选用 fallback 中 DNS 服务器的解析结果。
   fallback:
     - tls://unfiltered.adguard-dns.com
     - tls://1.1.1.1
@@ -179,10 +254,6 @@ dns:
     - https://public.dns.iij.jp/dns-query
     - https://dns.google/dns-query
     - https://dns.quad9.net/dns-query
-  # 当 fallback 参数被配置时, DNS 请求将同时发送至上方 nameserver 列表和下方 fallback 列表中配置的所有 DNS 服务器.
-  # 当解析得到的 IP 地址的地理位置不是 CN 时，clash 将会选用 fallback 中 DNS 服务器的解析结果。
-  # fallback:
-  #   - https://dns.google/dns-query
 
   # 如果使用 nameserver 列表中的服务器解析的 IP 地址在下方列表中的子网中，则它们被认为是无效的，
   # Clash 会选用 fallback 列表中配置 DNS 服务器解析得到的结果。
@@ -221,22 +292,58 @@ dns:
       - '+.youtube.com'
       - '+.githubusercontent.com'
       - '+.googlevideo.com'
+
 geox-url:
   # geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
   # geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
   mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
   asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
 
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+sniffer:
+  # 是否启用嗅探器
+  # 开启后对 redir-host 类型识别的流量进行强制嗅探
+  # 包含 Tun、Redir 和 TProxy 或 DNS 为 redir-host
+  enable: true
+  # 是否强制将 IP 映射为域名（即使已有域名）
+  force-dns-mapping: true
+  # 是否对纯 IP 流量进行嗅探
+  parse-pure-ip: true
+  # 是否使用嗅探出的域名替代原始目标地址
+  override-destination: true
+  sniff:
+    # HTTP 嗅探端口范围
+    HTTP:
+      ports: [80, 8080-8880]
+      # 可覆盖 sniffer.override-destination
+      override-destination: true
+    # TLS 嗅探端口
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  # 强制嗅探的域名白名单
+  force-domain:
+    - +.v2ex.com
+  # 跳过嗅探的域名黑名单
+  skip-domain:
+    - "Mijia Cloud"
+    - "+.push.apple.com"
+
 tun:
   # 如果需要启用 TUN 模式，请设置为 true
   enable: false
   # system 或 gvisor
   stack: system
-  macOS-auto-route: true
-  macOS-auto-detect-interface: true
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
   dns-hijack:
-    - tcp://8.8.8.8:53
-    - tcp://8.8.4.4:53
+    - any:53
+    - tcp://any:53
 
 # region 锚点
 # 锚点 - [url-test | fallback | load-balance]策略组测速间隔（秒）
