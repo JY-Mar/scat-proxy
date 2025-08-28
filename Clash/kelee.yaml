@@ -672,7 +672,7 @@ rules:
   - RULE-SET,TencentVideo,🎯全球直连
   - RULE-SET,TikTok,🚀节点选择
   - RULE-SET,Twitter,🚀节点选择
-  - RULE-SET,YouTube,🎬Youtube
+  - RULE-SET,YouTube,🎬YouTube
   - RULE-SET,YouTubeMusic,🚀节点选择
   - GEOIP,CN,🎯全球直连
   - MATCH,🛠️故障转移
