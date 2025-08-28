@@ -1,6 +1,9 @@
 # Clash 配置
 # Date: 2025-08-22 14:40:51
 
+# ========================
+# 主要端口设置
+# ========================
 # HTTP 代理端口
 port: 7890
 # SOCKS5 代理端口
@@ -12,12 +15,12 @@ redir-port: 7893
 # Linux 的透明代理端口（适用于 TProxy TCP 和 TProxy UDP 流量)
 tproxy-port: 7894
 
-unified-delay: true
-tcp-concurrent: true
-find-process-mode: strict
+# unified-delay: true
+# tcp-concurrent: true
+# find-process-mode: strict
 
 # 允许局域网的连接（可用来共享代理）
-allow-lan: false
+allow-lan: true
 # Clash 路由工作模式
 # 规则模式：rule（规则） / global（全局代理）/ direct（全局直连）
 mode: rule
@@ -28,16 +31,17 @@ log-level: info
 ipv6: true
 udp: true
 
-bind-address: '*'
+# bind-address: '*'
 # clash 的 RESTful API 监听地址
 external-controller: 0.0.0.0:9090
-external-controller-tls: 0.0.0.0:9443
-external-controller-unix: mihomo.sock
-external-controller-pipe: \\.\pipe\mihomo
+# external-controller-tls: 0.0.0.0:9443
+# external-controller-unix: mihomo.sock
+# external-controller-pipe: \\.\pipe\mihomo
 external-ui: ui
+external-ui-name: zashboard
 external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
-external-doh-server: /dns-query
-global-client-fingerprint: chrome
+# external-doh-server: /dns-query
+# global-client-fingerprint: chrome
 
 # 存放配置文件的相对路径，或存放网页静态资源的绝对路径
 # Clash core 将会将其部署在 http://{{external-controller}}/ui
@@ -46,7 +50,7 @@ global-client-fingerprint: chrome
 # RESTful API 的口令 (可选)
 # 通过 HTTP 头中 Authorization: Bearer ${secret} 参数来验证口令
 # 当 RESTful API 的监听地址为 0.0.0.0 时，请务必设定口令以保证安全
-# secret: ""
+secret: "123456"
 
 # 出站网卡接口
 # interface-name: en0
@@ -64,10 +68,12 @@ hosts:
   # '.dev': 127.0.0.1
   # 'alpha.clash.dev': '::1'
 
-# DNS 服务器配置(可选；若不配置，程序内置的 DNS 服务会被关闭)
+# ========================
+# DNS 设置(可选；若不配置，程序内置的 DNS 服务会被关闭)
+# ========================
 dns:
   enable: true
-  prefer-h3: false
+  # prefer-h3: false
   listen: 0.0.0.0:53
   # 当此选项为 false 时, AAAA 请求将返回空
   ipv6: true
@@ -201,13 +207,13 @@ dns:
   
   # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
   # 仅填写 DNS 服务器的 IP 地址
-  default-nameserver:
-    - system
-    - 119.29.29.29
-    - 223.5.5.5
-    - 223.6.6.6
-    - 8.8.8.8
-    - 114.114.114.114
+  # default-nameserver:
+  #   - system
+  #   - 119.29.29.29
+  #   - 223.5.5.5
+  #   - 223.6.6.6
+  #   - 8.8.8.8
+  #   - 114.114.114.114
  
   # 支持 UDP / TCP / DoT / DoH 协议的 DNS 服务，可以指明具体的连接端口号。
   # 所有 DNS 请求将会直接发送到服务器，不经过任何代理。
@@ -236,12 +242,12 @@ dns:
     - https://doh.pub/dns-query
     - https://1.12.12.12/dns-query
     - https://120.53.53.53/dns-query
-  proxy-server-nameserver:
-    - tls://223.5.5.5
-    - tls://1.12.12.12
-    - https://doh.pub/dns-query
-    - https://223.5.5.5/dns-query
-    - https://223.6.6.6/dns-query
+  # proxy-server-nameserver:
+  #   - tls://223.5.5.5
+  #   - tls://1.12.12.12
+  #   - https://doh.pub/dns-query
+  #   - https://223.5.5.5/dns-query
+  #   - https://223.6.6.6/dns-query
 
   # 当 fallback 参数被配置时, DNS 请求将同时发送至上方 nameserver 列表和下方 fallback 列表中配置的所有 DNS 服务器.
   # 当解析得到的 IP 地址的地理位置不是 CN 时，clash 将会选用 fallback 中 DNS 服务器的解析结果。
@@ -300,10 +306,6 @@ geox-url:
   mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
   asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
 
-profile:
-  store-selected: true
-  store-fake-ip: true
-
 sniffer:
   # 是否启用嗅探器
   # 开启后对 redir-host 类型识别的流量进行强制嗅探
@@ -334,11 +336,15 @@ sniffer:
     - "Mijia Cloud"
     - "+.push.apple.com"
 
+# ========================
+# TUN 模块
+# ========================
 tun:
   # 如果需要启用 TUN 模式，请设置为 true
-  enable: false
+  enable: true
   # system 或 gvisor
-  stack: system
+  stack: gvisor
+  endpoint-independent-nat: true
   auto-route: true
   auto-redirect: true
   auto-detect-interface: true
@@ -346,32 +352,42 @@ tun:
     - any:53
     - tcp://any:53
 
-# region 锚点
-# 锚点 - [url-test | fallback | load-balance]策略组测速间隔（秒）
-UrlTestInterval: &UrlTestInterval 600
-# 锚点 - [url-test | fallback | load-balance]略组测速容差（毫秒）
-UrlTestTolerance: &UrlTestTolerance 70
-# 锚点 - [url-test | fallback | load-balance]策略组测速超时（毫秒）（超出则判定为失败）
-UrlTestTimeout: &UrlTestTimeout 5000
-# 锚点 - [url-test | fallback | load-balance]策略组测速失败次数（超出则自动触发健康检查）
-UrlTestMaxFailedTimes: &UrlTestMaxFailedTimes 3
-# 锚点 - 测速、健康检查 url
-CheckUrl: &CheckUrl 'http://connectivitycheck.platform.hicloud.com/generate_204'
-# 锚点 - 更新间隔（秒）
-UpdateInterval: &UpdateInterval 86400
-# 锚点 - 健康检查间隔（秒）
-HealthCheckInterval: &HealthCheckInterval 6
-# 锚点 - 策略组 [url-test每 UrlTestInterval 秒一次惰性健康检查，容差 UrlTestTolerance 毫秒，时延超过 UrlTestTimeout 毫秒判定为失败，失败 UrlTestMaxFailedTimes 次则自动触发健康检查]
-UrlTest: &UrlTest {type: url-test, url: *CheckUrl, interval: *UrlTestInterval, tolerance: *UrlTestTolerance, lazy: true, timeout: *UrlTestTimeout, max-failed-times: *UrlTestMaxFailedTimes, include-all: false, use: []}
-# 锚点 - 策略组 [fallback每 UrlTestInterval 秒一次惰性健康检查，容差 UrlTestTolerance 毫秒，时延超过 UrlTestTimeout 毫秒判定为失败，失败 UrlTestMaxFailedTimes 次则自动触发健康检查]
-FallBack: &FallBack {type: fallback, url: *CheckUrl, interval: *UrlTestInterval, tolerance: *UrlTestTolerance, lazy: true, timeout: *UrlTestTimeout, max-failed-times: *UrlTestMaxFailedTimes, include-all: false, use: []}
-# 锚点 - 规则集 [每 UpdateInterval 秒更新一次订阅规则]
-RuleProviders: &RuleProviders {type: http, behavior: domain, interval: *UpdateInterval}
-# 锚点 - 代理集 [每 UpdateInterval 秒更新一次订阅节点，每 HealthCheckInterval 秒一次健康检查]
-ProxyProviders: &ProxyProviders {type: http, interval: *UpdateInterval, health-check: {enable: true, url: *CheckUrl, interval: *HealthCheckInterval}}
-# endregion
+profile:
+  store-selected: true
+  store-fake-ip: true
 
-# region 代理集
+# ========================
+# 锚点
+# ========================
+Anchors:
+  # [url-test | fallback | load-balance]策略组测速间隔（秒）
+  TestInterval: &TestInterval 600
+  # [url-test | fallback | load-balance]略组测速容差（毫秒）
+  TestTolerance: &TestTolerance 70
+  # [url-test | fallback | load-balance]策略组测速超时（毫秒）（超出则判定为失败）
+  TestTimeout: &TestTimeout 5000
+  # [url-test | fallback | load-balance]策略组测速失败次数（超出则自动触发健康检查）
+  TestMaxFailedTimes: &TestMaxFailedTimes 3
+  # 全局网络连通性检测 url
+  InternetTestUrl: &InternetTestUrl 'http://connectivitycheck.platform.hicloud.com/generate_204'
+  # 代理节点延迟测速 url
+  ProxyTestUrl: &ProxyTestUrl 'http://cp.cloudflare.com/generate_204'
+  # 更新间隔（秒）
+  UpdateInterval: &UpdateInterval 86400
+  # 健康检查间隔（秒）
+  HealthCheckInterval: &HealthCheckInterval 6
+  # 策略组 [url-test每 ProxyTestUrl 秒一次惰性测速检查，容差 TestTolerance 毫秒，时延超过 TestTimeout 毫秒判定为失败，失败 TestMaxFailedTimes 次则自动触发健康检查]
+  UrlTest: &UrlTest {type: url-test, url: *ProxyTestUrl, interval: *TestInterval, tolerance: *TestTolerance, lazy: true, timeout: *TestTimeout, max-failed-times: *TestMaxFailedTimes, include-all: false, use: []}
+  # 策略组 [fallback每 TestInterval 秒一次惰性测速检查，容差 TestTolerance 毫秒，时延超过 TestTimeout 毫秒判定为失败，失败 TestMaxFailedTimes 次则自动触发健康检查]
+  FallBack: &FallBack {type: fallback, url: *ProxyTestUrl, interval: *TestInterval, tolerance: *TestTolerance, lazy: true, timeout: *TestTimeout, max-failed-times: *TestMaxFailedTimes, include-all: false, use: []}
+  # 规则集 [每 UpdateInterval 秒更新一次订阅规则]
+  RuleProviders: &RuleProviders {type: http, behavior: domain, interval: *UpdateInterval}
+  # 代理集 [每 UpdateInterval 秒更新一次订阅节点，每 HealthCheckInterval 秒一次健康检查]
+  ProxyProviders: &ProxyProviders {type: http, interval: *UpdateInterval, health-check: {enable: true, url: *InternetTestUrl, interval: *HealthCheckInterval}}
+
+# ========================
+# 代理集
+# ========================
 proxy-providers:
   # [订阅名称]:
   #   type: http
@@ -382,8 +398,10 @@ proxy-providers:
   #     url: https://www.gstatic.com/generate_204
   #     # 秒
   #     interval: 600
-# endregion
-# region 策略组
+
+# ========================
+# 策略组
+# ========================
 proxy-groups:
   - name: 🚀节点选择
     type: select
@@ -494,8 +512,10 @@ proxy-groups:
     name: 🇱🇺卢森堡LLP
     include-all: true
     filter: ^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-# endregion
-# region 规则集 
+
+# ========================
+# 规则集
+# ========================
 rule-providers:
   360:
     <<: *RuleProviders
@@ -637,7 +657,10 @@ rule-providers:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/YouTubeMusic.yaml
     path: ./ruleset/YouTubeMusic.yaml
+
+# ========================
 # 规则匹配
+# ========================
 rules:
   - RULE-SET,360,🎯全球直连
   - RULE-SET,AI,💬AI
@@ -676,4 +699,3 @@ rules:
   - RULE-SET,YouTubeMusic,🚀节点选择
   - GEOIP,CN,🎯全球直连
   - MATCH,🛠️故障转移
-# endregion
