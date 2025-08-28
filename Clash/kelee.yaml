@@ -473,7 +473,7 @@ proxy-groups:
   - <<: *UrlTest
     name: 🇨🇳台湾LLP
     include-all: true
-    filter: *FilterTW
+    filter: *Filter台湾
   - <<: *UrlTest
     name: 🇯🇵日本LLP
     include-all: true
