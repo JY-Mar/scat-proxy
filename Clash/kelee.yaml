@@ -559,18 +559,18 @@ proxy-groups:
 # MARK: 规则集
 # ========================
 rule-providers:
-  360:
-    <<: *RuleProviders
-    url: https://rule.kelee.one/Clash/360.yaml
-    path: ./ruleset/360.yaml
+  # 360:
+  #   <<: *RuleProviders
+  #   url: https://rule.kelee.one/Clash/360.yaml
+  #   path: ./ruleset/360.yaml
   AI:
     <<: *RuleProviders
     url: https://kelee.one/Tool/Clash/Rule/AI.yaml
     path: ./ruleset/AI.yaml
-  Alibaba:
-    <<: *RuleProviders
-    url: https://rule.kelee.one/Clash/Alibaba.yaml
-    path: ./ruleset/Alibaba.yaml
+  # Alibaba:
+  #   <<: *RuleProviders
+  #   url: https://rule.kelee.one/Clash/Alibaba.yaml
+  #   path: ./ruleset/Alibaba.yaml
   Apple:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Apple.yaml
@@ -651,14 +651,14 @@ rule-providers:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Telegram.yaml
     path: ./ruleset/Telegram.yaml
-  Tencent:
-    <<: *RuleProviders
-    url: https://rule.kelee.one/Clash/Tencent.yaml
-    path: ./ruleset/Tencent.yaml
-  TencentVideo:
-    <<: *RuleProviders
-    url: https://rule.kelee.one/Clash/TencentVideo.yaml
-    path: ./ruleset/TencentVideo.yaml
+  # Tencent:
+  #   <<: *RuleProviders
+  #   url: https://rule.kelee.one/Clash/Tencent.yaml
+  #   path: ./ruleset/Tencent.yaml
+  # TencentVideo:
+  #   <<: *RuleProviders
+  #   url: https://rule.kelee.one/Clash/TencentVideo.yaml
+  #   path: ./ruleset/TencentVideo.yaml
   TikTok:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/TikTok.yaml
@@ -687,10 +687,10 @@ rule-providers:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Download.yaml
     path: ./ruleset/Download.yaml
-  Advertising:
-    <<: *RuleProviders
-    url: https://rule.kelee.one/Clash/Advertising.yaml
-    path: ./ruleset/Advertising.yaml
+  # Advertising:
+  #   <<: *RuleProviders
+  #   url: https://rule.kelee.one/Clash/Advertising.yaml
+  #   path: ./ruleset/Advertising.yaml
   China:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/China.yaml
@@ -725,9 +725,9 @@ rule-providers:
 # ========================
 rules:
   # 普通规则
-  - RULE-SET,360,🎯全球直连
+  # - RULE-SET,360,🎯全球直连
   - RULE-SET,AI,💬AI
-  - RULE-SET,Alibaba,🎯全球直连
+  # - RULE-SET,Alibaba,🎯全球直连
   - RULE-SET,Apple,🍎Apple
   - RULE-SET,AppleID,🍎Apple
   - RULE-SET,AppleMusic,🍎Apple
@@ -748,8 +748,8 @@ rules:
   - RULE-SET,Pixiv,🚀节点选择
   - RULE-SET,Spotify,🚀节点选择
   - RULE-SET,Telegram,📲Telegram
-  - RULE-SET,Tencent,🎯全球直连
-  - RULE-SET,TencentVideo,🎯全球直连
+  # - RULE-SET,Tencent,🎯全球直连
+  # - RULE-SET,TencentVideo,🎯全球直连
   - RULE-SET,TikTok,🚀节点选择
   - RULE-SET,Twitter,🚀节点选择
   - RULE-SET,YouTube,🎬YouTube
@@ -757,7 +757,7 @@ rules:
   - RULE-SET,Direct,🎯全球直连
   - RULE-SET,Proxy,🚀节点选择
   - RULE-SET,Download,🎯全球直连
-  - RULE-SET,Advertising,🛑全球拦截
+  # - RULE-SET,Advertising,🛑全球拦截
   - RULE-SET,China,🎯全球直连
   - RULE-SET,ChinaDNS,🎯全球直连
   - RULE-SET,ChinaMedia,🎯全球直连
