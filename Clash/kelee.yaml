@@ -1,8 +1,8 @@
 # Clash 配置
-# Date: 2025-08-22 14:40:51
+# Date: 2025-09-04 12:10
 
 # ========================
-# 主要端口设置
+# MARK: 主要端口设置
 # ========================
 # HTTP 代理端口
 port: 7890
@@ -41,14 +41,14 @@ external-controller-pipe: \\.\pipe\mihomo
 # Clash core 将会将其部署在 http://{{external-controller}}/ui
 external-ui: ui
 external-ui-name: zashboard
-external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
+external-ui-url: 'https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip'
 external-doh-server: /dns-query
 global-client-fingerprint: chrome
 
 # RESTful API 的口令 (可选)
 # 通过 HTTP 头中 Authorization: Bearer ${secret} 参数来验证口令
 # 当 RESTful API 的监听地址为 0.0.0.0 时，请务必设定口令以保证安全
-secret: "123456"
+secret: '123456'
 
 # 出站网卡接口
 # interface-name: en0
@@ -67,7 +67,7 @@ hosts:
   # 'alpha.clash.dev': '::1'
 
 # ========================
-# DNS 设置(可选；若不配置，程序内置的 DNS 服务会被关闭)
+# MARK: DNS 设置(可选；若不配置，程序内置的 DNS 服务会被关闭)
 # ========================
 dns:
   enable: true
@@ -103,7 +103,7 @@ dns:
     - 'time.*.gov'
     - 'time.*.edu.cn'
     - 'time.*.apple.com'
-    
+
     - 'time1.*.com'
     - 'time2.*.com'
     - 'time3.*.com'
@@ -111,7 +111,7 @@ dns:
     - 'time5.*.com'
     - 'time6.*.com'
     - 'time7.*.com'
-    
+
     - 'ntp.*.com'
     - 'ntp1.*.com'
     - 'ntp2.*.com'
@@ -120,11 +120,11 @@ dns:
     - 'ntp5.*.com'
     - 'ntp6.*.com'
     - 'ntp7.*.com'
-    
+
     - '*.time.edu.cn'
     - '*.ntp.org.cn'
     - '+.pool.ntp.org'
-    
+
     - 'time1.cloud.tencent.com'
     # === Music Service ===
     ## NetEase
@@ -202,7 +202,7 @@ dns:
     - '+.wargaming.net'
     - '*.finalfantasyxiv.com'
     - '*.ffxiv.com'
-  
+
   # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
   # 仅填写 DNS 服务器的 IP 地址
   default-nameserver:
@@ -212,7 +212,7 @@ dns:
     - 223.6.6.6
     - 8.8.8.8
     - 114.114.114.114
- 
+
   # 支持 UDP / TCP / DoT / DoH 协议的 DNS 服务，可以指明具体的连接端口号。
   # 所有 DNS 请求将会直接发送到服务器，不经过任何代理。
   # Clash 会使用最先获得的解析记录回复 DNS 请求
@@ -304,6 +304,9 @@ geox-url:
   mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
   asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
 
+# ========================
+# MARK: 嗅探器
+# ========================
 sniffer:
   # 是否启用嗅探器
   # 开启后对 redir-host 类型识别的流量进行强制嗅探
@@ -331,11 +334,11 @@ sniffer:
     - +.v2ex.com
   # 跳过嗅探的域名黑名单
   skip-domain:
-    - "Mijia Cloud"
-    - "+.push.apple.com"
+    - 'Mijia Cloud'
+    - '+.push.apple.com'
 
 # ========================
-# TUN 模块
+# MARK: TUN 模块
 # ========================
 tun:
   # 如果需要启用 TUN 模式，请设置为 true
@@ -355,7 +358,7 @@ profile:
   store-fake-ip: true
 
 # ========================
-# 锚点
+# MARK: 锚点
 # ========================
 Anchors:
   # [url-test | fallback | load-balance]策略组测速间隔（秒）
@@ -375,32 +378,55 @@ Anchors:
   # 健康检查间隔（秒）
   HealthCheckInterval: &HealthCheckInterval 6
   # 策略组 [url-test每 ProxyTestUrl 秒一次惰性测速检查，容差 TestTolerance 毫秒，时延超过 TestTimeout 毫秒判定为失败，失败 TestMaxFailedTimes 次则自动触发健康检查]
-  UrlTest: &UrlTest {type: url-test, url: *ProxyTestUrl, interval: *TestInterval, tolerance: *TestTolerance, lazy: true, timeout: *TestTimeout, max-failed-times: *TestMaxFailedTimes, include-all: false, use: []}
+  UrlTest:
+    &UrlTest {
+      type: url-test,
+      url: *ProxyTestUrl,
+      interval: *TestInterval,
+      tolerance: *TestTolerance,
+      lazy: true,
+      timeout: *TestTimeout,
+      max-failed-times: *TestMaxFailedTimes,
+      include-all: false,
+      use: []
+    }
   # 策略组 [fallback每 TestInterval 秒一次惰性测速检查，容差 TestTolerance 毫秒，时延超过 TestTimeout 毫秒判定为失败，失败 TestMaxFailedTimes 次则自动触发健康检查]
-  FallBack: &FallBack {type: fallback, url: *ProxyTestUrl, interval: *TestInterval, tolerance: *TestTolerance, lazy: true, timeout: *TestTimeout, max-failed-times: *TestMaxFailedTimes, include-all: false, use: []}
+  FallBack:
+    &FallBack {
+      type: fallback,
+      url: *ProxyTestUrl,
+      interval: *TestInterval,
+      tolerance: *TestTolerance,
+      lazy: true,
+      timeout: *TestTimeout,
+      max-failed-times: *TestMaxFailedTimes,
+      include-all: false,
+      use: []
+    }
   # 规则集 [每 UpdateInterval 秒更新一次订阅规则]
-  RuleProviders: &RuleProviders {type: http, behavior: domain, interval: *UpdateInterval}
+  RuleProviders: &RuleProviders { type: http, behavior: domain, interval: *UpdateInterval }
   # 代理集 [每 UpdateInterval 秒更新一次订阅节点，每 HealthCheckInterval 秒一次健康检查]
-  ProxyProviders: &ProxyProviders {type: http, interval: *UpdateInterval, health-check: {enable: true, url: *InternetTestUrl, interval: *HealthCheckInterval}}
+  ProxyProviders: &ProxyProviders { type: http, interval: *UpdateInterval, health-check: { enable: true, url: *InternetTestUrl, interval: *HealthCheckInterval } }
   # 正则筛选（正则中避免出现中文、emoji，会不兼容）
   Filters:
-    FilterHK: &FilterHK ^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-    FilterTW: &FilterTW ^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-    FilterJP: &FilterJP ^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-    FilterKR: &FilterKR ^(?=.*((?i)🇰🇷|韩国|韓|南朝鲜|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-    FilterSG: &FilterSG ^(?=.*((?i)🇸🇬|新加坡|星洲|狮城|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-    FilterUS: &FilterUS ^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-    FilterUK: &FilterUK ^(?=.*((?i)🇬🇧|英国|伦敦|英|(\b(GB|UK|England|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-    FilterFR: &FilterFR ^(?=.*((?i)🇫🇷|法国|法兰西|巴黎|法|(\b(FR|France)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-    FilterDE: &FilterDE ^(?=.*((?i)🇩🇪|德国|德意志|柏林|德|(\b(DE|GER|Germany)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-    FilterIT: &FilterIT ^(?=.*((?i)🇮🇹|意大利|罗马|意|(\b(IT|Italy)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-    FilterNL: &FilterNL ^(?=.*((?i)🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|(\b(NL|Holland)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-    FilterLU: &FilterLU ^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-    FilterGlobal: &FilterGlobal ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
-    FilterGame: &FilterGame ^(?=.*((?i)游戏|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$
-    FilterUsed: &FilterUsed ^(?=.*((?i)获取|订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    Filter_Region_HK: &Filter_Region_HK ^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    Filter_Region_TW: &Filter_Region_TW ^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    Filter_Region_JP: &Filter_Region_JP ^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    Filter_Region_KR: &Filter_Region_KR ^(?=.*((?i)🇰🇷|韩国|韓|南朝鲜|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    Filter_Region_SG: &Filter_Region_SG ^(?=.*((?i)🇸🇬|新加坡|星洲|狮城|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    Filter_Region_US: &Filter_Region_US ^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    Filter_Region_UK: &Filter_Region_UK ^(?=.*((?i)🇬🇧|英国|伦敦|英|(\b(GB|UK|England|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    Filter_Region_FR: &Filter_Region_FR ^(?=.*((?i)🇫🇷|法国|法兰西|巴黎|法|(\b(FR|France)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    Filter_Region_DE: &Filter_Region_DE ^(?=.*((?i)🇩🇪|德国|德意志|柏林|德|(\b(DE|GER|Germany)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    Filter_Region_IT: &Filter_Region_IT ^(?=.*((?i)🇮🇹|意大利|罗马|意|(\b(IT|Italy)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    Filter_Region_NL: &Filter_Region_NL ^(?=.*((?i)🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|(\b(NL|Holland)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    Filter_Region_LU: &Filter_Region_LU ^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    Filter_Global: &Filter_Global ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+    Filter_Game: &Filter_Game ^(?=.*((?i)游戏|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$
+    Filter_Used: &Filter_Used ^(?=.*((?i)获取|订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+
 # ========================
-# 代理集
+# MARK: 代理集
 # ========================
 proxy-providers:
   # [订阅名称]:
@@ -414,121 +440,123 @@ proxy-providers:
   #     interval: 600
 
 # ========================
-# 策略组
+# MARK: 策略组
 # ========================
 proxy-groups:
   - name: 🚀节点选择
     type: select
-    proxies: [♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
+    proxies: [♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
   - name: ⚠️流量用量
     type: select
     include-all: true
-    filter: *FilterUsed
+    filter: *Filter_Used
   - name: 🚀手动切换
     type: select
-    proxies: [🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP,🎯全球直连]
+    proxies: [🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP, 🎯全球直连]
   - <<: *UrlTest
     name: ♻️自动选择
     include-all: true
-    filter: *FilterGlobal
+    filter: *Filter_Global
   - name: 🎯全球直连
     type: select
     proxies: [DIRECT]
   - name: 🛑全球拦截
     type: select
-    proxies: [REJECT,DIRECT]
-  # 专属策略组
-  - name: 💬AI
-    type: select
-    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
-  - name: 🍎Apple
-    type: select
-    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
-  - name: Ⓜ️Bing
-    type: select
-    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
-  - name: 🐭Disney
-    type: select
-    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
-  - name: 📢GoogleFCM
-    type: select
-    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
-  - name: Ⓜ️Microsoft
-    type: select
-    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
-  - name: 🎥Netflix
-    type: select
-    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
-  - name: Ⓜ️OneDrive
-    type: select
-    proxies: [🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
-  - name: 📲Telegram
-    type: select
-    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
-  - name: 🎬YouTube
-    type: select
-    proxies: [🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP]
-  - name: 🎮游戏节点
-    type: select
-    include-all: true
-    filter: *FilterGame
-  # 兜底策略
+    proxies: [REJECT, DIRECT]
   - <<: *FallBack
     name: 🛠️故障转移
     type: fallback
-    proxies: [🚀节点选择]
+    proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连]
+  - name: 🐟漏网之鱼
+    type: select
+    proxies: [🛠️故障转移, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连]
+  # 专属策略组
+  - name: 💬AI
+    type: select
+    proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
+  - name: 🍎Apple
+    type: select
+    proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
+  - name: Ⓜ️Bing
+    type: select
+    proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
+  - name: 🐭Disney
+    type: select
+    proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
+  - name: 📢GoogleFCM
+    type: select
+    proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
+  - name: Ⓜ️Microsoft
+    type: select
+    proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
+  - name: 🎥Netflix
+    type: select
+    proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
+  - name: Ⓜ️OneDrive
+    type: select
+    proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
+  - name: 📲Telegram
+    type: select
+    proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
+  - name: 🎬YouTube
+    type: select
+    proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
+  - name: 🎮游戏节点
+    type: select
+    include-all: true
+    filter: *Filter_Game
   # 延迟优先策略组 Low Latency Preference
   - <<: *UrlTest
     name: 🇭🇰香港LLP
     include-all: true
-    filter: *FilterHK
+    filter: *Filter_Region_HK
   - <<: *UrlTest
     name: 🇨🇳台湾LLP
     include-all: true
-    filter: *FilterTW
+    filter: *Filter_Region_TW
   - <<: *UrlTest
     name: 🇯🇵日本LLP
     include-all: true
-    filter: *FilterJP
+    filter: *Filter_Region_JP
   - <<: *UrlTest
     name: 🇰🇷韩国LLP
     include-all: true
-    filter: *FilterKR
+    filter: *Filter_Region_KR
   - <<: *UrlTest
     name: 🇸🇬星洲LLP
     include-all: true
-    filter: *FilterSG
+    filter: *Filter_Region_SG
   - <<: *UrlTest
     name: 🇺🇸美国LLP
     include-all: true
-    filter: *FilterUS
+    filter: *Filter_Region_US
   - <<: *UrlTest
     name: 🇬🇧英国LLP
     include-all: true
-    filter: *FilterUK
+    filter: *Filter_Region_UK
   - <<: *UrlTest
     name: 🇫🇷法国LLP
     include-all: true
-    filter: *FilterFR
+    filter: *Filter_Region_FR
   - <<: *UrlTest
     name: 🇩🇪德国LLP
     include-all: true
-    filter: *FilterDE
+    filter: *Filter_Region_DE
   - <<: *UrlTest
     name: 🇮🇹意大利LLP
     include-all: true
-    filter: *FilterIT
+    filter: *Filter_Region_IT
   - <<: *UrlTest
     name: 🇳🇱荷兰LLP
     include-all: true
-    filter: *FilterNL
+    filter: *Filter_Region_NL
   - <<: *UrlTest
     name: 🇱🇺卢森堡LLP
     include-all: true
-    filter: *FilterLU
+    filter: *Filter_Region_LU
 
 # ========================
-# 规则集
+# MARK: 规则集
 # ========================
 rule-providers:
   360:
@@ -563,18 +591,6 @@ rule-providers:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Bing.yaml
     path: ./ruleset/Bing.yaml
-  Camera360:
-    <<: *RuleProviders
-    url: https://rule.kelee.one/Clash/Camera360.yaml
-    path: ./ruleset/Camera360.yaml
-  China:
-    <<: *RuleProviders
-    url: https://rule.kelee.one/Clash/China.yaml
-    path: ./ruleset/China.yaml
-  ChinaDNS:
-    <<: *RuleProviders
-    url: https://rule.kelee.one/Clash/ChinaDNS.yaml
-    path: ./ruleset/ChinaDNS.yaml
   Copilot:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Copilot.yaml
@@ -607,14 +623,6 @@ rule-providers:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Instagram.yaml
     path: ./ruleset/Instagram.yaml
-  Lan:
-    <<: *RuleProviders
-    url: https://rule.kelee.one/Clash/Lan.yaml
-    path: ./ruleset/Lan.yaml
-  LAN_SPLITTER:
-    <<: *RuleProviders
-    url: https://kelee.one/Tool/Clash/Rule/LAN_SPLITTER.yaml
-    path: ./ruleset/LAN_SPLITTER.yaml
   Microsoft:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Microsoft.yaml
@@ -635,10 +643,6 @@ rule-providers:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Pixiv.yaml
     path: ./ruleset/Pixiv.yaml
-  REGION_SPLITTER:
-    <<: *RuleProviders
-    url: https://kelee.one/Tool/Clash/Rule/REGION_SPLITTER.yaml
-    path: ./ruleset/REGION_SPLITTER.yaml
   Spotify:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Spotify.yaml
@@ -671,11 +675,56 @@ rule-providers:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/YouTubeMusic.yaml
     path: ./ruleset/YouTubeMusic.yaml
+  Direct:
+    <<: *RuleProviders
+    url: https://rule.kelee.one/Clash/Direct.yaml
+    path: ./ruleset/Direct.yaml
+  Proxy:
+    <<: *RuleProviders
+    url: https://rule.kelee.one/Clash/Proxy.yaml
+    path: ./ruleset/Proxy.yaml
+  Download:
+    <<: *RuleProviders
+    url: https://rule.kelee.one/Clash/Download.yaml
+    path: ./ruleset/Download.yaml
+  Advertising:
+    <<: *RuleProviders
+    url: https://rule.kelee.one/Clash/Advertising.yaml
+    path: ./ruleset/Advertising.yaml
+  China:
+    <<: *RuleProviders
+    url: https://rule.kelee.one/Clash/China.yaml
+    path: ./ruleset/China.yaml
+  ChinaDNS:
+    <<: *RuleProviders
+    url: https://rule.kelee.one/Clash/ChinaDNS.yaml
+    path: ./ruleset/ChinaDNS.yaml
+  ChinaMedia:
+    <<: *RuleProviders
+    url: https://rule.kelee.one/Clash/ChinaMedia.yaml
+    path: ./ruleset/ChinaMedia.yaml
+  ChinaDownloadCDN:
+    <<: *RuleProviders
+    url: 'https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml'
+    path: './ruleset/ChinaDownloadCDN.yaml'
+  Lan:
+    <<: *RuleProviders
+    url: https://rule.kelee.one/Clash/Lan.yaml
+    path: ./ruleset/Lan.yaml
+  LAN:
+    <<: *RuleProviders
+    url: https://kelee.one/Tool/Clash/Rule/LAN_SPLITTER.yaml
+    path: ./ruleset/LAN_SPLITTER.yaml
+  CN REGION:
+    <<: *RuleProviders
+    url: https://kelee.one/Tool/Clash/Rule/REGION_SPLITTER.yaml
+    path: ./ruleset/REGION_SPLITTER.yaml
 
 # ========================
-# 规则匹配
+# MARK: 规则匹配
 # ========================
 rules:
+  # 普通规则
   - RULE-SET,360,🎯全球直连
   - RULE-SET,AI,💬AI
   - RULE-SET,Alibaba,🎯全球直连
@@ -684,9 +733,6 @@ rules:
   - RULE-SET,AppleMusic,🍎Apple
   - RULE-SET,AppleProxy,🍎Apple
   - RULE-SET,Bing,Ⓜ️Bing
-  - RULE-SET,Camera360,🎯全球直连
-  - RULE-SET,China,🎯全球直连
-  - RULE-SET,ChinaDNS,🎯全球直连
   - RULE-SET,Copilot,💬AI
   - RULE-SET,Disney,🐭Disney
   - RULE-SET,Facebook,🚀节点选择
@@ -695,14 +741,11 @@ rules:
   - RULE-SET,Google,🚀节点选择
   - RULE-SET,GoogleFCM,📢GoogleFCM
   - RULE-SET,Instagram,🚀节点选择
-  - RULE-SET,Lan,🎯全球直连
-  - RULE-SET,LAN_SPLITTER,🎯全球直连
   - RULE-SET,Microsoft,Ⓜ️Microsoft
   - RULE-SET,Netflix,🎥Netflix
   - RULE-SET,OneDrive,Ⓜ️OneDrive
   - RULE-SET,OpenAI,💬AI
   - RULE-SET,Pixiv,🚀节点选择
-  - RULE-SET,REGION_SPLITTER,🎯全球直连
   - RULE-SET,Spotify,🚀节点选择
   - RULE-SET,Telegram,📲Telegram
   - RULE-SET,Tencent,🎯全球直连
@@ -711,5 +754,18 @@ rules:
   - RULE-SET,Twitter,🚀节点选择
   - RULE-SET,YouTube,🎬YouTube
   - RULE-SET,YouTubeMusic,🚀节点选择
+  - RULE-SET,Direct,🎯全球直连
+  - RULE-SET,Proxy,🚀节点选择
+  - RULE-SET,Download,🎯全球直连
+  - RULE-SET,Advertising,🛑全球拦截
+  - RULE-SET,China,🎯全球直连
+  - RULE-SET,ChinaDNS,🎯全球直连
+  - RULE-SET,ChinaMedia,🎯全球直连
+  - RULE-SET,ChinaDownloadCDN,🎯全球直连
+  - RULE-SET,Lan,🎯全球直连
+  - RULE-SET,LAN,🎯全球直连
+  - RULE-SET,CN REGION,🎯全球直连
+  - GEOIP,LAN,🎯全球直连
   - GEOIP,CN,🎯全球直连
-  - MATCH,🛠️故障转移
+  # 兜底规则
+  - MATCH,🐟漏网之鱼
