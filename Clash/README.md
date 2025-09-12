@@ -1,5 +1,9 @@
 # Clash
 
+## 配置项 Wiki
+
+[https://clash.wiki/configuration/configuration-reference.html](https://clash.wiki/configuration/configuration-reference.html)
+
 ## 分流规则
 
 ### 推荐配置
