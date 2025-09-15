@@ -443,282 +443,195 @@ proxy-providers:
 # MARK: 策略组
 # ========================
 proxy-groups:
-  - name: 🚀节点选择
-    type: select
-    proxies: [♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
-  - name: ⚠️流量用量
-    type: select
-    include-all: true
-    filter: *Filter_Used
-  - name: 🚀手动切换
-    type: select
-    proxies: [🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP, 🎯全球直连]
-  - <<: *UrlTest
-    name: ♻️自动选择
-    include-all: true
-    filter: *Filter_Global
-  - name: 🎯全球直连
-    type: select
-    proxies: [DIRECT]
-  - name: 🛑全球拦截
-    type: select
-    proxies: [REJECT, DIRECT]
-  - <<: *FallBack
-    name: 🛠️故障转移
-    type: fallback
-    proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连]
-  - name: 🐟漏网之鱼
-    type: select
-    proxies: [🛠️故障转移, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连]
+  - {name: 🚀节点选择, type: select, proxies: [♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
+  - {name: ⚠️流量用量, type: select, include-all: true, filter: *Filter_Used}
+  - {name: 🚀手动切换, type: select, proxies: [🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP, 🎯全球直连]}
+  - {name: ♻️自动选择, <<: *UrlTest, include-all: true, filter: *Filter_Global}
+  - {name: 🎯全球直连, type: select, proxies: [DIRECT]}
+  - {name: 🛑全球拦截, type: select, proxies: [REJECT, DIRECT]}
+  - {name: 🛠️故障转移, <<: *FallBack, type: fallback, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连]}
+  - {name: 🐟漏网之鱼, type: select, proxies: [🛠️故障转移, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连]}
   # 专属策略组
-  - name: 💬AI
-    type: select
-    proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
-  - name: 🍎Apple
-    type: select
-    proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
-  - name: Ⓜ️Bing
-    type: select
-    proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
-  - name: 🐭Disney
-    type: select
-    proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
-  - name: 📢Google
-    type: select
-    proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
-  - name: Ⓜ️Microsoft
-    type: select
-    proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
-  - name: 🎥Netflix
-    type: select
-    proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
-  - name: Ⓜ️OneDrive
-    type: select
-    proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
-  - name: 📲Telegram
-    type: select
-    proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
-  - name: 🎬YouTube
-    type: select
-    proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
-  - name: 🎮游戏节点
-    type: select
-    include-all: true
-    filter: *Filter_Game
+  - {name: 💬AI, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
+  - {name: 🍎Apple, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
+  - {name: Ⓜ️Bing, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
+  - {name: 🐭Disney, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
+  - {name: 📢Google, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
+  - {name: Ⓜ️Microsoft, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
+  - {name: 🎥Netflix, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
+  - {name: Ⓜ️OneDrive, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
+  - {name: 📲Telegram, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
+  - {name: 🎬YouTube, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
+  - {name: 🎮游戏节点, type: select, include-all: true, filter: *Filter_Game}
   # 延迟优先策略组 Low Latency Preference
-  - <<: *UrlTest
-    name: 🇭🇰香港LLP
-    include-all: true
-    filter: *Filter_Region_HK
-  - <<: *UrlTest
-    name: 🇨🇳台湾LLP
-    include-all: true
-    filter: *Filter_Region_TW
-  - <<: *UrlTest
-    name: 🇯🇵日本LLP
-    include-all: true
-    filter: *Filter_Region_JP
-  - <<: *UrlTest
-    name: 🇰🇷韩国LLP
-    include-all: true
-    filter: *Filter_Region_KR
-  - <<: *UrlTest
-    name: 🇸🇬星洲LLP
-    include-all: true
-    filter: *Filter_Region_SG
-  - <<: *UrlTest
-    name: 🇺🇸美国LLP
-    include-all: true
-    filter: *Filter_Region_US
-  - <<: *UrlTest
-    name: 🇬🇧英国LLP
-    include-all: true
-    filter: *Filter_Region_UK
-  - <<: *UrlTest
-    name: 🇫🇷法国LLP
-    include-all: true
-    filter: *Filter_Region_FR
-  - <<: *UrlTest
-    name: 🇩🇪德国LLP
-    include-all: true
-    filter: *Filter_Region_DE
-  - <<: *UrlTest
-    name: 🇮🇹意大利LLP
-    include-all: true
-    filter: *Filter_Region_IT
-  - <<: *UrlTest
-    name: 🇳🇱荷兰LLP
-    include-all: true
-    filter: *Filter_Region_NL
-  - <<: *UrlTest
-    name: 🇱🇺卢森堡LLP
-    include-all: true
-    filter: *Filter_Region_LU
+  - {name: 🇭🇰香港LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_HK}
+  - {name: 🇨🇳台湾LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_TW}
+  - {name: 🇯🇵日本LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_JP}
+  - {name: 🇰🇷韩国LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_KR}
+  - {name: 🇸🇬星洲LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_SG}
+  - {name: 🇺🇸美国LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_US}
+  - {name: 🇬🇧英国LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_UK}
+  - {name: 🇫🇷法国LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_FR}
+  - {name: 🇩🇪德国LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_DE}
+  - {name: 🇮🇹意大利LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_IT}
+  - {name: 🇳🇱荷兰LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_NL}
+  - {name: 🇱🇺卢森堡LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_LU}
 
 # ========================
 # MARK: 规则集
 # ========================
 rule-providers:
-  AI:
-    <<: *RuleProviders
-    url: https://kelee.one/Tool/Clash/Rule/AI.yaml
-    path: ./ruleset/AI.yaml
-  Apple:
-    <<: *RuleProviders
-    url: https://rule.kelee.one/Clash/Apple.yaml
-    path: ./ruleset/Apple.yaml
-  AppleID:
-    <<: *RuleProviders
-    url: https://rule.kelee.one/Clash/AppleID.yaml
-    path: ./ruleset/AppleID.yaml
+  AI: {url: https://kelee.one/Tool/Clash/Rule/AI.yaml, path: ./ruleset/AI.yaml, <<: *RuleProviders}
+  Apple: {url: https://rule.kelee.one/Clash/Apple.yaml, path: ./ruleset/Apple.yaml, <<: *RuleProviders}
+  AppleID: {url: https://rule.kelee.one/Clash/AppleID.yaml, path: ./ruleset/AppleID.yaml, <<: *RuleProviders}
   AppleMusic:
-    <<: *RuleProviders
     url: https://rule.kelee.one/Clash/AppleMusic.yaml
     path: ./ruleset/AppleMusic.yaml
-  AppleProxy:
     <<: *RuleProviders
+  AppleProxy:
     url: https://rule.kelee.one/Clash/AppleProxy.yaml
     path: ./ruleset/AppleProxy.yaml
-  Bing:
     <<: *RuleProviders
+  Bing:
     url: https://rule.kelee.one/Clash/Bing.yaml
     path: ./ruleset/Bing.yaml
-  Copilot:
     <<: *RuleProviders
+  Copilot:
     url: https://rule.kelee.one/Clash/Copilot.yaml
     path: ./ruleset/Copilot.yaml
-  Disney:
     <<: *RuleProviders
+  Disney:
     url: https://rule.kelee.one/Clash/Disney.yaml
     path: ./ruleset/Disney.yaml
-  Facebook:
     <<: *RuleProviders
+  Facebook:
     url: https://rule.kelee.one/Clash/Facebook.yaml
     path: ./ruleset/Facebook.yaml
-  Gemini:
     <<: *RuleProviders
+  Gemini:
     url: https://rule.kelee.one/Clash/Gemini.yaml
     path: ./ruleset/Gemini.yaml
-  GitHub:
     <<: *RuleProviders
+  GitHub:
     url: https://rule.kelee.one/Clash/GitHub.yaml
     path: ./ruleset/GitHub.yaml
-  Google:
     <<: *RuleProviders
+  Google:
     url: https://rule.kelee.one/Clash/Google.yaml
     path: ./ruleset/Google.yaml
-  GoogleDrive:
     <<: *RuleProviders
+  GoogleDrive:
     url: https://rule.kelee.one/Clash/GoogleDrive.yaml
     path: ./ruleset/GoogleDrive.yaml
-  GoogleEarth:
     <<: *RuleProviders
+  GoogleEarth:
     url: https://rule.kelee.one/Clash/GoogleEarth.yaml
     path: ./ruleset/GoogleEarth.yaml
-  GoogleFCM:
     <<: *RuleProviders
+  GoogleFCM:
     url: https://rule.kelee.one/Clash/GoogleFCM.yaml
     path: ./ruleset/GoogleFCM.yaml
-  GoogleSearch:
     <<: *RuleProviders
+  GoogleSearch:
     url: https://rule.kelee.one/Clash/GoogleSearch.yaml
     path: ./ruleset/GoogleSearch.yaml
-  GoogleVoice:
     <<: *RuleProviders
+  GoogleVoice:
     url: https://rule.kelee.one/Clash/GoogleVoice.yaml
     path: ./ruleset/GoogleVoice.yaml
-  Instagram:
     <<: *RuleProviders
+  Instagram:
     url: https://rule.kelee.one/Clash/Instagram.yaml
     path: ./ruleset/Instagram.yaml
-  Microsoft:
     <<: *RuleProviders
+  Microsoft:
     url: https://rule.kelee.one/Clash/Microsoft.yaml
     path: ./ruleset/Microsoft.yaml
-  Netflix:
     <<: *RuleProviders
+  Netflix:
     url: https://rule.kelee.one/Clash/Netflix.yaml
     path: ./ruleset/Netflix.yaml
-  OneDrive:
     <<: *RuleProviders
+  OneDrive:
     url: https://rule.kelee.one/Clash/OneDrive.yaml
     path: ./ruleset/OneDrive.yaml
-  OpenAI:
     <<: *RuleProviders
+  OpenAI:
     url: https://rule.kelee.one/Clash/OpenAI.yaml
     path: ./ruleset/OpenAI.yaml
-  Pixiv:
     <<: *RuleProviders
+  Pixiv:
     url: https://rule.kelee.one/Clash/Pixiv.yaml
     path: ./ruleset/Pixiv.yaml
-  Spotify:
     <<: *RuleProviders
+  Spotify:
     url: https://rule.kelee.one/Clash/Spotify.yaml
     path: ./ruleset/Spotify.yaml
-  Telegram:
     <<: *RuleProviders
+  Telegram:
     url: https://rule.kelee.one/Clash/Telegram.yaml
     path: ./ruleset/Telegram.yaml
-  TikTok:
     <<: *RuleProviders
+  TikTok:
     url: https://rule.kelee.one/Clash/TikTok.yaml
     path: ./ruleset/TikTok.yaml
-  Twitter:
     <<: *RuleProviders
+  Twitter:
     url: https://rule.kelee.one/Clash/Twitter.yaml
     path: ./ruleset/Twitter.yaml
-  YouTube:
     <<: *RuleProviders
+  YouTube:
     url: https://rule.kelee.one/Clash/YouTube.yaml
     path: ./ruleset/YouTube.yaml
-  YouTubeMusic:
     <<: *RuleProviders
+  YouTubeMusic:
     url: https://rule.kelee.one/Clash/YouTubeMusic.yaml
     path: ./ruleset/YouTubeMusic.yaml
-  Direct:
     <<: *RuleProviders
+  Direct:
     url: https://rule.kelee.one/Clash/Direct.yaml
     path: ./ruleset/Direct.yaml
-  Proxy:
     <<: *RuleProviders
+  Proxy:
     url: https://rule.kelee.one/Clash/Proxy.yaml
     path: ./ruleset/Proxy.yaml
-  Download:
     <<: *RuleProviders
+  Download:
     url: https://rule.kelee.one/Clash/Download.yaml
     path: ./ruleset/Download.yaml
-  Advertising:
     <<: *RuleProviders
+  Advertising:
     url: https://rule.kelee.one/Clash/Advertising.yaml
     path: ./ruleset/Advertising.yaml
-  China:
     <<: *RuleProviders
+  China:
     url: https://rule.kelee.one/Clash/China.yaml
     path: ./ruleset/China.yaml
-  ChinaDNS:
     <<: *RuleProviders
+  ChinaDNS:
     url: https://rule.kelee.one/Clash/ChinaDNS.yaml
     path: ./ruleset/ChinaDNS.yaml
-  ChinaMedia:
     <<: *RuleProviders
+  ChinaMedia:
     url: https://rule.kelee.one/Clash/ChinaMedia.yaml
     path: ./ruleset/ChinaMedia.yaml
-  ChinaDownloadCDN:
     <<: *RuleProviders
+  ChinaDownloadCDN:
     url: https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml
     path: ./ruleset/ChinaDownloadCDN.yaml
-  Lan:
     <<: *RuleProviders
+  Lan:
     url: https://rule.kelee.one/Clash/Lan.yaml
     path: ./ruleset/Lan.yaml
-  LAN:
     <<: *RuleProviders
+  LAN:
     url: https://kelee.one/Tool/Clash/Rule/LAN_SPLITTER.yaml
     path: ./ruleset/LAN_SPLITTER.yaml
-  CN REGION:
     <<: *RuleProviders
+  CN REGION:
     url: https://kelee.one/Tool/Clash/Rule/REGION_SPLITTER.yaml
     path: ./ruleset/REGION_SPLITTER.yaml
+    <<: *RuleProviders
 
 # ========================
 # MARK: 规则匹配
