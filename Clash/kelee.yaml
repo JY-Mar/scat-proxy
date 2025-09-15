@@ -483,7 +483,7 @@ proxy-groups:
   - name: 🐭Disney
     type: select
     proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
-  - name: 📢GoogleFCM
+  - name: 📢Google
     type: select
     proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]
   - name: Ⓜ️Microsoft
@@ -607,10 +607,26 @@ rule-providers:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Google.yaml
     path: ./ruleset/Google.yaml
+  GoogleDrive:
+    <<: *RuleProviders
+    url: https://rule.kelee.one/Clash/GoogleDrive.yaml
+    path: ./ruleset/GoogleDrive.yaml
+  GoogleEarth:
+    <<: *RuleProviders
+    url: https://rule.kelee.one/Clash/GoogleEarth.yaml
+    path: ./ruleset/GoogleEarth.yaml
   GoogleFCM:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/GoogleFCM.yaml
     path: ./ruleset/GoogleFCM.yaml
+  GoogleSearch:
+    <<: *RuleProviders
+    url: https://rule.kelee.one/Clash/GoogleSearch.yaml
+    path: ./ruleset/GoogleSearch.yaml
+  GoogleVoice:
+    <<: *RuleProviders
+    url: https://rule.kelee.one/Clash/GoogleVoice.yaml
+    path: ./ruleset/GoogleVoice.yaml
   Instagram:
     <<: *RuleProviders
     url: https://rule.kelee.one/Clash/Instagram.yaml
@@ -720,8 +736,12 @@ rules:
   - RULE-SET,Facebook,🚀节点选择
   - RULE-SET,Gemini,💬AI
   - RULE-SET,GitHub,🚀节点选择
-  - RULE-SET,Google,🚀节点选择
-  - RULE-SET,GoogleFCM,📢GoogleFCM
+  - RULE-SET,Google,📢Google
+  - RULE-SET,GoogleDrive,📢Google
+  - RULE-SET,GoogleEarth,📢Google
+  - RULE-SET,GoogleFCM,📢Google
+  - RULE-SET,GoogleSearch,📢Google
+  - RULE-SET,GoogleVoice,📢Google
   - RULE-SET,Instagram,🚀节点选择
   - RULE-SET,Microsoft,Ⓜ️Microsoft
   - RULE-SET,Netflix,🎥Netflix
