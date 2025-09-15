@@ -344,7 +344,7 @@ tun:
   # 如果需要启用 TUN 模式，请设置为 true
   enable: true
   # system 或 gvisor
-  stack: gvisor
+  stack: system
   endpoint-independent-nat: true
   auto-route: true
   auto-redirect: true
@@ -404,7 +404,7 @@ Anchors:
       use: []
     }
   # 规则集 [每 UpdateInterval 秒更新一次订阅规则]
-  RuleProviders: &RuleProviders { type: http, behavior: domain, interval: *UpdateInterval }
+  RuleProviders: &RuleProviders { type: http, behavior: classical, interval: *UpdateInterval }
   # 代理集 [每 UpdateInterval 秒更新一次订阅节点，每 HealthCheckInterval 秒一次健康检查]
   ProxyProviders: &ProxyProviders { type: http, interval: *UpdateInterval, health-check: { enable: true, url: *InternetTestUrl, interval: *HealthCheckInterval } }
   # 正则筛选（正则中避免出现中文、emoji，会不兼容）
