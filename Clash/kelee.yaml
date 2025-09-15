@@ -481,196 +481,105 @@ proxy-groups:
 # MARK: 规则集
 # ========================
 rule-providers:
+  # === AI ===
   AI: {url: https://kelee.one/Tool/Clash/Rule/AI.yaml, path: ./ruleset/AI.yaml, <<: *RuleProviders}
+  Copilot: {url: https://rule.kelee.one/Clash/Copilot.yaml, path: ./ruleset/Copilot.yaml, <<: *RuleProviders}
+  Gemini: {url: https://rule.kelee.one/Clash/Gemini.yaml, path: ./ruleset/Gemini.yaml, <<: *RuleProviders}
+  OpenAI: {url: https://rule.kelee.one/Clash/OpenAI.yaml, path: ./ruleset/OpenAI.yaml, <<: *RuleProviders}
+  # === Apple ===
   Apple: {url: https://rule.kelee.one/Clash/Apple.yaml, path: ./ruleset/Apple.yaml, <<: *RuleProviders}
   AppleID: {url: https://rule.kelee.one/Clash/AppleID.yaml, path: ./ruleset/AppleID.yaml, <<: *RuleProviders}
-  AppleMusic:
-    url: https://rule.kelee.one/Clash/AppleMusic.yaml
-    path: ./ruleset/AppleMusic.yaml
-    <<: *RuleProviders
-  AppleProxy:
-    url: https://rule.kelee.one/Clash/AppleProxy.yaml
-    path: ./ruleset/AppleProxy.yaml
-    <<: *RuleProviders
-  Bing:
-    url: https://rule.kelee.one/Clash/Bing.yaml
-    path: ./ruleset/Bing.yaml
-    <<: *RuleProviders
-  Copilot:
-    url: https://rule.kelee.one/Clash/Copilot.yaml
-    path: ./ruleset/Copilot.yaml
-    <<: *RuleProviders
-  Disney:
-    url: https://rule.kelee.one/Clash/Disney.yaml
-    path: ./ruleset/Disney.yaml
-    <<: *RuleProviders
-  Facebook:
-    url: https://rule.kelee.one/Clash/Facebook.yaml
-    path: ./ruleset/Facebook.yaml
-    <<: *RuleProviders
-  Gemini:
-    url: https://rule.kelee.one/Clash/Gemini.yaml
-    path: ./ruleset/Gemini.yaml
-    <<: *RuleProviders
-  GitHub:
-    url: https://rule.kelee.one/Clash/GitHub.yaml
-    path: ./ruleset/GitHub.yaml
-    <<: *RuleProviders
-  Google:
-    url: https://rule.kelee.one/Clash/Google.yaml
-    path: ./ruleset/Google.yaml
-    <<: *RuleProviders
-  GoogleDrive:
-    url: https://rule.kelee.one/Clash/GoogleDrive.yaml
-    path: ./ruleset/GoogleDrive.yaml
-    <<: *RuleProviders
-  GoogleEarth:
-    url: https://rule.kelee.one/Clash/GoogleEarth.yaml
-    path: ./ruleset/GoogleEarth.yaml
-    <<: *RuleProviders
-  GoogleFCM:
-    url: https://rule.kelee.one/Clash/GoogleFCM.yaml
-    path: ./ruleset/GoogleFCM.yaml
-    <<: *RuleProviders
-  GoogleSearch:
-    url: https://rule.kelee.one/Clash/GoogleSearch.yaml
-    path: ./ruleset/GoogleSearch.yaml
-    <<: *RuleProviders
-  GoogleVoice:
-    url: https://rule.kelee.one/Clash/GoogleVoice.yaml
-    path: ./ruleset/GoogleVoice.yaml
-    <<: *RuleProviders
-  Instagram:
-    url: https://rule.kelee.one/Clash/Instagram.yaml
-    path: ./ruleset/Instagram.yaml
-    <<: *RuleProviders
-  Microsoft:
-    url: https://rule.kelee.one/Clash/Microsoft.yaml
-    path: ./ruleset/Microsoft.yaml
-    <<: *RuleProviders
-  Netflix:
-    url: https://rule.kelee.one/Clash/Netflix.yaml
-    path: ./ruleset/Netflix.yaml
-    <<: *RuleProviders
-  OneDrive:
-    url: https://rule.kelee.one/Clash/OneDrive.yaml
-    path: ./ruleset/OneDrive.yaml
-    <<: *RuleProviders
-  OpenAI:
-    url: https://rule.kelee.one/Clash/OpenAI.yaml
-    path: ./ruleset/OpenAI.yaml
-    <<: *RuleProviders
-  Pixiv:
-    url: https://rule.kelee.one/Clash/Pixiv.yaml
-    path: ./ruleset/Pixiv.yaml
-    <<: *RuleProviders
-  Spotify:
-    url: https://rule.kelee.one/Clash/Spotify.yaml
-    path: ./ruleset/Spotify.yaml
-    <<: *RuleProviders
-  Telegram:
-    url: https://rule.kelee.one/Clash/Telegram.yaml
-    path: ./ruleset/Telegram.yaml
-    <<: *RuleProviders
-  TikTok:
-    url: https://rule.kelee.one/Clash/TikTok.yaml
-    path: ./ruleset/TikTok.yaml
-    <<: *RuleProviders
-  Twitter:
-    url: https://rule.kelee.one/Clash/Twitter.yaml
-    path: ./ruleset/Twitter.yaml
-    <<: *RuleProviders
-  YouTube:
-    url: https://rule.kelee.one/Clash/YouTube.yaml
-    path: ./ruleset/YouTube.yaml
-    <<: *RuleProviders
-  YouTubeMusic:
-    url: https://rule.kelee.one/Clash/YouTubeMusic.yaml
-    path: ./ruleset/YouTubeMusic.yaml
-    <<: *RuleProviders
-  Direct:
-    url: https://rule.kelee.one/Clash/Direct.yaml
-    path: ./ruleset/Direct.yaml
-    <<: *RuleProviders
-  Proxy:
-    url: https://rule.kelee.one/Clash/Proxy.yaml
-    path: ./ruleset/Proxy.yaml
-    <<: *RuleProviders
-  Download:
-    url: https://rule.kelee.one/Clash/Download.yaml
-    path: ./ruleset/Download.yaml
-    <<: *RuleProviders
-  Advertising:
-    url: https://rule.kelee.one/Clash/Advertising.yaml
-    path: ./ruleset/Advertising.yaml
-    <<: *RuleProviders
-  China:
-    url: https://rule.kelee.one/Clash/China.yaml
-    path: ./ruleset/China.yaml
-    <<: *RuleProviders
-  ChinaDNS:
-    url: https://rule.kelee.one/Clash/ChinaDNS.yaml
-    path: ./ruleset/ChinaDNS.yaml
-    <<: *RuleProviders
-  ChinaMedia:
-    url: https://rule.kelee.one/Clash/ChinaMedia.yaml
-    path: ./ruleset/ChinaMedia.yaml
-    <<: *RuleProviders
-  ChinaDownloadCDN:
-    url: https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml
-    path: ./ruleset/ChinaDownloadCDN.yaml
-    <<: *RuleProviders
-  Lan:
-    url: https://rule.kelee.one/Clash/Lan.yaml
-    path: ./ruleset/Lan.yaml
-    <<: *RuleProviders
-  LAN:
-    url: https://kelee.one/Tool/Clash/Rule/LAN_SPLITTER.yaml
-    path: ./ruleset/LAN_SPLITTER.yaml
-    <<: *RuleProviders
-  CN REGION:
-    url: https://kelee.one/Tool/Clash/Rule/REGION_SPLITTER.yaml
-    path: ./ruleset/REGION_SPLITTER.yaml
-    <<: *RuleProviders
+  AppleMusic: {url: https://rule.kelee.one/Clash/AppleMusic.yaml, path: ./ruleset/AppleMusic.yaml, <<: *RuleProviders}
+  AppleProxy: {url: https://rule.kelee.one/Clash/AppleProxy.yaml, path: ./ruleset/AppleProxy.yaml, <<: *RuleProviders}
+  # === Microsoft ===
+  Microsoft: {url: https://rule.kelee.one/Clash/Microsoft.yaml, path: ./ruleset/Microsoft.yaml, <<: *RuleProviders}
+  OneDrive: {url: https://rule.kelee.one/Clash/OneDrive.yaml, path: ./ruleset/OneDrive.yaml, <<: *RuleProviders}
+  Bing: {url: https://rule.kelee.one/Clash/Bing.yaml, path: ./ruleset/Bing.yaml, <<: *RuleProviders}
+  # === Google ===
+  Google: {url: https://rule.kelee.one/Clash/Google.yaml, path: ./ruleset/Google.yaml, <<: *RuleProviders}
+  GoogleDrive: {url: https://rule.kelee.one/Clash/GoogleDrive.yaml, path: ./ruleset/GoogleDrive.yaml, <<: *RuleProviders}
+  GoogleEarth: {url: https://rule.kelee.one/Clash/GoogleEarth.yaml, path: ./ruleset/GoogleEarth.yaml, <<: *RuleProviders}
+  GoogleFCM: {url: https://rule.kelee.one/Clash/GoogleFCM.yaml, path: ./ruleset/GoogleFCM.yaml, <<: *RuleProviders}
+  GoogleSearch: {url: https://rule.kelee.one/Clash/GoogleSearch.yaml, path: ./ruleset/GoogleSearch.yaml, <<: *RuleProviders}
+  GoogleVoice: {url: https://rule.kelee.one/Clash/GoogleVoice.yaml, path: ./ruleset/GoogleVoice.yaml, <<: *RuleProviders}
+  # === Media ===
+  Spotify: {url: https://rule.kelee.one/Clash/Spotify.yaml, path: ./ruleset/Spotify.yaml, <<: *RuleProviders}
+  YouTube: {url: https://rule.kelee.one/Clash/YouTube.yaml, path: ./ruleset/YouTube.yaml, <<: *RuleProviders}
+  YouTubeMusic: {url: https://rule.kelee.one/Clash/YouTubeMusic.yaml, path: ./ruleset/YouTubeMusic.yaml, <<: *RuleProviders}
+  Netflix: {url: https://rule.kelee.one/Clash/Netflix.yaml, path: ./ruleset/Netflix.yaml, <<: *RuleProviders}
+  Disney: {url: https://rule.kelee.one/Clash/Disney.yaml, path: ./ruleset/Disney.yaml, <<: *RuleProviders}
+  Pixiv: {url: https://rule.kelee.one/Clash/Pixiv.yaml, path: ./ruleset/Pixiv.yaml, <<: *RuleProviders}
+  # === Social ===
+  Facebook: {url: https://rule.kelee.one/Clash/Facebook.yaml, path: ./ruleset/Facebook.yaml, <<: *RuleProviders}
+  Instagram: {url: https://rule.kelee.one/Clash/Instagram.yaml, path: ./ruleset/Instagram.yaml, <<: *RuleProviders}
+  Telegram: {url: https://rule.kelee.one/Clash/Telegram.yaml, path: ./ruleset/Telegram.yaml, <<: *RuleProviders}
+  TikTok: {url: https://rule.kelee.one/Clash/TikTok.yaml, path: ./ruleset/TikTok.yaml, <<: *RuleProviders}
+  Twitter: {url: https://rule.kelee.one/Clash/Twitter.yaml, path: ./ruleset/Twitter.yaml, <<: *RuleProviders}
+  # === Code ===
+  GitHub: {url: https://rule.kelee.one/Clash/GitHub.yaml, path: ./ruleset/GitHub.yaml, <<: *RuleProviders}
+  # === Adv ===
+  Advertising: {url: https://rule.kelee.one/Clash/Advertising.yaml, path: ./ruleset/Advertising.yaml, <<: *RuleProviders}
+  # === Proxy ===
+  Proxy: {url: https://rule.kelee.one/Clash/Proxy.yaml, path: ./ruleset/Proxy.yaml, <<: *RuleProviders}
+  # === Direct ===
+  Direct: {url: https://rule.kelee.one/Clash/Direct.yaml, path: ./ruleset/Direct.yaml, <<: *RuleProviders}
+  Download: {url: https://rule.kelee.one/Clash/Download.yaml, path: ./ruleset/Download.yaml, <<: *RuleProviders}
+  China: {url: https://rule.kelee.one/Clash/China.yaml, path: ./ruleset/China.yaml, <<: *RuleProviders}
+  ChinaDNS: {url: https://rule.kelee.one/Clash/ChinaDNS.yaml, path: ./ruleset/ChinaDNS.yaml, <<: *RuleProviders}
+  ChinaMedia: {url: https://rule.kelee.one/Clash/ChinaMedia.yaml, path: ./ruleset/ChinaMedia.yaml, <<: *RuleProviders}
+  ChinaDownloadCDN: {url: https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml, path: ./ruleset/ChinaDownloadCDN.yaml, <<: *RuleProviders}
+  Lan: {url: https://rule.kelee.one/Clash/Lan.yaml, path: ./ruleset/Lan.yaml, <<: *RuleProviders}
+  LAN: {url: https://kelee.one/Tool/Clash/Rule/LAN_SPLITTER.yaml, path: ./ruleset/LAN_SPLITTER.yaml, <<: *RuleProviders}
+  CN REGION: {url: https://kelee.one/Tool/Clash/Rule/REGION_SPLITTER.yaml, path: ./ruleset/REGION_SPLITTER.yaml, <<: *RuleProviders}
 
 # ========================
 # MARK: 规则匹配
 # ========================
 rules:
   # 普通规则
+  # === AI ===
   - RULE-SET,AI,💬AI
+  - RULE-SET,Copilot,💬AI
+  - RULE-SET,Gemini,💬AI
+  - RULE-SET,OpenAI,💬AI
+  # === Apple ===
   - RULE-SET,Apple,🍎Apple
   - RULE-SET,AppleID,🍎Apple
   - RULE-SET,AppleMusic,🍎Apple
   - RULE-SET,AppleProxy,🍎Apple
+  # === Microsoft ===
+  - RULE-SET,Microsoft,Ⓜ️Microsoft
+  - RULE-SET,OneDrive,Ⓜ️OneDrive
   - RULE-SET,Bing,Ⓜ️Bing
-  - RULE-SET,Copilot,💬AI
-  - RULE-SET,Disney,🐭Disney
-  - RULE-SET,Facebook,🚀节点选择
-  - RULE-SET,Gemini,💬AI
-  - RULE-SET,GitHub,🚀节点选择
+  # === Google ===
   - RULE-SET,Google,📢Google
   - RULE-SET,GoogleDrive,📢Google
   - RULE-SET,GoogleEarth,📢Google
   - RULE-SET,GoogleFCM,📢Google
   - RULE-SET,GoogleSearch,📢Google
   - RULE-SET,GoogleVoice,📢Google
-  - RULE-SET,Instagram,🚀节点选择
-  - RULE-SET,Microsoft,Ⓜ️Microsoft
-  - RULE-SET,Netflix,🎥Netflix
-  - RULE-SET,OneDrive,Ⓜ️OneDrive
-  - RULE-SET,OpenAI,💬AI
-  - RULE-SET,Pixiv,🚀节点选择
+  # === Media ===
   - RULE-SET,Spotify,🚀节点选择
+  - RULE-SET,YouTube,🎬YouTube
+  - RULE-SET,YouTubeMusic,🚀节点选择
+  - RULE-SET,Netflix,🎥Netflix
+  - RULE-SET,Disney,🐭Disney
+  - RULE-SET,Pixiv,🚀节点选择
+  # === Social ===
+  - RULE-SET,Facebook,🚀节点选择
+  - RULE-SET,Instagram,🚀节点选择
   - RULE-SET,Telegram,📲Telegram
   - RULE-SET,TikTok,🚀节点选择
   - RULE-SET,Twitter,🚀节点选择
-  - RULE-SET,YouTube,🎬YouTube
-  - RULE-SET,YouTubeMusic,🚀节点选择
-  - RULE-SET,Direct,🎯全球直连
-  - RULE-SET,Proxy,🚀节点选择
-  - RULE-SET,Download,🎯全球直连
+  # === Code ===
+  - RULE-SET,GitHub,🚀节点选择
+  # === Adv ===
   - RULE-SET,Advertising,🛑全球拦截
+  # === Proxy ===
+  - RULE-SET,Proxy,🚀节点选择
+  # === Direct ===
+  - RULE-SET,Direct,🎯全球直连
+  - RULE-SET,Download,🎯全球直连
   - RULE-SET,China,🎯全球直连
   - RULE-SET,ChinaDNS,🎯全球直连
   - RULE-SET,ChinaMedia,🎯全球直连
