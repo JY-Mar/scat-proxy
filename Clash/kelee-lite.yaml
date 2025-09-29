@@ -308,8 +308,8 @@ geox-url:
   asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
 # GEO 数据文件自动更新
 geo-auto-update: true
-# 每隔 48 小时自动检查并更新 GEO 数据文件
-geo-update-interval: 48
+# 每隔 7天 自动检查并更新 GEO 数据文件
+geo-update-interval: 168
 
 # ========================
 # MARK: 嗅探器
