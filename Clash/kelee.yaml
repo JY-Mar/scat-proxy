@@ -305,6 +305,7 @@ geox-url:
   geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
   # 更高精度的 IP 数据库
   mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
+  # GeoIP 数据的来源
   asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
 # GEO 数据文件自动更新
 geo-auto-update: true
