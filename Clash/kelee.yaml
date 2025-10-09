@@ -131,6 +131,7 @@ dns:
     - 'msn.cn'
     - 'ntp.msn.cn'
     - 'ntp.org'
+    - 'login.live.com'
 
     - '*.time.edu.cn'
     - '*.ntp.org.cn'
