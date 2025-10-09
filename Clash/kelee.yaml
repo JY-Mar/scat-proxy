@@ -70,7 +70,7 @@ hosts:
 # ========================
 dns:
   enable: true
-  # prefer-h3: false
+  prefer-h3: true
   listen: 0.0.0.0:53
   # 当此选项为 false 时, AAAA 请求将返回空
   ipv6: true
@@ -383,9 +383,9 @@ profile:
 # ========================
 Anchors:
   # [url-test | fallback | load-balance]策略组测速间隔（秒）
-  TestInterval: &TestInterval 600
+  TestInterval: &TestInterval 300
   # [url-test | fallback | load-balance]略组测速容差（毫秒）
-  TestTolerance: &TestTolerance 70
+  TestTolerance: &TestTolerance 50
   # [url-test | fallback | load-balance]策略组测速超时（毫秒）（超出则判定为失败）
   TestTimeout: &TestTimeout 5000
   # [url-test | fallback | load-balance]策略组测速失败次数（超出则自动触发健康检查）
@@ -398,7 +398,7 @@ Anchors:
   UpdateInterval: &UpdateInterval 86400
   # 健康检查间隔（秒）
   HealthCheckInterval: &HealthCheckInterval 6
-  # 策略组 [url-test每 ProxyTestUrl 秒一次惰性测速检查，容差 TestTolerance 毫秒，时延超过 TestTimeout 毫秒判定为失败，失败 TestMaxFailedTimes 次则自动触发健康检查]
+  # 策略组 [url-test每 TestInterval 秒一次惰性测速检查，容差 TestTolerance 毫秒，时延超过 TestTimeout 毫秒判定为失败，失败 TestMaxFailedTimes 次则自动触发健康检查]
   UrlTest:
     &UrlTest {
       type: url-test,
@@ -408,8 +408,7 @@ Anchors:
       lazy: true,
       timeout: *TestTimeout,
       max-failed-times: *TestMaxFailedTimes,
-      include-all: false,
-      use: []
+      include-all: false
     }
   # 策略组 [fallback每 TestInterval 秒一次惰性测速检查，容差 TestTolerance 毫秒，时延超过 TestTimeout 毫秒判定为失败，失败 TestMaxFailedTimes 次则自动触发健康检查]
   FallBack:
@@ -421,8 +420,7 @@ Anchors:
       lazy: true,
       timeout: *TestTimeout,
       max-failed-times: *TestMaxFailedTimes,
-      include-all: false,
-      use: []
+      include-all: false
     }
   # 规则集 [每 UpdateInterval 秒更新一次订阅规则]
   RuleProviders: &RuleProviders { type: http, behavior: classical, interval: *UpdateInterval }
@@ -487,20 +485,20 @@ proxy-groups:
   - {name: 🐭Disney, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
   - {name: 🎮游戏节点, type: select, include-all: true, filter: *Filter_Game}
   # 延迟优先策略组 Low Latency Preference
-  - {name: 🇭🇰香港LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_HK}
-  - {name: 🇨🇳台湾LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_TW}
-  - {name: 🇯🇵日本LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_JP}
-  - {name: 🇰🇷韩国LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_KR}
-  - {name: 🇸🇬星洲LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_SG}
-  - {name: 🇺🇸美国LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_US}
-  - {name: 🇨🇦加拿大LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_CA}
-  - {name: 🇦🇺澳大利亚LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_AU}
-  - {name: 🇬🇧英国LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_UK}
-  - {name: 🇫🇷法国LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_FR}
-  - {name: 🇩🇪德国LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_DE}
-  - {name: 🇮🇹意大利LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_IT}
-  - {name: 🇳🇱荷兰LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_NL}
-  - {name: 🇱🇺卢森堡LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_LU}
+  - {name: 🇭🇰香港LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_HK, hidden: true}
+  - {name: 🇨🇳台湾LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_TW, hidden: true}
+  - {name: 🇯🇵日本LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_JP, hidden: true}
+  - {name: 🇰🇷韩国LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_KR, hidden: true}
+  - {name: 🇸🇬星洲LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_SG, hidden: true}
+  - {name: 🇺🇸美国LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_US, hidden: true}
+  - {name: 🇨🇦加拿大LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_CA, hidden: true}
+  - {name: 🇦🇺澳大利亚LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_AU, hidden: true}
+  - {name: 🇬🇧英国LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_UK, hidden: true}
+  - {name: 🇫🇷法国LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_FR, hidden: true}
+  - {name: 🇩🇪德国LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_DE, hidden: true}
+  - {name: 🇮🇹意大利LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_IT, hidden: true}
+  - {name: 🇳🇱荷兰LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_NL, hidden: true}
+  - {name: 🇱🇺卢森堡LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_LU, hidden: true}
 
 # ========================
 # MARK: 规则集
@@ -599,7 +597,7 @@ rules:
   # === Code ===
   - RULE-SET,GitHub,🚀节点选择
   # === Adv ===
-  - RULE-SET,Advertising,🛑全球拦截
+  # - RULE-SET,Advertising,🛑全球拦截
   # === Proxy ===
   - RULE-SET,Proxy,🚀节点选择
   # === Direct ===
