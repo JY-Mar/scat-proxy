@@ -449,7 +449,7 @@ Anchors:
 # ========================
 # MARK: 代理集
 # ========================
-# proxy-providers:
+proxy-providers:
 #   [订阅名称]:
 #     type: http
 #     url: [你的订阅链接]
