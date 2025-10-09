@@ -449,16 +449,16 @@ Anchors:
 # ========================
 # MARK: 代理集
 # ========================
-proxy-providers:
-  # [订阅名称]:
-  #   type: http
-  #   url: [你的订阅链接]
-  #   interval: 86400
-  #   health-check:
-  #     enable: true
-  #     url: https://www.gstatic.com/generate_204
-  #     # 秒
-  #     interval: 600
+# proxy-providers:
+#   [订阅名称]:
+#     type: http
+#     url: [你的订阅链接]
+#     interval: 86400
+#     health-check:
+#       enable: true
+#       url: https://www.gstatic.com/generate_204
+#       # 秒
+#       interval: 600
 
 # ========================
 # MARK: 策略组
