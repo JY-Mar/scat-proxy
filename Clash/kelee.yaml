@@ -70,7 +70,7 @@ hosts:
 # ========================
 dns:
   enable: true
-  prefer-h3: true
+  # prefer-h3: true
   listen: 0.0.0.0:53
   # 当此选项为 false 时, AAAA 请求将返回空
   ipv6: true
