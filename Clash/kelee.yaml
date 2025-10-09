@@ -119,6 +119,18 @@ dns:
     - 'ntp5.*.com'
     - 'ntp6.*.com'
     - 'ntp7.*.com'
+    
+    - 'ntp.*.cn'
+    - 'ntp1.*.cn'
+    - 'ntp2.*.cn'
+    - 'ntp3.*.cn'
+    - 'ntp4.*.cn'
+    - 'ntp5.*.cn'
+    - 'ntp6.*.cn'
+    - 'ntp7.*.cn'
+    - 'msn.cn'
+    - 'ntp.msn.cn'
+    - 'ntp.org'
 
     - '*.time.edu.cn'
     - '*.ntp.org.cn'
@@ -194,6 +206,7 @@ dns:
     ## Microsoft Xbox
     - 'xbox.*.microsoft.com'
     - 'xnotify.xboxlive.com'
+    ## Other Games
     - '+.battlenet.com.cn'
     - '+.wotgame.cn'
     - '+.wggames.cn'
