@@ -463,9 +463,9 @@ proxy-providers:
 # ========================
 proxy-groups:
   - {name: 🚀节点选择, type: select, proxies: [♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
-  - {name: ⚠️流量用量, type: select, include-all: true, filter: *Filter_Used}
-  - {name: 🚀手动切换, type: select, proxies: [🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP, 🎯全球直连]}
   - {name: ♻️自动选择, <<: *UrlTest, include-all: true, filter: *Filter_Global}
+  - {name: 🚀手动切换, type: select, proxies: [🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP, 🎯全球直连]}
+  - {name: ⚠️流量用量, type: select, include-all: true, filter: *Filter_Used}
   - {name: 🎯全球直连, type: select, proxies: [DIRECT]}
   - {name: 🛑全球拦截, type: select, proxies: [REJECT, DIRECT]}
   - {name: 🛠️故障转移, <<: *FallBack, type: fallback, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连]}
