@@ -26,7 +26,7 @@ mode: rule
 # Clash 默认将日志输出至 STDOUT
 # 设置日志输出级别 (默认级别：silent，即不输出任何内容，以避免因日志内容过大而导致程序内存溢出）。
 # 5 个级别：silent / info / warning / error / debug。级别越高日志输出量越大，越倾向于调试，若需要请自行开启。
-log-level: info
+log-level: silent
 ipv6: true
 udp: true
 
@@ -215,17 +215,14 @@ dns:
     - '+.wargaming.net'
     - '*.finalfantasyxiv.com'
     - '*.ffxiv.com'
-
   # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
   # 仅填写 DNS 服务器的 IP 地址
   default-nameserver:
-    - system
     - 119.29.29.29
     - 223.5.5.5
     - 223.6.6.6
     - 8.8.8.8
     - 114.114.114.114
-
   # 支持 UDP / TCP / DoT / DoH 协议的 DNS 服务，可以指明具体的连接端口号。
   # 所有 DNS 请求将会直接发送到服务器，不经过任何代理。
   # Clash 会使用最先获得的解析记录回复 DNS 请求
@@ -259,7 +256,6 @@ dns:
     - https://doh.pub/dns-query
     - https://223.5.5.5/dns-query
     - https://223.6.6.6/dns-query
-
   # 当 fallback 参数被配置时, DNS 请求将同时发送至上方 nameserver 列表和下方 fallback 列表中配置的所有 DNS 服务器.
   # 当解析得到的 IP 地址的地理位置不是 CN 时，clash 将会选用 fallback 中 DNS 服务器的解析结果。
   fallback:
@@ -270,7 +266,6 @@ dns:
     - https://public.dns.iij.jp/dns-query
     - https://dns.google/dns-query
     - https://dns.quad9.net/dns-query
-
   # 如果使用 nameserver 列表中的服务器解析的 IP 地址在下方列表中的子网中，则它们被认为是无效的，
   # Clash 会选用 fallback 列表中配置 DNS 服务器解析得到的结果。
   #
@@ -309,6 +304,9 @@ dns:
       - '+.githubusercontent.com'
       - '+.googlevideo.com'
 
+# ========================
+# MARK: GEO
+# ========================
 geox-url:
   # geoip: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.dat"
   # geosite: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.dat"
