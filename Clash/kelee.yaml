@@ -595,7 +595,7 @@ rules:
   # === Code ===
   - RULE-SET,GitHub,🚀节点选择
   # === Adv ===
-  # - RULE-SET,Advertising,🛑全球拦截
+  - RULE-SET,Advertising,🛑全球拦截
   # === Proxy ===
   - RULE-SET,Proxy,🚀节点选择
   # === Direct ===
