@@ -3,16 +3,22 @@
 # ========================
 # MARK: 主要端口设置
 # ========================
+PortAnchors:
+  HttpPort: &HttpPort 7890
+  SocksPort: &SocksPort 7891
+  MixedPort: &MixedPort 7892
+  RedirPort: &RedirPort 7893
+  TproxyPort: &TproxyPort 7894
 # HTTP 代理端口
-port: 7890
+port: *HttpPort
 # SOCKS5 代理端口
-socks-port: 7891
+socks-port: *SocksPort
 # HTTP(S) and SOCKS5 共用端口
-mixed-port: 7892
+mixed-port: *MixedPort
 # Linux 和 macOS 的 redir 透明代理端口 (重定向 TCP 和 TProxy UDP 流量)
-redir-port: 7893
+redir-port: *RedirPort
 # Linux 的透明代理端口（适用于 TProxy TCP 和 TProxy UDP 流量)
-tproxy-port: 7894
+tproxy-port: *TproxyPort
 
 unified-delay: true
 tcp-concurrent: true
@@ -64,6 +70,16 @@ hosts:
   # '*.clash.dev': 127.0.0.1
   # '.dev': 127.0.0.1
   # 'alpha.clash.dev': '::1'
+
+# ========================
+# MARK: MITM 设置
+# ========================
+# mitm:
+#   enable: true
+#   ca:
+#     cert: ./mitm-ca.pem
+#     key: ./mitm-ca-key.pem
+#   port: *MixedPort  # 必须与 mixed-port 一致，或单独指定
 
 # ========================
 # MARK: DNS 设置(可选；若不配置，程序内置的 DNS 服务会被关闭)
