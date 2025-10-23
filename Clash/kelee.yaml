@@ -552,12 +552,11 @@ rule-providers:
   Telegram: {url: https://rule.kelee.one/Clash/Telegram.yaml, path: ./ruleset/Telegram.yaml, <<: *RuleProviders}
   TikTok: {url: https://rule.kelee.one/Clash/TikTok.yaml, path: ./ruleset/TikTok.yaml, <<: *RuleProviders}
   Twitter: {url: https://rule.kelee.one/Clash/Twitter.yaml, path: ./ruleset/Twitter.yaml, <<: *RuleProviders}
+  # === Code ===
+  GitHub: {url: https://rule.kelee.one/Clash/GitHub.yaml, path: ./ruleset/GitHub.yaml, <<: *RuleProviders}
   # === Adv ===
   Advertising: {url: https://rule.kelee.one/Clash/Advertising.yaml, path: ./ruleset/Advertising.yaml, <<: *RuleProviders}
   Advertising_blackmatrix7: {url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Advertising/Advertising_Classical.yaml, path: ./ruleset/Advertising_blackmatrix7.yaml, <<: *RuleProviders}
-  # === Code ===
-  GitHub: {url: https://rule.kelee.one/Clash/GitHub.yaml, path: ./ruleset/GitHub.yaml, <<: *RuleProviders}
-  JueJin: {url: https://rule.kelee.one/Clash/JueJin.yaml, path: ./ruleset/JueJin.yaml, <<: *RuleProviders}
   # === Proxy ===
   Proxy: {url: https://rule.kelee.one/Clash/Proxy.yaml, path: ./ruleset/Proxy.yaml, <<: *RuleProviders}
   # === Direct ===
@@ -610,12 +609,11 @@ rules:
   - RULE-SET,Telegram,📲Telegram
   - RULE-SET,TikTok,🚀节点选择
   - RULE-SET,Twitter,🚀节点选择
+  # === Code ===
+  - RULE-SET,GitHub,🚀节点选择
   # === Adv ===
   # - RULE-SET,Advertising,🛑全球拦截
   - RULE-SET,Advertising_blackmatrix7,🛑全球拦截
-  # === Code ===
-  - RULE-SET,GitHub,🚀节点选择
-  - RULE-SET,JueJin,🎯全球直连
   # === Proxy ===
   - RULE-SET,Proxy,🚀节点选择
   # === Direct ===
