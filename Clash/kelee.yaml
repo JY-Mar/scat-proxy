@@ -105,9 +105,9 @@ dns:
     - '*.localdomain'
     - '*.example'
     - '*.invalid'
+    - '*.local'
     - '*.localhost'
     - '*.test'
-    - '*.local'
     - '*.home.arpa'
     - '*.arpa'
     # === Linksys Wireless Router ===
@@ -118,36 +118,13 @@ dns:
     - 'time.*.gov'
     - 'time.*.edu.cn'
     - 'time.*.apple.com'
-
-    - 'time1.*.com'
-    - 'time2.*.com'
-    - 'time3.*.com'
-    - 'time4.*.com'
-    - 'time5.*.com'
-    - 'time6.*.com'
-    - 'time7.*.com'
+    - 'time[1-7]?.*.com'
 
     - 'ntp.*.com'
-    - 'ntp1.*.com'
-    - 'ntp2.*.com'
-    - 'ntp3.*.com'
-    - 'ntp4.*.com'
-    - 'ntp5.*.com'
-    - 'ntp6.*.com'
-    - 'ntp7.*.com'
-    
+    - 'ntp[1-7]?.*.com'
     - 'ntp.*.cn'
-    - 'ntp1.*.cn'
-    - 'ntp2.*.cn'
-    - 'ntp3.*.cn'
-    - 'ntp4.*.cn'
-    - 'ntp5.*.cn'
-    - 'ntp6.*.cn'
-    - 'ntp7.*.cn'
-    - 'msn.cn'
-    - 'ntp.msn.cn'
+    - 'ntp[1-7]?.*.cn'
     - 'ntp.org'
-    - 'login.live.com'
 
     - '*.time.edu.cn'
     - '*.ntp.org.cn'
@@ -187,6 +164,8 @@ dns:
     - '*.msftncsi.com'
     - 'msftconnecttest.com'
     - 'msftncsi.com'
+    - 'msn.cn'
+    - 'login.live.com'
     ## QQ Quick Login
     - 'localhost.ptlogin2.qq.com'
     - 'localhost.sec.qq.com'
@@ -258,6 +237,7 @@ dns:
     - tls://1.12.12.12
     - tls://120.53.53.53
     - https://dns.google/dns-query
+    - https://cloudflare-dns.com/dns-query
     - https://8.8.8.8/dns-query
     - https://8.8.4.4/dns-query
     - https://dns.alidns.com/dns-query
@@ -275,9 +255,11 @@ dns:
   # 当 fallback 参数被配置时, DNS 请求将同时发送至上方 nameserver 列表和下方 fallback 列表中配置的所有 DNS 服务器.
   # 当解析得到的 IP 地址的地理位置不是 CN 时，clash 将会选用 fallback 中 DNS 服务器的解析结果。
   fallback:
+    - tls://dns.rubyfish.cn:853
     - tls://unfiltered.adguard-dns.com
     - tls://1.1.1.1
     - tls://8.8.8.8
+    - tls://1.0.0.1:853
     - https://1.1.1.1/dns-query
     - https://public.dns.iij.jp/dns-query
     - https://dns.google/dns-query
@@ -492,6 +474,7 @@ proxy-groups:
   - {name: Ⓜ️Microsoft, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
   - {name: Ⓜ️Bing, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
   - {name: Ⓜ️OneDrive, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
+  - {name: Ⓜ️MicrosoftApi, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
   - {name: 📢Google, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
   - {name: 📲Telegram, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
   - {name: 🎬YouTube, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP]}
@@ -532,6 +515,7 @@ rule-providers:
   Microsoft: {url: https://rule.kelee.one/Clash/Microsoft.yaml, path: ./ruleset/Microsoft.yaml, <<: *RuleProviders}
   OneDrive: {url: https://rule.kelee.one/Clash/OneDrive.yaml, path: ./ruleset/OneDrive.yaml, <<: *RuleProviders}
   Bing: {url: https://rule.kelee.one/Clash/Bing.yaml, path: ./ruleset/Bing.yaml, <<: *RuleProviders}
+  MicrosoftApi: {url: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Clash/Rules/MicrosoftApi.yaml, path: ./ruleset/MicrosoftApi.yaml, <<: *RuleProviders}
   # === Google ===
   Google: {url: https://rule.kelee.one/Clash/Google.yaml, path: ./ruleset/Google.yaml, <<: *RuleProviders}
   GoogleDrive: {url: https://rule.kelee.one/Clash/GoogleDrive.yaml, path: ./ruleset/GoogleDrive.yaml, <<: *RuleProviders}
@@ -589,6 +573,7 @@ rules:
   - RULE-SET,Microsoft,Ⓜ️Microsoft
   - RULE-SET,OneDrive,Ⓜ️OneDrive
   - RULE-SET,Bing,Ⓜ️Bing
+  - RULE-SET,MicrosoftApi,Ⓜ️MicrosoftApi
   # === Google ===
   - RULE-SET,Google,📢Google
   - RULE-SET,GoogleDrive,📢Google
