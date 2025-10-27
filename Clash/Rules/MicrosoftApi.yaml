@@ -1,15 +1,15 @@
 # UpdateTime：2025-10-27 11:09:45
-# RuleCount：12
+# RuleCount：8
 payload:
-  - DOMAIN-SUFFIX,graph.microsoft.com # Microsoft Graph 主入口，访问用户、文件、邮件、Teams 等数据
-  - DOMAIN-SUFFIX,login.microsoftonline.com # 微软账户登录验证，广泛用于 Microsoft 365、Azure、OneDrive 登录
-  - DOMAIN-SUFFIX,login.live.com # 微软个人账户登录入口，OneDrive、Outlook.com 使用
-  - DOMAIN-SUFFIX,account.microsoft.com	# 微软账户管理中心，修改密码、查看订阅等
-  - DOMAIN-SUFFIX,onedrive.live.com	# OneDrive 网页端主入口
-  - DOMAIN-SUFFIX,outlook.office365.com #	Outlook 邮件服务 API，企业邮箱收发邮件
-  - DOMAIN-SUFFIX,office.com # Microsoft 365 网页端入口
-  - DOMAIN-SUFFIX,portal.office.com	# Microsoft 365 管理后台
-  - DOMAIN-SUFFIX,teams.microsoft.com	# Microsoft Teams 网页端和 API
-  - DOMAIN-SUFFIX,api.onedrive.com # OneDrive 旧版 API 接口（部分服务仍调用）
-  - DOMAIN-SUFFIX,msftconnecttest.com # Windows 网络连通性检测，影响系统联网状态判断
-  - DOMAIN-SUFFIX,msftncsi.com # Windows 网络连通性检测，影响系统联网状态判断
+  - DOMAIN-SUFFIX,graph.microsoft.com # Microsoft Graph 全球 API 主入口，访问用户、文件、邮件、Teams 等数据（❌无法直连，需通过世纪互联 Graph：microsoftgraph.chinacloudapi.cn）
+  - DOMAIN-SUFFIX,login.microsoftonline.com # 全球 Azure AD 登录验证，广泛用于 Microsoft 365、Azure、OneDrive 登录（❌无法直连，常被 DNS 污染或 TCP 重置）
+  - DOMAIN-SUFFIX,login.live.com # 个人微软账户（Live/Hotmail）登录入口，OneDrive、Outlook.com 使用（❌不稳定，有时可打开，但功能受限）
+  - DOMAIN-SUFFIX,account.microsoft.com	# 微软账户管理中心（全球版），修改密码、查看订阅等（❌不稳定，有时加载慢或部分资源被阻）
+  - DOMAIN-SUFFIX,onedrive.live.com	# 个人 OneDrive（全球版） 网页端主入口（❌无法直连）
+  - DOMAIN-SUFFIX,outlook.office365.com #	全球版 Outlook Web 邮件服务 API，企业邮箱收发邮件（❌无法直连）
+  # - DOMAIN-SUFFIX,office.com # Microsoft 365 网页端入口（✅会根据区域跳转，静态资源可加载）
+  # - DOMAIN-SUFFIX,portal.office.com	# Microsoft 365 管理后台（✅仅当用于中国版账号时可直连；但域名本身未被屏蔽）
+  - DOMAIN-SUFFIX,teams.microsoft.com # Microsoft Teams 全球版网页端和 API（❌无法直连，世纪互联 Teams 需专用客户端）
+  - DOMAIN-SUFFIX,api.onedrive.com # OneDrive（全球版） 旧版 API 接口，部分服务仍调用（❌无法直连）
+  # - DOMAIN-SUFFIX,msftconnecttest.com # Windows 网络连通性检测，影响系统联网状态判断（✅可访问，微软保留此域名用于 NCSI 检测）
+  # - DOMAIN-SUFFIX,msftncsi.com # Windows 网络连通性检测，影响系统联网状态判断（✅ 可访问，返回 200 OK 和 Microsoft NCSI）
