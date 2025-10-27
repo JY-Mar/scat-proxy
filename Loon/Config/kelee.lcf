@@ -129,8 +129,8 @@ https://rule.kelee.one/Loon/AppleID.lsr, policy=🍎Apple, tag=AppleID, enabled=
 https://rule.kelee.one/Loon/AppleMusic.lsr, policy=🍎Apple, tag=AppleMusic, enabled=true
 https://rule.kelee.one/Loon/AppleProxy.lsr, policy=🍎Apple, tag=AppleProxy, enabled=true
 # === Microsoft ===
-https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Loon/Rules/MicrosoftBanned.lsr, policy=policy=️Ⓜ️MicrosoftBanned, tag=MicrosoftBanned, enabled=true
-https://rule.kelee.one/Loon/Microsoft.lsr, policy=policy=️Ⓜ️Microsoft, tag=Microsoft, enabled=true
+https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Loon/Rules/MicrosoftBanned.lsr, policy=Ⓜ️MicrosoftBanned, tag=MicrosoftBanned, enabled=true
+https://rule.kelee.one/Loon/Microsoft.lsr, policy=Ⓜ️Microsoft, tag=Microsoft, enabled=true
 https://rule.kelee.one/Loon/OneDrive.lsr, policy=Ⓜ️OneDrive, tag=OneDrive, enabled=true
 https://rule.kelee.one/Loon/Bing.lsr, policy=Ⓜ️Bing, tag=Bing, enabled=true
 # === Google ===
