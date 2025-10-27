@@ -1,4 +1,4 @@
-# UpdateTime：2025-10-27 11:09:45
+# UpdateTime：2025-10-27 13:55:45
 # RuleCount：8
 payload:
   - DOMAIN-SUFFIX,graph.microsoft.com # Microsoft Graph 全球 API 主入口，访问用户、文件、邮件、Teams 等数据（❌无法直连，需通过世纪互联 Graph：microsoftgraph.chinacloudapi.cn）
