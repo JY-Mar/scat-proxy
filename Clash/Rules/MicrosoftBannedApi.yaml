@@ -1,0 +1,15 @@
+# UpdateTime：2025-10-27 11:09:45
+# RuleCount：18
+payload:
+  - DOMAIN-SUFFIX,graph.microsoft.com # Microsoft Graph 主入口，访问用户、文件、邮件、Teams 等数据
+  - DOMAIN-SUFFIX,login.microsoftonline.com # 微软账户登录验证，广泛用于 Microsoft 365、Azure、OneDrive 登录
+  - DOMAIN-SUFFIX,login.live.com # 微软个人账户登录入口，OneDrive、Outlook.com 使用
+  - DOMAIN-SUFFIX,account.microsoft.com	# 微软账户管理中心，修改密码、查看订阅等
+  - DOMAIN-SUFFIX,onedrive.live.com	# OneDrive 网页端主入口
+  - DOMAIN-SUFFIX,outlook.office365.com #	Outlook 邮件服务 API，企业邮箱收发邮件
+  - DOMAIN-SUFFIX,office.com # Microsoft 365 网页端入口
+  - DOMAIN-SUFFIX,portal.office.com	# Microsoft 365 管理后台
+  - DOMAIN-SUFFIX,teams.microsoft.com	# Microsoft Teams 网页端和 API
+  - DOMAIN-SUFFIX,api.onedrive.com # OneDrive 旧版 API 接口（部分服务仍调用）
+  - DOMAIN-SUFFIX,msftconnecttest.com # Windows 网络连通性检测，影响系统联网状态判断
+  - DOMAIN-SUFFIX,msftncsi.com # Windows 网络连通性检测，影响系统联网状态判断
