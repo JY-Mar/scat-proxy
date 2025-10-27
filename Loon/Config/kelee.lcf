@@ -78,6 +78,7 @@ bypass-tun = 0.0.0.0/32,0.0.0.0/810.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.
 # 专属策略组
 💬AI = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
 🍎Apple = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
+Ⓜ️MicrosoftBanned = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
 Ⓜ️Microsoft = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
 Ⓜ️Bing = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
 Ⓜ️OneDrive = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
@@ -118,16 +119,17 @@ FINAL,🐟漏网之鱼
 
 [Remote Rule]
 # === AI ===
-https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=💬AI, tag=AI, enabled=true
 https://rule.kelee.one/Loon/Copilot.lsr, policy=💬AI, tag=Copilot, enabled=true
 https://rule.kelee.one/Loon/Gemini.lsr, policy=💬AI, tag=Gemini, enabled=true
 https://rule.kelee.one/Loon/OpenAI.lsr, policy=💬AI, tag=OpenAI, enabled=true
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=💬AI, tag=AI, enabled=true
 # === Apple ===
 https://rule.kelee.one/Loon/Apple.lsr, policy=🍎Apple, tag=Apple, enabled=true
 https://rule.kelee.one/Loon/AppleID.lsr, policy=🍎Apple, tag=AppleID, enabled=true
 https://rule.kelee.one/Loon/AppleMusic.lsr, policy=🍎Apple, tag=AppleMusic, enabled=true
 https://rule.kelee.one/Loon/AppleProxy.lsr, policy=🍎Apple, tag=AppleProxy, enabled=true
 # === Microsoft ===
+https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Loon/Rules/MicrosoftBanned.lsr, policy=policy=️Ⓜ️MicrosoftBanned, tag=MicrosoftBanned, enabled=true
 https://rule.kelee.one/Loon/Microsoft.lsr, policy=policy=️Ⓜ️Microsoft, tag=Microsoft, enabled=true
 https://rule.kelee.one/Loon/OneDrive.lsr, policy=Ⓜ️OneDrive, tag=OneDrive, enabled=true
 https://rule.kelee.one/Loon/Bing.lsr, policy=Ⓜ️Bing, tag=Bing, enabled=true
