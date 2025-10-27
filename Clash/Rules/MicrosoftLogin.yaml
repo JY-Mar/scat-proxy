@@ -1,6 +1,0 @@
-# UpdateTime：2025-10-27 11:20:00
-# RuleCount：3
-payload:
-  - DOMAIN-SUFFIX,login.microsoftonline.com
-  - DOMAIN-SUFFIX,login.live.com
-  - DOMAIN-SUFFIX,account.microsoft.com
