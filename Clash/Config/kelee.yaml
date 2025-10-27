@@ -512,10 +512,10 @@ rule-providers:
   AppleMusic: {url: https://rule.kelee.one/Clash/AppleMusic.yaml, path: ./ruleset/AppleMusic.yaml, <<: *RuleProviders}
   AppleProxy: {url: https://rule.kelee.one/Clash/AppleProxy.yaml, path: ./ruleset/AppleProxy.yaml, <<: *RuleProviders}
   # === Microsoft ===
+  MicrosoftApi: {url: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Clash/Rules/MicrosoftApi.yaml, path: ./ruleset/MicrosoftApi.yaml, <<: *RuleProviders}
   Microsoft: {url: https://rule.kelee.one/Clash/Microsoft.yaml, path: ./ruleset/Microsoft.yaml, <<: *RuleProviders}
   OneDrive: {url: https://rule.kelee.one/Clash/OneDrive.yaml, path: ./ruleset/OneDrive.yaml, <<: *RuleProviders}
   Bing: {url: https://rule.kelee.one/Clash/Bing.yaml, path: ./ruleset/Bing.yaml, <<: *RuleProviders}
-  MicrosoftApi: {url: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Clash/Rules/MicrosoftApi.yaml, path: ./ruleset/MicrosoftApi.yaml, <<: *RuleProviders}
   # === Google ===
   Google: {url: https://rule.kelee.one/Clash/Google.yaml, path: ./ruleset/Google.yaml, <<: *RuleProviders}
   GoogleDrive: {url: https://rule.kelee.one/Clash/GoogleDrive.yaml, path: ./ruleset/GoogleDrive.yaml, <<: *RuleProviders}
@@ -570,10 +570,10 @@ rules:
   - RULE-SET,AppleMusic,🍎Apple
   - RULE-SET,AppleProxy,🍎Apple
   # === Microsoft ===
+  - RULE-SET,MicrosoftApi,Ⓜ️MicrosoftApi
   - RULE-SET,Microsoft,Ⓜ️Microsoft
   - RULE-SET,OneDrive,Ⓜ️OneDrive
   - RULE-SET,Bing,Ⓜ️Bing
-  - RULE-SET,MicrosoftApi,Ⓜ️MicrosoftApi
   # === Google ===
   - RULE-SET,Google,📢Google
   - RULE-SET,GoogleDrive,📢Google
