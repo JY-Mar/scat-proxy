@@ -560,10 +560,10 @@ rule-providers:
 rules:
   # 普通规则
   # === AI ===
-  - RULE-SET,AI,💬AI
   - RULE-SET,Copilot,💬AI
   - RULE-SET,Gemini,💬AI
   - RULE-SET,OpenAI,💬AI
+  - RULE-SET,AI,💬AI
   # === Apple ===
   - RULE-SET,Apple,🍎Apple
   - RULE-SET,AppleID,🍎Apple
