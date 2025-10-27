@@ -1,5 +1,5 @@
 # UpdateTime：2025-10-27 11:09:45
-# RuleCount：18
+# RuleCount：12
 payload:
   - DOMAIN-SUFFIX,graph.microsoft.com # Microsoft Graph 主入口，访问用户、文件、邮件、Teams 等数据
   - DOMAIN-SUFFIX,login.microsoftonline.com # 微软账户登录验证，广泛用于 Microsoft 365、Azure、OneDrive 登录
