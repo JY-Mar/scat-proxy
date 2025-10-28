@@ -463,11 +463,11 @@ proxy-groups:
   - {name: 🚀节点选择, type: select, proxies: [♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Filter.png}
   - {name: ♻️自动选择, <<: *UrlTest, include-all: true, filter: *Filter_Global, icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Auto.png}
   - {name: 🚀手动切换, type: select, proxies: [🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP, 🎯全球直连], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Manual.png}
-  - {name: ⚠️流量用量, type: select, include-all: true, filter: *Filter_Used, icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/HK.png}
+  - {name: ⚠️流量用量, type: select, include-all: true, filter: *Filter_Used, icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Available.png}
   - {name: 🎯全球直连, type: select, proxies: [DIRECT], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Direct.png}
   - {name: 🛑全球拦截, type: select, proxies: [REJECT, DIRECT], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Reject.png}
-  - {name: 🛠️故障转移, <<: *FallBack, type: fallback, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连]}
-  - {name: 🐟漏网之鱼, type: select, proxies: [🛠️故障转移, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Final.png}
+  - {name: 🛠️故障转移, <<: *FallBack, type: fallback, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Final.png}
+  - {name: 🐟漏网之鱼, type: select, proxies: [🛠️故障转移, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Bywave.png}
   # 专属策略组
   - {name: 💬AI, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Ai.png}
   - {name: 🍎Apple, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Apple.png}
