@@ -480,6 +480,7 @@ proxy-groups:
   - {name: 🎬YouTube, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/YouTube.png}
   - {name: 🎥Netflix, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Netflix.png}
   - {name: 🐭Disney, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Disney+.png}
+  - {name: 📺Bahamut, type: select, proxies: [🇨🇳台湾LLP, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Bahamut.png}
   - {name: 🎮游戏节点, type: select, include-all: true, filter: *Filter_Game, icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Game.png}
   # 延迟优先策略组 Low Latency Preference
   - {name: 🇭🇰香港LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_HK, icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/HK.png}
@@ -529,6 +530,7 @@ rule-providers:
   YouTubeMusic: {url: https://rule.kelee.one/Clash/YouTubeMusic.yaml, path: ./ruleset/YouTubeMusic.yaml, <<: *RuleProviders}
   Netflix: {url: https://rule.kelee.one/Clash/Netflix.yaml, path: ./ruleset/Netflix.yaml, <<: *RuleProviders}
   Disney: {url: https://rule.kelee.one/Clash/Disney.yaml, path: ./ruleset/Disney.yaml, <<: *RuleProviders}
+  Bahamut: {url: https://rule.kelee.one/Clash/Bahamut.yaml, path: ./ruleset/Bahamut.yaml, <<: *RuleProviders}
   Pixiv: {url: https://rule.kelee.one/Clash/Pixiv.yaml, path: ./ruleset/Pixiv.yaml, <<: *RuleProviders}
   # === Social ===
   Facebook: {url: https://rule.kelee.one/Clash/Facebook.yaml, path: ./ruleset/Facebook.yaml, <<: *RuleProviders}
@@ -587,6 +589,7 @@ rules:
   - RULE-SET,YouTubeMusic,🚀节点选择
   - RULE-SET,Netflix,🎥Netflix
   - RULE-SET,Disney,🐭Disney
+  - RULE-SET,Bahamut,📺Bahamut
   - RULE-SET,Pixiv,🚀节点选择
   # === Social ===
   - RULE-SET,Facebook,🚀节点选择
