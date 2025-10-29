@@ -469,7 +469,7 @@ proxy-groups:
   - {name: 🛠️故障转移, <<: *FallBack, type: fallback, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Final.png}
   - {name: 🐟漏网之鱼, type: select, proxies: [🛠️故障转移, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Bywave.png}
   # 专属策略组
-  - {name: 💬AI, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Ai.png}
+  - {name: ✨AI, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Ai.png}
   - {name: 🍎Apple, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Apple.png}
   - {name: Ⓜ️MicrosoftBanned, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Microsoft.png}
   - {name: Ⓜ️Microsoft, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Microsoft.png}
@@ -480,7 +480,7 @@ proxy-groups:
   - {name: 🎬YouTube, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/YouTube.png}
   - {name: 🎥Netflix, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Netflix.png}
   - {name: 🐭Disney, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇨🇳台湾LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Disney+.png}
-  - {name: 📺Bahamut, type: select, proxies: [🇨🇳台湾LLP, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港LLP, 🇯🇵日本LLP, 🇰🇷韩国LLP, 🇸🇬星洲LLP, 🇺🇸美国LLP, 🇨🇦加拿大LLP, 🇦🇺澳大利亚LLP, 🇬🇧英国LLP, 🇫🇷法国LLP, 🇩🇪德国LLP, 🇮🇹意大利LLP, 🇳🇱荷兰LLP, 🇱🇺卢森堡LLP], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Bahamut.png}
+  - {name: 📺Bahamut, type: select, proxies: [🇨🇳台湾LLP, 🚀手动切换, 🎯全球直连], icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Bahamut.png}
   - {name: 🎮游戏节点, type: select, include-all: true, filter: *Filter_Game, icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Game.png}
   # 延迟优先策略组 Low Latency Preference
   - {name: 🇭🇰香港LLP, <<: *UrlTest, include-all: true, filter: *Filter_Region_HK, icon: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/HK.png}
@@ -562,10 +562,10 @@ rule-providers:
 rules:
   # 普通规则
   # === AI ===
-  - RULE-SET,Copilot,💬AI
-  - RULE-SET,Gemini,💬AI
-  - RULE-SET,OpenAI,💬AI
-  - RULE-SET,AI,💬AI
+  - RULE-SET,Copilot,✨AI
+  - RULE-SET,Gemini,✨AI
+  - RULE-SET,OpenAI,✨AI
+  - RULE-SET,AI,✨AI
   # === Apple ===
   - RULE-SET,Apple,🍎Apple
   - RULE-SET,AppleID,🍎Apple

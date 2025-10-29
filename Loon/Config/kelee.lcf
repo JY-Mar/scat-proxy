@@ -67,42 +67,43 @@ bypass-tun = 0.0.0.0/32,0.0.0.0/810.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.
 ⚠️用量 = NameRegex, FilterKey = "^(?=.*((?i)订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 
 [Proxy Group]
-🚀节点选择 = select,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
-♻️自动选择 = url-test,🌍全球,interval = 300,tolerance = 50
-🚀手动切换 = select,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP,🇰🇷韩国LLP,🎯全球直连
-🎯全球直连 = select,DIRECT
-⚠️流量用量 = select,⚠️用量
-🛑全球拦截 = select,REJECT,DIRECT
-🛠️故障转移 = fallback,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,interval = 300,max-timeout = 5000
-🐟漏网之鱼 = select,🛠️故障转移,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连
+🚀节点选择 = select, ♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Filter.png
+♻️自动选择 = url-test, 🌍全球, interval = 300, tolerance = 50, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Auto.png
+🚀手动切换 = select, 🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP,🇰🇷韩国LLP,🎯全球直连, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Manual.png
+⚠️流量用量 = select, ⚠️用量, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Available.png
+🎯全球直连 = select, DIRECT, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Direct.png
+🛑全球拦截 = select, REJECT,DIRECT, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Reject.png
+🛠️故障转移 = fallback, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连, interval = 300, max-timeout = 5000, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Final.png
+🐟漏网之鱼 = select, 🛠️故障转移,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Bywave.png
 # 专属策略组
-💬AI = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
-🍎Apple = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
-Ⓜ️MicrosoftBanned = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
-Ⓜ️Microsoft = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
-Ⓜ️Bing = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
-Ⓜ️OneDrive = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
-📢Google = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
-📲Telegram = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
-🎬YouTube = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
-🎥Netflix = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
-🐭Disney = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP
-🎮游戏节点 = select,🎮游戏
+✨AI = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Ai.png
+🍎Apple = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Apple.png
+Ⓜ️MicrosoftBanned = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Microsoft.png
+Ⓜ️Microsoft = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Microsoft.png
+Ⓜ️Bing = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Bing.png
+Ⓜ️OneDrive = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/OneDrive.png
+📢Google = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Google.png
+📲Telegram = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Telegram.png
+🎬YouTube = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/YouTube.png
+🎥Netflix = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Netflix.png
+🐭Disney = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Disney+.png
+📺Bahamut = select, 🇨🇳台湾LLP,🚀手动切换,🎯全球直连, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Bahamut.png
+🎮游戏节点 = select, 🎮游戏, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Game.png
 # 延迟优先策略组 Low Latency Preference
-🇭🇰香港LLP = url-test,🇭🇰香港,interval = 300,tolerance = 50
-🇨🇳台湾LLP = url-test,🇨🇳台湾,interval = 300,tolerance = 50
-🇯🇵日本LLP = url-test,🇯🇵日本,interval = 300,tolerance = 50
-🇰🇷韩国LLP = url-test,🇰🇷韩国,interval = 300,tolerance = 50
-🇸🇬星洲LLP = url-test,🇸🇬星洲,interval = 300,tolerance = 50
-🇺🇸美国LLP = url-test,🇺🇸美国,interval = 300,tolerance = 50
-🇨🇦加拿大LLP = url-test,🇨🇦加拿大,interval = 300,tolerance = 50
-🇦🇺澳大利亚LLP = url-test,🇦🇺澳大利亚,interval = 300,tolerance = 50
-🇬🇧英国LLP = url-test,🇬🇧英国,interval = 300,tolerance = 50
-🇫🇷法国LLP = url-test,🇫🇷法国,interval = 300,tolerance = 50
-🇩🇪德国LLP = url-test,🇩🇪德国,interval = 300,tolerance = 50
-🇮🇹意大利LLP = url-test,🇮🇹意大利,interval = 300,tolerance = 50
-🇳🇱荷兰LLP = url-test,🇳🇱荷兰,interval = 300,tolerance = 50
-🇱🇺卢森堡LLP = url-test,🇱🇺卢森堡,interval = 300,tolerance = 50
+🇭🇰香港LLP = url-test, 🇭🇰香港, interval = 300, tolerance = 50, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/HK.png
+🇨🇳台湾LLP = url-test, 🇨🇳台湾, interval = 300, tolerance = 50, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/TW.png
+🇯🇵日本LLP = url-test, 🇯🇵日本, interval = 300, tolerance = 50, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/JP.png
+🇰🇷韩国LLP = url-test, 🇰🇷韩国, interval = 300, tolerance = 50, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/KR.png
+🇸🇬星洲LLP = url-test, 🇸🇬星洲, interval = 300, tolerance = 50, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/SG.png
+🇺🇸美国LLP = url-test, 🇺🇸美国, interval = 300, tolerance = 50, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/US.png
+🇨🇦加拿大LLP = url-test, 🇨🇦加拿大, interval = 300, tolerance = 50, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/CA.png
+🇦🇺澳大利亚LLP = url-test, 🇦🇺澳大利亚, interval = 300, tolerance = 50, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/AU.png
+🇬🇧英国LLP = url-test, 🇬🇧英国, interval = 300, tolerance = 50, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/UK.png
+🇫🇷法国LLP = url-test, 🇫🇷法国, interval = 300, tolerance = 50, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/FR.png
+🇩🇪德国LLP = url-test, 🇩🇪德国, interval = 300, tolerance = 50, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/DE.png
+🇮🇹意大利LLP = url-test, 🇮🇹意大利, interval = 300, tolerance = 50, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/IT.png
+🇳🇱荷兰LLP = url-test, 🇳🇱荷兰, interval = 300, tolerance = 50, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/NL.png
+🇱🇺卢森堡LLP = url-test, 🇱🇺卢森堡, interval = 300, tolerance = 50, img-url = https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/LU.png
 
 [Rule]
 # Local Rule
@@ -119,10 +120,10 @@ FINAL,🐟漏网之鱼
 
 [Remote Rule]
 # === AI ===
-https://rule.kelee.one/Loon/Copilot.lsr, policy=💬AI, tag=Copilot, enabled=true
-https://rule.kelee.one/Loon/Gemini.lsr, policy=💬AI, tag=Gemini, enabled=true
-https://rule.kelee.one/Loon/OpenAI.lsr, policy=💬AI, tag=OpenAI, enabled=true
-https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=💬AI, tag=AI, enabled=true
+https://rule.kelee.one/Loon/Copilot.lsr, policy=✨AI, tag=Copilot, enabled=true
+https://rule.kelee.one/Loon/Gemini.lsr, policy=✨AI, tag=Gemini, enabled=true
+https://rule.kelee.one/Loon/OpenAI.lsr, policy=✨AI, tag=OpenAI, enabled=true
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=✨AI, tag=AI, enabled=true
 # === Apple ===
 https://rule.kelee.one/Loon/Apple.lsr, policy=🍎Apple, tag=Apple, enabled=true
 https://rule.kelee.one/Loon/AppleID.lsr, policy=🍎Apple, tag=AppleID, enabled=true
@@ -146,6 +147,7 @@ https://rule.kelee.one/Loon/YouTube.lsr, policy=🎬YouTube, tag=YouTube, enable
 https://rule.kelee.one/Loon/YouTubeMusic.lsr, policy=🚀节点选择, tag=YouTubeMusic, enabled=true
 https://rule.kelee.one/Loon/Netflix.lsr, policy=🎥Netflix, tag=Netflix, enabled=true
 https://rule.kelee.one/Loon/Disney.lsr, policy=🐭Disney, tag=Disney, enabled=true
+https://rule.kelee.one/Loon/Bahamut.lsr, policy=📺Bahamut, tag=Bahamut, enabled=true
 https://rule.kelee.one/Loon/Pixiv.lsr, policy=🚀节点选择, tag=Pixiv, enabled=true
 # === Social ===
 https://rule.kelee.one/Loon/Facebook.lsr, policy=🚀节点选择, tag=Facebook, enabled=true
