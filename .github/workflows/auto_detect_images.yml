@@ -18,6 +18,12 @@ on:
       - 'Icons/Color/**'
       - 'Icons/scripts/**'
 
+# 设置权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 # 确保只有一个部署任务同时运行
 concurrency:
   group: 'pages'
