@@ -14,8 +14,12 @@ redir-port: 7893
 # Linux 的透明代理端口（适用于 TProxy TCP 和 TProxy UDP 流量)
 tproxy-port: 7894
 
+# 统一延迟
 unified-delay: true
+# TCP 并发
 tcp-concurrent: true
+# 识别进程模式
+# off（关闭进程识别，不启用 PROCESS-NAME 规则。性能最佳，适合路由器等设备） / strict（严格模式，只有成功识别进程才应用 PROCESS-NAME 规则。失败则不匹配） / always（始终尝试识别进程，即使失败也会继续尝试匹配规则。可能影响性能）
 find-process-mode: strict
 
 # 允许局域网的连接（可用来共享代理）
@@ -300,12 +304,12 @@ dns:
 # MARK: GEO
 # ========================
 geox-url:
-  # geoip: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.dat"
-  # geosite: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.dat"
   # IP 地址与国家/地区的映射
   geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
+  # geoip: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.dat"
   # 域名与分类的映射（如广告、社交媒体等）
   geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
+  # geosite: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.dat"
   # 更高精度的 IP 数据库
   mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
   # GeoIP 数据的来源
