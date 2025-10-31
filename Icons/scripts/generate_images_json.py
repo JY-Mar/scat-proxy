@@ -13,6 +13,9 @@ image_extensions = [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp"]
 # 目标扫描目录：Icons/Color/
 color_dir = os.path.join(parent_dir, "Color")
 
+# 输出 JSON 文件路径
+json_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), "images.json")
+
 # 分组结果
 grouped_images = {}
 
@@ -36,14 +39,12 @@ for entry in os.listdir(color_dir):
                     rel_path = os.path.relpath(os.path.join(root, file), parent_dir)
                     image_list.append(rel_path.replace("\\", "/"))
         if image_list:
-            grouped_images[os.path.join('Color', entry)] = image_list
+            grouped_images[os.path.join("Color", entry)] = image_list
 
 if root_images:
     grouped_images["Color"] = root_images
 
-# 写入 images.json 到 Icons/ 目录
-output_path = os.path.join(parent_dir, 'images.json')
-with open(output_path, 'w', encoding='utf-8') as f:
+with open(json_path, "w", encoding="utf-8") as f:
     json.dump(grouped_images, f, ensure_ascii=False, indent=2)
 
-print(f'✅ images.json 已生成：{output_path}')
+print(f"✅ images.json 已生成：{json_path}")
