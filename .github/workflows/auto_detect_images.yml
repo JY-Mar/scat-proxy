@@ -1,0 +1,40 @@
+name: Auto-generate images.json from Icons
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'Icons/Color/**'
+
+jobs:
+  auto-detect-images:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: 📦 Install dependencies (if needed)
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: 🧠 Run grouping script in Icons/
+        run: python Icons/command/generate_images_json.py
+
+      - name: 🧱 Generate icons_index.html from images.json
+        run: |
+          python Icons/command/generate_icons_html.py
+
+      - name: 📤 Commit and push images.json in Icons/
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Icons/images.json Icons/icons_index.html
+          git diff --cached --quiet || git commit -m "🤖 Auto-update images.json icons_index.html"
+          git push
