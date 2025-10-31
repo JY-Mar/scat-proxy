@@ -1,9 +1,9 @@
-name: Auto-generate images.json from Icons
+name: Auto-generate visiable images html
 
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'Icons/Color/**'
 
