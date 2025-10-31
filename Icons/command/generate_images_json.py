@@ -1,4 +1,7 @@
 # 当前脚本所在目录：Icons/command/
+import json
+import os
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 # 上一级目录：Icons/
