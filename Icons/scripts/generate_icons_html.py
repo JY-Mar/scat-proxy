@@ -42,7 +42,7 @@ html = [
     ".group .group-item { width: 144px; height: 144px; padding: 10px; border-radius: 6px; cursor: pointer; will-change: scale, background-color; transition: scale 0.25s ease, background-color 0.25s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: transparent; }",
     ".group .group-item:hover { scale: 1.2; z-index: 2; }",
     ".group .group-item img { object-fit: contain; }",
-    ".group .group-item div { width: 100%; text-align: center; font-size: 0.875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 5px; }",
+    ".group .group-tip { width: 100%; text-align: center; font-size: 0.875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 5px; }",
     "</style>",
     "</head>",
     "<body>",
@@ -54,7 +54,7 @@ for folder, images in data.items():
     html.append('<div class="group">')
     for img_path in images:
         img_name = os.path.basename(img_path)
-        html.append(f'<div class="group-item" title="{img_name}"><img src="{img_path}" alt="{img_path}" /><div>{img_name}</div></div>')
+        html.append(f'<div><div class="group-item" title="{img_name}"><img src="{img_path}" alt="{img_path}" /></div><div class="group-tip">{img_name}</div></div>')
     html.append("</div>")
 
 html.append("</body></html>")
