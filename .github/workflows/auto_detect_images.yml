@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'Icons/Color/**'
+      - 'Icons/command/**'
 
 jobs:
   auto-detect-images:
