@@ -1,0 +1,2 @@
+# 类型提示支持（Python 3.8+）
+typing-extensions>=4.0.0; python_version<"3.8"
