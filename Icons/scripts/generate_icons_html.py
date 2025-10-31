@@ -26,20 +26,23 @@ html = [
     "<title>Icons 图片展示</title>",
     "<style>",
     "@media (prefers-color-scheme: light) {",
-    "   body { background-color: #f9f9f9; }",
+    "   body { background-color: #f9f9f9; color: #000000; }",
+    "   .group .group-item { box-shadow: 0 2px 6px rgba(0,0,0,0.2); }",
     "   .group .group-item:hover { background-color: #ffffff; }",
     "}",
     "@media (prefers-color-scheme: dark) {",
-    "   body { background-color: #222222; }",
+    "   body { background-color: #222222; color: #ffffff; }",
+    "   .group .group-item { box-shadow: 0 0 0 1px rgba(88,88,88,0.3); }",
     "   .group .group-item:hover { background-color: #333333; }",
     "}",
     "body { font-family: sans-serif; padding: 20px; }",
     "h1 { text-align: center; }",
     "h2 { margin-top: 40px; }",
     ".group { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }",
-    ".group .group-item { width: 144px; height: 144px; padding: 10px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer; will-change: scale 0.25s ease, background-color 0.25s ease; display: flex; justify-content: center; align-items: center; background-color: transparent; }",
+    ".group .group-item { width: 144px; height: 144px; padding: 10px; border-radius: 6px; cursor: pointer; will-change: scale, background-color; transition: scale 0.25s ease, background-color 0.25s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: transparent; }",
     ".group .group-item:hover { scale: 1.2; z-index: 2; }",
     ".group .group-item img { object-fit: contain; }",
+    ".group .group-item div { width: 100%; text-align: center; font-size: 0.875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 5px; }",
     "</style>",
     "</head>",
     "<body>",
@@ -50,7 +53,8 @@ for folder, images in data.items():
     html.append(f"<h2>{folder}</h2>")
     html.append('<div class="group">')
     for img_path in images:
-        html.append(f'<div class="group-item"><img src="{img_path}" alt="{img_path}" /></div>')
+        img_name = os.path.basename(img_path)
+        html.append(f'<div class="group-item" title="{img_name}"><img src="{img_path}" alt="{img_path}" /><div>{img_name}</div></div>')
     html.append("</div>")
 
 html.append("</body></html>")
