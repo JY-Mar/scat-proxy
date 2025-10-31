@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       force_update:
-        description: "强制更新配置"
+        description: '强制更新配置'
         required: false
         default: false
         type: boolean
@@ -49,3 +49,10 @@ jobs:
           git add Icons/images.json Icons/icons_index.html
           git diff --cached --quiet || git commit -m "🤖 Auto-update images.json icons_index.html"
           git push
+
+      - name: 🚀 Deploy icons_index.html to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: Icons
+          publish_branch: gh-pages
