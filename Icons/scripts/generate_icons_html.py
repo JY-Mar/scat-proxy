@@ -1,17 +1,17 @@
 import json
 import os
 
-# 当前脚本所在目录：Icons/command/
+# 当前脚本所在目录：Icons/scripts/
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 # 上一级目录：Icons/
 parent_dir = os.path.abspath(os.path.join(current_dir, ".."))
 
 # 输入 JSON 文件路径
-json_path = os.path.join(parent_dir, "images.json")
+json_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), "images.json")
 
 # 输出 HTML 文件路径
-html_path = os.path.join(parent_dir, "icons_index.html")
+html_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), "icons_index.html")
 
 # 读取 images.json
 with open(json_path, "r", encoding="utf-8") as f:

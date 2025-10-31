@@ -1,4 +1,4 @@
-# 当前脚本所在目录：Icons/command/
+# 当前脚本所在目录：Icons/scripts/
 import json
 import os
 
