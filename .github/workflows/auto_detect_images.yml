@@ -89,12 +89,12 @@ jobs:
     needs: auto-detect-images
 
     steps:
-      - name: 🧹 Clean up old Deployment Records
-        uses: strumwolf/delete-deployment-environment@v3
-        with:
-          token: ${{ secrets.SCAT_PROXY_GITHUB_TOKEN }}
-          environment: github-pages
-          onlyRemoveDeployments: true
+      # - name: 🧹 Clean up old Deployment Records
+      #   uses: strumwolf/delete-deployment-environment@v3
+      #   with:
+      #     token: ${{ secrets.SCAT_PROXY_GITHUB_TOKEN }}
+      #     environment: github-pages
+      #     onlyRemoveDeployments: true
 
       - name: ⬆️ Deploy to GitHub Pages
         id: deployment
