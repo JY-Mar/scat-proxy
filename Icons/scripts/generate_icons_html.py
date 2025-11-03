@@ -27,26 +27,30 @@ html = [
     "<style>",
     "@media (prefers-color-scheme: light) {",
     "    body { background-color: #f9f9f9; color: #000000; }",
-    "    .group .group-item { box-shadow: 0 2px 6px rgba(0,0,0,0.2); }",
-    "    .group .group-item:hover { background-color: #ffffff; }",
+    "    .group .icon-item { box-shadow: 0 2px 6px rgba(0,0,0,0.2); }",
+    "    .group .icon-item:hover { background-color: #ffffff; }",
     "}",
     "@media (prefers-color-scheme: dark) {",
     "    body { background-color: #222222; color: #ffffff; }",
-    "    .group .group-item { box-shadow: 0 0 0 1px rgba(88,88,88,0.3); }",
-    "    .group .group-item:hover { background-color: #333333; }",
+    "    .group .icon-item { box-shadow: 0 0 0 1px rgba(88,88,88,0.3); }",
+    "    .group .icon-item:hover { background-color: #333333; }",
     "}",
     "body { font-family: sans-serif; padding: 20px; }",
     "h1 { text-align: center; }",
     "h2 { margin-top: 2.5rem; }",
     ".group { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }",
-    ".group .group-item { padding: 10px; border-radius: 6px; cursor: pointer; will-change: scale, background-color; transition: scale 0.25s ease, background-color 0.25s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: transparent; }",
-    ".group .group-item:hover { scale: 1.2; z-index: 2; }",
-    ".group .group-item:hover + .group-tip { margin-top: 1.25rem; font-size: 1rem; }",
-    ".group .group-item img { object-fit: contain; width: 100%; height: 100%; }",
-    ".group .group-tip { width: 100%; text-align: center; font-size: 0.875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 5px; will-change: margin-top,font-size; transition: margin-top 0.25s ease, font-size: 0.25s ease; }",
-    ".group .group-item.large { width: 144px; height: 144px; }",
-    ".group .group-item.medium { width: 96px; height: 96px; }",
-    ".group .group-item.small { width: 64px; height: 64px; }",
+    ".group .icon-wrapper:has(.icon-item.large) { width: 144px; }"
+    ".group .icon-wrapper:has(.icon-item.medium) { width: 96px; }"
+    ".group .icon-wrapper:has(.icon-item.small) { width: 64px; }"
+    ".group .icon-wrapper:has(.icon-item:hover) { width: unset !important; }"
+    ".group .icon-item { padding: 10px; border-radius: 6px; cursor: pointer; will-change: scale, background-color; transition: scale 0.25s ease, background-color 0.25s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: transparent; }",
+    ".group .icon-item:hover { scale: 1.2; z-index: 2; }",
+    ".group .icon-item:hover + .icon-tip { margin-top: 1.25rem; font-size: 1rem; }",
+    ".group .icon-item img { object-fit: contain; width: 100%; height: 100%; }",
+    ".group .icon-tip { width: 100%; text-align: center; font-size: 0.875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 5px; will-change: margin-top,font-size; transition: margin-top 0.25s ease, font-size: 0.25s ease; }",
+    ".group .icon-item.large { width: inherit; height: 144px; }",
+    ".group .icon-item.medium { width: inherit; height: 96px; }",
+    ".group .icon-item.small { width: inherit; height: 64px; }",
     "</style>",
     "</head>",
     "<body>",
@@ -65,11 +69,11 @@ for folder, images in data.items():
     for img_path in images:
         img_name = os.path.basename(img_path)
         html.extend([
-            "<div>",
-            f"    <div class=\"group-item\" title=\"{img_name}\">",
+            "<div class=\"icon-wrapper\">",
+            f"    <div class=\"icon-item\" title=\"{img_name}\">",
             f"        <img src=\"{img_path}\" alt=\"{img_path}\" />",
             "    </div>",
-            f"    <div class=\"group-tip\">{img_name}</div>",
+            f"    <div class=\"icon-tip\">{img_name}</div>",
             "</div>"
         ])
     html.append("</div>")
@@ -78,7 +82,7 @@ for folder, images in data.items():
 html.extend([
     "<script>",
     "function setSize(size) {",
-    "    document.querySelectorAll('.group-item').forEach(item => {",
+    "    document.querySelectorAll('.icon-item').forEach(item => {",
     "        item.classList.remove('large', 'medium', 'small');",
     "        item.classList.add(size);",
     "    });",
