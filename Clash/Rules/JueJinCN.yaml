@@ -1,0 +1,9 @@
+# NAME: JueJinCN
+# AUTHOR: JY-Mar
+# REPO: https://github.com/JY-Mar/scat-proxy/edit/main/Clash/Rules
+# UPDATED：2025-11-04 13:55:45
+# DOMAIN-SUFFIX：1
+# TOTAL: 1
+payload:
+  # 稀土掘金
+  - DOMAIN-SUFFIX,juejin.cn
