@@ -538,6 +538,7 @@ rule-providers:
   Twitter: {url: https://rule.kelee.one/Clash/Twitter.yaml, path: ./ruleset/Twitter.yaml, <<: *RuleProviders}
   # === Code ===
   GitHub: {url: https://rule.kelee.one/Clash/GitHub.yaml, path: ./ruleset/GitHub.yaml, <<: *RuleProviders}
+  JueJinCN: {url: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Clash/Rules/JueJinCN.yaml, path: ./ruleset/JueJinCN.yaml, <<: *RuleProviders}
   # === Adv ===
   Advertising: {url: https://rule.kelee.one/Clash/Advertising.yaml, path: ./ruleset/Advertising.yaml, <<: *RuleProviders}
   Advertising_blackmatrix7: {url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Advertising/Advertising_Classical.yaml, path: ./ruleset/Advertising_blackmatrix7.yaml, <<: *RuleProviders}
@@ -597,6 +598,7 @@ rules:
   - RULE-SET,Twitter,🚀节点选择
   # === Code ===
   - RULE-SET,GitHub,🚀节点选择
+  - RULE-SET,JueJinCN,🎯全球直连
   # === Adv ===
   # - RULE-SET,Advertising,🛑全球拦截
   - RULE-SET,Advertising_blackmatrix7,🛑全球拦截
