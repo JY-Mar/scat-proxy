@@ -38,19 +38,22 @@ html = [
     "body { font-family: sans-serif; padding: 20px; }",
     "h1 { text-align: center; }",
     "h2 { margin-top: 2.5rem; }",
-    ".group { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }",
-    ".group .icon-wrapper:has(.icon-item.large) { width: 144px; }"
-    ".group .icon-wrapper:has(.icon-item.medium) { width: 96px; }"
-    ".group .icon-wrapper:has(.icon-item.small) { width: 64px; }"
-    ".group .icon-wrapper:has(.icon-item:hover) { width: unset !important; }"
-    ".group .icon-item { padding: 10px; border-radius: 6px; cursor: pointer; will-change: scale, background-color; transition: scale 0.25s ease, background-color 0.25s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: transparent; }",
-    ".group .icon-item:hover { scale: 1.2; z-index: 2; }",
-    ".group .icon-item:hover + .icon-tip { margin-top: 1.25rem; font-size: 1rem; }",
-    ".group .icon-item img { object-fit: contain; width: 100%; height: 100%; }",
-    ".group .icon-tip { width: 100%; text-align: center; font-size: 0.875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 5px; will-change: margin-top,font-size; transition: margin-top 0.25s ease, font-size: 0.25s ease; }",
-    ".group .icon-item.large { width: inherit; height: 144px; }",
-    ".group .icon-item.medium { width: inherit; height: 96px; }",
-    ".group .icon-item.small { width: inherit; height: 64px; }",
+    ".group { display: grid; }",
+    ".group:has(.icon-wrapper > .icon-item.large) { grid-template-columns: repeat(auto-fit, minmax(144px, 1fr)); gap: 1.2rem; }"
+    ".group:has(.icon-wrapper > .icon-item.medium) { grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 1rem; }"
+    ".group:has(.icon-wrapper > .icon-item.small) { grid-template-columns: repeat(auto-fit, minmax(64px, 1fr)); gap: 0.8rem; }"
+    ".group > .icon-wrapper:has(.icon-item.large) { width: 144px; }"
+    ".group > .icon-wrapper:has(.icon-item.medium) { width: 96px; }"
+    ".group > .icon-wrapper:has(.icon-item.small) { width: 64px; }"
+    ".group > .icon-wrapper:has(.icon-item:hover) { width: unset !important; }"
+    ".group > .icon-wrapper > .icon-item { padding: 10px; border-radius: 6px; cursor: pointer; will-change: scale, background-color; transition: scale 0.25s ease, background-color 0.25s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: transparent; }",
+    ".group > .icon-wrapper > .icon-item:hover { scale: 1.2; z-index: 2; }",
+    ".group > .icon-wrapper > .icon-item:hover + .icon-tip { margin-top: 1.25rem; font-size: 1rem; }",
+    ".group > .icon-wrapper > .icon-item img { object-fit: contain; width: 100%; height: 100%; }",
+    ".group > .icon-wrapper > .icon-item.large { width: inherit; height: 144px; }",
+    ".group > .icon-wrapper > .icon-item.medium { width: inherit; height: 96px; }",
+    ".group > .icon-wrapper > .icon-item.small { width: inherit; height: 64px; }",
+    ".group > .icon-wrapper > .icon-tip { width: 100%; text-align: center; font-size: 0.875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 5px; will-change: margin-top,font-size; transition: margin-top 0.25s ease, font-size: 0.25s ease; }",
     "</style>",
     "</head>",
     "<body>",
