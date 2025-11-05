@@ -61,7 +61,7 @@ html = [
     ".group > .icon-wrapper > .icon-item:hover.large { height: inherit !important; }",
     ".group > .icon-wrapper > .icon-item:hover.medium { height: inherit !important; }",
     ".group > .icon-wrapper > .icon-item:hover.small { height: inherit !important; }",
-    ".group > .icon-wrapper > .icon-tip { width: 100%; text-align: center; font-size: 0.875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 5px; will-change: margin-top,font-size; transition: margin-top 0.25s ease, font-size: 0.25s ease; }",
+    ".group > .icon-wrapper > .icon-tip { width: 100%; text-align: center; font-size: 0.875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 5px; will-change: bottom,font-size; transition: bottom 0.25s ease, font-size: 0.25s ease; }",
     "</style>",
     "</head>",
     "<body>",
