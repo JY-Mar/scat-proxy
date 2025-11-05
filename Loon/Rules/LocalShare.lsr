@@ -1,0 +1,34 @@
+# NAME: LocalShare
+# AUTHOR: JY-Mar
+# REPO: https://github.com/JY-Mar/scat-proxy/edit/main/Clash/Rules
+# UPDATED：2025-11-05 13:36:00
+# PROCESS-NAME: 9
+# DEST-PORT: 3
+# TOTAL: 12
+# 1. 优先匹配 LocalSend 进程（精准拦截，需 TUN 模式）
+# Windows LocalSend 进程
+PROCESS-NAME,LocalSend.exe
+# macOS/Linux LocalSend 进程
+PROCESS-NAME,LocalSend
+# 安卓 LocalSend 包名
+PROCESS-NAME,com.localsend.localsend_app
+PROCESS-NAME,com.localsend.android
+# iOS LocalSend Bundle ID
+PROCESS-NAME,com.localsend.app
+# 2. 优先匹配 LANDrop 进程（精准拦截，需 TUN 模式）
+# Windows LANDrop 进程
+PROCESS-NAME,LANDrop.exe
+# macOS/Linux LANDrop 进程
+PROCESS-NAME,LANDrop
+# 安卓 LANDrop 包名
+PROCESS-NAME,io.landrop.landrop
+  # iOS LANDrop Bundle ID
+PROCESS-NAME,io.landrop.LANDrop
+# 3. LocalSend 专属端口（UDP+TCP，兜底匹配，无需 TUN）
+# LocalSend 默认通信端口（核心）
+DEST-PORT,53317
+# LocalSend Web 界面端口（可选）
+DEST-PORT,53318
+# 4. LANDrop 专属端口（UDP+TCP，兜底匹配，无需 TUN）
+# LANDrop 默认通信端口（核心）
+DEST-PORT,40000
