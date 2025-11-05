@@ -42,7 +42,7 @@ html = [
     ".group:has(.icon-wrapper > .icon-item.large) { grid-template-columns: repeat(auto-fit, minmax(144px, 1fr)); gap: 1.7rem 1.4rem; }",
     ".group:has(.icon-wrapper > .icon-item.medium) { grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 1.5rem 1.2rem; }",
     ".group:has(.icon-wrapper > .icon-item.small) { grid-template-columns: repeat(auto-fit, minmax(64px, 1fr)); gap: 1.3rem 1rem; }",
-    ".group > .icon-wrapper { will-change: scale; transition: scale 0.25s ease; }",
+    ".group > .icon-wrapper { will-change: scale, width, height; transition: scale 0.25s ease, width 0.25s ease, height 0.25s ease; }",
     ".group > .icon-wrapper:has(.icon-item.large) { width: 144px; }",
     ".group > .icon-wrapper:has(.icon-item.medium) { width: 96px; }",
     ".group > .icon-wrapper:has(.icon-item.small) { width: 64px; }",
