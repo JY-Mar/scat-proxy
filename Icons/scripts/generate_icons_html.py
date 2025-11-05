@@ -46,10 +46,11 @@ html = [
     ".group > .icon-wrapper:has(.icon-item.medium) { width: 96px; }",
     ".group > .icon-wrapper:has(.icon-item.small) { width: 64px; }",
     ".group > .icon-wrapper:has(.icon-item:hover) { width: unset !important; }",
-    ".group > .icon-wrapper > .icon-item { padding: 10px; border-radius: 6px; cursor: pointer; will-change: scale, background-color; transition: scale 0.25s ease, background-color 0.25s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: transparent; }",
+    ".group > .icon-wrapper > .icon-item { border-radius: 6px; cursor: pointer; will-change: scale, background-color; transition: scale 0.25s ease, background-color 0.25s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: transparent; }",
     ".group > .icon-wrapper > .icon-item:hover { scale: 1.2; z-index: 2; }",
     ".group > .icon-wrapper > .icon-item:hover + .icon-tip { margin-top: 1.25rem; font-size: 1rem; }",
-    ".group > .icon-wrapper > .icon-item img { object-fit: contain; width: 100%; height: 100%; }",
+    ".group > .icon-wrapper > .icon-item > .img-wrapper { padding: 10px; }",
+    ".group > .icon-wrapper > .icon-item > .img-wrapper > img { object-fit: contain; width: 100%; height: 100%; }",
     ".group > .icon-wrapper > .icon-item.large { width: inherit; height: 144px; }",
     ".group > .icon-wrapper > .icon-item.medium { width: inherit; height: 96px; }",
     ".group > .icon-wrapper > .icon-item.small { width: inherit; height: 64px; }",
@@ -73,8 +74,10 @@ for folder, images in data.items():
         img_name = os.path.basename(img_path)
         html.extend([
             "<div class=\"icon-wrapper\">",
-            f"    <div class=\"icon-item\" title=\"{img_name}\">",
-            f"        <img src=\"{img_path}\" alt=\"{img_path}\" />",
+            f"    <div class=\"icon-item medium\" title=\"{img_name}\">",
+            "        <div class=\"img-wrapper\">"
+            f"            <img src=\"{img_path}\" alt=\"{img_path}\" />",
+            "        </div>",
             "    </div>",
             f"    <div class=\"icon-tip\">{img_name}</div>",
             "</div>"
