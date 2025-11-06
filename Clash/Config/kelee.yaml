@@ -606,7 +606,7 @@ rules:
   # === Proxy ===
   - RULE-SET,Proxy,🚀节点选择
   # === Direct ===
-  - RULE-SET,LocalShare,🎯全球直连
+  # - RULE-SET,LocalShare,🎯全球直连
   - RULE-SET,Direct,🎯全球直连
   - RULE-SET,Download,🎯全球直连
   - RULE-SET,China,🎯全球直连
