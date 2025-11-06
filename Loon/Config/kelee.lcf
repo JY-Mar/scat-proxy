@@ -164,7 +164,7 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/
 # === Proxy ===
 https://rule.kelee.one/Loon/Proxy.lsr, policy=🚀节点选择, tag=Proxy, enabled=true
 # === Direct ===
-https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Loon/Rules/LocalShare.lsr, policy=🎯全球直连, tag=LocalShare, enabled=true
+https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Loon/Rules/LocalShare.lsr, policy=🎯全球直连, tag=LocalShare, enabled=false
 https://rule.kelee.one/Loon/Direct.lsr, policy=🎯全球直连, tag=Direct, enabled=true
 https://rule.kelee.one/Loon/Download.lsr, policy=🎯全球直连, tag=Download, enabled=true
 https://rule.kelee.one/Loon/China.lsr, policy=🎯全球直连, tag=China, enabled=true
