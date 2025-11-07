@@ -50,9 +50,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
 
-      - name: Create output directory
+      - name: 🗂️ Create output directory
         run: |
           mkdir -p docs
+
+      - name: 🗃️ Write assets files to docs/
+        env:
+          OUTPUT_DIR: docs
+        run: python Icons/scripts/write_assets_files.py
 
       - name: 🧠 Run grouping script in Icons/
         env:
