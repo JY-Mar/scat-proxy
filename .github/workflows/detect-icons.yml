@@ -1,4 +1,4 @@
-name: Auto-generate icons.html
+name: Auto-generate
 
 on:
   # 手动触发
@@ -62,7 +62,7 @@ jobs:
       - name: 📁 Copy Icons/Color to docs/Color
         run: cp -r Icons/Color docs/Color
 
-      - name: 🧱 Generate icons.html from images.json
+      - name: 🧱 Generate index.html from images.json
         env:
           OUTPUT_DIR: docs
         run: |

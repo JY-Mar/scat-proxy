@@ -1,5 +1,8 @@
 import json
 import os
+import re
+
+
 
 # 当前脚本所在目录：Icons/scripts/
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -11,11 +14,42 @@ parent_dir = os.path.abspath(os.path.join(current_dir, ".."))
 json_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), "images.json")
 
 # 输出 HTML 文件路径
-html_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), "icons.html")
+html_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), "index.html")
 
 # 读取 images.json
 with open(json_path, "r", encoding="utf-8") as f:
     data = json.load(f)
+
+def csscompress(css: str) -> str:
+    # 去掉注释
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    # 去掉多余空白符
+    css = re.sub(r"\s+", " ", css)
+    # 去掉大括号前后的空格
+    css = re.sub(r"\s*{\s*", "{", css)
+    css = re.sub(r"\s*}\s*", "}", css)
+    css = re.sub(r"\s*;\s*", ";", css)
+    css = re.sub(r"\s*:\s*", ":", css)
+
+    # 去掉重复属性：逐个选择器解析
+    def clean_block(block: str) -> str:
+        parts = block.split(";")
+        seen = {}
+        for part in parts:
+            if ":" in part:
+                prop, val = part.split(":", 1)
+                seen[prop.strip()] = val.strip()
+        return ";".join([f"{k}:{v}" for k, v in seen.items()])
+
+    compressed = ""
+    for selector, body in re.findall(r"([^{}]+){([^{}]+)}", css):
+        compressed += selector.strip() + "{" + clean_block(body) + "}"
+    return compressed.strip()
+
+with open(os.path.join(current_dir, "style.css"), "r", encoding="utf-8") as f:
+    css_content = f.read()
+# 压缩 CSS 内容
+compressed_css = csscompress(css_content)
 
 # 构建 HTML 内容
 html = [
@@ -25,46 +59,7 @@ html = [
     '<meta charset="UTF-8">',
     "<title>Icons 图片展示</title>",
     "<style>",
-    "@media (prefers-color-scheme: light) {",
-    "    body { background-color: #f9f9f9; color: #000000; }",
-    "    .group .icon-item { box-shadow: 0 2px 6px rgba(0,0,0,0.2); }",
-    "    .group .icon-item:hover { background-color: #ffffff; }",
-    "}",
-    "@media (prefers-color-scheme: dark) {",
-    "    body { background-color: #222222; color: #ffffff; }",
-    "    .group .icon-item { box-shadow: 0 0 0 1px rgba(88,88,88,0.3); }",
-    "    .group .icon-item:hover { background-color: #333333; }",
-    "}",
-    "body { font-family: sans-serif; padding: 20px; }",
-    "h1 { text-align: center; }",
-    "h2 { margin-top: 2.5rem; }",
-    ".group { display: grid; }",
-    ".group:has(.icon-wrapper > .icon-item.large) { grid-template-columns: repeat(auto-fit, minmax(144px, 1fr)); gap: 1.7rem 1.4rem; }",
-    ".group:has(.icon-wrapper > .icon-item.medium) { grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 1.5rem 1.2rem; }",
-    ".group:has(.icon-wrapper > .icon-item.small) { grid-template-columns: repeat(auto-fit, minmax(64px, 1fr)); gap: 1.3rem 1rem; }",
-    ".group > .icon-wrapper { will-change: scale, width, height; transition: scale 0.25s ease, width 0.25s ease, height 0.25s ease; }",
-    ".group > .icon-wrapper:has(.icon-item.large) { width: 144px; }",
-    ".group > .icon-wrapper:has(.icon-item.medium) { width: 96px; }",
-    ".group > .icon-wrapper:has(.icon-item.small) { width: 64px; }",
-    ".group > .icon-wrapper:has(.icon-item:hover) { scale: 1.2; z-index: 2; width: unset !important; height: unset !important; }",
-    ".group > .icon-wrapper { position: relative; }",
-    ".group > .icon-wrapper > .icon-item { border-radius: 6px; cursor: pointer; will-change: background-color; transition: background-color 0.25s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: transparent; }",
-    ".group > .icon-wrapper > .icon-item:hover + .icon-tip { position: absolute; background-color: #666666; }",
-    ".group > .icon-wrapper > .icon-item:hover.large + .icon-tip { left: 0; bottom: calc(-144px * 0.12 + 1px); }",
-    ".group > .icon-wrapper > .icon-item:hover.medium + .icon-tip { left: 0; bottom: calc(-96px * 0.12 + 1px); }",
-    ".group > .icon-wrapper > .icon-item:hover.small + .icon-tip { left: 0; bottom: calc(-64px * 0.12 + 1px); }",
-    ".group > .icon-wrapper > .icon-item > .img-wrapper { padding: 10px; }",
-    ".group > .icon-wrapper > .icon-item > .img-wrapper > img { object-fit: contain; width: 100%; height: 100%; }",
-    ".group > .icon-wrapper > .icon-item.large { width: inherit; height: 144px; }",
-    ".group > .icon-wrapper > .icon-item.medium { width: inherit; height: 96px; }",
-    ".group > .icon-wrapper > .icon-item.small { width: inherit; height: 64px; }",
-    ".group > .icon-wrapper > .icon-item:hover.large { height: inherit !important; }",
-    ".group > .icon-wrapper > .icon-item:hover.medium { height: inherit !important; }",
-    ".group > .icon-wrapper > .icon-item:hover.small { height: inherit !important; }",
-    ".group > .icon-wrapper > .icon-tip { width: 100%; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; will-change: bottom,font-size,background-color; transition: bottom 0.25s ease, font-size 0.25s ease, background-color 0.25s ease; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; }",
-    ".group > .icon-wrapper:has(.icon-item.large) > .icon-tip { font-size: 1rem; }",
-    ".group > .icon-wrapper:has(.icon-item.medium) > .icon-tip { font-size: 0.875rem; }",
-    ".group > .icon-wrapper:has(.icon-item.small) > .icon-tip { font-size: 0.75rem; }",
+    f"{compressed_css}",
     "</style>",
     "</head>",
     "<body>",
@@ -113,4 +108,4 @@ html.extend([
 with open(html_path, "w", encoding="utf-8") as f:
     f.write("\n".join(html))
 
-print(f"✅ icons.html 已生成：{html_path}")
+print(f"✅ index.html 已生成：{html_path}")
