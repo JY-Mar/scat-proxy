@@ -49,7 +49,7 @@ def csscompress(css: str) -> str:
 with open(os.path.join(current_dir, "style.css"), "r", encoding="utf-8") as f:
     css_content = f.read()
 # 压缩 CSS 内容
-compressed_css = csscompress(css_content)
+compressed_css = css_content
 
 # 构建 HTML 内容
 html = [
