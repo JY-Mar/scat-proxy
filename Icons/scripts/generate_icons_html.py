@@ -62,6 +62,7 @@ for folder, images in data.items():
 # 添加 JavaScript
 html.extend(
     [
+        "<script src=\"viewer.min.js\"></script>",
         "<script>",
         "function setSize(size) {",
         "    document.querySelectorAll('.icon-item').forEach(item => {",
@@ -73,21 +74,18 @@ html.extend(
         "    setSize('medium');",
         "};",
         "const observer = new MutationObserver(() => {",
-        "    if (Viewer) {",
-        "        document.querySelectorAll('.group').forEach(group => {",
-        "            if (!group.viewer) { // 避免重复初始化",
-        "                group.viewer = new Viewer(group, {",
-        "                    toolbar: true,",
-        "                    navbar: true,",
-        "                    title: [2, (image, imageData) => image.alt],",
-        "                });",
-        "            }",
-        "        });",
-        "    }",
+        "    document.querySelectorAll('.group').forEach(group => {",
+        "        if (!group.viewer) { // 避免重复初始化",
+        "            group.viewer = new Viewer(group, {",
+        "                toolbar: true,",
+        "                navbar: true,",
+        "                title: [2, (image, imageData) => image.alt],",
+        "            });",
+        "        }",
+        "    });",
         "});",
         "observer.observe(document.body, { childList: true, subtree: true });"
         "</script>",
-        '<script src="viewer.min.js"></script>',
         "</body>",
         "</html>",
     ]
