@@ -15,6 +15,16 @@ with open(os.path.join(current_dir, "viewer.min.js"), "r", encoding="utf-8") as 
 # 写入 viewer.min.js 文件到 Icons/ 目录
 with open(viewerjs_output_path, "w", encoding="utf-8") as f:
     f.write(viewerjs_content)
+
+viewercss_output_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), "viewer.min.css")
+
+# 读取 viewer.min.css
+with open(os.path.join(current_dir, "viewer.min.css"), "r", encoding="utf-8") as f:
+    viewercss_content = f.read()
+
+# 写入 viewer.min.css 文件到 Icons/ 目录
+with open(viewercss_output_path, "w", encoding="utf-8") as f:
+    f.write(viewercss_content)
 # #endregion
 
 # #region style.css
