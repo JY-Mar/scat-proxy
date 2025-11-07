@@ -23,16 +23,16 @@ with open(json_path, "r", encoding="utf-8") as f:
 # 构建 HTML 内容
 html = [
     "<!DOCTYPE html>",
-    "<html lang=\"zh-CN\">",
+    '<html lang="zh-CN">',
     "<head>",
-    "<meta charset=\"UTF-8\">",
+    '<meta charset="UTF-8">',
     "<title>Icons 图片展示</title>",
-    "<link rel=\"stylesheet\" href=\"viewer.min.css\" />",
-    "<link rel=\"stylesheet\" href=\"style.css\" />",
+    '<link rel="stylesheet" href="viewer.min.css" />',
+    '<link rel="stylesheet" href="style.css" />',
     "</head>",
     "<body>",
     "<h1>Icons/Color 图片展示</h1>",
-    "<div style=\"text-align:right; margin-bottom:20px;\">",
+    '<div style="text-align:right; margin-bottom:20px;">',
     "    <label>图标大小：</label>",
     "    <button onclick=\"setSize('large')\">大</button>",
     "    <button onclick=\"setSize('medium')\">中</button>",
@@ -47,14 +47,14 @@ for folder, images in data.items():
         img_name = os.path.basename(img_path)
         html.extend(
             [
-                 "<div class=\"icon-wrapper\">",
-                f"    <div class=\"icon-item medium\" title=\"{img_name}\">",
-                 "        <div class=\"img-wrapper\">"
-                f"            <img src=\"{img_path}\" alt=\"{img_path}\" />",
-                 "        </div>",
-                 "    </div>",
-                f"    <div class=\"icon-tip\">{img_name}</div>",
-                 "</div>",
+                '<div class="icon-wrapper">',
+                f'    <div class="icon-item medium" title="{img_name}">',
+                '        <div class="img-wrapper">'
+                f'            <img src="{img_path}" alt="{img_path}" />',
+                "        </div>",
+                "    </div>",
+                f'    <div class="icon-tip">{img_name}</div>',
+                "</div>",
             ]
         )
     html.append("</div>")
@@ -62,7 +62,6 @@ for folder, images in data.items():
 # 添加 JavaScript
 html.extend(
     [
-        "<script src=\"viewer.min.js\"></script>",
         "<script>",
         "function setSize(size) {",
         "    document.querySelectorAll('.icon-item').forEach(item => {",
@@ -72,17 +71,15 @@ html.extend(
         "}",
         "window.onload = () => {",
         "    setSize('medium');",
-        "    setTimeout(() => {",
-        "        document.querySelectorAll('.group').forEach((group) => {",
-        "            new Viewer(group, {",
-        "                toolbar: true,",
-        "                navbar: true,",
-        "                title: [2, (image, imageData) => image.alt],",
-        "            });",
-        "        });",
-        "    }, 1000)",
+        "    // 直接绑定所有 img 元素",
+        "    new Viewer(document.querySelectorAll('img'), {",
+        "        toolbar: true,",
+        "        navbar: true,",
+        "        title: [2, (image, imageData) => image.alt],",
+        "    });",
         "};",
         "</script>",
+        '<script src="viewer.min.js"></script>',
         "</body>",
         "</html>",
     ]
