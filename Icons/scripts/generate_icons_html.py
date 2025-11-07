@@ -31,7 +31,7 @@ html = [
     "<link rel=\"stylesheet\" href=\"style.css\" />",
     "</head>",
     "<body>",
-    "<script src=\"viewer.min.js\"></script>"
+    "<script src=\"viewer.min.js\"></script>",
     "<h1>Icons/Color 图片展示</h1>",
     "<div style=\"text-align:right; margin-bottom:20px;\">",
     "    <label>图标大小：</label>",
