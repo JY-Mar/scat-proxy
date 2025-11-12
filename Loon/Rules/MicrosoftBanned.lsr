@@ -2,8 +2,8 @@
 # AUTHOR: JY-Mar
 # REPO: https://github.com/JY-Mar/scat-proxy/edit/main/Loon/Rules
 # UPDATED: 2025-11-12 11:34:00
-# DOMAIN-SUFFIX: 9
-# TOTAL: 9
+# DOMAIN-SUFFIX: 11
+# TOTAL: 11
 # Microsoft Graph 全球 API 主入口，访问用户、文件、邮件、Teams 等数据（❌无法直连，需通过世纪互联 Graph：microsoftgraph.chinacloudapi.cn）
 DOMAIN-SUFFIX,graph.microsoft.com
 # 全球 Azure AD 登录验证，广泛用于 Microsoft 365、Azure、OneDrive 登录（❌无法直连，常被 DNS 污染或 TCP 重置）
@@ -30,3 +30,11 @@ DOMAIN-SUFFIX,api.onedrive.com
 # DOMAIN-SUFFIX,msftncsi.com
 # 微软 Edge 浏览器的官方相关服务域名，包含浏览器同步、扩展商店、账户关联等海外服务（❌无法直连）
 DOMAIN-SUFFIX,edge.microsoft.com
+# Bing Copilot 服务接口，直连会被强制跳转国内版 Bing，需要代理（❌无法直连）
+DOMAIN-SUFFIX,edgeservices.bing.com
+# Bing Chat（Copilot AI）的后端接口，直连会超时或被重定向（❌无法直连）
+DOMAIN-SUFFIX,sydney.bing.com
+# 微软遥测/数据收集服务，Copilot 依赖，需代理（❌无法直连）
+DOMAIN-SUFFIX,events.data.microsoft.com
+# Microsoft Designer 设计工具官方服务，在大陆提示“区域不可用”（❌无法直连）
+DOMAIN-SUFFIX,designer.microsoft.com
