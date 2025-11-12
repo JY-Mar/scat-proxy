@@ -158,6 +158,7 @@ https://rule.kelee.one/Loon/Twitter.lsr, policy=🚀节点选择, tag=Twitter, e
 # === Code ===
 https://rule.kelee.one/Loon/GitHub.lsr, policy=🚀节点选择, tag=GitHub, enabled=true
 https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Loon/Rules/JueJinCN.lsr, policy=🎯全球直连, tag=JueJinCN, enabled=true
+https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Loon/Rules/LinuxDo.lsr, policy=🎯全球直连, tag=LinuxDo, enabled=false
 # === Adv ===
 https://rule.kelee.one/Loon/Advertising.lsr, policy=🛑全球拦截, tag=Advertising, enabled=false
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Advertising/Advertising.list, policy=🛑全球拦截, tag=Advertising_ blackmatrix7, enabled=false
