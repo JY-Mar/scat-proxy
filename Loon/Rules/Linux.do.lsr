@@ -1,0 +1,8 @@
+# NAME         : Linux.do
+# AUTHOR       : JY-Mar
+# REPO         : https://github.com/JY-Mar/scat-proxy/tree/main/Loon/Rules
+# UPDATED      : 2025-11-12 20:02:46 GMT+0800
+# DOMAIN-SUFFIX: 1
+# TOTAL        : 1
+
+DOMAIN-SUFFIX,linux.do
