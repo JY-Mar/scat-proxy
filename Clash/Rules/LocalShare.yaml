@@ -1,10 +1,11 @@
-# NAME: LocalShare
-# AUTHOR: JY-Mar
-# REPO: https://github.com/JY-Mar/scat-proxy/edit/main/Clash/Rules
-# UPDATED：2025-11-05 13:36:00
-# PROCESS-NAME: 9
-# DST-PORT: 3
-# TOTAL: 12
+# NAME         : LocalShare
+# AUTHOR       : JY-Mar
+# REPO         : https://github.com/JY-Mar/scat-proxy/tree/main/Clash/Rules
+# UPDATED      : 2025-11-12 18:04:42 GMT+0800
+# DST-PORT     : 3
+# PROCESS-NAME : 9
+# TOTAL        : 12
+
 payload:
   # 1. 优先匹配 LocalSend 进程（精准拦截，需 TUN 模式）
   # Windows LocalSend 进程

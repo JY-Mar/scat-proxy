@@ -1,0 +1,54 @@
+{
+  "fileheader.configObj": {
+    "autoAdd": true,
+    "autoAddLine": 100,
+    "supportAutoLanguage": ["yaml", "lsr"],
+    "prohibitAutoAdd": ["md", "txt"],
+    "atSymbol": ["@", "@"],
+    "atSymbolObj": {
+      "yaml": ["#", "@"],
+      "lsr": ["#", "@"]
+    },
+    "customHasHeadEnd": {
+      "yaml": "cancel head",
+      "lsr": "cancel head"
+    },
+    "showErrorMessage": true,
+    "language": {
+      "yaml/lsr": {
+        "head": "",
+        "middle": "# ",
+        "end": ""
+      }
+    },
+    "functionParams": {
+      "domainSuffixCount": "function ({data, languageId}) { if (languageId !== 'yaml') return ''; const r = /^(?!\\s*(?:#|\\/\\/)).*DOMAIN-SUFFIX/gim; const m = data.match(r); return m ? String(m.length) : '0'; }",
+      "totalPayloadCount": "function ({data, languageId}) { if (languageId !== 'yaml') return ''; const r = /^\\s*-\\s*DOMAIN-SUFFIX,[^#\\/]+$/gim; const m = data.match(r); return m ? String(m.length) : '0'; }"
+    },
+    "dateFormat": "YYYY-MM-DD HH:mm:ss ZZ",
+    "specialOptions": {
+      "FilePath": "NAME",
+      "LastEditTime": "UPDATED"
+    },
+    "filePathColon": "/"
+  },
+
+  "fileheader.customMade": {
+    "FilePath": "only file name without ext",
+    "AUTHOR": "git config user.name",
+    "REPO": "https://github.com/JY-Mar/scat-proxy/tree/main/",
+    "LastEditTime": "Do not edit"
+  },
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": ".*\\/Clash\\/Rules\\/.+\\.yaml$",
+        "cmd": "node ./tools/update-clash-yaml-header.js ${file}"
+      },
+      {
+        "match": ".*\\/Loon\\/Rules\\/.+\\.lsr$",
+        "cmd": "node ./tools/update-loon-lsr-header.js ${file}"
+      }
+    ]
+  }
+}

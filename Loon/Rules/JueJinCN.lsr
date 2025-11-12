@@ -1,8 +1,9 @@
-# NAME: JueJinCN
-# AUTHOR: JY-Mar
-# REPO: https://github.com/JY-Mar/scat-proxy/edit/main/Loon/Rules
-# UPDATED: 2025-10-27 13:55:45
+# NAME         : JueJinCN
+# AUTHOR       : JY-Mar
+# REPO         : https://github.com/JY-Mar/scat-proxy/tree/main/Loon/Rules
+# UPDATED      : 2025-11-12 18:05:07 GMT+0800
 # DOMAIN-SUFFIX: 1
-# TOTAL: 1
+# TOTAL        : 1
+
 # 稀土掘金
 DOMAIN-SUFFIX,juejin.cn
