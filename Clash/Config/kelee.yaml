@@ -601,7 +601,7 @@ rules:
   # === Code ===
   - RULE-SET,GitHub,🚀节点选择
   - RULE-SET,JueJinCN,🎯全球直连
-  - RULE-SET,LinuxDo,🎯全球直连
+  # - RULE-SET,LinuxDo,🎯全球直连
   # === Adv ===
   # - RULE-SET,Advertising,🛑全球拦截
   - RULE-SET,Advertising_blackmatrix7,🛑全球拦截
