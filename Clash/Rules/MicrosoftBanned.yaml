@@ -1,9 +1,9 @@
 # NAME: MicrosoftBanned
 # AUTHOR: JY-Mar
 # REPO: https://github.com/JY-Mar/scat-proxy/edit/main/Clash/Rules
-# UPDATED: 2025-10-27 13:55:45
-# DOMAIN-SUFFIX: 8
-# TOTAL: 8
+# UPDATED: 2025-11-12 11:34:00
+# DOMAIN-SUFFIX: 9
+# TOTAL: 9
 payload:
   # Microsoft Graph 全球 API 主入口，访问用户、文件、邮件、Teams 等数据（❌无法直连，需通过世纪互联 Graph：microsoftgraph.chinacloudapi.cn）
   - DOMAIN-SUFFIX,graph.microsoft.com
@@ -29,3 +29,5 @@ payload:
   # - DOMAIN-SUFFIX,msftconnecttest.com
   # Windows 网络连通性检测，影响系统联网状态判断（✅ 可访问，返回 200 OK 和 Microsoft NCSI）
   # - DOMAIN-SUFFIX,msftncsi.com
+  # 微软 Edge 浏览器的官方相关服务域名，包含浏览器同步、扩展商店、账户关联等海外服务（❌无法直连）
+  - DOMAIN-SUFFIX,edge.microsoft.com
