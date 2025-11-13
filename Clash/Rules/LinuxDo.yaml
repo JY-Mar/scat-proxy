@@ -1,9 +1,19 @@
-# NAME         : Linux.do
-# AUTHOR       : JY-Mar
-# REPO         : https://github.com/JY-Mar/scat-proxy/tree/main/Clash/Rules
-# UPDATED      : 2025-11-12 20:06:53 GMT+0800
-# DOMAIN-SUFFIX: 1
-# TOTAL        : 1
+# NAME            : LinuxDo
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/scat-proxy/tree/main/Clash/Rules
+# UPDATED         : 2025-11-13 10:37:07 GMT+0800
+# DOMAIN          : 2
+# DOMAIN-SUFFIX   : 2
+# DOMAIN-KEYWORD  : 2
+# TOTAL           : 6
 
 payload:
+  # 1. 精确匹配主域名（根域名访问，如 https://linux.do）
+  - DOMAIN,linux.do
+  - DOMAIN,linuxdo.org
+  # 2. 核心规则：覆盖所有子域名（含 API 子域名，如 api.linux.do、v3.api.linux.do 等）
   - DOMAIN-SUFFIX,linux.do
+  - DOMAIN-SUFFIX,linuxdo.org
+  # 3. 兜底匹配：关键词覆盖路径式 API/非标准域名（如 linux.do/api、api-linux.do 等）
+  - DOMAIN-KEYWORD,linux.do
+  - DOMAIN-KEYWORD,linuxdo.org

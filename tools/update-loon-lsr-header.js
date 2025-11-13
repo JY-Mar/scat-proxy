@@ -94,11 +94,11 @@ RULETYPE.forEach((type) => {
   }
 })
 insert = insert_temp.map((v) => {
-  return `# ${v[0]}`.padEnd(15, ' ') + ': ' + v[1]
+  return `# ${v[0]}`.padEnd(18, ' ') + ': ' + v[1]
 })
 const insert_temp_1 = insert_temp.map((v) => v[1])
 const insert_temp_sum = insert_temp_1.length > 0 ? insert_temp_1.reduce((a, b) => a + b) : 0
-insert.push(`# ${RULETYPE.at(-1)}`.padEnd(15, ' ') + ': ' + insert_temp_sum)
+insert.push(`# ${RULETYPE.at(-1)}`.padEnd(18, ' ') + ': ' + insert_temp_sum)
 insert.push('')
 
 // 替换文件头里的数值

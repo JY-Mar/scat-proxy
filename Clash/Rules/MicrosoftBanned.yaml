@@ -1,9 +1,9 @@
-# NAME         : MicrosoftBanned
-# AUTHOR       : JY-Mar
-# REPO         : https://github.com/JY-Mar/scat-proxy/tree/main/Clash/Rules
-# UPDATED      : 2025-11-12 18:03:28 GMT+0800
-# DOMAIN-SUFFIX: 13
-# TOTAL        : 13
+# NAME            : MicrosoftBanned
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/scat-proxy/tree/main/Clash/Rules
+# UPDATED         : 2025-11-13 09:14:38 GMT+0800
+# DOMAIN-SUFFIX   : 13
+# TOTAL           : 13
 
 payload:
   # Microsoft Graph 全球 API 主入口，访问用户、文件、邮件、Teams 等数据（❌无法直连，需通过世纪互联 Graph：microsoftgraph.chinacloudapi.cn）

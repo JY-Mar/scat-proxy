@@ -1,10 +1,10 @@
-# NAME         : LocalShare
-# AUTHOR       : JY-Mar
-# REPO         : https://github.com/JY-Mar/scat-proxy/tree/main/Loon/Rules
-# UPDATED      : 2025-11-12 18:06:04 GMT+0800
-# DEST-PORT    : 3
-# PROCESS-NAME : 9
-# TOTAL        : 12
+# NAME            : LocalShare
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/scat-proxy/tree/main/Loon/Rules
+# UPDATED         : 2025-11-13 09:15:49 GMT+0800
+# DEST-PORT       : 3
+# PROCESS-NAME    : 9
+# TOTAL           : 12
 
 # 1. 优先匹配 LocalSend 进程（精准拦截，需 TUN 模式）
 # Windows LocalSend 进程

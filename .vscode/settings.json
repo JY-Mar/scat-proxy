@@ -13,6 +13,8 @@
       "yaml": "cancel head",
       "lsr": "cancel head"
     },
+    // 头部注释字段长度 默认为13
+    "wideNum": 16,
     "showErrorMessage": true,
     "language": {
       "yaml/lsr": {
