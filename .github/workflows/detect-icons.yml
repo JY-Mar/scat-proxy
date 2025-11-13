@@ -17,6 +17,10 @@ on:
     paths:
       - 'Icons/Color/**'
       - 'Icons/scripts/**'
+      - 'Clash/Config/*.yaml'
+      - 'Clash/Rules/*.yaml'
+      - 'Loon/Config/*.lcf'
+      - 'Loon/Rules/*.lsr'
 
 # 设置权限
 permissions:
@@ -54,15 +58,21 @@ jobs:
         run: |
           mkdir -p docs
 
-      - name: 🗃️ Write assets files to docs/
+      - name: 🗃️ Copy assets files to docs/
         env:
           OUTPUT_DIR: docs
-        run: python Icons/scripts/write_assets_files.py
+        run: python Icons/scripts/copy_assets_files.py
 
       - name: 🧠 Run grouping script in Icons/
         env:
           OUTPUT_DIR: docs
         run: python Icons/scripts/generate_images_json.py
+
+      - name: 📁 Copy Clash to docs/Clash
+        run: rsync -a --exclude='*.md' Clash docs/Clash
+
+      - name: 📁 Copy Loon to docs/Loon
+        run: rsync -a --exclude='*.md' Loon docs/Loon
 
       - name: 📁 Copy Icons/Color to docs/Color
         run: cp -r Icons/Color docs/Color

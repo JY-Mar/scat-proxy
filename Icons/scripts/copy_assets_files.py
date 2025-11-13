@@ -5,28 +5,6 @@ import re
 # 当前脚本所在目录：Icons/scripts/
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# #region viewerjs
-# viewerjs_output_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), "viewer.min.js")
-
-# # 读取 viewer.min.js
-# with open(os.path.join(current_dir, "viewer.min.js"), "r", encoding="utf-8") as f:
-#     viewerjs_content = f.read()
-
-# # 写入 viewer.min.js 文件到 Icons/ 目录
-# with open(viewerjs_output_path, "w", encoding="utf-8") as f:
-#     f.write(viewerjs_content)
-
-# viewercss_output_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), "viewer.min.css")
-
-# # 读取 viewer.min.css
-# with open(os.path.join(current_dir, "viewer.min.css"), "r", encoding="utf-8") as f:
-#     viewercss_content = f.read()
-
-# # 写入 viewer.min.css 文件到 Icons/ 目录
-# with open(viewercss_output_path, "w", encoding="utf-8") as f:
-#     f.write(viewercss_content)
-# #endregion
-
 # #region style.css
 stylecss_output_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), "style.css")
 

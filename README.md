@@ -22,7 +22,13 @@ configuration of proxy tools
 │   ├── Color/                 # 拷贝到doc目录下的资源文件目录（彩色图标）
 │   │   ├── Circle/            # 圆形图标
 │   │   └── Scat/              # 作者头像
-│   └── images.json            # 统计图标信息
+│   ├── images.json            # 统计图标信息
+│   ├── Clash/                 # 拷贝到doc目录下的clash配置
+│   │   ├── Config/            # 拷贝到doc目录下的clash完整配置文件（无代理节点、代理组）.yaml
+│   │   └── Rules/             # 拷贝到doc目录下的clash远程规则文件 .yaml
+│   └── Loon/                  # 拷贝到doc目录下的Loon配置
+│       ├── Config/            # 拷贝到doc目录下的Loon完整配置文件（无代理节点、代理组）.lcf
+│       └── Rules/             # 拷贝到doc目录下的Loon远程规则文件 .lsr
 └── README.md
 ```
 
