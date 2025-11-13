@@ -69,10 +69,10 @@ jobs:
         run: python Icons/scripts/generate_images_json.py
 
       - name: 📁 Copy Clash to docs/Clash
-        run: rsync -a --exclude='*.md' Clash docs/Clash
+        run: cp -r Clash docs/Clash
 
       - name: 📁 Copy Loon to docs/Loon
-        run: rsync -a --exclude='*.md' Loon docs/Loon
+        run: cp -r Loon docs/Loon
 
       - name: 📁 Copy Icons/Color to docs/Color
         run: cp -r Icons/Color docs/Color
