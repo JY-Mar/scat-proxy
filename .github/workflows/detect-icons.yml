@@ -16,6 +16,7 @@ on:
       - main
     paths:
       - 'Icons/Color/**'
+      - 'Icons/Mono/**'
       - 'Icons/scripts/**'
       - 'Clash/Config/*.yaml'
       - 'Clash/Rules/*.yaml'
@@ -58,30 +59,28 @@ jobs:
         run: |
           mkdir -p docs
 
-      - name: 🗃️ Copy assets files to docs/
-        env:
-          OUTPUT_DIR: docs
-        run: python Icons/scripts/copy_assets_files.py
-
       - name: 🧠 Run grouping script in Icons/
         env:
           OUTPUT_DIR: docs
-        run: python Icons/scripts/generate_images_json.py
+        run: python scripts/generate_images_json.py
 
-      - name: 📁 Copy Clash to docs/Clash
+      - name: 🗃️ Copy Clash to docs/Clash
         run: cp -r Clash docs/Clash
 
-      - name: 📁 Copy Loon to docs/Loon
+      - name: 🗃️ Copy Loon to docs/Loon
         run: cp -r Loon docs/Loon
 
-      - name: 📁 Copy Icons/Color to docs/Color
-        run: cp -r Icons/Color docs/Color
+      - name: 🗃️ Copy Icons to docs/Icons
+        run: cp -r Icons docs/Icons
+
+      - name: 🗃️ Copy style.css to docs/assets
+        run: cp scripts/style.css docs/assets/style.css
 
       - name: 🧱 Generate index.html from images.json
         env:
           OUTPUT_DIR: docs
         run: |
-          python Icons/scripts/generate_icons_html.py
+          python scripts/generate_icons_html.py
 
       - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3

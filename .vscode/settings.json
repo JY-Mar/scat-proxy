@@ -15,7 +15,7 @@
     },
     // 头部注释字段长度 默认为13
     "wideNum": 16,
-    "showErrorMessage": true,
+    "showErrorMessage": false,
     "language": {
       "yaml/lsr": {
         "head": "",

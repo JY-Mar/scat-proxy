@@ -10,25 +10,33 @@ configuration of proxy tools
 │   ├── Config/                # clash完整配置文件（无代理节点、代理组）.yaml
 │   └── Rules/                 # clash远程规则文件 .yaml
 ├── Icons/                     # 图标
-│   ├── Color/                 # 资源文件目录（彩色图标）
-│   │   ├── Circle/            # 圆形图标
-│   │   └── Scat/              # 作者头像
+│   ├── Color/                 # 彩色图标文件目录
+│   │   ├── Circle/            # 彩色圆形图标
+│   │   ├── Scat/              # 彩色作者头像
+│   │   └── ...                # 彩色图标
+│   ├── Mono/                  # 单色图标文件目录
+│   │   ├── Dark/              # 暗色图标
+│   │   └── ...                # 亮色图标
 │   ├── scripts/               # 文件生成脚本
 ├── Loon/                      # Loon配置
 │   ├── Config/                # Loon完整配置文件（无代理节点、代理组）.lcf
 │   └── Rules/                 # Loon远程规则文件 .lsr
 ├── docs/                      # GitHub Pages输出目录
 │   ├── index.html             # 主页面
-│   ├── Color/                 # 拷贝到doc目录下的资源文件目录（彩色图标）
-│   │   ├── Circle/            # 圆形图标
-│   │   └── Scat/              # 作者头像
+│   ├── Color/                 # 拷贝到doc目录下的 彩色图标文件目录
+│   │   ├── Circle/            # 拷贝到doc目录下的 彩色圆形图标
+│   │   ├── Scat/              # 拷贝到doc目录下的 彩色作者头像
+│   │   └── ...                # 拷贝到doc目录下的 彩色图标
+│   ├── Mono/                  # 拷贝到doc目录下的 单色图标文件目录
+│   │   ├── Dark/              # 拷贝到doc目录下的 暗色图标
+│   │   └── ...                # 拷贝到doc目录下的 亮色图标
 │   ├── images.json            # 统计图标信息
-│   ├── Clash/                 # 拷贝到doc目录下的clash配置
-│   │   ├── Config/            # 拷贝到doc目录下的clash完整配置文件（无代理节点、代理组）.yaml
-│   │   └── Rules/             # 拷贝到doc目录下的clash远程规则文件 .yaml
-│   └── Loon/                  # 拷贝到doc目录下的Loon配置
-│       ├── Config/            # 拷贝到doc目录下的Loon完整配置文件（无代理节点、代理组）.lcf
-│       └── Rules/             # 拷贝到doc目录下的Loon远程规则文件 .lsr
+│   ├── Clash/                 # 拷贝到doc目录下的 clash配置
+│   │   ├── Config/            # 拷贝到doc目录下的 clash完整配置文件（无代理节点、代理组）.yaml
+│   │   └── Rules/             # 拷贝到doc目录下的 clash远程规则文件 .yaml
+│   └── Loon/                  # 拷贝到doc目录下的 Loon配置
+│       ├── Config/            # 拷贝到doc目录下的 Loon完整配置文件（无代理节点、代理组）.lcf
+│       └── Rules/             # 拷贝到doc目录下的 Loon远程规则文件 .lsr
 └── README.md
 ```
 
@@ -69,5 +77,5 @@ https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/
 例：
 
 ```
-https://jy-mar.github.io/scat-proxy/Color/Back.png
+https://jy-mar.github.io/scat-proxy/Icons/Color/Back.png
 ```

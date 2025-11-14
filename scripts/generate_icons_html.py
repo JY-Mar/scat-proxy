@@ -3,17 +3,26 @@ import os
 import re
 
 
-# 当前脚本所在目录：Icons/scripts/
+# 图标目录名
+ICONS_DIR_NAME = "Icons"
+
+# 输出JSON文件名
+OUTPUT_JSON = "images.json"
+
+# 输出Index文件名
+OUTPUT_INDEX = "index.html"
+
+# scripts 目录
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# 上一级目录：Icons/
-parent_dir = os.path.abspath(os.path.join(current_dir, ".."))
+# 目标扫描目录：Icons/
+icons_dir = os.path.join(os.path.abspath(os.path.join(current_dir, "..")), ICONS_DIR_NAME)
 
 # 输入 JSON 文件路径
-json_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), "images.json")
+json_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), OUTPUT_JSON)
 
 # 输出 HTML 文件路径
-html_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), "index.html")
+html_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), OUTPUT_INDEX)
 
 
 # 读取 images.json
@@ -27,11 +36,10 @@ html = [
     "<head>",
     '<meta charset="UTF-8">',
     "<title>Icons 图片展示</title>",
-    # '<link rel="stylesheet" href="viewer.min.css" />',
-    '<link rel="stylesheet" href="style.css" />',
+    '<link rel="stylesheet" href="assets/style.css" />',
     "</head>",
     "<body>",
-    "<h1>Icons/Color 图片展示</h1>",
+    "<h1>Icons 图片展示</h1>",
     '<div style="text-align:right; margin-bottom:20px;">',
     "    <label>图标大小：</label>",
     "    <button onclick=\"setSize('large')\">大</button>",
@@ -62,7 +70,6 @@ for folder, images in data.items():
 # 添加 JavaScript
 html.extend(
     [
-        # "<script src=\"viewer.min.js\"></script>",
         "<script>",
         "function setSize(size) {",
         "    document.querySelectorAll('.icon-item').forEach(item => {",
@@ -73,26 +80,14 @@ html.extend(
         "window.onload = () => {",
         "    setSize('medium');",
         "};",
-        # "const observer = new MutationObserver(() => {",
-        # "    document.querySelectorAll('.group').forEach(group => {",
-        # "        if (!group.viewer) { // 避免重复初始化",
-        # "            group.viewer = new Viewer(group, {",
-        # "                toolbar: true,",
-        # "                navbar: true,",
-        # "                title: [2, (image, imageData) => image.alt],",
-        # "            });",
-        # "        }",
-        # "    });",
-        # "});",
-        # "observer.observe(document.body, { childList: true, subtree: true });"
         "</script>",
         "</body>",
         "</html>",
     ]
 )
 
-# 写入 HTML 文件到 Icons/ 目录
+# 写入 HTML 文件到 docs/ 目录
 with open(html_path, "w", encoding="utf-8") as f:
     f.write("\n".join(html))
 
-print(f"✅ index.html 已生成：{html_path}")
+print(f"✅ {OUTPUT_INDEX} 已生成：{html_path}")
