@@ -74,7 +74,7 @@ jobs:
         run: cp -r Icons docs/Icons
 
       - name: 🗃️ Copy style.css to docs/assets
-        run: cp scripts/style.css docs/assets/style.css
+        run: rsync -avP scripts/style.css docs/assets/
 
       - name: 🧱 Generate index.html from images.json
         env:
