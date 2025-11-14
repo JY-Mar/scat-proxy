@@ -59,11 +59,6 @@ jobs:
         run: |
           mkdir -p docs
 
-      - name: 🧠 Run grouping script in Icons/
-        env:
-          OUTPUT_DIR: docs
-        run: python scripts/generate_images_json.py
-
       - name: 🗃️ Copy Clash to docs/Clash
         run: cp -r Clash docs/Clash
 
@@ -75,6 +70,11 @@ jobs:
 
       - name: 🗃️ Copy style.css to docs/assets
         run: rsync -avP scripts/style.css docs/assets/
+
+      - name: 🧠 Run grouping script in Icons/
+        env:
+          OUTPUT_DIR: docs
+        run: python scripts/generate_images_json.py
 
       - name: 🧱 Generate index.html from images.json
         env:
