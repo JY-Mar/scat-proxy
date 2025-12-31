@@ -78,14 +78,14 @@ bypass-tun = 0.0.0.0/32,0.0.0.0/810.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.
 # 专属策略组
 ✨AI = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Ai.png
 ✨Copilot = select, ✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Copilot.png
-✨Gemini = select, ✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Gemini.png
+✨Gemini = select, 🌈Google,✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Gemini.png
 ✨OpenAI = select, ✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OpenAI.png
 🍎Apple = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png
 Ⓜ️MicrosoftBanned = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/MicrosoftBanned.png
 Ⓜ️Microsoft = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Microsoft.png
 Ⓜ️Bing = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bing.png
 Ⓜ️OneDrive = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OneDrive.png
-📢Google = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Google.png
+🌈Google = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Google.png
 📲Telegram = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Telegram.png
 🎬YouTube = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/YouTube.png
 🎥Netflix = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Netflix.png
@@ -138,12 +138,12 @@ https://rule.kelee.one/Loon/Microsoft.lsr, policy=Ⓜ️Microsoft, tag=Microsoft
 https://rule.kelee.one/Loon/OneDrive.lsr, policy=Ⓜ️OneDrive, tag=OneDrive, enabled=true
 https://rule.kelee.one/Loon/Bing.lsr, policy=Ⓜ️Bing, tag=Bing, enabled=true
 # === Google ===
-https://rule.kelee.one/Loon/Google.lsr, policy=📢Google, tag=Google, enabled=true
-https://rule.kelee.one/Loon/GoogleDrive.lsr, policy=📢Google, tag=GoogleDrive, enabled=true
-https://rule.kelee.one/Loon/GoogleEarth.lsr, policy=📢Google, tag=GoogleEarth, enabled=true
-https://rule.kelee.one/Loon/GoogleFCM.lsr, policy=📢Google, tag=GoogleFCM, enabled=true
-https://rule.kelee.one/Loon/GoogleSearch.lsr, policy=📢Google, tag=GoogleSearch, enabled=true
-https://rule.kelee.one/Loon/GoogleVoice.lsr, policy=📢Google, tag=GoogleVoice, enabled=true
+https://rule.kelee.one/Loon/Google.lsr, policy=🌈Google, tag=Google, enabled=true
+https://rule.kelee.one/Loon/GoogleDrive.lsr, policy=🌈Google, tag=GoogleDrive, enabled=true
+https://rule.kelee.one/Loon/GoogleEarth.lsr, policy=🌈Google, tag=GoogleEarth, enabled=true
+https://rule.kelee.one/Loon/GoogleFCM.lsr, policy=🌈Google, tag=GoogleFCM, enabled=true
+https://rule.kelee.one/Loon/GoogleSearch.lsr, policy=🌈Google, tag=GoogleSearch, enabled=true
+https://rule.kelee.one/Loon/GoogleVoice.lsr, policy=🌈Google, tag=GoogleVoice, enabled=true
 # === Media ===
 https://rule.kelee.one/Loon/Spotify.lsr, policy=🚀节点选择, tag=Spotify, enabled=true
 https://rule.kelee.one/Loon/YouTube.lsr, policy=🎬YouTube, tag=YouTube, enabled=true
