@@ -48,65 +48,67 @@ bypass-tun = 0.0.0.0/32,0.0.0.0/810.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.
 [Remote Proxy]
 
 [Remote Filter]
-🇭🇰香港 = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-🇨🇳台湾 = NameRegex, FilterKey = "^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-🇯🇵日本 = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-🇰🇷韩国 = NameRegex, FilterKey = "^(?=.*((?i)🇰🇷|韩国|韓|南朝鲜|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-🇸🇬星洲 = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|星洲|狮城|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-🇺🇸美国 = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-🇨🇦加拿大 = NameRegex, FilterKey = "^(?=.*((?i)🇨🇦|加拿大|多伦多|蒙特利尔|温哥华|(\b(CA|Canada)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-🇦🇺澳大利亚 = NameRegex, FilterKey = "^(?=.*((?i)🇦🇺|澳大利亚|澳洲|澳|悉尼|墨尔本|(\b(AU|Australia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-🇬🇧英国 = NameRegex, FilterKey = "^(?=.*((?i)🇬🇧|英国|伦敦|英|(\b(GB|UK|United Kingdom|England|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-🇫🇷法国 = NameRegex, FilterKey = "^(?=.*((?i)🇫🇷|法国|法兰西|巴黎|法|(\b(FR|France)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-🇩🇪德国 = NameRegex, FilterKey = "^(?=.*((?i)🇩🇪|德国|德意志|柏林|德|(\b(DE|GER|Germany)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-🇮🇹意大利 = NameRegex, FilterKey = "^(?=.*((?i)🇮🇹|意大利|罗马|意|(\b(IT|Italy)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-🇳🇱荷兰 = NameRegex, FilterKey = "^(?=.*((?i)🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|(\b(NL|Holland|Netherlands)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-🇱🇺卢森堡 = NameRegex, FilterKey = "^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-🌍全球 = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-🎮游戏 = NameRegex, FilterKey = "^(?=.*((?i)游戏|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$"
-⚠️用量 = NameRegex, FilterKey = "^(?=.*((?i)订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_HK = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_TW = NameRegex, FilterKey = "^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_JP = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_KR = NameRegex, FilterKey = "^(?=.*((?i)🇰🇷|韩国|韓|南朝鲜|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_SG = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|星洲|狮城|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_IN = NameRegex, FilterKey = "^(?=.*((?i)🇮🇳|印度|新德里|印|(\b(IN|IND|India)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_US = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_CA = NameRegex, FilterKey = "^(?=.*((?i)🇨🇦|加拿大|多伦多|蒙特利尔|温哥华|(\b(CA|Canada)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_AU = NameRegex, FilterKey = "^(?=.*((?i)🇦🇺|澳大利亚|澳洲|澳|悉尼|墨尔本|(\b(AU|Australia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_GB = NameRegex, FilterKey = "^(?=.*((?i)🇬🇧|英国|伦敦|英|(\b(GB|UK|United Kingdom|England|Britain)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_FR = NameRegex, FilterKey = "^(?=.*((?i)🇫🇷|法国|法兰西|巴黎|法|(\b(FR|France)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_DE = NameRegex, FilterKey = "^(?=.*((?i)🇩🇪|德国|德意志|柏林|德|(\b(DE|GER|Germany)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_IT = NameRegex, FilterKey = "^(?=.*((?i)🇮🇹|意大利|罗马|意|(\b(IT|Italy)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_NL = NameRegex, FilterKey = "^(?=.*((?i)🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|(\b(NL|Holland|Netherlands)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_LU = NameRegex, FilterKey = "^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Global = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Game = NameRegex, FilterKey = "^(?=.*((?i)游戏|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$"
+Filter_Used = NameRegex, FilterKey = "^(?=.*((?i)订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 
 [Proxy Group]
-🚀节点选择 = select, ♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Filter.png
-♻️自动选择 = url-test, 🌍全球, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Auto.png
-🚀手动切换 = select, 🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP,🇰🇷韩国LLP,🎯全球直连, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Manual.png
-⚠️流量用量 = select, ⚠️用量, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Available.png
+🚀节点选择 = select, ♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Filter.png
+♻️自动选择 = url-test, Filter_Global, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Auto.png
+🚀手动切换 = select, 🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇳🇱荷兰,🇱🇺卢森堡,🇰🇷韩国,🎯全球直连, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Manual.png
+⚠️流量用量 = select, Filter_Used, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Available.png
 🎯全球直连 = select, DIRECT, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Direct.png
 🛑全球拦截 = select, REJECT,DIRECT, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Reject.png
 🛠️故障转移 = fallback, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连, interval = 300, max-timeout = 5000, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Final.png
 🐟漏网之鱼 = select, 🛠️故障转移,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bywave.png
 # 专属策略组
-✨AI = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Ai.png
-✨Copilot = select, ✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Copilot.png
-✨Gemini = select, 🌈Google,✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Gemini.png
-✨OpenAI = select, ✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OpenAI.png
-🍎Apple = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png
-Ⓜ️MicrosoftBanned = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/MicrosoftBanned.png
-Ⓜ️Microsoft = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Microsoft.png
-Ⓜ️Bing = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bing.png
-Ⓜ️OneDrive = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OneDrive.png
-🌈Google = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Google.png
-📲Telegram = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Telegram.png
-🎬YouTube = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/YouTube.png
-🎥Netflix = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Netflix.png
-🐭Disney = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港LLP,🇨🇳台湾LLP,🇯🇵日本LLP,🇰🇷韩国LLP,🇸🇬星洲LLP,🇺🇸美国LLP,🇨🇦加拿大LLP,🇦🇺澳大利亚LLP,🇬🇧英国LLP,🇫🇷法国LLP,🇩🇪德国LLP,🇮🇹意大利LLP,🇳🇱荷兰LLP,🇱🇺卢森堡LLP, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Disney+.png
-📺Bahamut = select, 🇨🇳台湾LLP,🚀手动切换,🎯全球直连, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bahamut.png
-🎮游戏节点 = select, 🎮游戏, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Game.png
+✨AI = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Ai.png
+✨Copilot = select, ✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Copilot.png
+✨Gemini = select, 🌈Google,✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Gemini.png
+✨OpenAI = select, ✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OpenAI.png
+🍎Apple = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png
+Ⓜ️MicrosoftBanned = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/MicrosoftBanned.png
+Ⓜ️Microsoft = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Microsoft.png
+Ⓜ️Bing = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bing.png
+Ⓜ️OneDrive = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OneDrive.png
+🌈Google = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Google.png
+✈️Telegram = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Telegram.png
+🎬YouTube = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/YouTube.png
+🎥Netflix = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Netflix.png
+🐭Disney = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Disney+.png
+📺Bahamut = select, 🇨🇳台湾,🚀手动切换,🎯全球直连, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bahamut.png
+🎮游戏节点 = select, Filter_Game, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Game.png
 # 延迟优先策略组 Low Latency Preference
-🇭🇰香港LLP = url-test, 🇭🇰香港, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/HK.png
-🇨🇳台湾LLP = url-test, 🇨🇳台湾, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/TW.png
-🇯🇵日本LLP = url-test, 🇯🇵日本, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/JP.png
-🇰🇷韩国LLP = url-test, 🇰🇷韩国, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/KR.png
-🇸🇬星洲LLP = url-test, 🇸🇬星洲, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/SG.png
-🇺🇸美国LLP = url-test, 🇺🇸美国, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/US.png
-🇨🇦加拿大LLP = url-test, 🇨🇦加拿大, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/CA.png
-🇦🇺澳大利亚LLP = url-test, 🇦🇺澳大利亚, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/AU.png
-🇬🇧英国LLP = url-test, 🇬🇧英国, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/UK.png
-🇫🇷法国LLP = url-test, 🇫🇷法国, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/FR.png
-🇩🇪德国LLP = url-test, 🇩🇪德国, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/DE.png
-🇮🇹意大利LLP = url-test, 🇮🇹意大利, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/IT.png
-🇳🇱荷兰LLP = url-test, 🇳🇱荷兰, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/NL.png
-🇱🇺卢森堡LLP = url-test, 🇱🇺卢森堡, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/LU.png
+🇭🇰香港 = url-test, Filter_Region_HK, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/HK.png
+🇨🇳台湾 = url-test, Filter_Region_TW, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/TW.png
+🇯🇵日本 = url-test, Filter_Region_JP, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/JP.png
+🇰🇷韩国 = url-test, Filter_Region_KR, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/KR.png
+🇸🇬星洲 = url-test, Filter_Region_SG, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/SG.png
+🇮🇳印度 = url-test, Filter_Region_IN, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/SG.png
+🇺🇸美国 = url-test, Filter_Region_US, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/US.png
+🇨🇦加拿大 = url-test, Filter_Region_CA, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/CA.png
+🇦🇺澳洲 = url-test, Filter_Region_AU, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/AU.png
+🇬🇧英国 = url-test, Filter_Region_GB, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/UK.png
+🇫🇷法国 = url-test, Filter_Region_FR, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/FR.png
+🇩🇪德国 = url-test, Filter_Region_DE, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/DE.png
+🇮🇹意大利 = url-test, Filter_Region_IT, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/IT.png
+🇳🇱荷兰 = url-test, Filter_Region_NL, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/NL.png
+🇱🇺卢森堡 = url-test, Filter_Region_LU, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/LU.png
 
 [Rule]
 # Local Rule
@@ -155,7 +157,7 @@ https://rule.kelee.one/Loon/Pixiv.lsr, policy=🚀节点选择, tag=Pixiv, enabl
 # === Social ===
 https://rule.kelee.one/Loon/Facebook.lsr, policy=🚀节点选择, tag=Facebook, enabled=true
 https://rule.kelee.one/Loon/Instagram.lsr, policy=🚀节点选择, tag=Instagram, enabled=true
-https://rule.kelee.one/Loon/Telegram.lsr, policy=📲Telegram, tag=Telegram, enabled=true
+https://rule.kelee.one/Loon/Telegram.lsr, policy=✈️Telegram, tag=Telegram, enabled=true
 https://rule.kelee.one/Loon/TikTok.lsr, policy=🚀节点选择, tag=TikTok, enabled=true
 https://rule.kelee.one/Loon/Twitter.lsr, policy=🚀节点选择, tag=Twitter, enabled=true
 # === Code ===
