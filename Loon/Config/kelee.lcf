@@ -69,29 +69,29 @@ Filter_Game = NameRegex, FilterKey = "^(?=.*((?i)游戏|蒸汽平台|(\b(GAME|St
 Filter_Used = NameRegex, FilterKey = "^(?=.*((?i)订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 
 [Proxy Group]
-🚀节点选择 = select, ♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Filter.png
+🚀节点选择 = select, ♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Filter.png
 ♻️自动选择 = url-test, Filter_Global, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Auto.png
-🚀手动切换 = select, 🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇳🇱荷兰,🇱🇺卢森堡,🇰🇷韩国,🎯全球直连, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Manual.png
+🚀手动切换 = select, 🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,🎯全球直连, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Manual.png
 ⚠️流量用量 = select, Filter_Used, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Available.png
 🎯全球直连 = select, DIRECT, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Direct.png
 🛑全球拦截 = select, REJECT,DIRECT, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Reject.png
 🛠️故障转移 = fallback, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连, interval = 300, max-timeout = 5000, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Final.png
 🐟漏网之鱼 = select, 🛠️故障转移,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bywave.png
 # 专属策略组
-✨AI = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Ai.png
-✨Copilot = select, ✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Copilot.png
-✨Gemini = select, 🌈Google,✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Gemini.png
-✨OpenAI = select, ✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OpenAI.png
-🍎Apple = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png
-Ⓜ️MicrosoftBanned = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/MicrosoftBanned.png
-Ⓜ️Microsoft = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Microsoft.png
-Ⓜ️Bing = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bing.png
-Ⓜ️OneDrive = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OneDrive.png
-🌈Google = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Google.png
-✈️Telegram = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Telegram.png
-🎬YouTube = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/YouTube.png
-🎥Netflix = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Netflix.png
-🐭Disney = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Disney+.png
+✨AI = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Ai.png
+✨Copilot = select, ✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Copilot.png
+✨Gemini = select, 🌈Google,✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Gemini.png
+✨OpenAI = select, ✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OpenAI.png
+🍎Apple = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png
+Ⓜ️MicrosoftBanned = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/MicrosoftBanned.png
+Ⓜ️Microsoft = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Microsoft.png
+Ⓜ️Bing = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bing.png
+Ⓜ️OneDrive = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OneDrive.png
+🌈Google = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Google.png
+✈️Telegram = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Telegram.png
+🎬YouTube = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/YouTube.png
+🎥Netflix = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Netflix.png
+🐭Disney = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Disney+.png
 📺Bahamut = select, 🇨🇳台湾,🚀手动切换,🎯全球直连, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bahamut.png
 🎮游戏节点 = select, Filter_Game, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Game.png
 # 延迟优先策略组 Low Latency Preference
