@@ -490,7 +490,7 @@ proxy-groups:
   - {name: 🇯🇵日本, <<: *UrlTest, include-all: true, filter: *Filter_Region_JP, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/JP.png}
   - {name: 🇰🇷韩国, <<: *UrlTest, include-all: true, filter: *Filter_Region_KR, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/KR.png}
   - {name: 🇸🇬星洲, <<: *UrlTest, include-all: true, filter: *Filter_Region_SG, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/SG.png}
-  - {name: 🇮🇳印度, <<: *UrlTest, include-all: true, filter: *Filter_Region_IN, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/SG.png}
+  - {name: 🇮🇳印度, <<: *UrlTest, include-all: true, filter: *Filter_Region_IN, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/IN.png}
   - {name: 🇺🇸美国, <<: *UrlTest, include-all: true, filter: *Filter_Region_US, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/US.png}
   - {name: 🇨🇦加拿大, <<: *UrlTest, include-all: true, filter: *Filter_Region_CA, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/CA.png}
   - {name: 🇦🇺澳洲, <<: *UrlTest, include-all: true, filter: *Filter_Region_AU, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/AU.png}
