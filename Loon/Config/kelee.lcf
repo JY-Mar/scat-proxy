@@ -99,7 +99,7 @@ Filter_Used = NameRegex, FilterKey = "^(?=.*((?i)订阅|流量|到期|机场|过
 🇯🇵日本 = url-test, Filter_Region_JP, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/JP.png
 🇰🇷韩国 = url-test, Filter_Region_KR, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/KR.png
 🇸🇬星洲 = url-test, Filter_Region_SG, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/SG.png
-🇮🇳印度 = url-test, Filter_Region_IN, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/SG.png
+🇮🇳印度 = url-test, Filter_Region_IN, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/IN.png
 🇺🇸美国 = url-test, Filter_Region_US, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/US.png
 🇨🇦加拿大 = url-test, Filter_Region_CA, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/CA.png
 🇦🇺澳洲 = url-test, Filter_Region_AU, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/AU.png
