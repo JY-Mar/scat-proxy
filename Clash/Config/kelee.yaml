@@ -585,9 +585,9 @@ rules:
   - RULE-SET,AppStore,🍎Apple
   - RULE-SET,AppleMusic,🍎Apple
   - RULE-SET,AppleMail,🍎Apple
-  - RULE-SET,AppleProxy,🍎Apple
+  - RULE-SET,AppleProxy,🍎AppleVPN
   - RULE-SET,iCloud,🍎Apple
-  - RULE-SET,iCloudPrivateRelay,🍎Apple
+  - RULE-SET,iCloudPrivateRelay,🍎AppleVPN
   # === Microsoft ===
   - RULE-SET,MicrosoftBanned,Ⓜ️MicrosoftBanned
   - RULE-SET,Microsoft,Ⓜ️Microsoft
