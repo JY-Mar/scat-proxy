@@ -83,7 +83,7 @@ Filter_Used = NameRegex, FilterKey = "^(?=.*((?i)订阅|流量|到期|机场|过
 ✨Gemini = select, 🌈Google,✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Gemini.png
 ✨OpenAI = select, ✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OpenAI.png
 🍎Apple = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png
-🍎AppleVPN = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png
+🍎AppleVPN = select, 🍎Apple,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png
 Ⓜ️MicrosoftBanned = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/MicrosoftBanned.png
 Ⓜ️Microsoft = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Microsoft.png
 Ⓜ️Bing = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bing.png
@@ -142,7 +142,7 @@ https://rule.kelee.one/Loon/AppleProxy.lsr, policy=🍎AppleVPN, tag=AppleProxy,
 https://rule.kelee.one/Loon/iCloud.lsr, policy=🍎Apple, tag=iCloud, enabled=true
 https://rule.kelee.one/Loon/iCloudPrivateRelay.lsr, policy=🍎AppleVPN, tag=iCloudPrivateRelay, enabled=true
 # === Microsoft ===
-https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Loon/Rules/MicrosoftBanned.lsr, policy=Ⓜ️MicrosoftBanned, tag=MicrosoftBanned, enabled=true
+https://jy-mar.github.io/scat-proxy/Loon/Rules/MicrosoftBanned.lsr, policy=Ⓜ️MicrosoftBanned, tag=MicrosoftBanned, enabled=true
 https://rule.kelee.one/Loon/Microsoft.lsr, policy=Ⓜ️Microsoft, tag=Microsoft, enabled=true
 https://rule.kelee.one/Loon/OneDrive.lsr, policy=Ⓜ️OneDrive, tag=OneDrive, enabled=true
 https://rule.kelee.one/Loon/Bing.lsr, policy=Ⓜ️Bing, tag=Bing, enabled=true
@@ -169,15 +169,15 @@ https://rule.kelee.one/Loon/TikTok.lsr, policy=🚀节点选择, tag=TikTok, ena
 https://rule.kelee.one/Loon/Twitter.lsr, policy=🚀节点选择, tag=Twitter, enabled=true
 # === Code ===
 https://rule.kelee.one/Loon/GitHub.lsr, policy=🚀节点选择, tag=GitHub, enabled=true
-https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Loon/Rules/JueJinCN.lsr, policy=🎯全球直连, tag=JueJinCN, enabled=true
-https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Loon/Rules/LinuxDo.lsr, policy=🚀节点选择, tag=LinuxDo, enabled=true
+https://jy-mar.github.io/scat-proxy/Loon/Rules/JueJinCN.lsr, policy=🎯全球直连, tag=JueJinCN, enabled=true
+https://jy-mar.github.io/scat-proxy/Loon/Rules/LinuxDo.lsr, policy=🚀节点选择, tag=LinuxDo, enabled=true
 # === Adv ===
 https://rule.kelee.one/Loon/Advertising.lsr, policy=🛑全球拦截, tag=Advertising, enabled=false
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Advertising/Advertising.list, policy=🛑全球拦截, tag=Advertising_ blackmatrix7, enabled=false
 # === Proxy ===
 https://rule.kelee.one/Loon/Proxy.lsr, policy=🚀节点选择, tag=Proxy, enabled=true
 # === Direct ===
-https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Loon/Rules/LocalShare.lsr, policy=🎯全球直连, tag=LocalShare, enabled=false
+https://jy-mar.github.io/scat-proxy/Loon/Rules/LocalShare.lsr, policy=🎯全球直连, tag=LocalShare, enabled=false
 https://rule.kelee.one/Loon/Direct.lsr, policy=🎯全球直连, tag=Direct, enabled=true
 https://rule.kelee.one/Loon/Download.lsr, policy=🎯全球直连, tag=Download, enabled=true
 https://rule.kelee.one/Loon/China.lsr, policy=🎯全球直连, tag=China, enabled=true
