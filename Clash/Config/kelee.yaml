@@ -208,10 +208,11 @@ dns:
     - '*.ffxiv.com'
     ## === Hmbaby Service ===
     - '*.haimababi.com'
-    - '*.simshine.com.cn'
+    - '*.simshine.*.*'
+    - '*.simshine.*'
     - 'dns.weixin.qq.com.cn'
     - 'log.*'
-    - '*.qcloud.com'
+    - 'iot.cloud.tencent.com'
   # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
   # 仅填写 DNS 服务器的 IP 地址
   default-nameserver:
@@ -546,6 +547,8 @@ rule-providers:
   Disney: {url: https://rule.kelee.one/Clash/Disney.yaml, path: ./ruleset/Disney.yaml, <<: *RuleProviders}
   Bahamut: {url: https://rule.kelee.one/Clash/Bahamut.yaml, path: ./ruleset/Bahamut.yaml, <<: *RuleProviders}
   Pixiv: {url: https://rule.kelee.one/Clash/Pixiv.yaml, path: ./ruleset/Pixiv.yaml, <<: *RuleProviders}
+  # === Monitor ===
+  Hmbaby: {url: https://jy-mar.github.io/scat-proxy/Clash/Rules/Hmbaby.yaml, path: ./ruleset/Hmbaby.yaml, <<: *RuleProviders}
   # === Social ===
   Facebook: {url: https://rule.kelee.one/Clash/Facebook.yaml, path: ./ruleset/Facebook.yaml, <<: *RuleProviders}
   Instagram: {url: https://rule.kelee.one/Clash/Instagram.yaml, path: ./ruleset/Instagram.yaml, <<: *RuleProviders}
@@ -612,6 +615,8 @@ rules:
   - RULE-SET,Disney,🐭Disney
   - RULE-SET,Bahamut,📺Bahamut
   - RULE-SET,Pixiv,🚀节点选择
+  # === Hmbaby ===
+  - RULE-SET,Hmbaby,🎯全球直连
   # === Social ===
   - RULE-SET,Facebook,🚀节点选择
   - RULE-SET,Instagram,🚀节点选择
