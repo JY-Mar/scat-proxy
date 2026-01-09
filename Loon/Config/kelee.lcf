@@ -161,6 +161,8 @@ https://rule.kelee.one/Loon/Netflix.lsr, policy=🎥Netflix, tag=Netflix, enable
 https://rule.kelee.one/Loon/Disney.lsr, policy=🐭Disney, tag=Disney, enabled=true
 https://rule.kelee.one/Loon/Bahamut.lsr, policy=📺Bahamut, tag=Bahamut, enabled=true
 https://rule.kelee.one/Loon/Pixiv.lsr, policy=🚀节点选择, tag=Pixiv, enabled=true
+# === Monitor ===
+https://jy-mar.github.io/scat-proxy/Loon/Rules/Hmbaby.lsr, policy=🎯全球直连, tag=Hmbaby, enabled=true
 # === Social ===
 https://rule.kelee.one/Loon/Facebook.lsr, policy=🚀节点选择, tag=Facebook, enabled=true
 https://rule.kelee.one/Loon/Instagram.lsr, policy=🚀节点选择, tag=Instagram, enabled=true
