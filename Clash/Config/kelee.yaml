@@ -474,6 +474,7 @@ proxy-groups:
   - {name: ✨Gemini, type: select, proxies: [🌈Google, ✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Gemini.png}
   - {name: ✨OpenAI, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/OpenAI.png}
   - {name: 🍎Apple, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png}
+  - {name: 🍎AppleVPN, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png}
   - {name: Ⓜ️MicrosoftBanned, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/MicrosoftBanned.png}
   - {name: Ⓜ️Microsoft, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Microsoft.png}
   - {name: Ⓜ️Bing, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Bing.png}
@@ -515,8 +516,12 @@ rule-providers:
   # === Apple ===
   Apple: {url: https://rule.kelee.one/Clash/Apple.yaml, path: ./ruleset/Apple.yaml, <<: *RuleProviders}
   AppleID: {url: https://rule.kelee.one/Clash/AppleID.yaml, path: ./ruleset/AppleID.yaml, <<: *RuleProviders}
+  AppStore: {url: https://rule.kelee.one/Clash/AppStore.yaml, path: ./ruleset/AppStore.yaml, <<: *RuleProviders}
   AppleMusic: {url: https://rule.kelee.one/Clash/AppleMusic.yaml, path: ./ruleset/AppleMusic.yaml, <<: *RuleProviders}
+  AppleMail: {url: https://rule.kelee.one/Clash/AppleMail.yaml, path: ./ruleset/AppleMail.yaml, <<: *RuleProviders}
   AppleProxy: {url: https://rule.kelee.one/Clash/AppleProxy.yaml, path: ./ruleset/AppleProxy.yaml, <<: *RuleProviders}
+  iCloud: {url: https://rule.kelee.one/Clash/iCloud.yaml, path: ./ruleset/iCloud.yaml, <<: *RuleProviders}
+  iCloudPrivateRelay: {url: https://rule.kelee.one/Clash/iCloudPrivateRelay.yaml, path: ./ruleset/iCloudPrivateRelay.yaml, <<: *RuleProviders}
   # === Microsoft ===
   MicrosoftBanned: {url: https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Clash/Rules/MicrosoftBanned.yaml, path: ./ruleset/MicrosoftBanned.yaml, <<: *RuleProviders}
   Microsoft: {url: https://rule.kelee.one/Clash/Microsoft.yaml, path: ./ruleset/Microsoft.yaml, <<: *RuleProviders}
@@ -577,8 +582,12 @@ rules:
   # === Apple ===
   - RULE-SET,Apple,🍎Apple
   - RULE-SET,AppleID,🍎Apple
+  - RULE-SET,AppStore,🍎Apple
   - RULE-SET,AppleMusic,🍎Apple
+  - RULE-SET,AppleMail,🍎Apple
   - RULE-SET,AppleProxy,🍎Apple
+  - RULE-SET,iCloud,🍎Apple
+  - RULE-SET,iCloudPrivateRelay,🍎Apple
   # === Microsoft ===
   - RULE-SET,MicrosoftBanned,Ⓜ️MicrosoftBanned
   - RULE-SET,Microsoft,Ⓜ️Microsoft
