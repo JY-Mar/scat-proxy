@@ -1,9 +1,9 @@
 # NAME            : Hmbaby
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/scat-proxy/tree/main/Loon/Rules
-# UPDATED         : 2025-11-13 09:16:03 GMT+0800
-# DOMAIN-SUFFIX   : 1
-# TOTAL           : 1
+# UPDATED         : 2026-01-09 12:18:07 GMT+0800
+# DOMAIN-SUFFIX   : 5
+# TOTAL           : 5
 
 # 稀土掘金
 DOMAIN-SUFFIX,juejin.cn
