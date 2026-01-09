@@ -117,17 +117,14 @@ dns:
     - 'time.*.edu.cn'
     - 'time.*.apple.com'
     - 'time[1-7]?.*.com'
-
+    - '*.time.edu.cn'
     - 'ntp.*.com'
     - 'ntp[1-7]?.*.com'
     - 'ntp.*.cn'
     - 'ntp[1-7]?.*.cn'
     - 'ntp.org'
-
-    - '*.time.edu.cn'
     - '*.ntp.org.cn'
     - '+.pool.ntp.org'
-
     - 'time1.cloud.tencent.com'
     # === Music Service ===
     ## NetEase
@@ -170,6 +167,7 @@ dns:
     ## Golang
     - 'proxy.golang.org'
     ## STUN Server
+    - 'stun.*'
     - 'stun.*.*'
     - 'stun.*.*.*'
     - '+.stun.*.*'
@@ -208,6 +206,12 @@ dns:
     - '+.wargaming.net'
     - '*.finalfantasyxiv.com'
     - '*.ffxiv.com'
+    ## === Hmbaby Service ===
+    - '*.haimababi.com'
+    - '*.simshine.com.cn'
+    - 'dns.weixin.qq.com.cn'
+    - 'log.*'
+    - '*.qcloud.com'
   # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
   # 仅填写 DNS 服务器的 IP 地址
   default-nameserver:
