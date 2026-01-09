@@ -1,0 +1,18 @@
+# NAME            : Hmbaby
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/scat-proxy/tree/main/Clash/Rules
+# UPDATED         : 2026-01-09 12:18:07 GMT+0800
+# DOMAIN-SUFFIX   : 5
+# TOTAL           : 5
+
+payload:
+  # 海马爸比品牌官方域名
+  - DOMAIN-SUFFIX,haimababi.com
+  # 海马爸比子域名，用于设备、APP
+  - DOMAIN-SUFFIX,hmbaby.simshine.cn
+  # 海马爸比官网地址
+  - DOMAIN-SUFFIX,simshine.cn
+  # 海马爸比官网地址（可能不存在）
+  - DOMAIN-SUFFIX,simshine.com.cn
+  # 海马爸比官网地址（可能不存在）
+  - DOMAIN-SUFFIX,simshine.com
