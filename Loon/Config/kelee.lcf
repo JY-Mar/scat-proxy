@@ -89,7 +89,7 @@ Filter_Used = NameRegex, FilterKey = "^(?=.*((?i)订阅|流量|到期|机场|过
 Ⓜ️Bing = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bing.png
 Ⓜ️OneDrive = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OneDrive.png
 🌈Google = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Google.png
-🧬TikTok = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Telegram.png
+🧬TikTok = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/TikTok.png
 ✈️Telegram = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Telegram.png
 🎬YouTube = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/YouTube.png
 🎥Netflix = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Netflix.png
