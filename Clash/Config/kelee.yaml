@@ -37,12 +37,9 @@ udp: true
 bind-address: '*'
 # clash 的 RESTful API 监听地址
 external-controller: 0.0.0.0:9090
-external-controller-tls: 0.0.0.0:9443
-external-controller-unix: mihomo.sock
-external-controller-pipe: \\.\pipe\mihomo
 # 存放配置文件的相对路径，或存放网页静态资源的绝对路径
 # Clash core 将会将其部署在 http://{{external-controller}}/ui
-external-ui: ui
+external-ui: ./ui
 external-ui-name: zashboard
 external-ui-url: 'https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip'
 external-doh-server: /dns-query
@@ -85,7 +82,7 @@ hosts:
 dns:
   enable: true
   prefer-h3: true
-  listen: 0.0.0.0:53
+  listen: 0.0.0.0:1053
   # 当此选项为 false 时, AAAA 请求将返回空
   ipv6: true
   # 查询 hosts 并返回 IP 记录
@@ -370,8 +367,11 @@ tun:
   auto-redirect: true
   auto-detect-interface: true
   dns-hijack:
-    - any:53
-    - tcp://any:53
+    - 8.8.8.8:1053
+    - 1.1.1.1:1053
+    - 114.114.114.114:1053
+    - tcp://8.8.8.8:1053
+    - tcp://1.1.1.1:1053
 
 profile:
   store-selected: true
