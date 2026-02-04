@@ -102,7 +102,7 @@ hosts:
 dns:
   enable: true
   prefer-h3: true
-  listen: 0.0.0.0:1053
+  listen: 0.0.0.0:53
   # 当此选项为 false 时, AAAA 请求将返回空
   ipv6: true
   # 查询 hosts 并返回 IP 记录
@@ -236,25 +236,45 @@ dns:
   # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
   # 仅填写 DNS 服务器的 IP 地址
   default-nameserver:
+    - 119.29.29.29
     - 223.5.5.5
     - 223.6.6.6
-    - 119.29.29.29
+    - 8.8.8.8
     - 114.114.114.114
-    - system
   # 支持 UDP / TCP / DoT / DoH 协议的 DNS 服务，可以指明具体的连接端口号。
   # 所有 DNS 请求将会直接发送到服务器，不经过任何代理。
   # Clash 会使用最先获得的解析记录回复 DNS 请求
   nameserver:
+    - 119.29.29.29
     - 223.5.5.5
     - 223.6.6.6
-    - 119.29.29.29
-    - 114.114.114.114
-    - system
+    - tcp://223.5.5.5
+    - tcp://223.6.6.6
+    - tls://dns.google:853
+    - tls://8.8.8.8:853
+    - tls://8.8.4.4:853
+    - tls://dns.alidns.com
+    - tls://223.5.5.5
+    - tls://223.6.6.6
+    - tls://dot.pub
+    - tls://1.12.12.12
+    - tls://120.53.53.53
+    - https://dns.google/dns-query
+    - https://cloudflare-dns.com/dns-query
+    - https://8.8.8.8/dns-query
+    - https://8.8.4.4/dns-query
+    - https://dns.alidns.com/dns-query
+    - https://223.5.5.5/dns-query
+    - https://223.6.6.6/dns-query
+    - https://doh.pub/dns-query
+    - https://1.12.12.12/dns-query
+    - https://120.53.53.53/dns-query
   proxy-server-nameserver:
-    - 223.5.5.5
-    - 223.6.6.6
-    - 119.29.29.29
-    - 114.114.114.114
+    - tls://223.5.5.5
+    - tls://1.12.12.12
+    - https://doh.pub/dns-query
+    - https://223.5.5.5/dns-query
+    - https://223.6.6.6/dns-query
   # 当 fallback 参数被配置时, DNS 请求将同时发送至上方 nameserver 列表和下方 fallback 列表中配置的所有 DNS 服务器.
   # 当解析得到的 IP 地址的地理位置不是 CN 时，clash 将会选用 fallback 中 DNS 服务器的解析结果。
   fallback:
@@ -263,7 +283,6 @@ dns:
     - tls://1.1.1.1
     - tls://8.8.8.8
     - tls://1.0.0.1:853
-    - https://v.recipes/dns-cn
     - https://1.1.1.1/dns-query
     - https://public.dns.iij.jp/dns-query
     - https://dns.google/dns-query
@@ -300,21 +319,11 @@ dns:
       - 240.0.0.0/4
       - 255.255.255.255/32
     domain:
-      - '+.edg3.org'
       - '+.google.com'
       - '+.facebook.com'
       - '+.youtube.com'
       - '+.githubusercontent.com'
       - '+.googlevideo.com'
-  nameserver-policy:
-    'geosite:cn':
-      - https://doh.pub/dns-query
-      - https://dns.alidns.com/dns-query
-    'geosite:private':
-      - 'https://doh.pub/dns-query'
-      - 'https://dns.alidns.com/dns-query'
-    '+.edg3.org':
-      - 'https://v.recipes/dns-cn'
 #endregion
 
 #region 配置文件
