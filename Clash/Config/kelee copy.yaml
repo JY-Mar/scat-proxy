@@ -1,8 +1,6 @@
 # Clash 配置
 
-# ========================
-# MARK: 主要端口设置
-# ========================
+#region 主要端口设置
 # HTTP 代理端口
 port: 7890
 # SOCKS5 代理端口
@@ -21,6 +19,7 @@ tcp-concurrent: true
 # 识别进程模式
 # off（关闭进程识别，不启用 PROCESS-NAME 规则。性能最佳，适合路由器等设备） / strict（严格模式，只有成功识别进程才应用 PROCESS-NAME 规则。失败则不匹配） / always（始终尝试识别进程，即使失败也会继续尝试匹配规则。可能影响性能）
 find-process-mode: strict
+global-client-fingerprint: chrome
 
 # 允许局域网的连接（可用来共享代理）
 allow-lan: true
@@ -35,6 +34,7 @@ ipv6: true
 udp: true
 
 bind-address: '*'
+#region 外部配置
 # clash 的 RESTful API 监听地址
 external-controller: 0.0.0.0:9090
 external-controller-tls: 0.0.0.0:9443
@@ -46,7 +46,25 @@ external-ui: ui
 external-ui-name: zashboard
 external-ui-url: 'https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip'
 external-doh-server: /dns-query
-global-client-fingerprint: chrome
+#endregion
+
+#region GEO
+# GEO 数据文件自动更新
+geo-auto-update: true
+# 每隔 N小时 自动检查并更新 GEO 数据文件
+geo-update-interval: 168
+geox-url:
+  # IP 地址与国家/地区的映射
+  geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
+  # geoip: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.dat"
+  # 域名与分类的映射（如广告、社交媒体等）
+  geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
+  # geosite: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.dat"
+  # 更高精度的 IP 数据库
+  mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
+  # GeoIP 数据的来源
+  asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
+#endregion
 
 # RESTful API 的口令 (可选)
 # 通过 HTTP 头中 Authorization: Bearer ${secret} 参数来验证口令
@@ -68,20 +86,19 @@ hosts:
   # '*.clash.dev': 127.0.0.1
   # '.dev': 127.0.0.1
   # 'alpha.clash.dev': '::1'
+#endregion
 
-# ========================
-# MARK: MITM 设置
-# ========================
+#region MITM 设置
 # mitm:
 #   enable: true
 #   ca:
 #     cert: ./mitm-ca.pem
 #     key: ./mitm-ca-key.pem
 #   port: 7892  # 必须与 mixed-port 一致，或单独指定
+#endregion
 
-# ========================
-# MARK: DNS 设置(可选；若不配置，程序内置的 DNS 服务会被关闭)
-# ========================
+#region DNS 设置
+# 可选；若不配置，程序内置的 DNS 服务会被关闭
 dns:
   enable: true
   prefer-h3: true
@@ -173,6 +190,7 @@ dns:
     - '+.stun.*.*'
     - '+.stun.*.*.*'
     - '+.stun.*.*.*.*'
+    - '+.stun.*.*.*.*.*'
     - 'heartbeat.belkin.com'
     - '*.router.asus.com'
     # === Apple Software Service ===
@@ -304,29 +322,15 @@ dns:
       - '+.youtube.com'
       - '+.githubusercontent.com'
       - '+.googlevideo.com'
+#endregion
 
-# ========================
-# MARK: GEO
-# ========================
-geox-url:
-  # IP 地址与国家/地区的映射
-  geoip: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat'
-  # geoip: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.dat"
-  # 域名与分类的映射（如广告、社交媒体等）
-  geosite: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat'
-  # geosite: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.dat"
-  # 更高精度的 IP 数据库
-  mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
-  # GeoIP 数据的来源
-  asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
-# GEO 数据文件自动更新
-geo-auto-update: true
-# 每隔 7天 自动检查并更新 GEO 数据文件
-geo-update-interval: 168
+#region 配置文件
+profile:
+  store-selected: true
+  store-fake-ip: true
+#endregion
 
-# ========================
-# MARK: 嗅探器
-# ========================
+#region 嗅探器
 sniffer:
   # 是否启用嗅探器
   # 开启后对 redir-host 类型识别的流量进行强制嗅探
@@ -356,10 +360,9 @@ sniffer:
   skip-domain:
     - 'Mijia Cloud'
     - '+.push.apple.com'
+#endregion
 
-# ========================
-# MARK: TUN 模块
-# ========================
+#region TUN 模块
 tun:
   # 如果需要启用 TUN 模式，请设置为 true
   enable: true
@@ -372,14 +375,9 @@ tun:
   dns-hijack:
     - any:53
     - tcp://any:53
+#endregion
 
-profile:
-  store-selected: true
-  store-fake-ip: true
-
-# ========================
-# MARK: 锚点
-# ========================
+#region 锚点
 Anchors:
   # [url-test | fallback | load-balance]策略组测速间隔（秒）
   TestInterval: &TestInterval 300
@@ -446,10 +444,9 @@ Anchors:
     Filter_Global: &Filter_Global ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
     Filter_Game: &Filter_Game ^(?=.*((?i)游戏|蒸汽平台|(\b(GAME|Steam)(\d+)?\b)))(?!.*((?i)回国|校园)).*$
     # Filter_Used: &Filter_Used ^(?=.*((?i)订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$
+#endregion
 
-# ========================
-# MARK: 代理集
-# ========================
+#region 代理集
 proxy-providers:
 #   [订阅名称]:
 #     type: http
@@ -460,10 +457,9 @@ proxy-providers:
 #       url: https://www.gstatic.com/generate_204
 #       # 秒
 #       interval: 600
+#endregion
 
-# ========================
-# MARK: 策略组
-# ========================
+#region 策略组
 proxy-groups:
   - {name: 🚀节点选择, type: select, proxies: [♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Filter.png}
   - {name: ♻️自动选择, <<: *UrlTest, include-all: true, filter: *Filter_Global, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Auto.png}
@@ -509,10 +505,9 @@ proxy-groups:
   - {name: 🇳🇱荷兰, <<: *UrlTest, include-all: true, filter: *Filter_Region_NL, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/NL.png}
   - {name: 🇱🇺卢森堡, <<: *UrlTest, include-all: true, filter: *Filter_Region_LU, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/LU.png}
   - {name: 🇱🇹立陶宛, <<: *UrlTest, include-all: true, filter: *Filter_Region_LT, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/LT.png}
+#endregion
 
-# ========================
-# MARK: 规则集
-# ========================
+#region 规则集
 rule-providers:
   # === AI ===
   AI: {url: https://kelee.one/Tool/Clash/Rule/AI.yaml, path: ./ruleset/AI.yaml, <<: *RuleProviders}
@@ -576,10 +571,9 @@ rule-providers:
   Lan: {url: https://rule.kelee.one/Clash/Lan.yaml, path: ./ruleset/Lan.yaml, <<: *RuleProviders}
   LAN: {url: https://kelee.one/Tool/Clash/Rule/LAN_SPLITTER.yaml, path: ./ruleset/LAN_SPLITTER.yaml, <<: *RuleProviders}
   CN REGION: {url: https://kelee.one/Tool/Clash/Rule/REGION_SPLITTER.yaml, path: ./ruleset/REGION_SPLITTER.yaml, <<: *RuleProviders}
+#endregion
 
-# ========================
-# MARK: 规则匹配
-# ========================
+#region 规则匹配
 rules:
   # 普通规则
   # === AI ===
@@ -648,3 +642,4 @@ rules:
   - GEOIP,CN,🎯全球直连
   # 兜底规则
   - MATCH,🐟漏网之鱼
+#endregion
