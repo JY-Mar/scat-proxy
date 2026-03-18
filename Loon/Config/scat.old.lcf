@@ -106,7 +106,7 @@ Filter_Global = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|�
 🇲🇴澳门 = url-test,Filter_Region_MO,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Macau.png
 🇨🇳台湾 = url-test,Filter_Region_TW,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Taiwan.png
 🇯🇵日本 = url-test,Filter_Region_JP,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Japan.png
-🇰🇷韩国 = url-test,Filter_Region_KR,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Koera.png
+🇰🇷韩国 = url-test,Filter_Region_KR,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Korea.png
 🇸🇬星洲 = url-test,Filter_Region_SG,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Singapore.png
 🇲🇾马来 = url-test,Filter_Region_MY,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Malaysia.png
 🇮🇳印度 = url-test,Filter_Region_IN,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/India.png
