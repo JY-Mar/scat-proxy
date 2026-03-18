@@ -1,4 +1,4 @@
-name: Auto-generate
+name: Generate Clash/Loon Resources
 
 on:
   # 手动触发
@@ -86,6 +86,15 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs
+
+      - name: 👉 Repository Dispatch "clash-yaml-merger"
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: JY-Mar/clash-yaml-merger
+          event-type: trigger-from-scat-proxy
+          # 可选：你还可以传递一些数据过去
+          # client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
 
   deploy:
     environment:
