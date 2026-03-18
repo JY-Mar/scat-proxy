@@ -199,15 +199,15 @@ dns:
     - 'iot.cloud.tencent.com'
   # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
   # 仅填写 DNS 服务器的 IP 地址
-  default-nameserver: ['119.29.29.29', '223.5.5.5', '223.6.6.6', '8.8.8.8', '114.114.114.114']
+  default-nameserver: [119.29.29.29, 223.5.5.5, 223.6.6.6, 8.8.8.8, 114.114.114.114]
   # 支持 UDP / TCP / DoT / DoH 协议的 DNS 服务，可以指明具体的连接端口号。
   # 所有 DNS 请求将会直接发送到服务器，不经过任何代理。
   # Clash 会使用最先获得的解析记录回复 DNS 请求
-  nameserver: ['119.29.29.29', '223.5.5.5', '223.6.6.6', '8.8.8.8', '114.114.114.114']
-  proxy-server-nameserver: ['119.29.29.29', '223.5.5.5', '223.6.6.6', '8.8.8.8', '114.114.114.114']
+  nameserver: [119.29.29.29, 223.5.5.5, 223.6.6.6, 8.8.8.8, 114.114.114.114]
+  proxy-server-nameserver: [119.29.29.29, 223.5.5.5, 223.6.6.6, 8.8.8.8, 114.114.114.114]
   # 当 fallback 参数被配置时, DNS 请求将同时发送至上方 nameserver 列表和下方 fallback 列表中配置的所有 DNS 服务器.
   # 当解析得到的 IP 地址的地理位置不是 CN 时，clash 将会选用 fallback 中 DNS 服务器的解析结果。
-  fallback: ['https://v.recipes/dns-cn', '8.8.8.8']
+  fallback: [https://v.recipes/dns-cn, 8.8.8.8]
   # 如果使用 nameserver 列表中的服务器解析的 IP 地址在下方列表中的子网中，则它们被认为是无效的，
   # Clash 会选用 fallback 列表中配置 DNS 服务器解析得到的结果。
   #
@@ -239,11 +239,7 @@ dns:
       - 224.0.0.0/4
       - 240.0.0.0/4
       - 255.255.255.255/32
-    domain: ['+.edg3.org', '+.google.com', '+.facebook.com', '+.youtube.com', '+.githubusercontent.com', '+.googlevideo.com']
-  nameserver-policy:
-    'geosite:cn': ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
-    'geosite:private': ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
-    '+.edg3.org': ['https://v.recipes/dns-cn']
+    domain: [+.google.com, +.facebook.com, +.youtube.com, +.githubusercontent.com, +.googlevideo.com]
 #endregion
 
 #region 配置文件
@@ -279,7 +275,7 @@ sniffer:
       ports: [443, 8443]
   # 强制嗅探的域名白名单
   force-domain:
-    - '+.v2ex.com'
+    - +.v2ex.com
   # 跳过嗅探的域名黑名单
   skip-domain:
     - 'Mijia Cloud'
