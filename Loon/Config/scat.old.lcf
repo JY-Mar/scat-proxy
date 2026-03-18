@@ -1,19 +1,21 @@
 # Loon 配置
 
 [General]
-# IPv6 支持
+# IPv4 / IPv6 模式
 ip-mode = dual
+# IPv6 支持
 ipv6-vif = auto
-# UDP相关
+# 禁用 STUN 流量
 disable-stun = true
+# UDP 回退模式
 udp-fallback-mode = REJECT
 # SNI辅助规则匹配
 sni-sniffing = true
 # 域名拦截行为
 domain-reject-mode = DNS
-# DNS服务
+# DNS 服务
 dns-server = system,119.29.29.29,223.5.5.5,223.6.6.6,8.8.8.8,114.114.114.114
-# DNS拦截行为
+# DNS 拦截行为
 dns-reject-mode = LoopbackIP
 # WiFi http 代理
 wifi-access-http-port = 7222
@@ -43,16 +45,19 @@ ipasn-url = https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
 skip-proxy = localhost,*.local,captive.apple.com,e.crashlytics.com,www.baidu.com,passenger.t3go.cn,yunbusiness.ccb.com,wxh.wo.cn,gate.lagou.com,www.abchina.com.cn,login-service.mobile-bank.psbc.com,mobile-bank.psbc.com,10.0.0.0/8,127.0.0.1/32,172.16.0.0/12,192.168.0.0/16,192.168.122.1/32,193.168.0.1/32,::1/128,fe80::/10
 # 绕过路由
 bypass-tun = 0.0.0.0/32,0.0.0.0/810.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.18.0.0/15,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,240.0.0.0/4,255.255.255.255/32
+
 [Proxy]
 
 [Remote Proxy]
 
 [Remote Filter]
 Filter_Region_HK = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_MO = NameRegex, FilterKey = "^(?=.*((?i)🇲🇴|澳门|(\b(MO|MAC|Macau|Macao)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 Filter_Region_TW = NameRegex, FilterKey = "^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 Filter_Region_JP = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 Filter_Region_KR = NameRegex, FilterKey = "^(?=.*((?i)🇰🇷|韩国|韓|南朝鲜|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 Filter_Region_SG = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|星洲|狮城|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Region_MY = NameRegex, FilterKey = "^(?=.*((?i)🇲🇾|马来西亚|大马|马来|(\b(MY|Malaysia)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 Filter_Region_IN = NameRegex, FilterKey = "^(?=.*((?i)🇮🇳|印度|新德里|印|(\b(IN|IND|India)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 Filter_Region_US = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 Filter_Region_CA = NameRegex, FilterKey = "^(?=.*((?i)🇨🇦|加拿大|多伦多|蒙特利尔|温哥华|(\b(CA|Canada)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
@@ -64,55 +69,57 @@ Filter_Region_IT = NameRegex, FilterKey = "^(?=.*((?i)🇮🇹|意大利|罗马|
 Filter_Region_NL = NameRegex, FilterKey = "^(?=.*((?i)🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|(\b(NL|Holland|Netherlands)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 Filter_Region_LU = NameRegex, FilterKey = "^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 Filter_Region_LT = NameRegex, FilterKey = "^(?=.*((?i)🇱🇹|立陶宛|(\b(LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b)))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
-Filter_Global = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 Filter_Game = NameRegex, FilterKey = "^(?=.*((?i)游戏|蒸汽平台|(\b(GAME|Steam)(\d+)?\b)))(?!.*((?i)回国|校园)).*$"
-Filter_Used = NameRegex, FilterKey = "^(?=.*((?i)订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+Filter_Global = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+# Filter_Used = NameRegex, FilterKey = "^(?=.*((?i)订阅|流量|到期|机场|过期|已用|使用|用量|(\b(USE|USED|TOTAL|EXPIRE|Channel|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 
 [Proxy Group]
-🚀节点选择 = select, ♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Filter.png
-♻️自动选择 = url-test, Filter_Global, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Auto.png
-🚀手动切换 = select, 🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,🎯全球直连, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Manual.png
-⚠️流量用量 = select, Filter_Used, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Available.png
-🎯全球直连 = select, DIRECT, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Direct.png
-🛑全球拦截 = select, REJECT,DIRECT, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Reject.png
-🛠️故障转移 = fallback, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连, interval = 300, max-timeout = 5000, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Final.png
-🐟漏网之鱼 = select, 🛠️故障转移,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bywave.png
+🚀节点选择 = select,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Filter.png
+♻️自动选择 = url-test,Filter_Global,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Auto.png
+🚀手动切换 = select,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,🎯全球直连,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Manual.png
+# ⚠️流量用量 = select,Filter_Used,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Available.png
+🎯全球直连 = select,DIRECT,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Direct.png
+🛑全球拦截 = select,REJECT,DIRECT,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Reject.png
+🛠️故障转移 = fallback,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,interval = 300,max-timeout = 5000,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Final.png
+🐟漏网之鱼 = select,🛠️故障转移,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bywave.png
 # 专属策略组
-✨AI = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Ai.png
-✨Copilot = select, ✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Copilot.png
-✨Gemini = select, 🌈Google,✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Gemini.png
-✨OpenAI = select, ✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OpenAI.png
-🍎Apple = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png
-🍎AppleVPN = select, 🍎Apple,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png
-Ⓜ️MicrosoftBanned = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/MicrosoftBanned.png
-Ⓜ️Microsoft = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Microsoft.png
-Ⓜ️Bing = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bing.png
-Ⓜ️OneDrive = select, 🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OneDrive.png
-🌈Google = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Google.png
-🧬TikTok = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/TikTok.png
-✈️Telegram = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Telegram.png
-🎬YouTube = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/YouTube.png
-🎥Netflix = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Netflix.png
-🐭Disney = select, 🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Disney+.png
-📺Bahamut = select, 🇨🇳台湾,🚀手动切换,🎯全球直连, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bahamut.png
-🎮游戏节点 = select, Filter_Game, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Game.png
+✨AI = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Ai.png
+✨Copilot = select,✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Copilot.png
+✨Gemini = select,🌈Google,✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Gemini.png
+✨OpenAI = select,✨AI,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OpenAI.png
+🍎Apple = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png
+🍎AppleVPN = select,🍎Apple,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png
+Ⓜ️MicrosoftBanned = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/MicrosoftBanned.png
+Ⓜ️Microsoft = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Microsoft.png
+Ⓜ️Bing = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bing.png
+Ⓜ️OneDrive = select,🎯全球直连,🚀节点选择,♻️自动选择,🚀手动切换,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/OneDrive.png
+🌈Google = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Google.png
+🧬TikTok = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/TikTok.png
+✈️Telegram = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Telegram.png
+🎬YouTube = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/YouTube.png
+🎥Netflix = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Netflix.png
+🐭Disney = select,🚀节点选择,♻️自动选择,🚀手动切换,🎯全球直连,🇭🇰香港,🇲🇴澳门,🇨🇳台湾,🇯🇵日本,🇰🇷韩国,🇸🇬星洲,🇲🇾马来,🇮🇳印度,🇺🇸美国,🇨🇦加拿大,🇦🇺澳洲,🇬🇧英国,🇫🇷法国,🇩🇪德国,🇮🇹意大利,🇳🇱荷兰,🇱🇺卢森堡,🇱🇹立陶宛,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Disney+.png
+📺Bahamut = select,🇨🇳台湾,🚀手动切换,🎯全球直连,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Bahamut.png
+🎮游戏节点 = select,Filter_Game,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Game.png
 # 延迟优先策略组 Low Latency Preference
-🇭🇰香港 = url-test, Filter_Region_HK, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/HK.png
-🇨🇳台湾 = url-test, Filter_Region_TW, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/TW.png
-🇯🇵日本 = url-test, Filter_Region_JP, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/JP.png
-🇰🇷韩国 = url-test, Filter_Region_KR, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/KR.png
-🇸🇬星洲 = url-test, Filter_Region_SG, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/SG.png
-🇮🇳印度 = url-test, Filter_Region_IN, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/IN.png
-🇺🇸美国 = url-test, Filter_Region_US, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/US.png
-🇨🇦加拿大 = url-test, Filter_Region_CA, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/CA.png
-🇦🇺澳洲 = url-test, Filter_Region_AU, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/AU.png
-🇬🇧英国 = url-test, Filter_Region_GB, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/UK.png
-🇫🇷法国 = url-test, Filter_Region_FR, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/FR.png
-🇩🇪德国 = url-test, Filter_Region_DE, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/DE.png
-🇮🇹意大利 = url-test, Filter_Region_IT, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/IT.png
-🇳🇱荷兰 = url-test, Filter_Region_NL, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/NL.png
-🇱🇺卢森堡 = url-test, Filter_Region_LU, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/LU.png
-🇱🇹立陶宛 = url-test, Filter_Region_LT, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/LT.png
+🇭🇰香港 = url-test,Filter_Region_HK,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/HongKong.png
+🇲🇴澳门 = url-test,Filter_Region_MO,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Macau.png
+🇨🇳台湾 = url-test,Filter_Region_TW,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Taiwan.png
+🇯🇵日本 = url-test,Filter_Region_JP,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Japan.png
+🇰🇷韩国 = url-test,Filter_Region_KR,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Koera.png
+🇸🇬星洲 = url-test,Filter_Region_SG,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Singapore.png
+🇲🇾马来 = url-test,Filter_Region_MY,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Malaysia.png
+🇮🇳印度 = url-test,Filter_Region_IN,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/India.png
+🇺🇸美国 = url-test,Filter_Region_US,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/America.png
+🇨🇦加拿大 = url-test,Filter_Region_CA,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Canada.png
+🇦🇺澳洲 = url-test,Filter_Region_AU,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Australia.png
+🇬🇧英国 = url-test,Filter_Region_GB,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Britain.png
+🇫🇷法国 = url-test,Filter_Region_FR,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/France.png
+🇩🇪德国 = url-test,Filter_Region_DE,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Germany.png
+🇮🇹意大利 = url-test,Filter_Region_IT,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Italy.png
+🇳🇱荷兰 = url-test,Filter_Region_NL,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Netherlands.png
+🇱🇺卢森堡 = url-test,Filter_Region_LU,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Luxembourg.png
+🇱🇹立陶宛 = url-test,Filter_Region_LT,interval = 300,tolerance = 50,img-url = https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Lithuania.png
 
 [Rule]
 # Local Rule
@@ -198,11 +205,22 @@ https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER, policy=🎯全球直连, tag=CN
 [Script]
 
 [Plugin]
-https://kelee.one/Tool/Loon/Lpx/Tencent_Video_remove_ads.lpx, enabled=false
+https://yfamilys.com/plugin/biliad.plugin, enabled=true
+https://yfamilys.com/plugin/adultraplus.plugin, enabled=true
+https://loonhub.wuyra.com/Lpx/BlockAds.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/TXDocs_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Taopiaopiao_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/MojiWeather_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Kuwo_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/KuGou_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/DragonRead_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Damai_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/YouTube_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Tencent_Video_remove_ads.lpx, enabled=true
 https://raw.githubusercontent.com/deezertidal/private/master/plugallery/gddt.plugin, enabled=true
 https://raw.githubusercontent.com/deezertidal/private/master/plugallery/lightroom.plugin, enabled=true
 https://raw.githubusercontent.com/deezertidal/private/master/plugallery/BaiduCloud.plugin, enabled=true
-https://kelee.one/Tool/Loon/Lpx/BoxJs.lpx, policy=🎯全球直连, enabled=true
+https://kelee.one/Tool/Loon/Lpx/BoxJs.lpx, policy=🚀节点选择, enabled=true
 https://kelee.one/Tool/Loon/Lpx/YouKu_Video_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Weixin_Official_Accounts_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/WexinMiniPrograms_Remove_ads.lpx, enabled=true
@@ -221,7 +239,6 @@ https://kelee.one/Tool/Loon/Lpx/Script-Hub.lpx, policy=🎯全球直连, enabled
 https://kelee.one/Tool/Loon/Lpx/SafetyHome_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/RedPaper_remove_ads.lpx, enabled=true
-https://kelee.one/Tool/Loon/Lpx/QuickSearch.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/QuarkBrowser_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/QQ_Redirect.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Prevent_DNS_Leaks.lpx, enabled=true
@@ -245,7 +262,6 @@ https://kelee.one/Tool/Loon/Lpx/HKDouYin_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Himalaya_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Google.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/FleaMarket_remove_ads.lpx, enabled=true
-https://kelee.one/Tool/Loon/Lpx/FC_Box_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Douyu_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/CoolApk_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/ColorfulClouds_remove_ads.lpx, enabled=true
@@ -268,7 +284,6 @@ https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, enabled=true
 https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/Loon/Plugin/ReFix.plugin, policy=🚀节点选择, enabled=true
 https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/plugin/General.plugin, tag=增补跳过代理, enabled=true
-https://raw.githubusercontent.com/Tartarus2014/Loon-Script/master/Plugin/skip-proxy.plugin, tag=跳过代理, enabled=true
 https://raw.githubusercontent.com/deezertidal/private/master/plugallery/wxds.plugin, tag=微信读书, enabled=true
 https://raw.githubusercontent.com/deezertidal/private/master/plugallery/tpp.plugin, tag=淘票票评分, enabled=true
 https://raw.githubusercontent.com/deezertidal/private/master/plugallery/meituxx.plugin, tag=美图秀秀VIP, enabled=true
@@ -278,7 +293,6 @@ https://raw.githubusercontent.com/NobyDa/Script/master/Loon/Loon_Bahamut_ADS.plu
 https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/RunningMode/running-mode.plugin, tag=运行模式, enabled=true
 https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/AutoPolicy/auto-policy.plugin, tag=自动策略, enabled=true
 https://raw.githubusercontent.com/deezertidal/private/master/plugallery/bili.plugin, tag=哔哩哔哩解锁1080p, enabled=true
-https://raw.githubusercontent.com/deezertidal/private/master/plugallery/startingad.plugin, tag=APP启动页去广告, enabled=true
 https://raw.githubusercontent.com/deezertidal/private/master/plugallery/xzjhz.plugin, tag=小组件盒子, enabled=true
 https://raw.githubusercontent.com/deezertidal/private/master/plugallery/CamScanner.plugin, tag=扫描全能王, enabled=true
 https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/blockAds.plugin, tag=fmz200奶思, enabled=true
