@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       force_update:
-        description: '强制更新配置'
+        description: "强制更新配置"
         required: false
         default: false
         type: boolean
@@ -15,13 +15,14 @@ on:
     branches:
       - main
     paths:
-      - 'Icons/Color/**'
-      - 'Icons/Mono/**'
-      - 'Icons/scripts/**'
-      - 'Clash/Config/*.yaml'
-      - 'Clash/Rules/*.yaml'
-      - 'Loon/Config/*.lcf'
-      - 'Loon/Rules/*.lsr'
+      - "Icons/**/*.jpg"
+      - "Icons/**/*.jpeg"
+      - "Icons/**/*.png"
+      - "Clash/**/*.yaml"
+      - "Loon/**/*.lcf"
+      - "Loon/**/*.lsr"
+      - "scripts/*.py"
+      - "scripts/*.css"
 
 # 设置权限
 permissions:
@@ -31,11 +32,11 @@ permissions:
 
 # 确保只有一个部署任务同时运行
 concurrency:
-  group: 'pages'
-  cancel-in-progress: false
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
-  detect-icons:
+  generate-resources:
     runs-on: ubuntu-latest
     environment: github-pages
 
@@ -48,8 +49,8 @@ jobs:
       - name: 🐍 Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
-          cache: 'pip'
+          python-version: "3.11"
+          cache: "pip"
 
       - name: 📦 Install dependencies
         run: |
@@ -90,7 +91,7 @@ jobs:
       - name: 👉 Repository Dispatch "clash-yaml-merger"
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.CLASH_GITHUB_TOKEN }}
           repository: JY-Mar/clash-yaml-merger
           event-type: trigger-from-scat-proxy
           # 可选：你还可以传递一些数据过去
@@ -101,7 +102,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: detect-icons
+    needs: generate-resources
 
     steps:
       - name: ⬆️ Deploy to GitHub Pages
