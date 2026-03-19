@@ -487,7 +487,6 @@ rule-providers:
   # === Proxy ===
   Proxy: {url: https://rule.kelee.one/Clash/Proxy.yaml, path: ./ruleset/Proxy.yaml, <<: *RuleProviders}
   # === Direct ===
-  LocalShare: {url: https://jy-mar.github.io/scat-proxy/Clash/Rules/LocalShare.yaml, path: ./ruleset/LocalShare.yaml, <<: *RuleProviders}
   Direct: {url: https://rule.kelee.one/Clash/Direct.yaml, path: ./ruleset/Direct.yaml, <<: *RuleProviders}
   Download: {url: https://rule.kelee.one/Clash/Download.yaml, path: ./ruleset/Download.yaml, <<: *RuleProviders}
   China: {url: https://rule.kelee.one/Clash/China.yaml, path: ./ruleset/China.yaml, <<: *RuleProviders}
@@ -495,8 +494,6 @@ rule-providers:
   ChinaMedia: {url: https://rule.kelee.one/Clash/ChinaMedia.yaml, path: ./ruleset/ChinaMedia.yaml, <<: *RuleProviders}
   ChinaDownloadCDN: {url: https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml, path: ./ruleset/ChinaDownloadCDN.yaml, <<: *RuleProviders}
   Lan: {url: https://rule.kelee.one/Clash/Lan.yaml, path: ./ruleset/Lan.yaml, <<: *RuleProviders}
-  LAN: {url: https://kelee.one/Tool/Clash/Rule/LAN_SPLITTER.yaml, path: ./ruleset/LAN_SPLITTER.yaml, <<: *RuleProviders}
-  CN REGION: {url: https://kelee.one/Tool/Clash/Rule/REGION_SPLITTER.yaml, path: ./ruleset/REGION_SPLITTER.yaml, <<: *RuleProviders}
 #endregion
 
 #region 规则匹配
@@ -554,7 +551,6 @@ rules:
   # === Proxy ===
   - RULE-SET,Proxy,🚀节点选择
   # === Direct ===
-  # - RULE-SET,LocalShare,🎯全球直连
   - RULE-SET,Direct,🎯全球直连
   - RULE-SET,Download,🎯全球直连
   - RULE-SET,China,🎯全球直连
@@ -562,8 +558,6 @@ rules:
   - RULE-SET,ChinaMedia,🎯全球直连
   - RULE-SET,ChinaDownloadCDN,🎯全球直连
   - RULE-SET,Lan,🎯全球直连
-  - RULE-SET,LAN,🎯全球直连
-  - RULE-SET,CN REGION,🎯全球直连
   - GEOIP,LAN,🎯全球直连
   - GEOIP,CN,🎯全球直连
   # 兜底规则
