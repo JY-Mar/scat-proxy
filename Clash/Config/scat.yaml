@@ -15,7 +15,7 @@ tproxy-port: 7894
 # 统一延迟
 unified-delay: true
 # TCP 并发
-tcp-concurrent: true
+tcp-concurrent: false
 # 识别进程模式：off（关闭进程识别，不启用 PROCESS-NAME 规则。性能最佳，适合路由器等设备） / strict（严格模式，只有成功识别进程才应用 PROCESS-NAME 规则。失败则不匹配） / always（始终尝试识别进程，即使失败也会继续尝试匹配规则。可能影响性能）
 # find-process-mode: strict
 global-client-fingerprint: chrome
@@ -26,7 +26,7 @@ allow-lan: true
 mode: rule
 # 设置日志输出级别 (默认级别：silent，即不输出任何内容，以避免因日志内容过大而导致程序内存溢出）。
 # 5 个级别：silent / info / warning / error / debug。级别越高日志输出量越大，越倾向于调试，若需要请自行开启。
-log-level: info
+log-level: warning
 # IPv6 支持
 ipv6: true
 # UDP 支持
@@ -65,8 +65,8 @@ geox-url:
 # 可选；若不配置，程序内置的 DNS 服务会被关闭
 dns:
   enable: true
-  prefer-h3: true
-  listen: 0.0.0.0:1053
+  prefer-h3: false
+  listen: 127.0.0.1:1053
   # 当此选项为 false 时, AAAA 请求将返回空
   ipv6: true
   # 查询 hosts 并返回 IP 记录
@@ -76,138 +76,22 @@ dns:
   # 使用系统 hosts 文件
   use-system-hosts: false
   # fake-ip 或 redir-host
-  enhanced-mode: fake-ip
+  enhanced-mode: redir-host
   # Fake IP 地址池 (CIDR 形式)
   fake-ip-range: 198.18.0.1/16
   # 在以下列表的域名将不会被解析为 fake ip，这些域名相关的解析请求将会返回它们真实的 IP 地址
-  fake-ip-filter:
-    # === LAN ===
-    - '*.lan'
-    - '*.localdomain'
-    - '*.example'
-    - '*.invalid'
-    - '*.local'
-    - '*.localhost'
-    - '*.test'
-    - '*.home.arpa'
-    - '*.arpa'
-    # === Linksys Wireless Router ===
-    - '*.linksys.com'
-    - '*.linksyssmartwifi.com'
-    # === NTP Service ===
-    - 'time.*.com'
-    - 'time.*.gov'
-    - 'time.*.edu.cn'
-    - 'time.*.apple.com'
-    - 'time[1-7]?.*.com'
-    - '*.time.edu.cn'
-    - 'ntp.*.com'
-    - 'ntp[1-7]?.*.com'
-    - 'ntp.*.cn'
-    - 'ntp[1-7]?.*.cn'
-    - 'ntp.org'
-    - '*.ntp.org.cn'
-    - '+.pool.ntp.org'
-    - 'time1.cloud.tencent.com'
-    # === Music Service ===
-    ## NetEase
-    - 'music.163.com'
-    - '*.music.163.com'
-    - '*.126.net'
-    ## Baidu
-    - 'musicapi.taihe.com'
-    - 'music.taihe.com'
-    ## Kugou
-    - 'songsearch.kugou.com'
-    - 'trackercdn.kugou.com'
-    ## Kuwo
-    - '*.kuwo.cn'
-    ## JOOX
-    - 'api-jooxtt.sanook.com'
-    - 'api.joox.com'
-    - 'joox.com'
-    ## QQ
-    - 'y.qq.com'
-    - '*.y.qq.com'
-    - '+.music.tc.qq.com'
-    - 'aqqmusic.tc.qq.com'
-    - '+.stream.qqmusic.qq.com'
-    ## Xiami
-    - '*.xiami.com'
-    ## Migu
-    - '*.music.migu.cn'
-    - 'music.migu.cn'
-    # === Windows Connnect Detection ===
-    - '*.msftconnecttest.com'
-    - '*.msftncsi.com'
-    - 'msftconnecttest.com'
-    - 'msftncsi.com'
-    - 'msn.cn'
-    - 'login.live.com'
-    ## QQ Quick Login
-    - 'localhost.ptlogin2.qq.com'
-    - 'localhost.sec.qq.com'
-    ## Golang
-    - 'proxy.golang.org'
-    ## STUN Server
-    - 'stun.*'
-    - 'stun.*.*'
-    - 'stun.*.*.*'
-    - '+.stun.*.*'
-    - '+.stun.*.*.*'
-    - '+.stun.*.*.*.*'
-    - '+.stun.*.*.*.*.*'
-    - 'heartbeat.belkin.com'
-    - '*.router.asus.com'
-    # === Apple Software Service ===
-    - 'mesu.apple.com'
-    - 'swscan.apple.com'
-    - 'swquery.apple.com'
-    - 'swdownload.apple.com'
-    - 'swcdn.apple.com'
-    - 'swdist.apple.com'
-    - 'lens.l.google.com'
-    - 'stun.l.google.com'
-    - '+.nflxvideo.net'
-    - '*.square-enix.com'
-    ## Bilibili CDN
-    - '*.mcdn.bilivideo.cn'
-    ## Xiaomi Market
-    - '+.market.xiaomi.com'
-    ## === Game Service ===
-    ## Nintendo Switch
-    - '+.srv.nintendo.net'
-    ## Sony PlayStation
-    - '+.stun.playstation.net'
-    ## Microsoft Xbox
-    - 'xbox.*.microsoft.com'
-    - 'xnotify.xboxlive.com'
-    ## Other Games
-    - '+.battlenet.com.cn'
-    - '+.wotgame.cn'
-    - '+.wggames.cn'
-    - '+.wowsgame.cn'
-    - '+.wargaming.net'
-    - '*.finalfantasyxiv.com'
-    - '*.ffxiv.com'
-    ## === Hmbaby Service ===
-    - '*.haimababi.com'
-    - '*.simshine.*.*'
-    - '*.simshine.*'
-    - 'dns.weixin.qq.com.cn'
-    - 'log.*'
-    - 'iot.cloud.tencent.com'
+  fake-ip-filter: []
   # 以下填写的 DNS 服务器将会被用来解析 DNS 服务的域名
   # 仅填写 DNS 服务器的 IP 地址
-  default-nameserver: [119.29.29.29, 223.5.5.5, 223.6.6.6, 8.8.8.8, 114.114.114.114]
+  default-nameserver: [119.29.29.29, 223.5.5.5, 223.6.6.6]
   # 支持 UDP / TCP / DoT / DoH 协议的 DNS 服务，可以指明具体的连接端口号。
   # 所有 DNS 请求将会直接发送到服务器，不经过任何代理。
   # Clash 会使用最先获得的解析记录回复 DNS 请求
-  nameserver: [119.29.29.29, 223.5.5.5, 223.6.6.6, 8.8.8.8, 114.114.114.114]
-  proxy-server-nameserver: [119.29.29.29, 223.5.5.5, 223.6.6.6, 8.8.8.8, 114.114.114.114]
+  nameserver: [119.29.29.29, 223.5.5.5, 223.6.6.6]
+  proxy-server-nameserver: [119.29.29.29, 223.5.5.5, 223.6.6.6]
   # 当 fallback 参数被配置时, DNS 请求将同时发送至上方 nameserver 列表和下方 fallback 列表中配置的所有 DNS 服务器.
   # 当解析得到的 IP 地址的地理位置不是 CN 时，clash 将会选用 fallback 中 DNS 服务器的解析结果。
-  fallback: [https://v.recipes/dns-cn, 8.8.8.8]
+  fallback: []
   # 如果使用 nameserver 列表中的服务器解析的 IP 地址在下方列表中的子网中，则它们被认为是无效的，
   # Clash 会选用 fallback 列表中配置 DNS 服务器解析得到的结果。
   #
@@ -219,7 +103,7 @@ dns:
   #
   # 采取以上逻辑进行域名解析是为了对抗 DNS 投毒攻击。
   fallback-filter:
-    geoip: true
+    geoip: false
     geoip-code: CN
     ipcidr:
       - 0.0.0.0/32
@@ -239,13 +123,13 @@ dns:
       - 224.0.0.0/4
       - 240.0.0.0/4
       - 255.255.255.255/32
-    domain: [+.google.com, +.facebook.com, +.youtube.com, +.githubusercontent.com, +.googlevideo.com]
+    domain: []
 #endregion
 
 #region 配置文件
 profile:
   store-selected: true
-  store-fake-ip: true
+  store-fake-ip: false
 #endregion
 
 #region 嗅探器
@@ -253,9 +137,10 @@ sniffer:
   # 是否启用嗅探器
   # 开启后对 redir-host 类型识别的流量进行强制嗅探
   # 包含 Tun、Redir 和 TProxy 或 DNS 为 redir-host
-  enable: true
+  # 全端口嗅探会解析所有 HTTP/TLS/QUIC 流量，内存占用高
+  enable: false
   # 是否强制将 IP 映射为域名（即使已有域名）
-  force-dns-mapping: true
+  force-dns-mapping: false
   # 是否对纯 IP 流量进行嗅探
   # 风险：对纯 IP 流量进行嗅探会增加 CPU 开销。在 iOS 环境下，过高的资源占用可能导致网络扩展进程（Tunnel）被系统杀掉
   parse-pure-ip: false
@@ -265,38 +150,31 @@ sniffer:
   sniff:
     # HTTP 嗅探端口范围
     HTTP:
-      ports: [80, 8080-8880]
-      # 可覆盖 sniffer.override-destination
-      override-destination: true
+      ports: []
     # TLS 嗅探端口
     TLS:
-      ports: [443, 8443]
+      ports: []
     QUIC:
-      ports: [443, 8443]
+      ports: []
   # 强制嗅探的域名白名单
-  force-domain:
-    - +.v2ex.com
+  force-domain: []
   # 跳过嗅探的域名黑名单
-  skip-domain:
-    - 'Mijia Cloud'
-    - '+.push.apple.com'
+  skip-domain: []
 #endregion
 
 #region TUN 模块
 tun:
   # 如果需要启用 TUN 模式，请设置为 true
-  enable: true
+  enable: false
   # system 或 gvisor
   stack: gvisor
-  endpoint-independent-nat: true
-  auto-route: true
-  auto-redirect: true
-  auto-detect-interface: true
-  dns-hijack:
-    - any:53
-    - tcp://any:53
-    - any:1053
-    - tcp://any:1053
+  endpoint-independent-nat: false
+  # 自动路由
+  auto-route: false
+  auto-redirect: false
+  auto-detect-interface: false
+  # 清空 DNS 劫持，减少 Fake-IP 映射
+  dns-hijack: []
 #endregion
 
 #region 锚点
