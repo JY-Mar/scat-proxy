@@ -347,6 +347,7 @@ rule-providers:
   Disney: {url: https://rule.kelee.one/Clash/Disney.yaml, path: ./ruleset/Disney.yaml, <<: *RuleProviders}
   Bahamut: {url: https://rule.kelee.one/Clash/Bahamut.yaml, path: ./ruleset/Bahamut.yaml, <<: *RuleProviders}
   Pixiv: {url: https://rule.kelee.one/Clash/Pixiv.yaml, path: ./ruleset/Pixiv.yaml, <<: *RuleProviders}
+  VidHub: {url: https://jy-mar.github.io/scat-proxy/Clash/Rules/VidHub.yaml, path: ./ruleset/VidHub.yaml, <<: *RuleProviders}
   # === Monitor ===
   Hmbaby: {url: https://jy-mar.github.io/scat-proxy/Clash/Rules/Hmbaby.yaml, path: ./ruleset/Hmbaby.yaml, <<: *RuleProviders}
   # === Social ===
@@ -411,6 +412,7 @@ rules:
   - RULE-SET,Disney,🐭Disney
   - RULE-SET,Bahamut,📺Bahamut
   - RULE-SET,Pixiv,🚀节点选择
+  - RULE-SET,VidHub,🎯全球直连
   # === Monitor ===
   - RULE-SET,Hmbaby,🎯全球直连
   # === Social ===
