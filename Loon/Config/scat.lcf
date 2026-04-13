@@ -291,10 +291,6 @@ https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, enabled=true
 https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/Loon/Plugin/ReFix.plugin, policy=🚀节点选择, enabled=true
 https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/plugin/General.plugin, tag=增补跳过代理, enabled=true
-https://raw.githubusercontent.com/deezertidal/private/master/plugallery/wxds.plugin, tag=微信读书, enabled=true
-https://raw.githubusercontent.com/deezertidal/private/master/plugallery/tpp.plugin, tag=淘票票评分, enabled=true
-https://raw.githubusercontent.com/deezertidal/private/master/plugallery/meituxx.plugin, tag=美图秀秀VIP, enabled=true
-https://raw.githubusercontent.com/deezertidal/private/master/plugallery/bdwk.plugin, tag=百度文库, enabled=true
 https://raw.githubusercontent.com/chengkongyiban/Loon/main/Loon-Gallery/BaiduCloud.plugin, enabled=true
 https://raw.githubusercontent.com/NobyDa/Script/master/Loon/Loon_Bahamut_ADS.plugin, tag=巴哈姆特动画疯, enabled=true
 https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/RunningMode/running-mode.plugin, tag=运行模式, enabled=true
