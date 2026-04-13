@@ -33,6 +33,7 @@ ipv6: true
 udp: true
 
 bind-address: '*'
+#endregion
 
 #region GEO
 # GEO 数据文件自动更新
@@ -274,11 +275,11 @@ proxy-groups:
   # 专属策略组
   - {name: ✨AI, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Ai.png}
   - {name: ✨Copilot, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Copilot.png}
-  - {name: ✨Gemini, type: select, proxies: [🌈Google, ✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Gemini.png}
+  - {name: ✨Gemini, type: select, proxies: [✨AI, 🌈Google, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Gemini.png}
   - {name: ✨OpenAI, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/OpenAI.png}
   - {name: 🍎Apple, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png}
   - {name: 🍎AppleVPN, type: select, proxies: [🍎Apple, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Apple.png}
-  - {name: Ⓜ️MicrosoftBanned, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/MicrosoftBanned.png}
+  - {name: Ⓜ️MicrosoftProxy, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/MicrosoftProxy.png}
   - {name: Ⓜ️Microsoft, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Microsoft.png}
   - {name: Ⓜ️Bing, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Bing.png}
   - {name: Ⓜ️OneDrive, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/OneDrive.png}
@@ -290,6 +291,8 @@ proxy-groups:
   - {name: 🐭Disney, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, 🇺🇸美国, 🇨🇦加拿大, 🇦🇺澳洲, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Disney+.png}
   - {name: 📺Bahamut, type: select, proxies: [🇨🇳台湾, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Bahamut.png}
   - {name: 🎮游戏节点, type: select, include-all: true, filter: *Filter_Game, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Game.png}
+  - {name: 🇨🇳国内, type: select, proxies: [🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Map_China.png}
+  - {name: 🌏亚洲, type: select, proxies: [🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Map_Asia.png}
   # 延迟优先策略组 Low Latency Preference
   - {name: 🇭🇰香港, <<: *UrlTest, include-all: true, filter: *Filter_Region_HK, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/HongKong.png}
   - {name: 🇲🇴澳门, <<: *UrlTest, include-all: true, filter: *Filter_Region_MO, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Macau.png}
@@ -328,7 +331,7 @@ rule-providers:
   iCloud: {url: https://rule.kelee.one/Clash/iCloud.yaml, path: ./ruleset/iCloud.yaml, <<: *RuleProviders}
   iCloudPrivateRelay: {url: https://rule.kelee.one/Clash/iCloudPrivateRelay.yaml, path: ./ruleset/iCloudPrivateRelay.yaml, <<: *RuleProviders}
   # === Microsoft ===
-  MicrosoftBanned: {url: https://jy-mar.github.io/scat-proxy/Clash/Rules/MicrosoftBanned.yaml, path: ./ruleset/MicrosoftBanned.yaml, <<: *RuleProviders}
+  MicrosoftProxy: {url: https://jy-mar.github.io/scat-proxy/Clash/Rules/MicrosoftProxy.yaml, path: ./ruleset/MicrosoftProxy.yaml, <<: *RuleProviders}
   Microsoft: {url: https://rule.kelee.one/Clash/Microsoft.yaml, path: ./ruleset/Microsoft.yaml, <<: *RuleProviders}
   OneDrive: {url: https://rule.kelee.one/Clash/OneDrive.yaml, path: ./ruleset/OneDrive.yaml, <<: *RuleProviders}
   Bing: {url: https://rule.kelee.one/Clash/Bing.yaml, path: ./ruleset/Bing.yaml, <<: *RuleProviders}
@@ -393,7 +396,7 @@ rules:
   - RULE-SET,iCloud,🍎Apple
   - RULE-SET,iCloudPrivateRelay,🍎AppleVPN
   # === Microsoft ===
-  - RULE-SET,MicrosoftBanned,Ⓜ️MicrosoftBanned
+  - RULE-SET,MicrosoftProxy,Ⓜ️MicrosoftProxy
   - RULE-SET,Microsoft,Ⓜ️Microsoft
   - RULE-SET,OneDrive,Ⓜ️OneDrive
   - RULE-SET,Bing,Ⓜ️Bing
