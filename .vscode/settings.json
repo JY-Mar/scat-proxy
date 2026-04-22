@@ -11,13 +11,14 @@
     },
     "customHasHeadEnd": {
       "yaml": "cancel head",
-      "lsr": "cancel head"
+      "lsr": "cancel head",
+      "lcf": "cancel head"
     },
     // 头部注释字段长度 默认为13
     "wideNum": 16,
     "showErrorMessage": false,
     "language": {
-      "yaml/lsr": {
+      "yaml/lsr/lcf": {
         "head": "",
         "middle": "# ",
         "end": ""
@@ -45,11 +46,11 @@
     "commands": [
       {
         "match": ".*(\\/|\\\\)Clash(\\/|\\\\)Rules(\\/|\\\\).+\\.yaml$",
-        "cmd": "node \"${workspaceFolder}/tools/update-clash-yaml-header.js\" \"${file}\""
+        "cmd": "node \"${workspaceFolder}/tools/yaml-header-rewrite.js\" \"${file}\""
       },
       {
         "match": ".*(\\/|\\\\)Loon(\\/|\\\\)Rules(\\/|\\\\).+\\.lsr$",
-        "cmd": "node \"${workspaceFolder}/tools/update-loon-lsr-header.js\" \"${file}\""
+        "cmd": "node \"${workspaceFolder}/tools/lsr-header-rewrite.js\" \"${file}\""
       }
     ]
   }

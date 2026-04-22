@@ -1,17 +1,15 @@
-const fs = require('fs')
 const path = require('path')
-const { genHeaderItem, formatDate, getRepo } = require('./utils')
+const fs = require('fs')
+const { genHeaderItem, formatDate, getRepo, checkFile } = require('./utils')
 
 const filepath = process.argv[2]
 
-try {
-  fs.accessSync(filepath, fs.constants.F_OK)
-} catch (error) {
-  console.error('File not found:', filepath)
+if (!checkFile(filepath)) {
   process.exit(1)
 }
+
 const basename = path.basename(filepath)
-const filename = path.basename(basename, '.yaml')
+const filename = path.basename(basename, '.lsr')
 let filecontent = fs.readFileSync(filepath, 'utf8')
 
 const RULETYPE = [
@@ -23,7 +21,7 @@ const RULETYPE = [
   'IP-CIDR6',
   'SRC-IP-CIDR',
   'SRC-PORT',
-  'DST-PORT',
+  'DEST-PORT',
   'PROCESS-NAME',
   'PROCESS-filepath',
   'IPSET',
@@ -46,16 +44,16 @@ if (regexp_author.test(filecontent)) {
 }
 
 // 3. 移除 REPO
-const regexp_repo = /(\s*#\s*REPO(-CLASH)?\s*:\s*)(.*)/g
+const regexp_repo = /(\s*#\s*REPO(-LOON)?\s*:\s*)(.*)/g
 if (regexp_repo.test(filecontent)) {
   filecontent = filecontent.replace(regexp_repo, '')
-} 
+}
 
 // 4. 移除 UPDATED
 const regexp_updated = /(\s*#\s*UPDATED\s*:\s*)(.*)/g
 if (regexp_updated.test(filecontent)) {
   filecontent = filecontent.replace(regexp_updated, '')
-} 
+}
 
 // 5. 移除所有已有统计值
 // 统计正则
@@ -68,7 +66,7 @@ if (regexp.test(filecontent)) {
 filecontent = [
   genHeaderItem('NAME', filename),
   genHeaderItem('AUTHOR', getRepo().ownerName),
-  genHeaderItem('REPO', getRepo().repoUrl + '/Clash/Rules'),
+  genHeaderItem('REPO', getRepo().repoUrl + '/Loon/Rules'),
   genHeaderItem('UPDATED', formatDate())
 ].join('\n') + '\n' + filecontent
 
@@ -78,7 +76,7 @@ let above = []
 let insert = []
 let below = []
 const lastHeaderIndex = lines.findLastIndex((v) => /(# [a-zA-Z0-9-_]+\s*:\s*)\d+/.test(v))
-const firstContentIndex = lines.findIndex((v) => /^payload:$/.test(v))
+const firstContentIndex = lines.findIndex((v, k) => k > lastHeaderIndex && (/^\s*#\s*.+/.test(v) || new RegExp(`^\\s*\(${RULETYPE.join('|')}\),\.+`).test(v)))
 if (lastHeaderIndex > -1 && firstContentIndex > -1 && lastHeaderIndex < firstContentIndex) {
   // 空格多于一行
   above = lines.slice(0, lastHeaderIndex + 1)
@@ -87,7 +85,7 @@ if (lastHeaderIndex > -1 && firstContentIndex > -1 && lastHeaderIndex < firstCon
   above = []
   below = lines.slice(firstContentIndex)
 } else {
-  console.error('yaml line error')
+  console.error('lsr line error')
   process.exit(1)
 }
 

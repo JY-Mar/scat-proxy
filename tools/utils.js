@@ -1,11 +1,36 @@
-import path from 'path'
-import fs from 'fs'
+const path = require('path')
+const fs = require('fs')
+
+function checkFile(filepath) {
+  try {
+    fs.accessSync(filepath, fs.constants.F_OK)
+  } catch (error) {
+    console.error('File not found:', filepath)
+    return false
+  }
+  const filepathStat = fs.statSync(filepath)
+  if (!filepathStat.isFile()) {
+    console.error('Not a file:', filepath)
+    return false
+  }
+  return true
+}
+
+function readAsLine(filepath) {
+  if (!checkFile(filepath)) {
+    return []
+  }
+  return fs
+    .readFileSync(filepath, 'utf8')
+    .split('\n')
+    .map((v) => v.replace(/\r/g, ''))
+}
 
 function padZero(num) {
   return num < 10 ? '0' + num : num
 }
 
-export function formatDate(date = new Date(), formatter = 'YYYY-MM-DD HH:mm:ss ZZ') {
+function formatDate(date = new Date(), formatter = 'YYYY-MM-DD HH:mm:ss ZZ') {
   const zone8date = new Date(
     new Intl.DateTimeFormat('zh-CN', {
       timeZone: 'Asia/Shanghai',
@@ -63,11 +88,11 @@ export function formatDate(date = new Date(), formatter = 'YYYY-MM-DD HH:mm:ss Z
   return result
 }
 
-export function genHeaderItem(label, value) {
+function genHeaderItem(label, value) {
   return `# ${String(label ?? '')}`.padEnd(18, ' ') + ': ' + String(value ?? '')
 }
 
-export function getRepo() {
+function getRepo() {
   const result = {
     repoUrl: '',
     repoName: '',
@@ -93,3 +118,9 @@ export function getRepo() {
   }
   return result
 }
+
+exports.checkFile = checkFile
+exports.readAsLine = readAsLine
+exports.formatDate = formatDate
+exports.genHeaderItem = genHeaderItem
+exports.getRepo = getRepo
