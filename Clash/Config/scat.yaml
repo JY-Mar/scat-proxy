@@ -102,7 +102,7 @@ sniffer:
 #region TUN 模块
 tun:
   # 如果需要启用 TUN 模式，请设置为 true
-  enable: true
+  enable: false
   # system 或 gvisor
   stack: system
   endpoint-independent-nat: false
