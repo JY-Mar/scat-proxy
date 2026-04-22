@@ -187,9 +187,9 @@ https://rule.kelee.one/Loon/Twitter.lsr, policy=🚀节点选择, tag=Twitter, e
 https://rule.kelee.one/Loon/GitHub.lsr, policy=🚀节点选择, tag=GitHub, enabled=true
 https://jy-mar.github.io/scat-proxy/Loon/Rules/JueJinCN.lsr, policy=🎯全球直连, tag=JueJinCN, enabled=true
 https://jy-mar.github.io/scat-proxy/Loon/Rules/LinuxDo.lsr, policy=🚀节点选择, tag=LinuxDo, enabled=true
+https://jy-mar.github.io/scat-proxy/Loon/Rules/iKelee.lsr, policy=🎯全球直连, tag=iKelee, enabled=true
 # === Adv ===
-https://rule.kelee.one/Loon/Advertising.lsr, policy=🛑全球拦截, tag=Advertising, enabled=false
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Advertising/Advertising.list, policy=🛑全球拦截, tag=Advertising_ blackmatrix7, enabled=false
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/AdvertisingLite/AdvertisingLite.list, policy=🛑全球拦截, tag=AdvertisingLite, enabled=false
 # === Proxy ===
 https://rule.kelee.one/Loon/Proxy.lsr, policy=🚀节点选择, tag=Proxy, enabled=true
 # === Direct ===
@@ -200,6 +200,8 @@ https://rule.kelee.one/Loon/ChinaDNS.lsr, policy=🎯全球直连, tag=ChinaDNS,
 https://rule.kelee.one/Loon/ChinaMedia.lsr, policy=🎯全球直连, tag=ChinaMedia, enabled=true
 https://kelee.one/Tool/Loon/Lsr/ChinaDownloadCDN.lsr, policy=🎯全球直连, tag=ChinaDownloadCDN, enabled=true
 https://rule.kelee.one/Loon/Lan.lsr, policy=🎯全球直连, tag=Lan, enabled=true
+https://jy-mar.github.io/scat-proxy/Loon/Rules/Local.lsr, policy=🎯全球直连, tag=Local, enabled=true
+https://jy-mar.github.io/scat-proxy/Loon/Rules/GeoCN.lsr, policy=🎯全球直连, tag=GeoCN, enabled=true
 
 [Host]
 

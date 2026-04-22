@@ -1,12 +1,12 @@
 # NAME            : VidHub
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/scat-proxy/tree/main/Loon/Rules
-# UPDATED         : 2026-04-04 08:52:38 GMT+0800
+# UPDATED         : 2026-04-22 16:44:09 GMT+8
 # DOMAIN          : 2
 # DOMAIN-SUFFIX   : 2
 # TOTAL           : 4
 
 DOMAIN,analytics.adjust.world
-DOAMIN,1135-user-other-free-download-cdn.123295.com
+DOMAIN,1135-user-other-free-download-cdn.123295.com
 DOMAIN-SUFFIX,123295.com
 DOMAIN-SUFFIX,pd1.cjjd19.com

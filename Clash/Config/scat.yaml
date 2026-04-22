@@ -181,50 +181,57 @@ dns:
 
 #region 锚点
 Anchors:
-  # [url-test | fallback | load-balance]策略组测速间隔（秒）
-  TestInterval: &TestInterval 300
-  # [url-test | fallback | load-balance]略组测速容差（毫秒）
-  TestTolerance: &TestTolerance 50
-  # [url-test | fallback | load-balance]策略组测速超时（毫秒）（超出则判定为失败）
-  TestTimeout: &TestTimeout 5000
-  # [url-test | fallback | load-balance]策略组测速失败次数（超出则自动触发健康检查）
-  TestMaxFailedTimes: &TestMaxFailedTimes 3
-  # 全局网络连通性检测 url
-  InternetTestUrl: &InternetTestUrl 'http://connectivitycheck.platform.hicloud.com/generate_204'
-  # 代理节点延迟测速 url
-  ProxyTestUrl: &ProxyTestUrl 'http://cp.cloudflare.com/generate_204'
-  # 更新间隔（秒）
-  UpdateInterval: &UpdateInterval 86400
-  # 健康检查间隔（秒）
-  HealthCheckInterval: &HealthCheckInterval 6
-  # 策略组 [url-test每 TestInterval 秒一次惰性测速检查，容差 TestTolerance 毫秒，时延超过 TestTimeout 毫秒判定为失败，失败 TestMaxFailedTimes 次则自动触发健康检查]
-  UrlTest:
-    &UrlTest {
+  # [url-test | fallback | load-balance] 策略组自动择优测速地址 url
+  GroupHealthCheckUrl: &GroupHealthCheckUrl 'http://cp.cloudflare.com/generate_204'
+  # [url-test | fallback | load-balance] 策略组测速间隔（秒）
+  GroupHealthCheckInterval: &GroupHealthCheckInterval 300
+  # [url-test | fallback | load-balance] 策略组代理节点切换容差（毫秒）
+  GroupProxySwitchTolerance: &GroupProxySwitchTolerance 50
+  # [url-test | fallback | load-balance] 策略组测速超时（毫秒）（超出则判定为失败）
+  GroupHealthCheckTimeout: &GroupHealthCheckTimeout 5000
+  # [url-test | fallback | load-balance] 策略组测速失败次数（在 timeout 时间长度内,请求失败 max-failed-times 次,强制提前主动触发健康检查）
+  GroupHealthCheckMaxFailedTimes: &GroupHealthCheckMaxFailedTimes 3
+  # 订阅源更新间隔（秒）
+  ProviderUpdateInterval: &ProviderUpdateInterval 86400
+  # 订阅源健康检查间隔（秒）
+  ProviderHealthCheckInterval: &ProviderHealthCheckInterval 600
+  # 订阅源健康检查 url
+  ProviderHealthCheckUrl: &ProviderHealthCheckUrl 'http://connectivitycheck.platform.hicloud.com/generate_204'
+  # 策略组 [url-test每 GroupHealthCheckInterval 秒一次惰性健康检查，容差 GroupProxySwitchTolerance 毫秒，时延超过 GroupHealthCheckTimeout 毫秒判定为失败，失败 GroupHealthCheckMaxFailedTimes 次则自动触发健康检查]
+  UrlTestGroup:
+    &UrlTestGroup {
       type: url-test,
-      url: *ProxyTestUrl,
-      interval: *TestInterval,
-      tolerance: *TestTolerance,
+      url: *GroupHealthCheckUrl,
+      interval: *GroupHealthCheckInterval,
+      tolerance: *GroupProxySwitchTolerance,
       lazy: true,
-      timeout: *TestTimeout,
-      max-failed-times: *TestMaxFailedTimes,
+      timeout: *GroupHealthCheckTimeout,
+      max-failed-times: *GroupHealthCheckMaxFailedTimes,
       include-all: false
     }
-  # 策略组 [fallback每 TestInterval 秒一次惰性测速检查，容差 TestTolerance 毫秒，时延超过 TestTimeout 毫秒判定为失败，失败 TestMaxFailedTimes 次则自动触发健康检查]
-  FallBack:
-    &FallBack {
+  # 策略组 [fallback每 GroupHealthCheckInterval 秒一次惰性健康检查，容差 GroupProxySwitchTolerance 毫秒，时延超过 GroupHealthCheckTimeout 毫秒判定为失败，失败 GroupHealthCheckMaxFailedTimes 次则自动触发健康检查]
+  FallbackGroup:
+    &FallbackGroup {
+      <<: *UrlTestGroup,
       type: fallback,
-      url: *ProxyTestUrl,
-      interval: *TestInterval,
-      tolerance: *TestTolerance,
-      lazy: true,
-      timeout: *TestTimeout,
-      max-failed-times: *TestMaxFailedTimes,
-      include-all: false
     }
-  # 规则集 [每 UpdateInterval 秒更新一次订阅规则]
-  RuleProviders: &RuleProviders { type: http, behavior: classical, interval: *UpdateInterval }
-  # 代理集 [每 UpdateInterval 秒更新一次订阅节点，每 HealthCheckInterval 秒一次健康检查]
-  ProxyProviders: &ProxyProviders { type: http, interval: *UpdateInterval, health-check: { enable: true, url: *InternetTestUrl, interval: *HealthCheckInterval } }
+  # 规则集 [每 ProviderUpdateInterval 秒更新一次订阅规则]
+  RuleProviders: &RuleProviders {
+    type: http,
+    behavior: classical,
+    interval: *ProviderUpdateInterval
+  }
+  # 代理集 [每 ProviderUpdateInterval 秒更新一次订阅节点，每 ProviderHealthCheckInterval 秒一次健康检查]
+  ProxyProviders: &ProxyProviders {
+    type: http,
+    interval: *ProviderUpdateInterval,
+    health-check: {
+      enable: true,
+      url: *ProviderHealthCheckUrl,
+      interval: *ProviderHealthCheckInterval,
+      lazy: true
+    }
+  }
   # 正则筛选（正则中避免出现中文、emoji，会不兼容）
   Filters:
     Filter_Region_HK: &Filter_Region_HK ^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$
@@ -266,12 +273,12 @@ Anchors:
 #region 策略组
 proxy-groups:
   - {name: 🚀节点选择, type: select, proxies: [♻️自动选择, 🚀手动切换, 🎯全球直连, 🇨🇳国内, 🌏亚洲, 🌎美洲, 🌏大洋洲, 🌍欧洲], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Filter.png}
-  - {name: ♻️自动选择, <<: *UrlTest, include-all: true, filter: *Filter_Global, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Auto.png}
+  - {name: ♻️自动选择, <<: *UrlTestGroup, include-all: true, filter: *Filter_Global, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Auto.png}
   - {name: 🚀手动切换, type: select, proxies: [🇨🇳国内, 🌏亚洲, 🌎美洲, 🌏大洋洲, 🌍欧洲, 🎯全球直连], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Manual.png}
   # - {name: ⚠️流量用量, type: select, include-all: true, filter: *Filter_Used, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Available.png}
   - {name: 🎯全球直连, type: select, proxies: [DIRECT], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Direct.png}
   - {name: 🛑全球拦截, type: select, proxies: [REJECT, DIRECT], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Reject.png}
-  - {name: 🛠️故障转移, <<: *FallBack, type: fallback, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Final.png}
+  - {name: 🛠️故障转移, <<: *FallbackGroup, type: fallback, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Final.png}
   - {name: 🐟漏网之鱼, type: select, proxies: [🛠️故障转移, 🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Bywave.png}
   # 专属策略组
   - {name: ✨AI, type: select, proxies: [🚀节点选择, ♻️自动选择, 🚀手动切换, 🎯全球直连, 🇨🇳国内, 🌏亚洲, 🌎美洲, 🌏大洋洲, 🌍欧洲], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Ai.png}
@@ -298,24 +305,24 @@ proxy-groups:
   - {name: 🌏大洋洲, type: select, proxies: [🇦🇺澳洲], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Area/Oceania.png}
   - {name: 🌍欧洲, type: select, proxies: [🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Area/Europe.png}
   # 延迟优先策略组 Low Latency Preference
-  - {name: 🇭🇰香港, <<: *UrlTest, include-all: true, filter: *Filter_Region_HK, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/HongKong.png}
-  - {name: 🇲🇴澳门, <<: *UrlTest, include-all: true, filter: *Filter_Region_MO, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Macau.png}
-  - {name: 🇨🇳台湾, <<: *UrlTest, include-all: true, filter: *Filter_Region_TW, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Taiwan.png}
-  - {name: 🇯🇵日本, <<: *UrlTest, include-all: true, filter: *Filter_Region_JP, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Japan.png}
-  - {name: 🇰🇷韩国, <<: *UrlTest, include-all: true, filter: *Filter_Region_KR, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Korea.png}
-  - {name: 🇸🇬星洲, <<: *UrlTest, include-all: true, filter: *Filter_Region_SG, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Singapore.png}
-  - {name: 🇲🇾马来, <<: *UrlTest, include-all: true, filter: *Filter_Region_MY, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Malaysia.png}
-  - {name: 🇮🇳印度, <<: *UrlTest, include-all: true, filter: *Filter_Region_IN, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/India.png}
-  - {name: 🇺🇸美国, <<: *UrlTest, include-all: true, filter: *Filter_Region_US, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/America.png}
-  - {name: 🇨🇦加拿大, <<: *UrlTest, include-all: true, filter: *Filter_Region_CA, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Canada.png}
-  - {name: 🇦🇺澳洲, <<: *UrlTest, include-all: true, filter: *Filter_Region_AU, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Australia.png}
-  - {name: 🇬🇧英国, <<: *UrlTest, include-all: true, filter: *Filter_Region_UK, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Britain.png}
-  - {name: 🇫🇷法国, <<: *UrlTest, include-all: true, filter: *Filter_Region_FR, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/France.png}
-  - {name: 🇩🇪德国, <<: *UrlTest, include-all: true, filter: *Filter_Region_DE, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Germany.png}
-  - {name: 🇮🇹意大利, <<: *UrlTest, include-all: true, filter: *Filter_Region_IT, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Italy.png}
-  - {name: 🇳🇱荷兰, <<: *UrlTest, include-all: true, filter: *Filter_Region_NL, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Netherlands.png}
-  - {name: 🇱🇺卢森堡, <<: *UrlTest, include-all: true, filter: *Filter_Region_LU, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Luxembourg.png}
-  - {name: 🇱🇹立陶宛, <<: *UrlTest, include-all: true, filter: *Filter_Region_LT, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Lithuania.png}
+  - {name: 🇭🇰香港, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_HK, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/HongKong.png}
+  - {name: 🇲🇴澳门, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_MO, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Macau.png}
+  - {name: 🇨🇳台湾, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_TW, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Taiwan.png}
+  - {name: 🇯🇵日本, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_JP, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Japan.png}
+  - {name: 🇰🇷韩国, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_KR, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Korea.png}
+  - {name: 🇸🇬星洲, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_SG, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Singapore.png}
+  - {name: 🇲🇾马来, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_MY, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Malaysia.png}
+  - {name: 🇮🇳印度, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_IN, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/India.png}
+  - {name: 🇺🇸美国, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_US, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/America.png}
+  - {name: 🇨🇦加拿大, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_CA, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Canada.png}
+  - {name: 🇦🇺澳洲, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_AU, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Australia.png}
+  - {name: 🇬🇧英国, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_UK, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Britain.png}
+  - {name: 🇫🇷法国, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_FR, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/France.png}
+  - {name: 🇩🇪德国, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_DE, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Germany.png}
+  - {name: 🇮🇹意大利, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_IT, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Italy.png}
+  - {name: 🇳🇱荷兰, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_NL, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Netherlands.png}
+  - {name: 🇱🇺卢森堡, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_LU, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Luxembourg.png}
+  - {name: 🇱🇹立陶宛, <<: *UrlTestGroup, include-all: true, filter: *Filter_Region_LT, icon: https://jy-mar.github.io/scat-proxy/Icons/Color/Nation/Lithuania.png}
 #endregion
 
 #region 规则集
@@ -367,9 +374,9 @@ rule-providers:
   GitHub: {url: https://rule.kelee.one/Clash/GitHub.yaml, path: ./ruleset/GitHub.yaml, <<: *RuleProviders}
   JueJinCN: {url: https://jy-mar.github.io/scat-proxy/Clash/Rules/JueJinCN.yaml, path: ./ruleset/JueJinCN.yaml, <<: *RuleProviders}
   LinuxDo: {url: https://jy-mar.github.io/scat-proxy/Clash/Rules/LinuxDo.yaml, path: ./ruleset/LinuxDo.yaml, <<: *RuleProviders}
+  iKelee: {url: https://jy-mar.github.io/scat-proxy/Clash/Rules/iKelee.yaml, path: ./ruleset/iKelee.yaml, <<: *RuleProviders}
   # === Adv ===
-  Advertising: {url: https://rule.kelee.one/Clash/Advertising.yaml, path: ./ruleset/Advertising.yaml, <<: *RuleProviders}
-  Advertising_blackmatrix7: {url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Advertising/Advertising_Classical.yaml, path: ./ruleset/Advertising_blackmatrix7.yaml, <<: *RuleProviders}
+  AdvertisingLite: {url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml, path: ./ruleset/AdvertisingLite.yaml, <<: *RuleProviders}
   # === Proxy ===
   Proxy: {url: https://rule.kelee.one/Clash/Proxy.yaml, path: ./ruleset/Proxy.yaml, <<: *RuleProviders}
   # === Direct ===
@@ -380,6 +387,8 @@ rule-providers:
   ChinaMedia: {url: https://rule.kelee.one/Clash/ChinaMedia.yaml, path: ./ruleset/ChinaMedia.yaml, <<: *RuleProviders}
   ChinaDownloadCDN: {url: https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml, path: ./ruleset/ChinaDownloadCDN.yaml, <<: *RuleProviders}
   Lan: {url: https://rule.kelee.one/Clash/Lan.yaml, path: ./ruleset/Lan.yaml, <<: *RuleProviders}
+  Local: {url: https://jy-mar.github.io/scat-proxy/Clash/Rules/Local.yaml, path: ./ruleset/Local.yaml, <<: *RuleProviders}
+  GeoCN: {url: https://jy-mar.github.io/scat-proxy/Clash/Rules/GeoCN.yaml, path: ./ruleset/GeoCN.yaml, <<: *RuleProviders}
 #endregion
 
 #region 规则匹配
@@ -432,9 +441,9 @@ rules:
   - RULE-SET,GitHub,🚀节点选择
   - RULE-SET,JueJinCN,🎯全球直连
   - RULE-SET,LinuxDo,🚀节点选择
+  - RULE-SET,iKelee,🎯全球直连
   # === Adv ===
-  # - RULE-SET,Advertising,🛑全球拦截
-  - RULE-SET,Advertising_blackmatrix7,🛑全球拦截
+  - RULE-SET,AdvertisingLite,🛑全球拦截
   # === Proxy ===
   - RULE-SET,Proxy,🚀节点选择
   # === Direct ===
@@ -445,8 +454,8 @@ rules:
   - RULE-SET,ChinaMedia,🎯全球直连
   - RULE-SET,ChinaDownloadCDN,🎯全球直连
   - RULE-SET,Lan,🎯全球直连
-  - GEOIP,LAN,🎯全球直连
-  - GEOIP,CN,🎯全球直连
+  - RULE-SET,Local,🎯全球直连
+  - RULE-SET,GeoCN,🎯全球直连
   # 兜底规则
   - MATCH,🐟漏网之鱼
 #endregion

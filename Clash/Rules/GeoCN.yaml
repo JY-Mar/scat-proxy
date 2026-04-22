@@ -1,0 +1,10 @@
+# NAME            : GeoCN
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/scat-proxy/tree/main/Clash/Rules
+# UPDATED         : 2026-04-22 16:50:24 GMT+8
+# GEOIP           : 1
+# TOTAL           : 1
+
+payload:
+  # 中国公网全直连
+  - GEOIP,cn,no-resolve

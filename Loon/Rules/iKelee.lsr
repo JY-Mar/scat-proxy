@@ -1,0 +1,10 @@
+# NAME            : iKelee
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/scat-proxy/tree/main/Loon/Rules
+# UPDATED         : 2026-04-22 16:56:43 GMT+8
+# DOMAIN-SUFFIX   : 3
+# TOTAL           : 3
+
+DOMAIN-SUFFIX,rule.kelee.one
+DOMAIN-SUFFIX,hub.kelee.one
+DOMAIN-SUFFIX,kelee.one

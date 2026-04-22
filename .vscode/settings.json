@@ -2,7 +2,7 @@
   "fileheader.configObj": {
     "autoAdd": true,
     "autoAddLine": 100,
-    "supportAutoLanguage": ["yaml", "lsr"],
+    "supportAutoLanguage": ["yaml", "lsr", "lcf"],
     "prohibitAutoAdd": ["md", "txt"],
     "atSymbol": ["@", "@"],
     "atSymbolObj": {
@@ -44,12 +44,12 @@
   "emeraldwalk.runonsave": {
     "commands": [
       {
-        "match": ".*\\/Clash\\/Rules\\/.+\\.yaml$",
-        "cmd": "node ./tools/update-clash-yaml-header.js ${file}"
+        "match": ".*(\\/|\\\\)Clash(\\/|\\\\)Rules(\\/|\\\\).+\\.yaml$",
+        "cmd": "node \"${workspaceFolder}/tools/update-clash-yaml-header.js\" \"${file}\""
       },
       {
-        "match": ".*\\/Loon\\/Rules\\/.+\\.lsr$",
-        "cmd": "node ./tools/update-loon-lsr-header.js ${file}"
+        "match": ".*(\\/|\\\\)Loon(\\/|\\\\)Rules(\\/|\\\\).+\\.lsr$",
+        "cmd": "node \"${workspaceFolder}/tools/update-loon-lsr-header.js\" \"${file}\""
       }
     ]
   }

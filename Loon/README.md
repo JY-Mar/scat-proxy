@@ -1,8 +1,14 @@
-# kelee Loon插件安装
+# Loon
 
-[https://github.com/luestr/ProxyResource/blob/main/README.md](https://github.com/luestr/ProxyResource/blob/main/README.md)
+## 插件安装
 
-# 分流规则
+[插件中心](https://hub.kelee.one/)
+
+## 分流规则
+
+1. [iKelee](https://github.com/luestr/ShuntRules)
+
+2. [blackmatrix7](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Loon)
 
 ## 推荐配置
 

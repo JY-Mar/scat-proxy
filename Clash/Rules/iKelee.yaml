@@ -1,0 +1,11 @@
+# NAME            : iKelee
+# AUTHOR          : JY-Mar
+# REPO            : https://github.com/JY-Mar/scat-proxy/tree/main/Clash/Rules
+# UPDATED         : 2026-04-22 16:55:40 GMT+8
+# DOMAIN-SUFFIX   : 3
+# TOTAL           : 3
+
+payload:
+  - DOMAIN-SUFFIX,rule.kelee.one
+  - DOMAIN-SUFFIX,hub.kelee.one
+  - DOMAIN-SUFFIX,kelee.one
