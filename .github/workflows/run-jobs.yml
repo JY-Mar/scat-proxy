@@ -18,11 +18,18 @@ on:
       - "Icons/**/*.jpg"
       - "Icons/**/*.jpeg"
       - "Icons/**/*.png"
-      - "Clash/**/*.yaml"
-      - "Loon/**/*.lcf"
-      - "Loon/**/*.lsr"
-      - "scripts/*.py"
-      - "scripts/*.css"
+      - "Clash/Config/*.yaml"
+      - "Clash/Rules/*.yaml"
+      - "Clash/Rules/*.list"
+      - "Clash/Rules/*.txt"
+      - "Loon/Config/*.lcf"
+      - "Loon/Plugins/*.plugin"
+      - "Loon/Plugins/*.lpx"
+      - "Loon/Rules/*.lsr"
+      - "Loon/Rules/*.list"
+      - "scripts/**/*.js"
+      - "toolsForPython/**/*.py"
+      - "toolsForPython/**/*.css"
 
 # 设置权限
 permissions:
@@ -66,33 +73,36 @@ jobs:
       - name: 🗃️ Copy Loon to docs/Loon
         run: cp -r Loon docs/Loon
 
+      - name: 🗃️ Copy scripts to docs/scripts
+        run: cp -r scripts docs/scripts
+
       - name: 🗃️ Copy Icons to docs/Icons
         run: cp -r Icons docs/Icons
 
       - name: 🗃️ Copy style.css to docs/assets
-        run: rsync -avP scripts/style.css docs/assets/
+        run: rsync -avP toolsForPython/style.css docs/assets/
 
       - name: 🧠 Run grouping script in Icons/
         env:
           OUTPUT_DIR: docs
-        run: python scripts/generate_images_json.py
+        run: python toolsForPython/generate_images_json.py
 
       - name: 🧱 Generate index.html from images.json
         env:
           OUTPUT_DIR: docs
         run: |
-          python scripts/generate_icons_html.py
+          python toolsForPython/generate_icons_html.py
 
       - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs
 
-      - name: 👉 Repository Dispatch "clash-yaml-merger"
+      - name: 👉 Repository Dispatch "scat-proxy-gen"
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.CLASH_GITHUB_TOKEN }}
-          repository: JY-Mar/clash-yaml-merger
+          repository: JY-Mar/scat-proxy-gen
           event-type: trigger-from-scat-proxy
           # 可选：你还可以传递一些数据过去
           # client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'

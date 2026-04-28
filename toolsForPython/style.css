@@ -59,7 +59,10 @@ h2 {
 }
 .group > .icon-wrapper {
   will-change: scale, width, height;
-  transition: scale 0.25s ease, width 0.25s ease, height 0.25s ease;
+  transition:
+    scale 0.25s ease,
+    width 0.25s ease,
+    height 0.25s ease;
 }
 .group > .icon-wrapper:has(.icon-item.large) {
   width: var(--icon-size-lg);
@@ -134,7 +137,10 @@ h2 {
   overflow: hidden;
   text-overflow: ellipsis;
   will-change: bottom, font-size, background-color;
-  transition: bottom 0.25s ease, font-size 0.25s ease, background-color 0.25s ease;
+  transition:
+    bottom 0.25s ease,
+    font-size 0.25s ease,
+    background-color 0.25s ease;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
 }

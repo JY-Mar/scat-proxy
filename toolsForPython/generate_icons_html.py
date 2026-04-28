@@ -1,7 +1,5 @@
 import json
 import os
-import re
-
 
 # 图标目录名
 ICONS_DIR_NAME = "Icons"
@@ -12,11 +10,13 @@ OUTPUT_JSON = "images.json"
 # 输出Index文件名
 OUTPUT_INDEX = "index.html"
 
-# scripts 目录
+# toolsForPython 目录
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 # 目标扫描目录：Icons/
-icons_dir = os.path.join(os.path.abspath(os.path.join(current_dir, "..")), ICONS_DIR_NAME)
+icons_dir = os.path.join(
+    os.path.abspath(os.path.join(current_dir, "..")), ICONS_DIR_NAME
+)
 
 # 输入 JSON 文件路径
 json_path = os.path.join(os.environ.get("OUTPUT_DIR", "."), OUTPUT_JSON)

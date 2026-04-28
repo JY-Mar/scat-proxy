@@ -14,13 +14,16 @@ configuration of proxy tools
 │   │   ├── Circle/            # 彩色圆形图标
 │   │   ├── Scat/              # 彩色作者头像
 │   │   └── ...                # 彩色图标
-│   ├── Mono/                  # 单色图标文件目录
-│   │   ├── Dark/              # 暗色图标
-│   │   └── ...                # 亮色图标
-│   ├── scripts/               # 文件生成脚本
+│   └── Mono/                  # 单色图标文件目录
+│       ├── Dark/              # 暗色图标
+│       └── ...                # 亮色图标
 ├── Loon/                      # Loon 配置
 │   ├── Config/                # Loon 完整配置文件（无代理节点、代理组）.lcf
-│   └── Rules/                 # Loon 远程规则文件 .lsr
+│   ├── Plugins/               # Loon 插件文件目录 .plugin / .lpx
+│   └── Rules/                 # Loon 远程规则文件 .lsr / .list
+│── scripts/                   # 去广告、Rewrite脚本
+|── toolsForNode/              # Node脚本
+|── toolsForPython/            # Python脚本
 ├── docs/                      # GitHub Pages输出目录
 │   ├── index.html             # 主页面
 │   ├── Color/                 # 拷贝到doc目录下的 彩色图标文件目录

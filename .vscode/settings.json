@@ -2,55 +2,47 @@
   "fileheader.configObj": {
     "autoAdd": true,
     "autoAddLine": 100,
-    "supportAutoLanguage": ["yaml", "lsr", "lcf"],
-    "prohibitAutoAdd": ["md", "txt"],
+    "supportAutoLanguage": ["js"],
+    "prohibitAutoAdd": ["md", "txt", "yaml", "lsr", "lcf", "list"],
     "atSymbol": ["@", "@"],
     "atSymbolObj": {
-      "yaml": ["#", "@"],
-      "lsr": ["#", "@"]
-    },
-    "customHasHeadEnd": {
-      "yaml": "cancel head",
-      "lsr": "cancel head",
-      "lcf": "cancel head"
+      "js": ["", "@"]
     },
     // 头部注释字段长度 默认为13
     "wideNum": 16,
     "showErrorMessage": false,
-    "language": {
-      "yaml/lsr/lcf": {
-        "head": "",
-        "middle": "# ",
-        "end": ""
-      }
-    },
-    "functionParams": {
-      "domainSuffixCount": "function ({data, languageId}) { if (languageId !== 'yaml') return ''; const r = /^(?!\\s*(?:#|\\/\\/)).*DOMAIN-SUFFIX/gim; const m = data.match(r); return m ? String(m.length) : '0'; }",
-      "totalPayloadCount": "function ({data, languageId}) { if (languageId !== 'yaml') return ''; const r = /^\\s*-\\s*DOMAIN-SUFFIX,[^#\\/]+$/gim; const m = data.match(r); return m ? String(m.length) : '0'; }"
-    },
+    "language": {},
+    "functionParams": {},
     "dateFormat": "YYYY-MM-DD HH:mm:ss ZZ",
     "specialOptions": {
       "FilePath": "NAME",
-      "LastEditTime": "UPDATED"
+      "LastEditTime": "UPDATED",
+      "LastEditors": "UPDATER",
+      "Description": "DESC"
     },
     "filePathColon": "/"
   },
-
   "fileheader.customMade": {
     "FilePath": "only file name without ext",
     "AUTHOR": "git config user.name",
-    "REPO": "https://github.com/JY-Mar/scat-proxy/tree/main/",
-    "LastEditTime": "Do not edit"
+    "REPO": "https://github.com/JY-Mar/scat-proxy",
+    "LastEditors": "git config user.name",
+    "LastEditTime": "Do not edit",
+    "Description": "文件描述"
   },
   "emeraldwalk.runonsave": {
     "commands": [
       {
         "match": ".*(\\/|\\\\)Clash(\\/|\\\\)Rules(\\/|\\\\).+\\.yaml$",
-        "cmd": "node \"${workspaceFolder}/tools/yaml-header-rewrite.js\" \"${file}\""
+        "cmd": "node \"${workspaceFolder}/toolsForNode/rewriteForYaml.js\" \"${file}\""
       },
       {
         "match": ".*(\\/|\\\\)Loon(\\/|\\\\)Rules(\\/|\\\\).+\\.lsr$",
-        "cmd": "node \"${workspaceFolder}/tools/lsr-header-rewrite.js\" \"${file}\""
+        "cmd": "node \"${workspaceFolder}/toolsForNode/rewriteForLsr.js\" \"${file}\""
+      },
+      {
+        "match": ".*(\\/|\\\\)General(\\/|\\\\)Rules(\\/|\\\\).+\\.list$",
+        "cmd": "node \"${workspaceFolder}/toolsForNode/rewriteForList.js\" \"${file}\""
       }
     ]
   }

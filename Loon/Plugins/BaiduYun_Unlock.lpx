@@ -1,0 +1,12 @@
+#!name=百度云解锁
+#!desc=百度云解锁SVIP、倍速播放
+#!homepage=https://jy-mar.github.io/scat-proxy
+#!author=Nobyda
+#!tag=Baidu,百度,解锁
+#!icon=https://jy-mar.github.io/scat-proxy/Icons/Color/Baidu_Net_Disk.png
+
+[Script]
+http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-path=https://jy-mar.github.io/scat-proxy/Scripts/BaiduYun_Unlock.js,requires-body=true,script-update-interval=0,tag=BaiduYun_Unlock
+
+[MITM]
+hostname = pan.baidu.com
