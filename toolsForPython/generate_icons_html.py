@@ -1,11 +1,3 @@
-'''
-NAME            : generate_icons_html
-AUTHOR          : JY-Mar
-REPO            : https://github.com/JY-Mar/scat-proxy
-UPDATER         : JY-Mar
-UPDATED         : 2026-04-28 13:43:31 +0800
-DESC            : 文件描述
-'''
 import json
 import os
 
