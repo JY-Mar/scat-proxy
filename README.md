@@ -1,9 +1,10 @@
-# scat-proxy
+# PxyRes
+
 configuration of proxy tools
 
 ## 项目结构
 
-```
+```text
 ├── .github/workflows/
 │   └── run-jobs.yml           # GitHub Actions工作流
 ├── Clash/                     # Clash 配置
@@ -57,13 +58,13 @@ configuration of proxy tools
 
 [https://github.com/luestr/ProxyResource/blob/main/Tool/Loon/Lcf/zh-CN/Loon_Sample_Configuration_By_iKeLee.lcf](https://github.com/luestr/ProxyResource/blob/main/Tool/Loon/Lcf/zh-CN/Loon_Sample_Configuration_By_iKeLee.lcf)
 
-## scat-proxy 集成的图标
+## PxyRes 集成的图标
 
 > 来自
 > 1. [Koolson/Qure](https://github.com/Koolson/Qure)
 > 2. [Orz-3/mini](https://github.com/Orz-3/mini)
 
-[点此预览图标](https://jy-mar.github.io/scat-proxy/)
+[点此预览图标](https://jy-mar.github.io/PxyRes/)
 
 ### 使用
 
@@ -72,7 +73,7 @@ configuration of proxy tools
 例：
 
 ```
-https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/Back.png
+https://raw.githubusercontent.com/JY-Mar/PxyRes/refs/heads/main/Icons/Color/Back.png
 ```
 
 - 方式二，`github.io` 直接引用
@@ -80,5 +81,5 @@ https://raw.githubusercontent.com/JY-Mar/scat-proxy/refs/heads/main/Icons/Color/
 例：
 
 ```
-https://jy-mar.github.io/scat-proxy/Icons/Color/Back.png
+https://jy-mar.github.io/PxyRes/Icons/Color/Back.png
 ```

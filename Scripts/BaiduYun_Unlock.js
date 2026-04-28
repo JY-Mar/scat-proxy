@@ -1,7 +1,7 @@
 /*
  * NAME            : BaiduYun_Unlock
  * AUTHOR          : Nobyda
- * REPO            : https://github.com/JY-Mar/scat-proxy
+ * REPO            : https://github.com/JY-Mar/PxyRes
  * UPDATER         : JY-Mar
  * UPDATED         : 2026-04-28 12:03:23 +0800
  * DESC            : 百度网盘整合版 解锁 SVIP、在线视频倍率/清晰度（动态数值）
@@ -9,7 +9,7 @@
 
 // #region QuantumultX
 // [rewrite_local]
-// https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://jy-mar.github.io/scat-proxy/Scripts/BaiduYun_Unlock.js
+// https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://jy-mar.github.io/PxyRes/Scripts/BaiduYun_Unlock.js
 
 // [mitm]
 // hostname = pan.baidu.com
@@ -17,7 +17,7 @@
 
 // #region Surge4 / Loon
 // [Script]
-// http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user requires-body=1,max-size=0,script-path=https://jy-mar.github.io/scat-proxy/Scripts/BaiduYun_Unlock.js
+// http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user requires-body=1,max-size=0,script-path=https://jy-mar.github.io/PxyRes/Scripts/BaiduYun_Unlock.js
 
 // [MITM]
 // hostname = pan.baidu.com

@@ -98,12 +98,12 @@ jobs:
         with:
           path: ./docs
 
-      - name: 👉 Repository Dispatch "scat-proxy-gen"
+      - name: 👉 Repository Dispatch "PxyGen"
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.CLASH_GITHUB_TOKEN }}
-          repository: JY-Mar/scat-proxy-gen
-          event-type: trigger-from-scat-proxy
+          repository: JY-Mar/PxyGen
+          event-type: trigger-from-PxyRes
           # 可选：你还可以传递一些数据过去
           # client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
 
