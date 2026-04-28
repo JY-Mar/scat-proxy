@@ -21,9 +21,9 @@ configuration of proxy tools
 │   ├── Config/                # Loon 完整配置文件（无代理节点、代理组）.lcf
 │   ├── Plugins/               # Loon 插件文件目录 .plugin / .lpx
 │   └── Rules/                 # Loon 远程规则文件 .lsr / .list
-│── scripts/                   # 去广告、Rewrite脚本
-|── toolsForNode/              # Node脚本
-|── toolsForPython/            # Python脚本
+│── Scripts/                   # 去广告、Rewrite脚本
+|── scriptsForNode/            # Node脚本
+|── scriptsForPython/          # Python脚本
 ├── docs/                      # GitHub Pages输出目录
 │   ├── index.html             # 主页面
 │   ├── Color/                 # 拷贝到doc目录下的 彩色图标文件目录

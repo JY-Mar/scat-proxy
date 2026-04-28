@@ -34,15 +34,15 @@
     "commands": [
       {
         "match": ".*(\\/|\\\\)Clash(\\/|\\\\)Rules(\\/|\\\\).+\\.yaml$",
-        "cmd": "node \"${workspaceFolder}/toolsForNode/rewriteForYaml.js\" \"${file}\""
+        "cmd": "node \"${workspaceFolder}/scriptsForNode/rewriteForYaml.js\" \"${file}\""
       },
       {
         "match": ".*(\\/|\\\\)Loon(\\/|\\\\)Rules(\\/|\\\\).+\\.lsr$",
-        "cmd": "node \"${workspaceFolder}/toolsForNode/rewriteForLsr.js\" \"${file}\""
+        "cmd": "node \"${workspaceFolder}/scriptsForNode/rewriteForLsr.js\" \"${file}\""
       },
       {
         "match": ".*(\\/|\\\\)General(\\/|\\\\)Rules(\\/|\\\\).+\\.list$",
-        "cmd": "node \"${workspaceFolder}/toolsForNode/rewriteForList.js\" \"${file}\""
+        "cmd": "node \"${workspaceFolder}/scriptsForNode/rewriteForList.js\" \"${file}\""
       }
     ]
   }

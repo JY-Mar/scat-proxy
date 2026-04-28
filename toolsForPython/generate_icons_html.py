@@ -1,3 +1,11 @@
+'''
+NAME            : generate_icons_html
+AUTHOR          : JY-Mar
+REPO            : https://github.com/JY-Mar/scat-proxy
+UPDATER         : JY-Mar
+UPDATED         : 2026-04-28 13:43:31 +0800
+DESC            : 文件描述
+'''
 import json
 import os
 
@@ -10,7 +18,7 @@ OUTPUT_JSON = "images.json"
 # 输出Index文件名
 OUTPUT_INDEX = "index.html"
 
-# toolsForPython 目录
+# scriptsForPython 目录
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 # 目标扫描目录：Icons/

@@ -10,7 +10,7 @@ OUTPUT_JSON = "images.json"
 # 输出Index文件名
 OUTPUT_INDEX = "index.html"
 
-# toolsForPython 目录
+# scriptsForPython 目录
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 # 目标扫描目录：Icons/

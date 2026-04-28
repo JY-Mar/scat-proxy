@@ -27,9 +27,9 @@ on:
       - "Loon/Plugins/*.lpx"
       - "Loon/Rules/*.lsr"
       - "Loon/Rules/*.list"
-      - "scripts/**/*.js"
-      - "toolsForPython/**/*.py"
-      - "toolsForPython/**/*.css"
+      - "Scripts/**/*.js"
+      - "scriptsForPython/**/*.py"
+      - "scriptsForPython/**/*.css"
 
 # 设置权限
 permissions:
@@ -73,25 +73,25 @@ jobs:
       - name: 🗃️ Copy Loon to docs/Loon
         run: cp -r Loon docs/Loon
 
-      - name: 🗃️ Copy scripts to docs/scripts
-        run: cp -r scripts docs/scripts
+      - name: 🗃️ Copy Scripts to docs/Scripts
+        run: cp -r Scripts docs/Scripts
 
       - name: 🗃️ Copy Icons to docs/Icons
         run: cp -r Icons docs/Icons
 
       - name: 🗃️ Copy style.css to docs/assets
-        run: rsync -avP toolsForPython/style.css docs/assets/
+        run: rsync -avP scriptsForPython/style.css docs/assets/
 
       - name: 🧠 Run grouping script in Icons/
         env:
           OUTPUT_DIR: docs
-        run: python toolsForPython/generate_images_json.py
+        run: python scriptsForPython/generate_images_json.py
 
       - name: 🧱 Generate index.html from images.json
         env:
           OUTPUT_DIR: docs
         run: |
-          python toolsForPython/generate_icons_html.py
+          python scriptsForPython/generate_icons_html.py
 
       - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
