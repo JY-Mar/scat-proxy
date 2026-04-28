@@ -214,6 +214,7 @@ https://kelee.one/Tool/Loon/Lpx/Weixin_Official_Accounts_remove_ads.lpx, tag=微
 https://kelee.one/Tool/Loon/Lpx/WexinMiniPrograms_Remove_ads.lpx, tag=微信小程序去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Weixin_external_links_unlock.lpx, tag=微信外部链接解锁, enabled=true
 https://yfamilys.com/plugin/wxds.plugin, tag=微信读书, enabled=true
+https://kelee.one/Tool/Loon/Lpx/QQ_Redirect.lpx, tag=QQ外部链接解锁, enabled=true
 https://yfamilys.com/plugin/bdwk.plugin, tag=百度文库解锁, enabled=true
 https://yfamilys.com/plugin/BaiduCloud.plugin, tag=百度云解锁VIP, enabled=false
 https://raw.githubusercontent.com/chengkongyiban/Loon/main/Loon-Gallery/BaiduCloud.plugin, tag=百度云解锁VIP, enabled=false
