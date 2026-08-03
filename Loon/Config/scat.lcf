@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-07-01 11:33:18 GMT+8
+# UPDATED         : 2026-08-03 09:21:36 GMT+8
 
 [General]
 # IP 模式
@@ -296,7 +296,6 @@ https://kelee.one/Tool/Loon/Lpx/Taobao_remove_ads.lpx, tag=淘宝去广告, enab
 https://jy-mar.github.io/PxyRes/Loon/Plugins/McDonalds_remove_ads.lpx, tag=麦当劳去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Zhihu_remove_ads.lpx, tag=知乎去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/ZhuanZhuan_remove_ads.lpx, tag=转转去广告, enabled=true
-https://kelee.one/Tool/Loon/Lpx/Switch_github_mirror.lpx, tag=Github镜像重定向, enabled=true
 https://kelee.one/Tool/Loon/Lpx/SF-Express_remove_ads.lpx, tag=顺丰速运+去广告, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Plugins/SmartLife360_remove_ads.lpx, tag=360智慧生活去广告, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Plugins/Hmbaby_remove_ads.lpx, tag=海马爸比去广告, enabled=true
@@ -333,7 +332,7 @@ https://kelee.one/Tool/Loon/Lpx/Douyu_remove_ads.lpx, tag=斗鱼去广告, enabl
 https://kelee.one/Tool/Loon/Lpx/CoolApk_remove_ads.lpx, tag=酷安去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/AppleWeatherEnhancer.lpx, tag=苹果天气增强, enabled=true
 https://kelee.one/Tool/Loon/Lpx/ColorfulClouds_remove_ads.lpx, tag=彩云天气去广告, enabled=false
-https://jy-mar.github.io/PxyRes/Loon/Plugins/ColorfulClouds_remove_ads.lpx, tag=彩云天气去广告, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Plugins/ColorfulClouds_remove_ads.lpx, tag=彩云天气去广告, enabled=false
 https://kelee.one/Tool/Loon/Lpx/MojiWeather_remove_ads.lpx, tag=墨迹天气去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Cainiao_remove_ads.lpx, tag=菜鸟去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/AutoHome_remove_ads.lpx, tag=汽车之家去广告, enabled=true
@@ -344,15 +343,13 @@ https://kelee.one/Tool/Loon/Lpx/51Job_remove_ads.lpx, tag=前程无忧去广告,
 https://kelee.one/Tool/Loon/Lpx/123NetWorkDisk_remove_ads.lpx, tag=123网盘去广告, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Plugins/ChinaUnicom_remove_ads.lpx, tag=中国联通去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/12306_remove_ads.lpx, tag=12306去广告, enabled=true
+https://yfamilys.com/plugin/adultra.plugin, tag=APP启动页去广告ultra, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, tag=广告平台拦截器, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, tag=可莉广告过滤器, enabled=true
-https://yfamilys.com/plugin/adultra.plugin, tag=APP启动页去广告ultra, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Prevent_DNS_Leaks.lpx, tag=DNS防泄漏, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, tag=节点检测工具, enabled=true
 https://kelee.one/Tool/Loon/Lpx/NodeLinkCheck.lpx, tag=代理链路检测, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, tag=HTTPDNS拦截器, enabled=true
-https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/Loon/Plugin/ReFix.plugin, tag=规则修正, policy=🚀节点选择, enabled=true
-https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/plugin/General.plugin, tag=增补跳过代理, enabled=true
 https://kelee.one/Tool/Loon/Lpx/LoonGallery.lpx, tag=🎈插件仓库, policy=🚀节点选择, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, tag=Sub-Store, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Script-Hub.lpx, tag=Script-Hub, policy=🎯全球直连, enabled=true
