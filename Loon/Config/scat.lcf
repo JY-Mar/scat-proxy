@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-08-06 09:41:50 GMT+8
+# UPDATED         : 2026-08-06 09:54:26 GMT+8
 
 [General]
 # IP 模式
@@ -177,6 +177,15 @@ IP-CIDR,43.132.55.55/32,DIRECT,no-resolve
 FINAL,🐟漏网之鱼
 
 [Remote Rule]
+# 国内匹配规则
+https://jy-mar.github.io/PxyRes/Loon/Rules/VidHub.lsr, policy=🎯全球直连, tag=VidHub, enabled=true
+https://rule.kelee.one/Loon/ByteDance.lsr, policy=🎯全球直连, tag=ByteDance, enabled=true
+https://rule.kelee.one/Loon/DouYin.lsr, policy=🎯全球直连, tag=DouYin, enabled=true
+https://rule.kelee.one/Loon/Alibaba.lsr, policy=🎯全球直连, tag=Alibaba, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/Hmbaby.lsr, policy=🎯全球直连, tag=Hmbaby, enabled=true
+https://rule.kelee.one/Loon/JueJin.lsr, policy=🎯全球直连, tag=JueJin, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/KeleeOne.lsr, policy=🎯全球直连, tag=KeleeOne, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/CodeCDN.lsr, policy=🎯全球直连, tag=CodeCDN, enabled=true
 # 精准匹配规则
 # --- AI ---
 https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=✨AI, tag=AI, enabled=true
@@ -232,6 +241,11 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/
 https://rule.kelee.one/Loon/Direct.lsr, policy=🎯全球直连, tag=Direct, enabled=true
 https://rule.kelee.one/Loon/Download.lsr, policy=🎯全球直连, tag=Download, enabled=true
 https://rule.kelee.one/Loon/China.lsr, policy=🎯全球直连, tag=China, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaLand.lsr, policy=🎯全球直连, tag=ChinaLand, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaTelecomm.lsr, policy=🎯全球直连, tag=ChinaTelecomm, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaBank.lsr, policy=🎯全球直连, tag=ChinaBank, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaHosp.lsr, policy=🎯全球直连, tag=ChinaHosp, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaAI.lsr, policy=🎯全球直连, tag=ChinaAI, enabled=true
 https://rule.kelee.one/Loon/ChinaDNS.lsr, policy=🎯全球直连, tag=ChinaDNS, enabled=true
 https://rule.kelee.one/Loon/ChinaMedia.lsr, policy=🎯全球直连, tag=ChinaMedia, enabled=true
 https://kelee.one/Tool/Loon/Lsr/ChinaDownloadCDN.lsr, policy=🎯全球直连, tag=ChinaDownloadCDN, enabled=true

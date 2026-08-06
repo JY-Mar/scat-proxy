@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-08-06 09:41:45 GMT+8
+# UPDATED         : 2026-08-06 09:55:40 GMT+8
 
 # MARK: General
 # HTTP(S) and SOCKS5 共用端口
@@ -402,6 +402,14 @@ proxy-groups:
 rule-providers:
   # 国内匹配规则
   SkipProxy: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/SkipProxy.yaml, path: ./ruleset/SkipProxy.yaml, <<: *RuleProvidersClassical}
+  VidHub: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/VidHub.yaml, path: ./ruleset/VidHub.yaml, <<: *RuleProvidersClassical}
+  ByteDance: {url: https://rule.kelee.one/Clash/ByteDance.yaml, path: ./ruleset/ByteDance.yaml, <<: *RuleProvidersClassical}
+  DouYin: {url: https://rule.kelee.one/Clash/DouYin.yaml, path: ./ruleset/DouYin.yaml, <<: *RuleProvidersClassical}
+  Alibaba: {url: https://rule.kelee.one/Clash/Alibaba.yaml, path: ./ruleset/Alibaba.yaml, <<: *RuleProvidersClassical}
+  Hmbaby: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Hmbaby.yaml, path: ./ruleset/Hmbaby.yaml, <<: *RuleProvidersClassical}
+  JueJin: {url: https://rule.kelee.one/Clash/JueJin.yaml, path: ./ruleset/JueJin.yaml, <<: *RuleProvidersClassical}
+  KeleeOne: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/KeleeOne.yaml, path: ./ruleset/KeleeOne.yaml, <<: *RuleProvidersClassical}
+  CodeCDN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/CodeCDN.yaml, path: ./ruleset/CodeCDN.yaml, <<: *RuleProvidersClassical}
   # 精准匹配规则
   # --- AI ---
   AI: {url: https://kelee.one/Tool/Clash/Rule/AI.yaml, path: ./ruleset/AI.yaml, <<: *RuleProvidersClassical}
@@ -457,6 +465,11 @@ rule-providers:
   Direct: {url: https://rule.kelee.one/Clash/Direct.yaml, path: ./ruleset/Direct.yaml, <<: *RuleProvidersClassical}
   Download: {url: https://rule.kelee.one/Clash/Download.yaml, path: ./ruleset/Download.yaml, <<: *RuleProvidersClassical}
   China: {url: https://rule.kelee.one/Clash/China.yaml, path: ./ruleset/China.yaml, <<: *RuleProvidersClassical}
+  ChinaLand: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaLand.yaml, path: ./ruleset/ChinaLand.yaml, <<: *RuleProvidersClassical}
+  ChinaTelecomm: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaTelecomm.yaml, path: ./ruleset/ChinaTelecomm.yaml, <<: *RuleProvidersClassical}
+  ChinaBank: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaBank.yaml, path: ./ruleset/ChinaBank.yaml, <<: *RuleProvidersClassical}
+  ChinaHosp: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaHosp.yaml, path: ./ruleset/ChinaHosp.yaml, <<: *RuleProvidersClassical}
+  ChinaAI: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaAI.yaml, path: ./ruleset/ChinaAI.yaml, <<: *RuleProvidersClassical}
   ChinaDNS: {url: https://rule.kelee.one/Clash/ChinaDNS.yaml, path: ./ruleset/ChinaDNS.yaml, <<: *RuleProvidersClassical}
   ChinaMedia: {url: https://rule.kelee.one/Clash/ChinaMedia.yaml, path: ./ruleset/ChinaMedia.yaml, <<: *RuleProvidersClassical}
   ChinaDownloadCDN: {url: https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml, path: ./ruleset/ChinaDownloadCDN.yaml, <<: *RuleProvidersClassical}
@@ -468,6 +481,14 @@ rule-providers:
 rules:
   # 国内匹配规则
   - RULE-SET,SkipProxy,🎯全球直连
+  - RULE-SET,VidHub,🎯全球直连
+  - RULE-SET,ByteDance,🎯全球直连
+  - RULE-SET,DouYin,🎯全球直连
+  - RULE-SET,Alibaba,🎯全球直连
+  - RULE-SET,Hmbaby,🎯全球直连
+  - RULE-SET,JueJin,🎯全球直连
+  - RULE-SET,KeleeOne,🎯全球直连
+  - RULE-SET,CodeCDN,🎯全球直连
   # 精准匹配规则
   # --- AI ---
   - RULE-SET,AI,✨AI
@@ -523,6 +544,11 @@ rules:
   - RULE-SET,Direct,🎯全球直连
   - RULE-SET,Download,🎯全球直连
   - RULE-SET,China,🎯全球直连
+  - RULE-SET,ChinaLand,🎯全球直连
+  - RULE-SET,ChinaTelecomm,🎯全球直连
+  - RULE-SET,ChinaBank,🎯全球直连
+  - RULE-SET,ChinaHosp,🎯全球直连
+  - RULE-SET,ChinaAI,🎯全球直连
   - RULE-SET,ChinaDNS,🎯全球直连
   - RULE-SET,ChinaMedia,🎯全球直连
   - RULE-SET,ChinaDownloadCDN,🎯全球直连
