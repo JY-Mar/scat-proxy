@@ -6,7 +6,7 @@
 
 ## 分流规则
 
-1. [KeleeOne](https://github.com/luestr/ShuntRules)
+1. [Kelee One](https://github.com/luestr/ShuntRules)
 
 2. [blackmatrix7](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash)
 

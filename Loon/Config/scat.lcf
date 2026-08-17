@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-08-06 09:54:26 GMT+8
+# UPDATED         : 2026-08-17 11:28:25 GMT+8
 
 [General]
 # IP 模式
@@ -91,7 +91,7 @@ Filter_Nat__NL = NameRegex, FilterKey = "^(?=.*((?i)🇳🇱|荷兰|阿姆斯特
 Filter_Nat__LU = NameRegex, FilterKey = "^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Nat__LT = NameRegex, FilterKey = "^(?=.*((?i)🇱🇹|立陶宛|(\b(LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 Filter_Reg_EUR = NameRegex, FilterKey = "^(?=.*((?i)🇬🇧|英国|伦敦|英|🇫🇷|法国|法兰西|巴黎|法|🇩🇪|德国|德意志|柏林|德|🇮🇹|意大利|罗马|意|🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|🇱🇺|卢森堡|🇱🇹|立陶宛|(\b(GB|UK|United Kingdom|England|Britain|FR|France|DE|GER|Germany|IT|Italy|NL|Holland|Netherlands|Nederland|LU|Luxembourg|Luxemburg|LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
-Filter____Game = NameRegex, FilterKey = "^(?=.*((?i)游戏|蒸汽平台|(\b(GAME|Steam)(\d+)?\b)))(?!.*((?i)回国|校园)).*$"
+Filter____Game = NameRegex, FilterKey = "^(?=.*((?i)游戏|蒸汽平台|索尼|任天堂|(\b(GAME|Steam|PS|PlayStation|NS|Nintendo|Switch|Xbox)(\d+)?\b)))(?!.*((?i)回国|校园)).*$"
 Filter__Global = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 
 [Proxy Group]
@@ -124,6 +124,11 @@ Filter__Global = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|�
 🎥Netflix = select, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Netflix.png
 🐭Disney = select, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Disney+.png
 📺Bahamut = select, 🇨🇳台湾, 👉手动切换, 🎯全球直连, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Bahamut.png
+💻BiliBiliIntl = select, 🌏亚洲, 🌏亚洲手动, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/BiliBili_1.png
+🎮PlayStation = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/PlayStation.png
+🎮Nintendo = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nintendo.png
+🎮Xbox = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Xbox.png
+🎮Steam = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Steam.png
 🎮游戏节点 = select, Filter____Game, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Game.png
 # 区域选择
 🌏港台手动 = select, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/China.png
@@ -177,23 +182,14 @@ IP-CIDR,43.132.55.55/32,DIRECT,no-resolve
 FINAL,🐟漏网之鱼
 
 [Remote Rule]
-# 国内匹配规则
-https://jy-mar.github.io/PxyRes/Loon/Rules/VidHub.lsr, policy=🎯全球直连, tag=VidHub, enabled=true
-https://rule.kelee.one/Loon/ByteDance.lsr, policy=🎯全球直连, tag=ByteDance, enabled=true
-https://rule.kelee.one/Loon/DouYin.lsr, policy=🎯全球直连, tag=DouYin, enabled=true
-https://rule.kelee.one/Loon/Alibaba.lsr, policy=🎯全球直连, tag=Alibaba, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/Hmbaby.lsr, policy=🎯全球直连, tag=Hmbaby, enabled=true
-https://rule.kelee.one/Loon/JueJin.lsr, policy=🎯全球直连, tag=JueJin, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/KeleeOne.lsr, policy=🎯全球直连, tag=KeleeOne, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/CodeCDN.lsr, policy=🎯全球直连, tag=CodeCDN, enabled=true
-# 精准匹配规则
-# --- AI ---
-https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=✨AI, tag=AI, enabled=true
+# MARK: --- AI ---
+https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaAI.lsr, policy=🎯全球直连, tag=ChinaAI, enabled=true
 https://rule.kelee.one/Loon/Copilot.lsr, policy=✨Copilot, tag=Copilot, enabled=true
 https://rule.kelee.one/Loon/Gemini.lsr, policy=✨Gemini, tag=Gemini, enabled=true
 https://rule.kelee.one/Loon/OpenAI.lsr, policy=✨OpenAI, tag=OpenAI, enabled=true
 https://rule.kelee.one/Loon/Claude.lsr, policy=✨Claude, tag=Claude, enabled=true
-# --- Apple ---
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=✨AI, tag=AI, enabled=true
+# MARK: --- Apple ---
 https://rule.kelee.one/Loon/Apple.lsr, policy=🍎Apple, tag=Apple, enabled=true
 https://rule.kelee.one/Loon/AppleID.lsr, policy=🍎Apple, tag=AppleID, enabled=true
 https://rule.kelee.one/Loon/AppStore.lsr, policy=🍎Apple, tag=AppStore, enabled=true
@@ -202,52 +198,70 @@ https://rule.kelee.one/Loon/AppleMail.lsr, policy=🍎Apple, tag=AppleMail, enab
 https://rule.kelee.one/Loon/AppleProxy.lsr, policy=🍎AppleVPN, tag=AppleProxy, enabled=true
 https://rule.kelee.one/Loon/iCloud.lsr, policy=🍎Apple, tag=iCloud, enabled=true
 https://rule.kelee.one/Loon/iCloudPrivateRelay.lsr, policy=🍎AppleVPN, tag=iCloudPrivateRelay, enabled=true
-# --- Microsoft ---
+# MARK: --- Microsoft ---
 https://jy-mar.github.io/PxyRes/Loon/Rules/MicrosoftProxy.lsr, policy=💠MicrosoftProxy, tag=MicrosoftProxy, enabled=true
 https://rule.kelee.one/Loon/OneDrive.lsr, policy=💠OneDrive, tag=OneDrive, enabled=true
 https://rule.kelee.one/Loon/Bing.lsr, policy=💠Bing, tag=Bing, enabled=true
 https://rule.kelee.one/Loon/Microsoft.lsr, policy=💠Microsoft, tag=Microsoft, enabled=true
-# --- Google ---
+# MARK: --- Google ---
 https://rule.kelee.one/Loon/GoogleDrive.lsr, policy=🍩Google, tag=GoogleDrive, enabled=true
 https://rule.kelee.one/Loon/GoogleEarth.lsr, policy=🍩Google, tag=GoogleEarth, enabled=true
 https://rule.kelee.one/Loon/GoogleFCM.lsr, policy=🍩Google, tag=GoogleFCM, enabled=true
 https://rule.kelee.one/Loon/GoogleSearch.lsr, policy=🍩Google, tag=GoogleSearch, enabled=true
 https://rule.kelee.one/Loon/GoogleVoice.lsr, policy=🍩Google, tag=GoogleVoice, enabled=true
 https://rule.kelee.one/Loon/Google.lsr, policy=🍩Google, tag=Google, enabled=true
-# --- Media ---
+# MARK: --- Media ---
 https://rule.kelee.one/Loon/Spotify.lsr, policy=🚀节点选择, tag=Spotify, enabled=true
 https://rule.kelee.one/Loon/YouTube.lsr, policy=🎬YouTube, tag=YouTube, enabled=true
 https://rule.kelee.one/Loon/YouTubeMusic.lsr, policy=🚀节点选择, tag=YouTubeMusic, enabled=true
 https://rule.kelee.one/Loon/Netflix.lsr, policy=🎥Netflix, tag=Netflix, enabled=true
 https://rule.kelee.one/Loon/Disney.lsr, policy=🐭Disney, tag=Disney, enabled=true
 https://rule.kelee.one/Loon/Bahamut.lsr, policy=📺Bahamut, tag=Bahamut, enabled=true
+https://rule.kelee.one/Loon/BiliBiliIntl.lsr, policy=💻BiliBiliIntl, tag=BiliBiliIntl, enabled=true
 https://rule.kelee.one/Loon/Pixiv.lsr, policy=🚀节点选择, tag=Pixiv, enabled=true
-# --- Social ---
+https://jy-mar.github.io/PxyRes/Loon/Rules/VidHub.lsr, policy=🎯全球直连, tag=VidHub, enabled=true
+# MARK: --- Social ---
 https://rule.kelee.one/Loon/Facebook.lsr, policy=🚀节点选择, tag=Facebook, enabled=true
 https://rule.kelee.one/Loon/Instagram.lsr, policy=🚀节点选择, tag=Instagram, enabled=true
 https://rule.kelee.one/Loon/Telegram.lsr, policy=🛫Telegram, tag=Telegram, enabled=true
 https://rule.kelee.one/Loon/TikTok.lsr, policy=🎵TikTok, tag=TikTok, enabled=true
 https://rule.kelee.one/Loon/Twitter.lsr, policy=🐦Twitter, tag=Twitter, enabled=true
-# --- Code ---
+https://rule.kelee.one/Loon/Alibaba.lsr, policy=🎯全球直连, tag=Alibaba, enabled=true
+https://rule.kelee.one/Loon/ByteDance.lsr, policy=🎯全球直连, tag=ByteDance, enabled=true
+https://rule.kelee.one/Loon/DouYin.lsr, policy=🎯全球直连, tag=DouYin, enabled=true
+# MARK: --- Security ---
+https://jy-mar.github.io/PxyRes/Loon/Rules/Hmbaby.lsr, policy=🎯全球直连, tag=Hmbaby, enabled=true
+# MARK: --- Code ---
+https://rule.kelee.one/Loon/JueJin.lsr, policy=🎯全球直连, tag=JueJin, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaCDN.lsr, policy=🎯全球直连, tag=ChinaCDN, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/Kelee.lsr, policy=🎯全球直连, tag=Kelee, enabled=true
 https://rule.kelee.one/Loon/GitHub.lsr, policy=🚀节点选择, tag=GitHub, enabled=true
+https://rule.kelee.one/Loon/Npmjs.lsr, policy=🎯全球直连, tag=Npmjs, enabled=true
+https://rule.kelee.one/Loon/Notion.lsr, policy=🚀节点选择, tag=Notion, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/LinuxDo.lsr, policy=🚀节点选择, tag=LinuxDo, enabled=true
 https://rule.kelee.one/Loon/Discord.lsr, policy=🚀节点选择, tag=Discord, enabled=true
-# --- Proxy ---
+# MARK: --- Game ---
+https://rule.kelee.one/Loon/PlayStation.lsr, policy=🎮PlayStation, tag=PlayStation, enabled=true
+https://rule.kelee.one/Loon/Nintendo.lsr, policy=🎮Nintendo, tag=Nintendo, enabled=true
+https://rule.kelee.one/Loon/Xbox.lsr, policy=🎮Xbox, tag=Xbox, enabled=true
+https://rule.kelee.one/Loon/Steam.lsr, policy=🎮Steam, tag=Steam, enabled=true
+# MARK: --- Proxy ---
 https://rule.kelee.one/Loon/Proxy.lsr, policy=🚀节点选择, tag=Proxy, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaProxy.lsr, policy=🚀节点选择, tag=ChinaProxy, enabled=true
-# --- Adv ---
+https://jy-mar.github.io/PxyRes/Loon/Rules/Proxy+.lsr, policy=🚀节点选择, tag=Proxy+, enabled=true
+# MARK: --- Adv ---
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/AdvertisingLite/AdvertisingLite.list, policy=⛔全球拦截, tag=AdvLite, enabled=true
-# 直连匹配规则
+# MARK: --- Direct ---
 https://rule.kelee.one/Loon/Direct.lsr, policy=🎯全球直连, tag=Direct, enabled=true
-https://rule.kelee.one/Loon/Download.lsr, policy=🎯全球直连, tag=Download, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaDirect.lsr, policy=🎯全球直连, tag=ChinaDirect, enabled=true
 https://rule.kelee.one/Loon/China.lsr, policy=🎯全球直连, tag=China, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaLand.lsr, policy=🎯全球直连, tag=ChinaLand, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaTelecomm.lsr, policy=🎯全球直连, tag=ChinaTelecomm, enabled=true
+https://rule.kelee.one/Loon/ChinaMobile.lsr, policy=🎯全球直连, tag=ChinaMobile, enabled=true
+https://rule.kelee.one/Loon/ChinaTelecom.lsr, policy=🎯全球直连, tag=ChinaTelecom, enabled=true
+https://rule.kelee.one/Loon/ChinaUnicom.lsr, policy=🎯全球直连, tag=ChinaUnicom, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaBank.lsr, policy=🎯全球直连, tag=ChinaBank, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaHosp.lsr, policy=🎯全球直连, tag=ChinaHosp, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaAI.lsr, policy=🎯全球直连, tag=ChinaAI, enabled=true
 https://rule.kelee.one/Loon/ChinaDNS.lsr, policy=🎯全球直连, tag=ChinaDNS, enabled=true
 https://rule.kelee.one/Loon/ChinaMedia.lsr, policy=🎯全球直连, tag=ChinaMedia, enabled=true
+https://rule.kelee.one/Loon/Download.lsr, policy=🎯全球直连, tag=Download, enabled=true
 https://kelee.one/Tool/Loon/Lsr/ChinaDownloadCDN.lsr, policy=🎯全球直连, tag=ChinaDownloadCDN, enabled=true
 https://rule.kelee.one/Loon/Lan.lsr, policy=🎯全球直连, tag=Lan, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/GeoLAN.lsr, policy=🎯全球直连, tag=GeoLAN, enabled=true

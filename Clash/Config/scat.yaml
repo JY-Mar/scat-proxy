@@ -1,9 +1,9 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-08-06 09:55:40 GMT+8
+# UPDATED         : 2026-08-17 11:38:18 GMT+8
 
-# MARK: General
+# MARK: [General]
 # HTTP(S) and SOCKS5 共用端口
 mixed-port: 7890
 # HTTP 代理端口
@@ -82,7 +82,7 @@ external-controller: 0.0.0.0:9090
 # external-ui: ui
 # external-ui-url: 'https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip'
 
-# MARK: Profile
+# MARK: [General.Profile]
 profile:
   # 持久化策略组的选择
   # > 缓存对策略组的选择,以供下次启动时使用
@@ -91,7 +91,7 @@ profile:
   # > 缓存fake-ip映射表,域名再次发生连接时,使用原有映射地址
   store-fake-ip: true
 
-# MARK: Sniffer
+# MARK: [General.Sniffer]
 sniffer:
   # 是否启用嗅探器
   # 开启后对 redir-host 类型识别的流量进行强制嗅探
@@ -122,7 +122,7 @@ sniffer:
   # 跳过嗅探的域名黑名单
   skip-domain: ['Mijia Cloud']
 
-# MARK: Dns
+# MARK: [General.Dns]
 # 可选；若不配置，程序内置的 DNS 服务会被关闭
 dns:
   # 启用DNS
@@ -176,7 +176,7 @@ dns:
     # > 这些域名的结果会被视为污染,将采用fallback的解析结果
     domain: [+.google.com, +.facebook.com, +.youtube.com]
 
-# MARK: Tun
+# MARK: [General.Tun]
 tun:
   # 启用 TUN 模式
   enable: true
@@ -199,20 +199,12 @@ tun:
   # 启用auto-route时,指定这些网段不会被路由（使用默认路由）
   route-exclude-address: [10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32]
 
-# MARK: Listeners
+# MARK: [Listeners]
 listeners:
   # P2P下载端口
   - { name: socks5-in-1, type: socks, port: 10808, listen: 0.0.0.0, udp: true, users: [], proxy: DIRECT }
 
-# MARK: Mitm
-# mitm:
-#   enable: true
-#   ca:
-#     cert: ./mitm-ca.pem
-#     key: ./mitm-ca-key.pem
-#   port: 7892  # 必须与 mixed-port 一致，或单独指定
-
-#region 锚点
+# MARK: 锚点
 Anchors:
   # [url-test | fallback | load-balance] 策略组自动择优测速地址 url
   proxy-test-url: &proxy-test-url 'https://cp.cloudflare.com/generate_204'
@@ -292,9 +284,15 @@ Anchors:
     interval: *provider-update-interval,
     health-check: *HealthCheck
   }
-#endregion
 
-# MARK: Remote Proxy
+# MARK: [Proxy]
+# proxies:
+#   [订阅名称]:
+#     <<: *ProxyProviders
+#     url: [你的订阅链接]
+#     behavior: [classical | domain | ipcidr]
+
+# MARK: [Remote Proxy]
 # proxy-providers:
 #   [订阅名称]:
 #     type: http
@@ -306,7 +304,7 @@ Anchors:
 #       # 秒
 #       interval: 600
 
-# MARK: Remote Filter
+# MARK: [Remote Filter]
 # 正则筛选（正则中避免出现中文、emoji，会不兼容）
 RemoteFilter:
   Filter_Nat__HK: &Filter_Nat__HK '^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
@@ -332,10 +330,10 @@ RemoteFilter:
   Filter_Nat__LU: &Filter_Nat__LU '^(?=.*((?i)🇱🇺|卢森堡|(\b(LU|Luxembourg|Luxemburg)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
   Filter_Nat__LT: &Filter_Nat__LT '^(?=.*((?i)🇱🇹|立陶宛|(\b(LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
   Filter_Reg_EUR: &Filter_Reg_EUR '^(?=.*((?i)🇬🇧|英国|伦敦|英|🇫🇷|法国|法兰西|巴黎|法|🇩🇪|德国|德意志|柏林|德|🇮🇹|意大利|罗马|意|🇳🇱|荷兰|阿姆斯特丹|鹿特丹|荷|🇱🇺|卢森堡|🇱🇹|立陶宛|(\b(GB|UK|United Kingdom|England|Britain|FR|France|DE|GER|Germany|IT|Italy|NL|Holland|Netherlands|Nederland|LU|Luxembourg|Luxemburg|LT|Lithuania)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
-  Filter____Game: &Filter____Game '^(?=.*((?i)游戏|蒸汽平台|(\b(GAME|Steam)(\d+)?\b)))(?!.*((?i)回国|校园)).*$'
+  Filter____Game: &Filter____Game '^(?=.*((?i)游戏|蒸汽平台|索尼|任天堂|(\b(GAME|Steam|PS|PlayStation|NS|Nintendo|Switch|Xbox)(\d+)?\b)))(?!.*((?i)回国|校园)).*$'
   Filter__Global: &Filter__Global '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$'
 
-# MARK: Proxy Group
+# MARK: [Proxy Group]
 proxy-groups:
   # 基础策略
   - {name: 🚀节点选择, type: select, proxies: [♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Filter.png}
@@ -366,6 +364,11 @@ proxy-groups:
   - {name: 🎥Netflix, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Netflix.png}
   - {name: 🐭Disney, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Disney+.png}
   - {name: 📺Bahamut, type: select, proxies: [🇨🇳台湾, 👉手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bahamut.png}
+  - {name: 💻BiliBiliIntl, type: select, proxies: [🌏亚洲, 🌏亚洲手动, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/BiliBili_1.png}
+  - {name: 🎮PlayStation, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/PlayStation.png}
+  - {name: 🎮Nintendo, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nintendo.png}
+  - {name: 🎮Xbox, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Xbox.png}
+  - {name: 🎮Steam, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Steam.png}
   - {name: 🎮游戏节点, type: select, include-all: true, filter: *Filter____Game, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Game.png}
   # 区域选择
   - {name: 🌏港台手动, type: select, proxies: [🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China.png}
@@ -398,26 +401,19 @@ proxy-groups:
   - {name: 🇱🇺卢森堡, <<: *url-test-all, filter: *Filter_Nat__LU, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Luxembourg.png}
   - {name: 🇱🇹立陶宛, <<: *url-test-all, filter: *Filter_Nat__LT, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Lithuania.png}
 
-# MARK: Remote Rule
+# MARK: [Rule]
 rule-providers:
   # 国内匹配规则
   SkipProxy: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/SkipProxy.yaml, path: ./ruleset/SkipProxy.yaml, <<: *RuleProvidersClassical}
-  VidHub: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/VidHub.yaml, path: ./ruleset/VidHub.yaml, <<: *RuleProvidersClassical}
-  ByteDance: {url: https://rule.kelee.one/Clash/ByteDance.yaml, path: ./ruleset/ByteDance.yaml, <<: *RuleProvidersClassical}
-  DouYin: {url: https://rule.kelee.one/Clash/DouYin.yaml, path: ./ruleset/DouYin.yaml, <<: *RuleProvidersClassical}
-  Alibaba: {url: https://rule.kelee.one/Clash/Alibaba.yaml, path: ./ruleset/Alibaba.yaml, <<: *RuleProvidersClassical}
-  Hmbaby: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Hmbaby.yaml, path: ./ruleset/Hmbaby.yaml, <<: *RuleProvidersClassical}
-  JueJin: {url: https://rule.kelee.one/Clash/JueJin.yaml, path: ./ruleset/JueJin.yaml, <<: *RuleProvidersClassical}
-  KeleeOne: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/KeleeOne.yaml, path: ./ruleset/KeleeOne.yaml, <<: *RuleProvidersClassical}
-  CodeCDN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/CodeCDN.yaml, path: ./ruleset/CodeCDN.yaml, <<: *RuleProvidersClassical}
   # 精准匹配规则
-  # --- AI ---
-  AI: {url: https://kelee.one/Tool/Clash/Rule/AI.yaml, path: ./ruleset/AI.yaml, <<: *RuleProvidersClassical}
+  # MARK: --- AI ---
+  ChinaAI: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaAI.yaml, path: ./ruleset/ChinaAI.yaml, <<: *RuleProvidersClassical}
   Copilot: {url: https://rule.kelee.one/Clash/Copilot.yaml, path: ./ruleset/Copilot.yaml, <<: *RuleProvidersClassical}
   Gemini: {url: https://rule.kelee.one/Clash/Gemini.yaml, path: ./ruleset/Gemini.yaml, <<: *RuleProvidersClassical}
   OpenAI: {url: https://rule.kelee.one/Clash/OpenAI.yaml, path: ./ruleset/OpenAI.yaml, <<: *RuleProvidersClassical}
   Claude: {url: https://rule.kelee.one/Clash/Claude.yaml, path: ./ruleset/Claude.yaml, <<: *RuleProvidersClassical}
-  # --- Apple ---
+  AI: {url: https://kelee.one/Tool/Clash/Rule/AI.yaml, path: ./ruleset/AI.yaml, <<: *RuleProvidersClassical}
+  # MARK: --- Apple ---
   Apple: {url: https://rule.kelee.one/Clash/Apple.yaml, path: ./ruleset/Apple.yaml, <<: *RuleProvidersClassical}
   AppleID: {url: https://rule.kelee.one/Clash/AppleID.yaml, path: ./ruleset/AppleID.yaml, <<: *RuleProvidersClassical}
   AppStore: {url: https://rule.kelee.one/Clash/AppStore.yaml, path: ./ruleset/AppStore.yaml, <<: *RuleProvidersClassical}
@@ -426,76 +422,84 @@ rule-providers:
   AppleProxy: {url: https://rule.kelee.one/Clash/AppleProxy.yaml, path: ./ruleset/AppleProxy.yaml, <<: *RuleProvidersClassical}
   iCloud: {url: https://rule.kelee.one/Clash/iCloud.yaml, path: ./ruleset/iCloud.yaml, <<: *RuleProvidersClassical}
   iCloudPrivateRelay: {url: https://rule.kelee.one/Clash/iCloudPrivateRelay.yaml, path: ./ruleset/iCloudPrivateRelay.yaml, <<: *RuleProvidersClassical}
-  # --- Microsoft ---
+  # MARK: --- Microsoft ---
   MicrosoftProxy: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/MicrosoftProxy.yaml, path: ./ruleset/MicrosoftProxy.yaml, <<: *RuleProvidersClassical}
   OneDrive: {url: https://rule.kelee.one/Clash/OneDrive.yaml, path: ./ruleset/OneDrive.yaml, <<: *RuleProvidersClassical}
   Bing: {url: https://rule.kelee.one/Clash/Bing.yaml, path: ./ruleset/Bing.yaml, <<: *RuleProvidersClassical}
   Microsoft: {url: https://rule.kelee.one/Clash/Microsoft.yaml, path: ./ruleset/Microsoft.yaml, <<: *RuleProvidersClassical}
-  # --- Google ---
+  # MARK: --- Google ---
   GoogleDrive: {url: https://rule.kelee.one/Clash/GoogleDrive.yaml, path: ./ruleset/GoogleDrive.yaml, <<: *RuleProvidersClassical}
   GoogleEarth: {url: https://rule.kelee.one/Clash/GoogleEarth.yaml, path: ./ruleset/GoogleEarth.yaml, <<: *RuleProvidersClassical}
   GoogleFCM: {url: https://rule.kelee.one/Clash/GoogleFCM.yaml, path: ./ruleset/GoogleFCM.yaml, <<: *RuleProvidersClassical}
   GoogleSearch: {url: https://rule.kelee.one/Clash/GoogleSearch.yaml, path: ./ruleset/GoogleSearch.yaml, <<: *RuleProvidersClassical}
   GoogleVoice: {url: https://rule.kelee.one/Clash/GoogleVoice.yaml, path: ./ruleset/GoogleVoice.yaml, <<: *RuleProvidersClassical}
   Google: {url: https://rule.kelee.one/Clash/Google.yaml, path: ./ruleset/Google.yaml, <<: *RuleProvidersClassical}
-  # --- Media ---
+  # MARK: --- Media ---
   Spotify: {url: https://rule.kelee.one/Clash/Spotify.yaml, path: ./ruleset/Spotify.yaml, <<: *RuleProvidersClassical}
   YouTube: {url: https://rule.kelee.one/Clash/YouTube.yaml, path: ./ruleset/YouTube.yaml, <<: *RuleProvidersClassical}
   YouTubeMusic: {url: https://rule.kelee.one/Clash/YouTubeMusic.yaml, path: ./ruleset/YouTubeMusic.yaml, <<: *RuleProvidersClassical}
   Netflix: {url: https://rule.kelee.one/Clash/Netflix.yaml, path: ./ruleset/Netflix.yaml, <<: *RuleProvidersClassical}
   Disney: {url: https://rule.kelee.one/Clash/Disney.yaml, path: ./ruleset/Disney.yaml, <<: *RuleProvidersClassical}
   Bahamut: {url: https://rule.kelee.one/Clash/Bahamut.yaml, path: ./ruleset/Bahamut.yaml, <<: *RuleProvidersClassical}
+  BiliBiliIntl: {url: https://rule.kelee.one/Clash/BiliBiliIntl.yaml, path: ./ruleset/BiliBiliIntl.yaml, <<: *RuleProvidersClassical}
   Pixiv: {url: https://rule.kelee.one/Clash/Pixiv.yaml, path: ./ruleset/Pixiv.yaml, <<: *RuleProvidersClassical}
-  # --- Social ---
+  VidHub: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/VidHub.yaml, path: ./ruleset/VidHub.yaml, <<: *RuleProvidersClassical}
+  # MARK: --- Social ---
   Facebook: {url: https://rule.kelee.one/Clash/Facebook.yaml, path: ./ruleset/Facebook.yaml, <<: *RuleProvidersClassical}
   Instagram: {url: https://rule.kelee.one/Clash/Instagram.yaml, path: ./ruleset/Instagram.yaml, <<: *RuleProvidersClassical}
   Telegram: {url: https://rule.kelee.one/Clash/Telegram.yaml, path: ./ruleset/Telegram.yaml, <<: *RuleProvidersClassical}
   TikTok: {url: https://rule.kelee.one/Clash/TikTok.yaml, path: ./ruleset/TikTok.yaml, <<: *RuleProvidersClassical}
   Twitter: {url: https://rule.kelee.one/Clash/Twitter.yaml, path: ./ruleset/Twitter.yaml, <<: *RuleProvidersClassical}
-  # --- Code ---
+  Alibaba: {url: https://rule.kelee.one/Clash/Alibaba.yaml, path: ./ruleset/Alibaba.yaml, <<: *RuleProvidersClassical}
+  ByteDance: {url: https://rule.kelee.one/Clash/ByteDance.yaml, path: ./ruleset/ByteDance.yaml, <<: *RuleProvidersClassical}
+  DouYin: {url: https://rule.kelee.one/Clash/DouYin.yaml, path: ./ruleset/DouYin.yaml, <<: *RuleProvidersClassical}
+  # MARK: --- Security ---
+  Hmbaby: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Hmbaby.yaml, path: ./ruleset/Hmbaby.yaml, <<: *RuleProvidersClassical}
+  # MARK: --- Code ---
+  ChinaCDN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaCDN.yaml, path: ./ruleset/ChinaCDN.yaml, <<: *RuleProvidersClassical}
+  JueJin: {url: https://rule.kelee.one/Clash/JueJin.yaml, path: ./ruleset/JueJin.yaml, <<: *RuleProvidersClassical}
+  Kelee: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Kelee.yaml, path: ./ruleset/Kelee.yaml, <<: *RuleProvidersClassical}
   GitHub: {url: https://rule.kelee.one/Clash/GitHub.yaml, path: ./ruleset/GitHub.yaml, <<: *RuleProvidersClassical}
+  Npmjs: {url: https://rule.kelee.one/Clash/Npmjs.yaml, path: ./ruleset/Npmjs.yaml, <<: *RuleProvidersClassical}
+  Notion: {url: https://rule.kelee.one/Clash/Notion.yaml, path: ./ruleset/Notion.yaml, <<: *RuleProvidersClassical}
   LinuxDo: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/LinuxDo.yaml, path: ./ruleset/LinuxDo.yaml, <<: *RuleProvidersClassical}
   Discord: {url: https://rule.kelee.one/Clash/Discord.yaml, path: ./ruleset/Discord.yaml, <<: *RuleProvidersClassical}
-  # --- Proxy ---
+  # MARK: --- Game ---
+  PlayStation: {url: https://rule.kelee.one/Clash/PlayStation.yaml, path: ./ruleset/PlayStation.yaml, <<: *RuleProvidersClassical}
+  Nintendo: {url: https://rule.kelee.one/Clash/Nintendo.yaml, path: ./ruleset/Nintendo.yaml, <<: *RuleProvidersClassical}
+  Xbox: {url: https://rule.kelee.one/Clash/Xbox.yaml, path: ./ruleset/Xbox.yaml, <<: *RuleProvidersClassical}
+  Steam: {url: https://rule.kelee.one/Clash/Steam.yaml, path: ./ruleset/Steam.yaml, <<: *RuleProvidersClassical}
+  # MARK: --- Proxy ---
   Proxy: {url: https://rule.kelee.one/Clash/Proxy.yaml, path: ./ruleset/Proxy.yaml, <<: *RuleProvidersClassical}
-  ChinaProxy: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaProxy.yaml, path: ./ruleset/ChinaProxy.yaml, <<: *RuleProvidersClassical}
-  # --- Adv ---
+  Proxy+: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/Proxy+.yaml, path: ./ruleset/Proxy+.yaml, <<: *RuleProvidersClassical}
+  # MARK: --- Adv ---
   AdvLite: {url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml, path: ./ruleset/AdvLite.yaml, <<: *RuleProvidersClassical}
-  # 直连匹配规则
+  # MARK: --- Direct ---
   Direct: {url: https://rule.kelee.one/Clash/Direct.yaml, path: ./ruleset/Direct.yaml, <<: *RuleProvidersClassical}
-  Download: {url: https://rule.kelee.one/Clash/Download.yaml, path: ./ruleset/Download.yaml, <<: *RuleProvidersClassical}
+  ChinaDirect: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaDirect.yaml, path: ./ruleset/ChinaDirect.yaml, <<: *RuleProvidersClassical}
   China: {url: https://rule.kelee.one/Clash/China.yaml, path: ./ruleset/China.yaml, <<: *RuleProvidersClassical}
-  ChinaLand: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaLand.yaml, path: ./ruleset/ChinaLand.yaml, <<: *RuleProvidersClassical}
-  ChinaTelecomm: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaTelecomm.yaml, path: ./ruleset/ChinaTelecomm.yaml, <<: *RuleProvidersClassical}
+  ChinaMobile: {url: https://rule.kelee.one/Clash/ChinaMobile.yaml, path: ./ruleset/ChinaMobile.yaml, <<: *RuleProvidersClassical}
+  ChinaTelecom: {url: https://rule.kelee.one/Clash/ChinaTelecom.yaml, path: ./ruleset/ChinaTelecom.yaml, <<: *RuleProvidersClassical}
+  ChinaUnicom: {url: https://rule.kelee.one/Clash/ChinaUnicom.yaml, path: ./ruleset/ChinaUnicom.yaml, <<: *RuleProvidersClassical}
   ChinaBank: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaBank.yaml, path: ./ruleset/ChinaBank.yaml, <<: *RuleProvidersClassical}
   ChinaHosp: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaHosp.yaml, path: ./ruleset/ChinaHosp.yaml, <<: *RuleProvidersClassical}
-  ChinaAI: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/ChinaAI.yaml, path: ./ruleset/ChinaAI.yaml, <<: *RuleProvidersClassical}
   ChinaDNS: {url: https://rule.kelee.one/Clash/ChinaDNS.yaml, path: ./ruleset/ChinaDNS.yaml, <<: *RuleProvidersClassical}
   ChinaMedia: {url: https://rule.kelee.one/Clash/ChinaMedia.yaml, path: ./ruleset/ChinaMedia.yaml, <<: *RuleProvidersClassical}
+  Download: {url: https://rule.kelee.one/Clash/Download.yaml, path: ./ruleset/Download.yaml, <<: *RuleProvidersClassical}
   ChinaDownloadCDN: {url: https://kelee.one/Tool/Clash/Rule/ChinaDownloadCDN.yaml, path: ./ruleset/ChinaDownloadCDN.yaml, <<: *RuleProvidersClassical}
   Lan: {url: https://rule.kelee.one/Clash/Lan.yaml, path: ./ruleset/Lan.yaml, <<: *RuleProvidersClassical}
   GeoLAN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/GeoLAN.yaml, path: ./ruleset/GeoLAN.yaml, <<: *RuleProvidersClassical}
   GeoCN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/GeoCN.yaml, path: ./ruleset/GeoCN.yaml, <<: *RuleProvidersClassical}
-
-# MARK: Rule
 rules:
-  # 国内匹配规则
+  # --- Top ---
   - RULE-SET,SkipProxy,🎯全球直连
-  - RULE-SET,VidHub,🎯全球直连
-  - RULE-SET,ByteDance,🎯全球直连
-  - RULE-SET,DouYin,🎯全球直连
-  - RULE-SET,Alibaba,🎯全球直连
-  - RULE-SET,Hmbaby,🎯全球直连
-  - RULE-SET,JueJin,🎯全球直连
-  - RULE-SET,KeleeOne,🎯全球直连
-  - RULE-SET,CodeCDN,🎯全球直连
-  # 精准匹配规则
   # --- AI ---
-  - RULE-SET,AI,✨AI
+  - RULE-SET,ChinaAI,🎯全球直连
   - RULE-SET,Copilot,✨Copilot
   - RULE-SET,Gemini,✨Gemini
   - RULE-SET,OpenAI,✨OpenAI
   - RULE-SET,Claude,✨Claude
+  - RULE-SET,AI,✨AI
   # --- Apple ---
   - RULE-SET,Apple,🍎Apple
   - RULE-SET,AppleID,🍎Apple
@@ -524,36 +528,62 @@ rules:
   - RULE-SET,Netflix,🎥Netflix
   - RULE-SET,Disney,🐭Disney
   - RULE-SET,Bahamut,📺Bahamut
+  - RULE-SET,BiliBiliIntl,💻BiliBiliIntl
   - RULE-SET,Pixiv,🚀节点选择
+  - RULE-SET,VidHub,🎯全球直连
   # --- Social ---
   - RULE-SET,Facebook,🚀节点选择
   - RULE-SET,Instagram,🚀节点选择
   - RULE-SET,Telegram,🛫Telegram
   - RULE-SET,TikTok,🎵TikTok
   - RULE-SET,Twitter,🐦Twitter
+  - RULE-SET,Alibaba,🎯全球直连
+  - RULE-SET,ByteDance,🎯全球直连
+  - RULE-SET,DouYin,🎯全球直连
+  # --- Security ---
+  - RULE-SET,Hmbaby,🎯全球直连
   # --- Code ---
+  - RULE-SET,ChinaCDN,🎯全球直连
+  - RULE-SET,JueJin,🎯全球直连
+  - RULE-SET,Kelee,🎯全球直连
   - RULE-SET,GitHub,🚀节点选择
+  - RULE-SET,Npmjs,🎯全球直连
+  - RULE-SET,Notion,🚀节点选择
   - RULE-SET,LinuxDo,🚀节点选择
   - RULE-SET,Discord,🚀节点选择
+  # --- Game ---
+  - RULE-SET,PlayStation,🎮PlayStation
+  - RULE-SET,Nintendo,🎮Nintendo
+  - RULE-SET,Xbox,🎮Xbox
+  - RULE-SET,Steam,🎮Steam
   # --- Proxy ---
   - RULE-SET,Proxy,🚀节点选择
-  - RULE-SET,ChinaProxy,🚀节点选择
+  - RULE-SET,Proxy+,🚀节点选择
   # --- Adv ---
   - RULE-SET,AdvLite,⛔全球拦截
-  # 直连匹配规则
+  # --- Direct ---
   - RULE-SET,Direct,🎯全球直连
-  - RULE-SET,Download,🎯全球直连
+  - RULE-SET,ChinaDirect,🎯全球直连
   - RULE-SET,China,🎯全球直连
-  - RULE-SET,ChinaLand,🎯全球直连
-  - RULE-SET,ChinaTelecomm,🎯全球直连
+  - RULE-SET,ChinaMobile,🎯全球直连
+  - RULE-SET,ChinaTelecom,🎯全球直连
+  - RULE-SET,ChinaUnicom,🎯全球直连
   - RULE-SET,ChinaBank,🎯全球直连
   - RULE-SET,ChinaHosp,🎯全球直连
-  - RULE-SET,ChinaAI,🎯全球直连
   - RULE-SET,ChinaDNS,🎯全球直连
   - RULE-SET,ChinaMedia,🎯全球直连
+  - RULE-SET,Download,🎯全球直连
   - RULE-SET,ChinaDownloadCDN,🎯全球直连
   - RULE-SET,Lan,🎯全球直连
   - RULE-SET,GeoLAN,🎯全球直连
   - RULE-SET,GeoCN,🎯全球直连
-  # 兜底规则
+  # --- Final ---
   - MATCH,🐟漏网之鱼
+
+# MARK: [Mitm]
+# mitm:
+#   enable: true
+#   ca:
+#     cert: ./mitm-ca.pem
+#     key: ./mitm-ca-key.pem
+#   port: 7892  # 必须与 mixed-port 一致，或单独指定
