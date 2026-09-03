@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-09-03 10:43:55 GMT+8
+# UPDATED         : 2026-09-03 12:28:14 GMT+8
 
 # MARK: [General]
 # HTTP(S) and SOCKS5 共用端口
@@ -233,7 +233,8 @@ Anchors:
       lazy: true,
       timeout: *test-timeout,
       max-failed-times: *switch-node-after-failure-times,
-      hidden: true
+      hidden: true,
+      policy‑priority: "[ACE]:0.7"
     }
   url-test-all:
     &url-test-all {
