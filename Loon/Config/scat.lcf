@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-08-17 11:28:25 GMT+8
+# UPDATED         : 2026-09-03 10:40:25 GMT+8
 
 [General]
 # IP 模式
@@ -274,6 +274,7 @@ https://jy-mar.github.io/PxyRes/Loon/Rules/GeoCN.lsr, policy=🎯全球直连, t
 [Script]
 
 [Plugin]
+https://client.ash.do/downloads/ashnet-loon.lpx, tag=AshNet, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Weixin_Official_Accounts_remove_ads.lpx, tag=微信公众号去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/WexinMiniPrograms_Remove_ads.lpx, tag=微信小程序去广告, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Weixin_external_links_unlock.lpx, tag=微信外部链接解锁, enabled=true

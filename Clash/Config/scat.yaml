@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-08-17 11:38:18 GMT+8
+# UPDATED         : 2026-09-03 10:43:55 GMT+8
 
 # MARK: [General]
 # HTTP(S) and SOCKS5 共用端口
@@ -163,7 +163,7 @@ dns:
   proxy-server-nameserver: [https://doh.pub/dns-query]
   # 备用域名解析服务器
   # > 一般情况下使用境外DNS服务器,保证结果可信
-  fallback: [tls://8.8.4.4, tls://1.1.1.1]
+  fallback: [tls://8.8.4.4, tls://1.1.1.1, https://edge1.ashnet.cc/dns-query]
   # 启用fallback-filter
   fallback-filter:
     geoip: true
@@ -174,7 +174,7 @@ dns:
     ipcidr: [240.0.0.0/4]
     # DNS污染域名列表
     # > 这些域名的结果会被视为污染,将采用fallback的解析结果
-    domain: [+.google.com, +.facebook.com, +.youtube.com]
+    domain: [+.google.com, +.facebook.com, +.youtube.com, '*.staticlane.org']
 
 # MARK: [General.Tun]
 tun:
