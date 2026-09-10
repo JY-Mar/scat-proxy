@@ -1,7 +1,7 @@
 # NAME            : Config For Loon
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-09-03 10:40:25 GMT+8
+# UPDATED         : 2026-09-10 11:17:03 GMT+8
 
 [General]
 # IP 模式
@@ -96,52 +96,52 @@ Filter__Global = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|�
 
 [Proxy Group]
 # 基础策略
-🚀节点选择 = select, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Filter.png
-♻️自动选择 = url-test, Filter__Global, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Auto.png
-👉手动切换 = select, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, 🎯全球直连, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Available.png
-🎯全球直连 = select, DIRECT, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Direct.png
+🚀节点选择 = select, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Filter.png
+♻️自动切换 = url-test, Filter__Global, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Auto.png
+👆手动切换 = select, Filter__Global, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Available.png
+⭕全球直连 = select, DIRECT, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Direct.png
 ⛔全球拦截 = select, REJECT, DIRECT, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Reject.png
-🛠️故障转移 = fallback, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, interval = 300, max-timeout = 5000, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Drill.png
-# 🐟漏网之鱼 = select, 🛠️故障转移, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Dinosaur.png
-🐟漏网之鱼 = select, 🎯全球直连, 🛠️故障转移, 🚀节点选择, ♻️自动选择, 👉手动切换, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Dinosaur.png
-# App专属 App-Specific
-✨AI = select, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Ai.png
-✨Copilot = select, ✨AI, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Copilot.png
-✨Gemini = select, ✨AI, 🍩Google, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Gemini.png
-✨OpenAI = select, ✨AI, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/OpenAI.png
-✨Claude = select, ✨AI, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Claude.png
-🍎Apple = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png
-🍎AppleVPN = select, 🍎Apple, 🎯全球直连, 🚀节点选择, ♻️自动选择, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png
-💠MicrosoftProxy = select, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png
-💠Microsoft = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png
-💠Bing = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png
-💠OneDrive = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png
-🍩Google = select, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Google.png
-🐦Twitter = select, 🌎北美, 🌎北美手动, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/X.png
-🎵TikTok = select, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/TikTok.png
-🛫Telegram = select, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Telegram.png
-🎬YouTube = select, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/YouTube.png
-🎥Netflix = select, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Netflix.png
-🐭Disney = select, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Disney+.png
-📺Bahamut = select, 🇨🇳台湾, 👉手动切换, 🎯全球直连, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Bahamut.png
-💻BiliBiliIntl = select, 🌏亚洲, 🌏亚洲手动, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/BiliBili_1.png
-🎮PlayStation = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/PlayStation.png
-🎮Nintendo = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nintendo.png
-🎮Xbox = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Xbox.png
-🎮Steam = select, 🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Steam.png
+🛠️故障转移 = fallback, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, interval = 300, max-timeout = 5000, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Drill.png
+🐟漏网之鱼 = select, ⭕全球直连, 🛠️故障转移, 🚀节点选择, ♻️自动切换, 👆手动切换, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Dinosaur.png
+# 按功能划分
+✨AI = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Ai.png
+✨Copilot = select, ✨AI, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Copilot.png
+✨Gemini = select, ✨AI, 🍩Google, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Gemini.png
+✨OpenAI = select, ✨AI, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/OpenAI.png
+✨Claude = select, ✨AI, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Claude.png
+🍎Apple = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png
+🍎AppleVPN = select, 🍎Apple, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png
+💠MicrosoftProxy = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png
+💠Microsoft = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png
+💠Bing = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png
+💠OneDrive = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png
+🍩Google = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Google.png
+🦜Twitter = select, 🌎北美自动, 🌎北美手动, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/X.png
+🌠TikTok = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/TikTok.png
+🛫Telegram = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Telegram.png
+🎬YouTube = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/YouTube.png
+🎥Netflix = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Netflix.png
+🐭Disney = select, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Disney+.png
+📺Bahamut = select, 🇨🇳台湾, 👆手动切换, ⭕全球直连, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Bahamut.png
+💻BiliBiliIntl = select, 🌏亚洲自动, 🌏亚洲手动, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/BiliBili_1.png
 🎮游戏节点 = select, Filter____Game, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Game.png
-# 区域选择
+🎮PlayStation = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/PlayStation.png
+🎮Nintendo = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nintendo.png
+🎮Xbox = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Xbox.png
+🎮Steam = select, ⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Steam.png
+# 按大陆划分 - 自动切换
+🌏港台自动 = url-test, Filter_Nat_CHN, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/China_Auto.png
+🌏亚洲自动 = url-test, Filter_Reg_ASI, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia_Auto.png
+🌎北美自动 = url-test, Filter_Reg_NAM, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/America_Auto.png
+🌏洋洲自动 = url-test, Filter_Reg_OCE, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania_Auto.png
+🌍欧洲自动 = url-test, Filter_Reg_EUR, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe_Auto.png
+# 按大陆划分 - 手动切换
 🌏港台手动 = select, 🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/China.png
 🌏亚洲手动 = select, 🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia.png
 🌎北美手动 = select, 🇺🇸美国, 🇨🇦加拿大, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/America.png
 🌏洋洲手动 = select, 🇦🇺澳洲, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania.png
 🌍欧洲手动 = select, 🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe.png
-# 延迟优先 Latency-First
-🌏港台 = url-test, Filter_Nat_CHN, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/China_Auto.png
-🌏亚洲 = url-test, Filter_Reg_ASI, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia_Auto.png
-🌎北美 = url-test, Filter_Reg_NAM, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/America_Auto.png
-🌏洋洲 = url-test, Filter_Reg_OCE, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania_Auto.png
-🌍欧洲 = url-test, Filter_Reg_EUR, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe_Auto.png
+# 按地区划分
 🇭🇰香港 = url-test, Filter_Nat__HK, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/HongKong.png
 🇲🇴澳门 = url-test, Filter_Nat__MO, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Macau.png
 🇨🇳台湾 = url-test, Filter_Nat__TW, interval = 300, tolerance = 50, img-url = https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Taiwan.png
@@ -183,7 +183,7 @@ FINAL,🐟漏网之鱼
 
 [Remote Rule]
 # MARK: --- AI ---
-https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaAI.lsr, policy=🎯全球直连, tag=ChinaAI, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaAI.lsr, policy=⭕全球直连, tag=ChinaAI, enabled=true
 https://rule.kelee.one/Loon/Copilot.lsr, policy=✨Copilot, tag=Copilot, enabled=true
 https://rule.kelee.one/Loon/Gemini.lsr, policy=✨Gemini, tag=Gemini, enabled=true
 https://rule.kelee.one/Loon/OpenAI.lsr, policy=✨OpenAI, tag=OpenAI, enabled=true
@@ -219,24 +219,24 @@ https://rule.kelee.one/Loon/Disney.lsr, policy=🐭Disney, tag=Disney, enabled=t
 https://rule.kelee.one/Loon/Bahamut.lsr, policy=📺Bahamut, tag=Bahamut, enabled=true
 https://rule.kelee.one/Loon/BiliBiliIntl.lsr, policy=💻BiliBiliIntl, tag=BiliBiliIntl, enabled=true
 https://rule.kelee.one/Loon/Pixiv.lsr, policy=🚀节点选择, tag=Pixiv, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/VidHub.lsr, policy=🎯全球直连, tag=VidHub, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/VidHub.lsr, policy=⭕全球直连, tag=VidHub, enabled=true
 # MARK: --- Social ---
 https://rule.kelee.one/Loon/Facebook.lsr, policy=🚀节点选择, tag=Facebook, enabled=true
 https://rule.kelee.one/Loon/Instagram.lsr, policy=🚀节点选择, tag=Instagram, enabled=true
 https://rule.kelee.one/Loon/Telegram.lsr, policy=🛫Telegram, tag=Telegram, enabled=true
-https://rule.kelee.one/Loon/TikTok.lsr, policy=🎵TikTok, tag=TikTok, enabled=true
-https://rule.kelee.one/Loon/Twitter.lsr, policy=🐦Twitter, tag=Twitter, enabled=true
-https://rule.kelee.one/Loon/Alibaba.lsr, policy=🎯全球直连, tag=Alibaba, enabled=true
-https://rule.kelee.one/Loon/ByteDance.lsr, policy=🎯全球直连, tag=ByteDance, enabled=true
-https://rule.kelee.one/Loon/DouYin.lsr, policy=🎯全球直连, tag=DouYin, enabled=true
+https://rule.kelee.one/Loon/TikTok.lsr, policy=🌠TikTok, tag=TikTok, enabled=true
+https://rule.kelee.one/Loon/Twitter.lsr, policy=🦜Twitter, tag=Twitter, enabled=true
+https://rule.kelee.one/Loon/Alibaba.lsr, policy=⭕全球直连, tag=Alibaba, enabled=true
+https://rule.kelee.one/Loon/ByteDance.lsr, policy=⭕全球直连, tag=ByteDance, enabled=true
+https://rule.kelee.one/Loon/DouYin.lsr, policy=⭕全球直连, tag=DouYin, enabled=true
 # MARK: --- Security ---
-https://jy-mar.github.io/PxyRes/Loon/Rules/Hmbaby.lsr, policy=🎯全球直连, tag=Hmbaby, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/Hmbaby.lsr, policy=⭕全球直连, tag=Hmbaby, enabled=true
 # MARK: --- Code ---
-https://rule.kelee.one/Loon/JueJin.lsr, policy=🎯全球直连, tag=JueJin, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaCDN.lsr, policy=🎯全球直连, tag=ChinaCDN, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/Kelee.lsr, policy=🎯全球直连, tag=Kelee, enabled=true
+https://rule.kelee.one/Loon/JueJin.lsr, policy=⭕全球直连, tag=JueJin, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaCDN.lsr, policy=⭕全球直连, tag=ChinaCDN, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/Kelee.lsr, policy=⭕全球直连, tag=Kelee, enabled=true
 https://rule.kelee.one/Loon/GitHub.lsr, policy=🚀节点选择, tag=GitHub, enabled=true
-https://rule.kelee.one/Loon/Npmjs.lsr, policy=🎯全球直连, tag=Npmjs, enabled=true
+https://rule.kelee.one/Loon/Npmjs.lsr, policy=⭕全球直连, tag=Npmjs, enabled=true
 https://rule.kelee.one/Loon/Notion.lsr, policy=🚀节点选择, tag=Notion, enabled=true
 https://jy-mar.github.io/PxyRes/Loon/Rules/LinuxDo.lsr, policy=🚀节点选择, tag=LinuxDo, enabled=true
 https://rule.kelee.one/Loon/Discord.lsr, policy=🚀节点选择, tag=Discord, enabled=true
@@ -251,21 +251,21 @@ https://jy-mar.github.io/PxyRes/Loon/Rules/Proxy+.lsr, policy=🚀节点选择, 
 # MARK: --- Adv ---
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/AdvertisingLite/AdvertisingLite.list, policy=⛔全球拦截, tag=AdvLite, enabled=true
 # MARK: --- Direct ---
-https://rule.kelee.one/Loon/Direct.lsr, policy=🎯全球直连, tag=Direct, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaDirect.lsr, policy=🎯全球直连, tag=ChinaDirect, enabled=true
-https://rule.kelee.one/Loon/China.lsr, policy=🎯全球直连, tag=China, enabled=true
-https://rule.kelee.one/Loon/ChinaMobile.lsr, policy=🎯全球直连, tag=ChinaMobile, enabled=true
-https://rule.kelee.one/Loon/ChinaTelecom.lsr, policy=🎯全球直连, tag=ChinaTelecom, enabled=true
-https://rule.kelee.one/Loon/ChinaUnicom.lsr, policy=🎯全球直连, tag=ChinaUnicom, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaBank.lsr, policy=🎯全球直连, tag=ChinaBank, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaHosp.lsr, policy=🎯全球直连, tag=ChinaHosp, enabled=true
-https://rule.kelee.one/Loon/ChinaDNS.lsr, policy=🎯全球直连, tag=ChinaDNS, enabled=true
-https://rule.kelee.one/Loon/ChinaMedia.lsr, policy=🎯全球直连, tag=ChinaMedia, enabled=true
-https://rule.kelee.one/Loon/Download.lsr, policy=🎯全球直连, tag=Download, enabled=true
-https://kelee.one/Tool/Loon/Lsr/ChinaDownloadCDN.lsr, policy=🎯全球直连, tag=ChinaDownloadCDN, enabled=true
-https://rule.kelee.one/Loon/Lan.lsr, policy=🎯全球直连, tag=Lan, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/GeoLAN.lsr, policy=🎯全球直连, tag=GeoLAN, enabled=true
-https://jy-mar.github.io/PxyRes/Loon/Rules/GeoCN.lsr, policy=🎯全球直连, tag=GeoCN, enabled=true
+https://rule.kelee.one/Loon/Direct.lsr, policy=⭕全球直连, tag=Direct, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaDirect.lsr, policy=⭕全球直连, tag=ChinaDirect, enabled=true
+https://rule.kelee.one/Loon/China.lsr, policy=⭕全球直连, tag=China, enabled=true
+https://rule.kelee.one/Loon/ChinaMobile.lsr, policy=⭕全球直连, tag=ChinaMobile, enabled=true
+https://rule.kelee.one/Loon/ChinaTelecom.lsr, policy=⭕全球直连, tag=ChinaTelecom, enabled=true
+https://rule.kelee.one/Loon/ChinaUnicom.lsr, policy=⭕全球直连, tag=ChinaUnicom, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaBank.lsr, policy=⭕全球直连, tag=ChinaBank, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/ChinaHosp.lsr, policy=⭕全球直连, tag=ChinaHosp, enabled=true
+https://rule.kelee.one/Loon/ChinaDNS.lsr, policy=⭕全球直连, tag=ChinaDNS, enabled=true
+https://rule.kelee.one/Loon/ChinaMedia.lsr, policy=⭕全球直连, tag=ChinaMedia, enabled=true
+https://rule.kelee.one/Loon/Download.lsr, policy=⭕全球直连, tag=Download, enabled=true
+https://kelee.one/Tool/Loon/Lsr/ChinaDownloadCDN.lsr, policy=⭕全球直连, tag=ChinaDownloadCDN, enabled=true
+https://rule.kelee.one/Loon/Lan.lsr, policy=⭕全球直连, tag=Lan, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/GeoLAN.lsr, policy=⭕全球直连, tag=GeoLAN, enabled=true
+https://jy-mar.github.io/PxyRes/Loon/Rules/GeoCN.lsr, policy=⭕全球直连, tag=GeoCN, enabled=true
 
 [Host]
 
@@ -369,7 +369,7 @@ https://kelee.one/Tool/Loon/Lpx/NodeLinkCheck.lpx, tag=代理链路检测, enabl
 https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, tag=HTTPDNS拦截器, enabled=true
 https://kelee.one/Tool/Loon/Lpx/LoonGallery.lpx, tag=🎈插件仓库, policy=🚀节点选择, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, tag=Sub-Store, enabled=true
-https://kelee.one/Tool/Loon/Lpx/Script-Hub.lpx, tag=Script-Hub, policy=🎯全球直连, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Script-Hub.lpx, tag=Script-Hub, policy=⭕全球直连, enabled=true
 https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/RunningMode/running-mode.plugin, tag=运行模式, enabled=true
 https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/AutoPolicy/auto-policy.plugin, tag=自动策略, enabled=true
 https://kelee.one/Tool/Loon/Lpx/1.1.1.1.lpx, tag=1.1.1.1配置管理, enabled=true

@@ -1,7 +1,7 @@
 # NAME            : Config For Clash
 # AUTHOR          : JY-Mar
 # REPO            : https://github.com/JY-Mar/PxyRes
-# UPDATED         : 2026-09-03 12:28:14 GMT+8
+# UPDATED         : 2026-09-10 11:17:00 GMT+8
 
 # MARK: [General]
 # HTTP(S) and SOCKS5 共用端口
@@ -233,7 +233,7 @@ Anchors:
       lazy: true,
       timeout: *test-timeout,
       max-failed-times: *switch-node-after-failure-times,
-      hidden: true,
+      hidden: false,
       policy‑priority: "[ACE]:0.7"
     }
   url-test-all:
@@ -337,52 +337,52 @@ RemoteFilter:
 # MARK: [Proxy Group]
 proxy-groups:
   # 基础策略
-  - {name: 🚀节点选择, type: select, proxies: [♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Filter.png}
-  - {name: ♻️自动选择, <<: *url-test-all, filter: *Filter__Global, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Auto.png}
-  - {name: 👉手动切换, type: select, proxies: [🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Available.png}
-  - {name: 🎯全球直连, type: select, proxies: [DIRECT], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Direct.png}
+  - {name: 🚀节点选择, type: select, proxies: [♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Filter.png}
+  - {name: ♻️自动切换, <<: *url-test-all, filter: *Filter__Global, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Auto.png}
+  - {name: 👆手动切换, type: select, include-all: true, filter: *Filter__Global, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Available.png}
+  - {name: ⭕全球直连, type: select, proxies: [DIRECT], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Direct.png}
   - {name: ⛔全球拦截, type: select, proxies: [REJECT, DIRECT], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Reject.png}
-  - {name: 🛠️故障转移, <<: *fallback, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Drill.png}
-  # - {name: 🐟漏网之鱼, type: select, proxies: [🛠️故障转移, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Dinosaur.png}
-  - {name: 🐟漏网之鱼, type: select, proxies: [🎯全球直连, 🛠️故障转移, 🚀节点选择, ♻️自动选择, 👉手动切换], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Dinosaur.png}
-  # App专属 App-Specific
-  - {name: ✨AI, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Ai.png}
-  - {name: ✨Copilot, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Copilot.png}
-  - {name: ✨Gemini, type: select, proxies: [✨AI, 🍩Google, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Gemini.png}
-  - {name: ✨OpenAI, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OpenAI.png}
-  - {name: ✨Claude, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Claude.png}
-  - {name: 🍎Apple, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
-  - {name: 🍎AppleVPN, type: select, proxies: [🍎Apple, 🎯全球直连, 🚀节点选择, ♻️自动选择, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
-  - {name: 💠MicrosoftProxy, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
-  - {name: 💠Microsoft, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
-  - {name: 💠Bing, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png}
-  - {name: 💠OneDrive, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png}
-  - {name: 🍩Google, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Google.png}
-  - {name: 🐦Twitter, type: select, proxies: [🌎北美, 🌎北美手动, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/X.png}
-  - {name: 🎵TikTok, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/TikTok.png}
-  - {name: 🛫Telegram, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Telegram.png}
-  - {name: 🎬YouTube, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/YouTube.png}
-  - {name: 🎥Netflix, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Netflix.png}
-  - {name: 🐭Disney, type: select, proxies: [🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Disney+.png}
-  - {name: 📺Bahamut, type: select, proxies: [🇨🇳台湾, 👉手动切换, 🎯全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bahamut.png}
-  - {name: 💻BiliBiliIntl, type: select, proxies: [🌏亚洲, 🌏亚洲手动, 🚀节点选择, ♻️自动选择, 👉手动切换, 🎯全球直连, 🌏港台, 🌏港台手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/BiliBili_1.png}
-  - {name: 🎮PlayStation, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/PlayStation.png}
-  - {name: 🎮Nintendo, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nintendo.png}
-  - {name: 🎮Xbox, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Xbox.png}
-  - {name: 🎮Steam, type: select, proxies: [🎯全球直连, 🚀节点选择, ♻️自动选择, 🎮游戏节点, 👉手动切换, 🌏港台, 🌏港台手动, 🌏亚洲, 🌏亚洲手动, 🌎北美, 🌎北美手动, 🌏洋洲, 🌏洋洲手动, 🌍欧洲, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Steam.png}
+  - {name: 🛠️故障转移, <<: *fallback, proxies: [🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Drill.png}
+  - {name: 🐟漏网之鱼, type: select, proxies: [⭕全球直连, 🛠️故障转移, 🚀节点选择, ♻️自动切换, 👆手动切换], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Dinosaur.png}
+  # 按功能划分
+  - {name: ✨AI, type: select, proxies: [🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Ai.png}
+  - {name: ✨Copilot, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Copilot.png}
+  - {name: ✨Gemini, type: select, proxies: [✨AI, 🍩Google, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Gemini.png}
+  - {name: ✨OpenAI, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OpenAI.png}
+  - {name: ✨Claude, type: select, proxies: [✨AI, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Claude.png}
+  - {name: 🍎Apple, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
+  - {name: 🍎AppleVPN, type: select, proxies: [🍎Apple, ⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Apple.png}
+  - {name: 💠MicrosoftProxy, type: select, proxies: [🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
+  - {name: 💠Microsoft, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Microsoft.png}
+  - {name: 💠Bing, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bing.png}
+  - {name: 💠OneDrive, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/OneDrive.png}
+  - {name: 🍩Google, type: select, proxies: [🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Google.png}
+  - {name: 🦜Twitter, type: select, proxies: [🌎北美自动, 🌎北美手动, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/X.png}
+  - {name: 🌠TikTok, type: select, proxies: [🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/TikTok.png}
+  - {name: 🛫Telegram, type: select, proxies: [🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Telegram.png}
+  - {name: 🎬YouTube, type: select, proxies: [🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/YouTube.png}
+  - {name: 🎥Netflix, type: select, proxies: [🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Netflix.png}
+  - {name: 🐭Disney, type: select, proxies: [🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Disney+.png}
+  - {name: 📺Bahamut, type: select, proxies: [🇨🇳台湾, 👆手动切换, ⭕全球直连], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Bahamut.png}
+  - {name: 💻BiliBiliIntl, type: select, proxies: [🌏亚洲自动, 🌏亚洲手动, 🚀节点选择, ♻️自动切换, 👆手动切换, ⭕全球直连, 🌏港台自动, 🌏港台手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/BiliBili_1.png}
   - {name: 🎮游戏节点, type: select, include-all: true, filter: *Filter____Game, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Game.png}
-  # 区域选择
+  - {name: 🎮PlayStation, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/PlayStation.png}
+  - {name: 🎮Nintendo, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nintendo.png}
+  - {name: 🎮Xbox, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Xbox.png}
+  - {name: 🎮Steam, type: select, proxies: [⭕全球直连, 🚀节点选择, ♻️自动切换, 🎮游戏节点, 👆手动切换, 🌏港台自动, 🌏港台手动, 🌏亚洲自动, 🌏亚洲手动, 🌎北美自动, 🌎北美手动, 🌏洋洲自动, 🌏洋洲手动, 🌍欧洲自动, 🌍欧洲手动], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Steam.png}
+  # 按大陆划分 - 自动切换
+  - {name: 🌏港台自动, <<: *url-test-all, filter: *Filter_Nat_CHN, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China_Auto.png}
+  - {name: 🌏亚洲自动, <<: *url-test-all, filter: *Filter_Reg_ASI, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia_Auto.png}
+  - {name: 🌎北美自动, <<: *url-test-all, filter: *Filter_Reg_NAM, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/America_Auto.png}
+  - {name: 🌏洋洲自动, <<: *url-test-all, filter: *Filter_Reg_OCE, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania_Auto.png}
+  - {name: 🌍欧洲自动, <<: *url-test-all, filter: *Filter_Reg_EUR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe_Auto.png}
+  # 按大陆划分 - 手动切换
   - {name: 🌏港台手动, type: select, proxies: [🇭🇰香港, 🇲🇴澳门, 🇨🇳台湾], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China.png}
   - {name: 🌏亚洲手动, type: select, proxies: [🇯🇵日本, 🇰🇷韩国, 🇸🇬星洲, 🇲🇾马来, 🇮🇳印度], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia.png}
   - {name: 🌎北美手动, type: select, proxies: [🇺🇸美国, 🇨🇦加拿大], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/America.png}
   - {name: 🌏洋洲手动, type: select, proxies: [🇦🇺澳洲], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania.png}
   - {name: 🌍欧洲手动, type: select, proxies: [🇬🇧英国, 🇫🇷法国, 🇩🇪德国, 🇮🇹意大利, 🇳🇱荷兰, 🇱🇺卢森堡, 🇱🇹立陶宛], icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe.png}
-  # 延迟优先 Latency-First
-  - {name: 🌏港台, <<: *url-test-all, filter: *Filter_Nat_CHN, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/China_Auto.png}
-  - {name: 🌏亚洲, <<: *url-test-all, filter: *Filter_Reg_ASI, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Asia_Auto.png}
-  - {name: 🌎北美, <<: *url-test-all, filter: *Filter_Reg_NAM, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/America_Auto.png}
-  - {name: 🌏洋洲, <<: *url-test-all, filter: *Filter_Reg_OCE, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Oceania_Auto.png}
-  - {name: 🌍欧洲, <<: *url-test-all, filter: *Filter_Reg_EUR, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Area/Europe_Auto.png}
+  # 按地区划分
   - {name: 🇭🇰香港, <<: *url-test-all, filter: *Filter_Nat__HK, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/HongKong.png}
   - {name: 🇲🇴澳门, <<: *url-test-all, filter: *Filter_Nat__MO, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Macau.png}
   - {name: 🇨🇳台湾, <<: *url-test-all, filter: *Filter_Nat__TW, icon: https://jy-mar.github.io/PxyRes/Icons/Color/Nation/Taiwan.png}
@@ -493,9 +493,9 @@ rule-providers:
   GeoCN: {url: https://jy-mar.github.io/PxyRes/Clash/Rules/GeoCN.yaml, path: ./ruleset/GeoCN.yaml, <<: *RuleProvidersClassical}
 rules:
   # --- Top ---
-  - RULE-SET,SkipProxy,🎯全球直连
+  - RULE-SET,SkipProxy,⭕全球直连
   # --- AI ---
-  - RULE-SET,ChinaAI,🎯全球直连
+  - RULE-SET,ChinaAI,⭕全球直连
   - RULE-SET,Copilot,✨Copilot
   - RULE-SET,Gemini,✨Gemini
   - RULE-SET,OpenAI,✨OpenAI
@@ -531,24 +531,24 @@ rules:
   - RULE-SET,Bahamut,📺Bahamut
   - RULE-SET,BiliBiliIntl,💻BiliBiliIntl
   - RULE-SET,Pixiv,🚀节点选择
-  - RULE-SET,VidHub,🎯全球直连
+  - RULE-SET,VidHub,⭕全球直连
   # --- Social ---
   - RULE-SET,Facebook,🚀节点选择
   - RULE-SET,Instagram,🚀节点选择
   - RULE-SET,Telegram,🛫Telegram
-  - RULE-SET,TikTok,🎵TikTok
-  - RULE-SET,Twitter,🐦Twitter
-  - RULE-SET,Alibaba,🎯全球直连
-  - RULE-SET,ByteDance,🎯全球直连
-  - RULE-SET,DouYin,🎯全球直连
+  - RULE-SET,TikTok,🌠TikTok
+  - RULE-SET,Twitter,🦜Twitter
+  - RULE-SET,Alibaba,⭕全球直连
+  - RULE-SET,ByteDance,⭕全球直连
+  - RULE-SET,DouYin,⭕全球直连
   # --- Security ---
-  - RULE-SET,Hmbaby,🎯全球直连
+  - RULE-SET,Hmbaby,⭕全球直连
   # --- Code ---
-  - RULE-SET,ChinaCDN,🎯全球直连
-  - RULE-SET,JueJin,🎯全球直连
-  - RULE-SET,Kelee,🎯全球直连
+  - RULE-SET,ChinaCDN,⭕全球直连
+  - RULE-SET,JueJin,⭕全球直连
+  - RULE-SET,Kelee,⭕全球直连
   - RULE-SET,GitHub,🚀节点选择
-  - RULE-SET,Npmjs,🎯全球直连
+  - RULE-SET,Npmjs,⭕全球直连
   - RULE-SET,Notion,🚀节点选择
   - RULE-SET,LinuxDo,🚀节点选择
   - RULE-SET,Discord,🚀节点选择
@@ -563,21 +563,21 @@ rules:
   # --- Adv ---
   - RULE-SET,AdvLite,⛔全球拦截
   # --- Direct ---
-  - RULE-SET,Direct,🎯全球直连
-  - RULE-SET,ChinaDirect,🎯全球直连
-  - RULE-SET,China,🎯全球直连
-  - RULE-SET,ChinaMobile,🎯全球直连
-  - RULE-SET,ChinaTelecom,🎯全球直连
-  - RULE-SET,ChinaUnicom,🎯全球直连
-  - RULE-SET,ChinaBank,🎯全球直连
-  - RULE-SET,ChinaHosp,🎯全球直连
-  - RULE-SET,ChinaDNS,🎯全球直连
-  - RULE-SET,ChinaMedia,🎯全球直连
-  - RULE-SET,Download,🎯全球直连
-  - RULE-SET,ChinaDownloadCDN,🎯全球直连
-  - RULE-SET,Lan,🎯全球直连
-  - RULE-SET,GeoLAN,🎯全球直连
-  - RULE-SET,GeoCN,🎯全球直连
+  - RULE-SET,Direct,⭕全球直连
+  - RULE-SET,ChinaDirect,⭕全球直连
+  - RULE-SET,China,⭕全球直连
+  - RULE-SET,ChinaMobile,⭕全球直连
+  - RULE-SET,ChinaTelecom,⭕全球直连
+  - RULE-SET,ChinaUnicom,⭕全球直连
+  - RULE-SET,ChinaBank,⭕全球直连
+  - RULE-SET,ChinaHosp,⭕全球直连
+  - RULE-SET,ChinaDNS,⭕全球直连
+  - RULE-SET,ChinaMedia,⭕全球直连
+  - RULE-SET,Download,⭕全球直连
+  - RULE-SET,ChinaDownloadCDN,⭕全球直连
+  - RULE-SET,Lan,⭕全球直连
+  - RULE-SET,GeoLAN,⭕全球直连
+  - RULE-SET,GeoCN,⭕全球直连
   # --- Final ---
   - MATCH,🐟漏网之鱼
 
